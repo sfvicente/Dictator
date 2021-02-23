@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Engine
 {
-    public class Decision
+    public class Decision: EventAction
     {
         public DecisionType Type { get; set; }
     }
