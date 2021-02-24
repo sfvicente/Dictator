@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.ConsoleInterface;
+using System;
 
 namespace Dictator
 {
@@ -6,7 +7,12 @@ namespace Dictator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+
+            TitleScreen screen = new TitleScreen();
+
+            screen.Draw();
+
         }
     }
 }
