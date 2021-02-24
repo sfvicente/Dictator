@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dictator.Engine\Dictator.Core.csproj" />
+  </ItemGroup>
+
 </Project>

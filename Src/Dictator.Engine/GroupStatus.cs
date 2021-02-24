@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dictator.Engine
+namespace Dictator.Core
 {
     public enum GroupStatus
     {

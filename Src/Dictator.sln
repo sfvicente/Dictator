@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.ConsoleInterface",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator", "Dictator\Dictator.csproj", "{AA675D0E-3CA0-4FE2-9CE0-DCA12E0D501A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Engine", "Dictator.Engine\Dictator.Engine.csproj", "{B0C6CF28-AA53-481F-B892-22CC4C750058}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Core", "Dictator.Engine\Dictator.Core.csproj", "{B0C6CF28-AA53-481F-B892-22CC4C750058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

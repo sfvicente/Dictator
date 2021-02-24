@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.Engine
+namespace Dictator.Core
 {
-    public class Game
+    public class Engine
     {
         public int TreasuryBalance { get; set; }
         public int MonthlyCosts { get; set; }
@@ -19,7 +19,7 @@ namespace Dictator.Engine
         private Group[] groups;
         private News[] news;
 
-        public Game()
+        public Engine()
         {
             Initialise();
             InitialiseGroups();

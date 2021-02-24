@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.Engine
+namespace Dictator.Core
 {
     public class Petition : EventAction
     {
