@@ -2,7 +2,7 @@
 
 namespace Dictator.Core
 {
-    public class Account
+    public class Account: IAccount
     {
         public int TreasuryBalance { get; set; }
         public int MonthlyCosts { get; set; }

@@ -13,7 +13,7 @@ namespace Dictator.ConsoleInterface
 
         public Game()
         {
-            this.engine = new Engine();
+            this.engine = new Engine(new Account());
             this.userInterface = new UserInterface();
         }
 

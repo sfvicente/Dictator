@@ -17,33 +17,29 @@ namespace Dictator.Core
         public int RevolutionStrength { get; set; }
         public int Minimal { get; set; }
 
-        private Account account;
+        private IAccount account;
 
         private Group[] groups;
         private News[] news;
 
-        public Engine()
+        public Engine(IAccount account)
         {
             Initialise();
-            account.Initialise();
-            InitialiseAccount();
+            this.account = account;
             InitialiseGroups();
             InitialiseNews();
         }
 
         private void Initialise()
         {
+            this.account.Initialise();
+
             this.PlayerStrength = 4;
             this.IsPlayerAlive = true;
             this.Month = 0;
             this.PlotBonus = 0;
             this.RevolutionStrength = 10;
             this.Minimal = 0;
-        }
-
-        private void InitialiseAccount()
-        {
-
         }
 
         private void InitialiseGroups()
