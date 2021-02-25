@@ -6,15 +6,18 @@ namespace Dictator.Core
 {
     public class Engine
     {
-        public int TreasuryBalance { get; set; }
-        public int MonthlyCosts { get; set; }
+        //public int TreasuryBalance { get; set; }
+        //public int MonthlyCosts { get; set; }
+        //public int SwissBankAccountBalance { get; set; }
+
         public int PlayerStrength { get; set; }
-        public int SwissBankAccountBalance { get; set; }
         public bool IsPlayerAlive { get; set; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
         public int RevolutionStrength { get; set; }
         public int Minimal { get; set; }
+
+        private Account account;
 
         private Group[] groups;
         private News[] news;
@@ -22,21 +25,25 @@ namespace Dictator.Core
         public Engine()
         {
             Initialise();
+            account.Initialise();
+            InitialiseAccount();
             InitialiseGroups();
             InitialiseNews();
         }
 
         private void Initialise()
         {
-            this.TreasuryBalance = 1000;
-            this.MonthlyCosts = 60;
             this.PlayerStrength = 4;
-            this.SwissBankAccountBalance = 0;
             this.IsPlayerAlive = true;
             this.Month = 0;
             this.PlotBonus = 0;
             this.RevolutionStrength = 10;
             this.Minimal = 0;
+        }
+
+        private void InitialiseAccount()
+        {
+
         }
 
         private void InitialiseGroups()
