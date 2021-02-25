@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class Engine
+    public class Engine : IEngine
     {
         //public int TreasuryBalance { get; set; }
         //public int MonthlyCosts { get; set; }
@@ -24,13 +24,14 @@ namespace Dictator.Core
 
         public Engine(IAccount account)
         {
-            Initialise();
             this.account = account;
+
+            Initialise();
             InitialiseGroups();
             InitialiseNews();
         }
 
-        private void Initialise()
+        public void Initialise()
         {
             this.account.Initialise();
 

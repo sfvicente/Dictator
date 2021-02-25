@@ -8,12 +8,12 @@ namespace Dictator.ConsoleInterface
 {
     public class Game
     {
-        private Engine engine;
+        private IEngine engine;
         private UserInterface userInterface;
 
-        public Game()
+        public Game(IEngine engine)
         {
-            this.engine = new Engine(new Account());
+            this.engine = engine;
             this.userInterface = new UserInterface();
         }
 
