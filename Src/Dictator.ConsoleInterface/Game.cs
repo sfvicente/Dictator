@@ -23,6 +23,7 @@ namespace Dictator.ConsoleInterface
 
             while (true)
             {
+                this.engine.AdvanceMonth();
                 this.userInterface.DisplayAccountScreen();
                 this.userInterface.DisplayPoliceReportRequestScreen();
                 this.userInterface.DisplayPoliceReportScreen();

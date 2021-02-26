@@ -66,5 +66,10 @@ namespace Dictator.Core
                 new News(0, 0, "MMMMMMMM", "MILKMM", "A PLAGUE SWEEPS through PEASANTS"),
             };
         }
+
+        public void AdvanceMonth()
+        {
+            this.governmentStats.Month++;
+        }
     }
 }

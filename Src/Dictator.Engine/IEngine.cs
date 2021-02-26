@@ -7,5 +7,6 @@ namespace Dictator.Core
     public interface IEngine
     {
         public void Initialise();
+        public void AdvanceMonth();
     }
 }
