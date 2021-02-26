@@ -20,7 +20,11 @@ namespace Dictator
         static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args).ConfigureServices((_, services) =>
                 services.AddScoped<IEngine, Engine>()
-                    .AddScoped<IAccount, Account>()
+                    .AddScoped<IUserInterface, UserInterface>()
+            .AddScoped<IIntroScreen, IntroScreen>()
+            .AddScoped<IWelcomeScreen, WelcomeScreen>()
+            .AddScoped<ITitleScreen, TitleScreen>()
+            .AddScoped<IAccount, Account>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()

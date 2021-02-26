@@ -9,19 +9,17 @@ namespace Dictator.ConsoleInterface
     public class Game
     {
         private IEngine engine;
-        private UserInterface userInterface;
+        private IUserInterface userInterface;
 
-        public Game(IEngine engine)
+        public Game(IEngine engine, IUserInterface userInterface)
         {
             this.engine = engine;
-            this.userInterface = new UserInterface();
+            this.userInterface = userInterface;
         }
 
         public void Start()
         {
-
             this.userInterface.DisplayTitleScreen();
-
         }
 
     }

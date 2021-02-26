@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class IntroScreen
+    public class IntroScreen : IIntroScreen
     {
 
     }

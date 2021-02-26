@@ -3,7 +3,7 @@ using System;
 
 namespace Dictator.ConsoleInterface
 {
-    public class TitleScreen
+    public class TitleScreen : ITitleScreen
     {
         public void Draw()
         {
