@@ -6,5 +6,6 @@ namespace Dictator.ConsoleInterface
 {
     public interface IPoliceReportScreen
     {
+        public void Draw();
     }
 }

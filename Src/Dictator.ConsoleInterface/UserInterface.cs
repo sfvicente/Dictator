@@ -49,7 +49,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayPoliceReportScreen()
         {
-            throw new NotImplementedException();
+            this.policeReportScreen.Draw();
         }
     }
 }
