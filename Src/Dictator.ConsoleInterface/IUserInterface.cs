@@ -6,5 +6,6 @@
         public void DisplayWelcomeScreen();
         public void DisplayTitleScreen();
         public void DisplayAccountScreen();
+        public void DisplayPoliceReportScreen();
     }
 }

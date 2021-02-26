@@ -21,6 +21,7 @@ namespace Dictator.ConsoleInterface
         {
             this.userInterface.DisplayTitleScreen();
             this.userInterface.DisplayAccountScreen();
+            this.userInterface.DisplayPoliceReportScreen();
         }
 
     }
