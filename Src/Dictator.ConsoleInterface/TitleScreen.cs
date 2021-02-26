@@ -12,7 +12,7 @@ namespace Dictator.ConsoleInterface
             Console.Clear();
             //this.DrawBackground();
             this.DrawContent();
-            Console.Read();
+            Console.ReadKey(true);
 
         }
 
