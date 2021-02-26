@@ -20,6 +20,7 @@ namespace Dictator.ConsoleInterface
         public void Start()
         {
             this.userInterface.DisplayTitleScreen();
+            this.userInterface.DisplayAccountScreen();
         }
 
     }

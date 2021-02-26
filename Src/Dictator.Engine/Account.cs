@@ -7,6 +7,7 @@ namespace Dictator.Core
         public int TreasuryBalance { get; set; }
         public int MonthlyCosts { get; set; }
         public int SwissBankAccountBalance { get; set; }
+        public bool HasSwissBankAccount { get; set; }
 
         public Account()
         {
@@ -18,6 +19,7 @@ namespace Dictator.Core
             this.TreasuryBalance = 1000;
             this.MonthlyCosts = 60;
             this.SwissBankAccountBalance = 0;
+            this.HasSwissBankAccount = false;
         }
     }
 }

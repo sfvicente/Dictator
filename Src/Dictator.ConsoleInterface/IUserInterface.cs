@@ -5,5 +5,6 @@
         public void DisplayIntroScreen();
         public void DisplayWelcomeScreen();
         public void DisplayTitleScreen();
+        public void DisplayAccountScreen();
     }
 }

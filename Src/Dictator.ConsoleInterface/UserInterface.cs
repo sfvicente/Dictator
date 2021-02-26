@@ -9,15 +9,18 @@ namespace Dictator.ConsoleInterface
         private IIntroScreen introScreen { get; set; }
         private IWelcomeScreen welcomeScreen { get; set; }
         private ITitleScreen titleScreen { get; set; }
+        private IAccountScreen accountScreen { get; set; }
 
         public UserInterface(
             IIntroScreen intoScreen,
             IWelcomeScreen welcomeScreen,
-            ITitleScreen titleScreen)
+            ITitleScreen titleScreen,
+            IAccountScreen accountScreen)
         {
             this.introScreen = introScreen;
             this.welcomeScreen = welcomeScreen;
             this.titleScreen = titleScreen;
+            this.accountScreen = accountScreen;
         }
 
         public void DisplayIntroScreen()
@@ -36,5 +39,9 @@ namespace Dictator.ConsoleInterface
             titleScreen.Draw();
         }
 
+        public void DisplayAccountScreen()
+        {
+            accountScreen.Draw();
+        }
     }
 }

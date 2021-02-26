@@ -24,6 +24,7 @@ namespace Dictator
             .AddScoped<IIntroScreen, IntroScreen>()
             .AddScoped<IWelcomeScreen, WelcomeScreen>()
             .AddScoped<ITitleScreen, TitleScreen>()
+            .AddScoped<IAccountScreen, AccountScreen>()
             .AddScoped<IAccount, Account>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
