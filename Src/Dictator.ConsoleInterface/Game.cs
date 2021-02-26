@@ -20,8 +20,13 @@ namespace Dictator.ConsoleInterface
         public void Start()
         {
             this.userInterface.DisplayTitleScreen();
-            this.userInterface.DisplayAccountScreen();
-            this.userInterface.DisplayPoliceReportScreen();
+
+            while (true)
+            {
+                this.userInterface.DisplayAccountScreen();
+                this.userInterface.DisplayPoliceReportRequestScreen();
+                this.userInterface.DisplayPoliceReportScreen();
+            }
         }
 
     }

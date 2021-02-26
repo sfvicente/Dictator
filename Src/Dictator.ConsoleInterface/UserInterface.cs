@@ -10,6 +10,7 @@ namespace Dictator.ConsoleInterface
         private IWelcomeScreen welcomeScreen { get; set; }
         private ITitleScreen titleScreen { get; set; }
         private IAccountScreen accountScreen { get; set; }
+        private IPoliceReportRequestScreen policeReportRequestScreen { get; set; }
         private IPoliceReportScreen policeReportScreen { get; set; }
 
         public UserInterface(
@@ -17,12 +18,14 @@ namespace Dictator.ConsoleInterface
             IWelcomeScreen welcomeScreen,
             ITitleScreen titleScreen,
             IAccountScreen accountScreen,
+            IPoliceReportRequestScreen policeReportRequestScreen,
             IPoliceReportScreen policeReportScreen)
         {
             this.introScreen = introScreen;
             this.welcomeScreen = welcomeScreen;
             this.titleScreen = titleScreen;
             this.accountScreen = accountScreen;
+            this.policeReportRequestScreen = policeReportRequestScreen;
             this.policeReportScreen = policeReportScreen;
         }
 
@@ -45,6 +48,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayAccountScreen()
         {
             accountScreen.Draw();
+        }
+
+        public void DisplayPoliceReportRequestScreen()
+        {
+            this.policeReportRequestScreen.Draw();
         }
 
         public void DisplayPoliceReportScreen()
