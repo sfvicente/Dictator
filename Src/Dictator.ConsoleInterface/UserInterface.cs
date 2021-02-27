@@ -6,16 +6,16 @@ namespace Dictator.ConsoleInterface
 {
     public class UserInterface : IUserInterface
     {
-        private IIntroScreen introScreen { get; set; }
-        private IWelcomeScreen welcomeScreen { get; set; }
-        private ITitleScreen titleScreen { get; set; }
-        private IAccountScreen accountScreen { get; set; }
-        private IPoliceReportRequestScreen policeReportRequestScreen { get; set; }
-        private IPoliceReportScreen policeReportScreen { get; set; }
-        private IRequestScreen requestScreen { get; set; }
+        private IIntroScreen introScreen;
+        private IWelcomeScreen welcomeScreen;
+        private ITitleScreen titleScreen;
+        private IAccountScreen accountScreen;
+        private IPoliceReportRequestScreen policeReportRequestScreen;
+        private IPoliceReportScreen policeReportScreen;
+        private IRequestScreen requestScreen;
 
         public UserInterface(
-            IIntroScreen intoScreen,
+            IIntroScreen introScreen,
             IWelcomeScreen welcomeScreen,
             ITitleScreen titleScreen,
             IAccountScreen accountScreen,
