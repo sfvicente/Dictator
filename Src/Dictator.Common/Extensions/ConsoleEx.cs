@@ -21,5 +21,13 @@ namespace Dictator.Common.Extensions
             Console.SetCursorPosition(left, top);
             Console.Write(text);
         }
+
+        public static void Clear(ConsoleColor backgroundColor)
+        {
+            ConsoleColor previousBackgroundColor = Console.BackgroundColor;
+            Console.BackgroundColor = backgroundColor;
+            Console.Clear();
+            Console.BackgroundColor = previousBackgroundColor;
+        }
     }
 }
