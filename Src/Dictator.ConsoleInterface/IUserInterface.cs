@@ -8,5 +8,6 @@
         public void DisplayAccountScreen();
         public void DisplayPoliceReportRequestScreen();
         public void DisplayPoliceReportScreen();
+        public void DisplayRequestScreen();
     }
 }
