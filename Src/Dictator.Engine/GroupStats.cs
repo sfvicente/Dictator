@@ -28,5 +28,38 @@ namespace Dictator.Core
             return (Group[])groups.Clone();
         }
 
+        public void IncreasePopularity(GroupType groupType)
+        {
+            int index = (int)groupType;
+
+            groups[index].Popularity++;
+        }
+
+        public void DecreasePopularity(GroupType groupType)
+        {
+            int index = (int)groupType;
+
+            if (groups[index].Popularity > 0)
+            {
+                groups[index].Popularity--;
+            }
+        }
+
+        public void IncreaseStrength(GroupType groupType)
+        {
+            int index = (int)groupType;
+
+            groups[index].Strength++;
+        }
+
+        public void DecreaseStrength(GroupType groupType)
+        {
+            int index = (int)groupType;
+
+            if (groups[index].Strength > 0)
+            {
+                groups[index].Strength--;
+            }
+        }
     }
 }
