@@ -30,6 +30,7 @@ namespace Dictator
             .AddScoped<IRequestScreen, RequestScreen>()
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentStats, GovernmentStats>()
+            .AddScoped<IGroupStats, GroupStats>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()

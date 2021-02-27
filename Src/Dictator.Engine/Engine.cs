@@ -19,17 +19,16 @@ namespace Dictator.Core
 
         private IAccount account;
         private readonly IGovernmentStats governmentStats;
-
-        private Group[] groups;
+        private readonly IGroupStats groupStats;
         private News[] news;
 
-        public Engine(IAccount account, IGovernmentStats governmentStats)
+        public Engine(IAccount account, IGovernmentStats governmentStats, IGroupStats groupStats)
         {
             this.account = account;
             this.governmentStats = governmentStats;
+            this.groupStats = groupStats;
 
             Initialise();
-            InitialiseGroups();
             InitialiseNews();
         }
 
@@ -37,21 +36,7 @@ namespace Dictator.Core
         {
             this.account.Initialise();
             this.governmentStats.Initialise();
-        }
-
-        private void InitialiseGroups()
-        {
-            groups = new Group[]
-            {
-                new Group(GroupType.Army, 7, 6, "The ARMY", "   ARMY   "),
-                new Group(GroupType.Peasants, 7, 6, "The PEASANTS", " PEASANTS "),
-                new Group(GroupType.Landowners, 7, 6, "The LANDOWNERS", "LANDOWNERS"),
-                new Group(GroupType.Guerillas, 0, 6, "The GUERILLAS", "GUERILLAS "),
-                new Group(GroupType.Leftotans, 7, 6, "The LEFTOTANS", "LEFTOTANS "),
-                new Group(GroupType.SecretPolice, 7, 6, "The SECRET POLICE", " S.POLICE "),
-                new Group(GroupType.Russians, 7, 0, "The RUSSIANS", " RUSSIANS "),
-                new Group(GroupType.Americans, 7, 0, "The AMERICANS", "AMERICANS "),
-            };
+            this.groupStats.Initialise();
         }
 
         private void InitialiseNews()
