@@ -31,6 +31,7 @@ namespace Dictator
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
+            .AddScoped<INewsStats, NewsStats>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()
