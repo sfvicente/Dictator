@@ -47,5 +47,10 @@ namespace Dictator.Core
         {
             this.governmentStats.Month++;
         }
+
+        public bool IsGovernmentBankrupt()
+        {
+            return account.TreasuryBalance <= 0;
+        }
     }
 }

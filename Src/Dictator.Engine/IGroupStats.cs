@@ -8,5 +8,7 @@ namespace Dictator.Core
     {
         void Initialise();
         public Group[] GetGroups();
+        public void DecreasePopularity(GroupType groupType);
+        public void DecreaseStrength(GroupType groupType);
     }
 }

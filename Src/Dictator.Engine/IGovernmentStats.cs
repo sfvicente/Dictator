@@ -14,5 +14,6 @@ namespace Dictator.Core
         public int Minimal { get; set; }
 
         public void Initialise();
+        public void DecreasePlayerStrength();
     }
 }

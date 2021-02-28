@@ -8,5 +8,6 @@ namespace Dictator.Core
     {
         public void Initialise();
         public void AdvanceMonth();
+        public bool IsGovernmentBankrupt();
     }
 }

@@ -27,5 +27,13 @@ namespace Dictator.Core
             this.RevolutionStrength = 10;
             this.Minimal = 0;
         }
+
+        public void DecreasePlayerStrength()
+        {
+            if (PlayerStrength > 0)
+            {
+                PlayerStrength--;
+            }
+        }
     }
 }

@@ -9,5 +9,6 @@
         public void DisplayPoliceReportRequestScreen();
         public void DisplayPoliceReportScreen();
         public void DisplayRequestScreen();
+        public void DisplayBankuptcyScreen();
     }
 }

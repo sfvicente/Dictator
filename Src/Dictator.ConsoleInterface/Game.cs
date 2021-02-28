@@ -26,6 +26,14 @@ namespace Dictator.ConsoleInterface
             while (true)
             {
                 this.engine.AdvanceMonth();
+
+                if (engine.IsGovernmentBankrupt())
+                {
+                    this.userInterface.DisplayBankuptcyScreen();
+                    //plot
+                    //police report
+                }
+
                 this.userInterface.DisplayAccountScreen();
                 this.userInterface.DisplayPoliceReportRequestScreen();
                 this.userInterface.DisplayPoliceReportScreen();
