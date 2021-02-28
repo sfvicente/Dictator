@@ -19,6 +19,7 @@ namespace Dictator.ConsoleInterface
 
         public void Start()
         {
+            this.userInterface.DisplayIntroScreen();
             this.userInterface.DisplayTitleScreen();
 
             while (true)
