@@ -10,7 +10,7 @@ namespace Dictator.ConsoleInterface
             Console.CursorVisible = false;
 
             Console.Clear();
-            //this.DrawBackground();
+            this.DrawBackground();
             this.DrawContent();
             Console.ReadKey(true);
 
@@ -20,35 +20,22 @@ namespace Dictator.ConsoleInterface
         {
             for (int i = 1; i < 25; i++)
             {
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-                ConsoleEx.WriteAt(1, i, "DICTATOR");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                ConsoleEx.WriteAt(9, i, "DICTATOR");
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-                ConsoleEx.WriteAt(17, i, "DICTATOR");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                ConsoleEx.WriteAt(25, i, "DICTATOR");
+                ConsoleEx.WriteAt(24, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.Cyan);
+                ConsoleEx.WriteAt(32, i, "DICTATOR", ConsoleColor.Cyan, ConsoleColor.Black);
+                ConsoleEx.WriteAt(40, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.Cyan);
+                ConsoleEx.WriteAt(48, i, "DICTATOR", ConsoleColor.Cyan, ConsoleColor.Black);
             }
         }
 
         public void DrawContent()
         {
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            ConsoleEx.WriteAt(24, 3, "Press any key to become DICTATOR");
-            ConsoleEx.WriteAt(24, 5, "             of the             ");
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
-            ConsoleEx.WriteAt(24, 8, "            RITIMBAN            ");
-            ConsoleEx.WriteAt(24, 14, "            REPUBLIC            ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            ConsoleEx.WriteAt(24, 10, "             ******             ");
-            ConsoleEx.WriteAt(24, 11, "               **               ");
-            ConsoleEx.WriteAt(24, 12, "             ******             ");          
+            ConsoleEx.WriteAt(24, 3, "Press any key to become DICTATOR", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteAt(36, 5, " of the ", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteAt(36, 8, "RITIMBAN", ConsoleColor.Green, ConsoleColor.Black);
+            ConsoleEx.WriteAt(37, 10, "******", ConsoleColor.Blue, ConsoleColor.Yellow);
+            ConsoleEx.WriteAt(39, 11, "**", ConsoleColor.Blue, ConsoleColor.Yellow);
+            ConsoleEx.WriteAt(37, 12, "******", ConsoleColor.Blue, ConsoleColor.Yellow);
+            ConsoleEx.WriteAt(36, 14, "REPUBLIC", ConsoleColor.Green, ConsoleColor.Black);
         }
     }
 }
