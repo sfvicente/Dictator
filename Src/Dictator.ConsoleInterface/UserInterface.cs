@@ -43,6 +43,8 @@ namespace Dictator.ConsoleInterface
         {
             WelcomeScreen screen = new WelcomeScreen();
 
+            screen.Show();
+
         }
 
         public void DisplayTitleScreen()

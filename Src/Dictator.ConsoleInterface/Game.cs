@@ -21,6 +21,7 @@ namespace Dictator.ConsoleInterface
         {
             this.userInterface.DisplayIntroScreen();
             this.userInterface.DisplayTitleScreen();
+            this.userInterface.DisplayWelcomeScreen();
 
             while (true)
             {
