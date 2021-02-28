@@ -6,6 +6,30 @@ namespace Dictator.Common.Extensions
 {
     public static class ConsoleEx
     {
+        public static void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+        {
+            ConsoleColor previousBackgroundColor = Console.BackgroundColor;
+            ConsoleColor previousForegroundColor = Console.ForegroundColor;
+
+            Console.BackgroundColor = backgroundColor;
+            Console.ForegroundColor = foregroundColor;
+            Console.Write(text);
+            Console.BackgroundColor = previousBackgroundColor;
+            Console.ForegroundColor = previousForegroundColor;
+        }
+
+        public static void WriteAt(int left, int top, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+        {
+            ConsoleColor previousBackgroundColor = Console.BackgroundColor;
+            ConsoleColor previousForegroundColor = Console.ForegroundColor;
+
+            Console.BackgroundColor = backgroundColor;
+            Console.ForegroundColor = foregroundColor;
+            ConsoleEx.WriteAt(left, top, text);
+            Console.BackgroundColor = previousBackgroundColor;
+            Console.ForegroundColor = previousForegroundColor;
+        }
+
         public static void WriteAt(int left, int top, string text)
         {
             // Validate parameters
