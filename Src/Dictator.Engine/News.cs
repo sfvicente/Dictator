@@ -12,7 +12,7 @@ namespace Dictator.Core
             this.MonthlyCost = monthlyCost;
             this.GroupPopularityChanges = groupPopularityChanges;
             this.GroupStrenghtChanges = groupStrenghtChanges;
-            this.Text = Text;
+            this.Text = text;
             this.HasBeenUsed = false;
         }
     }

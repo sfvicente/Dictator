@@ -28,5 +28,12 @@ namespace Dictator.Core
         {
             return (News[])news.Clone();
         }
+
+        public void MarkNewsAsUsed(string text)
+        {
+            News item = news.Where(x => x.Text == text).Single();
+
+            item.HasBeenUsed = true;
+        }
     }
 }

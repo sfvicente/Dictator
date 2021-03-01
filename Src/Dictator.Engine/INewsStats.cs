@@ -6,5 +6,6 @@
 
         public void Initialise();
         public News[] GetNews();
+        public void MarkNewsAsUsed(string text);
     }
 }

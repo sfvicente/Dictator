@@ -10,5 +10,6 @@
         public void DisplayPoliceReportScreen();
         public void DisplayRequestScreen();
         public void DisplayBankuptcyScreen();
+        public void DisplayNewsScreen();
     }
 }
