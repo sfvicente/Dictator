@@ -33,7 +33,7 @@ namespace Dictator.ConsoleInterface
             this.DrawGroups();
 
             ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {this.governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {this.governmentStats.RevolutionStrength} ");
+            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {this.governmentStats.MonthlyRevolutionStrength} ");
 
             Console.ReadKey();
         }

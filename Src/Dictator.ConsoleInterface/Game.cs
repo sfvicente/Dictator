@@ -28,7 +28,7 @@ namespace Dictator.ConsoleInterface
             while (true)
             {
                 engine.SetMonthlyMinimalPopularityAndStrength();
-                // TODO: engine.SetTurnRevolutionStrength();
+                engine.SetMonthlyRevolutionStrength();
                 this.engine.AdvanceMonth();
                 // TODO: userInterface.displayMonthScreen()
 

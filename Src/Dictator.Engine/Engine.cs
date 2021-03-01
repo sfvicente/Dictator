@@ -59,5 +59,12 @@ namespace Dictator.Core
 
             governmentStats.MonthlyMinimalPopularityAndStrength = random.Next(2, 4);
         }
+
+        public void SetMonthlyRevolutionStrength()
+        {
+            Random random = new Random();
+
+            governmentStats.MonthlyRevolutionStrength = random.Next(10, 13);
+        }
     }
 }

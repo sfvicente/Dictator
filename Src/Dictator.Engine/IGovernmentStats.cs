@@ -10,7 +10,7 @@ namespace Dictator.Core
         public bool IsPlayerAlive { get; set; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
-        public int RevolutionStrength { get; set; }
+        public int MonthlyRevolutionStrength { get; set; }
         public int MonthlyMinimalPopularityAndStrength { get; set; }
 
         public void Initialise();

@@ -10,7 +10,7 @@ namespace Dictator.Core
         public bool IsPlayerAlive { get; set; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
-        public int RevolutionStrength { get; set; }
+        public int MonthlyRevolutionStrength { get; set; }
         public int MonthlyMinimalPopularityAndStrength { get; set; }
 
         public GovernmentStats()
@@ -24,7 +24,7 @@ namespace Dictator.Core
             this.IsPlayerAlive = true;
             this.Month = 0;
             this.PlotBonus = 0;
-            this.RevolutionStrength = 10;
+            this.MonthlyRevolutionStrength = 10;
             this.MonthlyMinimalPopularityAndStrength = 0;
         }
 

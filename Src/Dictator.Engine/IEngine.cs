@@ -10,5 +10,6 @@ namespace Dictator.Core
         public void AdvanceMonth();
         public bool IsGovernmentBankrupt();
         public void SetMonthlyMinimalPopularityAndStrength();
+        public void SetMonthlyRevolutionStrength();
     }
 }
