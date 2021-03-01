@@ -9,6 +9,8 @@ namespace Dictator.Core
     {
         private News[] news;
 
+        public News CurrentNews { get; set; }
+
         public void Initialise()
         {
             news = new News[]

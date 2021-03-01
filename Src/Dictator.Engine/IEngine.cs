@@ -12,5 +12,6 @@ namespace Dictator.Core
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
         public bool ShouldNewsHappen();
+        public bool TryTriggerRandomUnusedNews();
     }
 }

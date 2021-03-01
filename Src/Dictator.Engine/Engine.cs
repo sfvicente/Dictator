@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dictator.Core
@@ -79,6 +80,22 @@ namespace Dictator.Core
             }
 
             return false;
+        }
+
+        public bool TryTriggerRandomUnusedNews()
+        {
+            IEnumerable<News> unusedNews = newsStats.GetNews().Where(x => !x.HasBeenUsed);
+
+            if (unusedNews.Any())
+            {
+                var rand = new Random();
+
+                newsStats.CurrentNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
+
+                return true;
+            }
+
+            return false;         
         }
     }
 }
