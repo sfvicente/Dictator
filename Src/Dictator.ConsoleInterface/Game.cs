@@ -22,23 +22,44 @@ namespace Dictator.ConsoleInterface
             this.userInterface.DisplayIntroScreen();
             this.userInterface.DisplayTitleScreen();
             this.userInterface.DisplayWelcomeScreen();
+            this.userInterface.DisplayAccountScreen();
+            // TODO: userInterface.displayPoliceReport(free);
 
             while (true)
             {
+                // TODO: engine.SetTurnMinimalPopularityAndStrength();
+                // TODO: engine.SetTurnRevolutionStrength();
                 this.engine.AdvanceMonth();
+                // TODO: userInterface.displayMonthScreen()
 
+                // TODO: engine.Plot()
                 if (engine.IsGovernmentBankrupt())
                 {
                     this.userInterface.DisplayBankuptcyScreen();
-                    //plot
+                    // TODO: engine.Plot()
                     //police report
                 }
 
-                this.userInterface.DisplayAccountScreen();
+                // TODO: audience > this.userInterface.DisplayRequestScreen();
+                // TODO: plot
+
+                // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
+                // TODO: engine.End(); break;
+
+                // TODO: plot
                 this.userInterface.DisplayPoliceReportRequestScreen();
                 this.userInterface.DisplayPoliceReportScreen();
 
-                this.userInterface.DisplayRequestScreen();
+                // TODO: decision
+                this.userInterface.DisplayPoliceReportRequestScreen();
+                this.userInterface.DisplayPoliceReportScreen();
+
+                // TODO: if(engine.ShouldNewsHappen())
+                //          userInterface.DisplayNewsScreen();
+
+                // TODO: if(engine.Revolution())
+                // TODO: engine.End(); break;
+
             }
         }
 
