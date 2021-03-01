@@ -54,8 +54,10 @@ namespace Dictator.ConsoleInterface
                 this.userInterface.DisplayPoliceReportRequestScreen();
                 this.userInterface.DisplayPoliceReportScreen();
 
-                // TODO: if(engine.ShouldNewsHappen())
-                //          userInterface.DisplayNewsScreen();
+                if (engine.ShouldNewsHappen())
+                {
+                    // TODO: userInterface.DisplayNewsScreen();
+                }
 
                 // TODO: if(engine.Revolution())
                 // TODO: engine.End(); break;

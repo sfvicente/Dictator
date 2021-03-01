@@ -66,5 +66,19 @@ namespace Dictator.Core
 
             governmentStats.MonthlyRevolutionStrength = random.Next(10, 13);
         }
+
+        public bool ShouldNewsHappen()
+        {
+            Random random = new Random();
+
+            int number = random.Next(0, 2);
+
+            if(number == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
