@@ -52,5 +52,12 @@ namespace Dictator.Core
         {
             return account.TreasuryBalance <= 0;
         }
+
+        public void SetMonthlyMinimalPopularityAndStrength()
+        {
+            Random random = new Random();
+
+            governmentStats.MonthlyMinimalPopularityAndStrength = random.Next(2, 4);
+        }
     }
 }
