@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IPoliceReportRequestScreen
+    public interface IPoliceReportRequestDialog
     {
-        public void Draw();
+        public bool Show();
     }
 }

@@ -6,20 +6,20 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class PoliceReportRequestScreen : IPoliceReportRequestScreen
+    public class PoliceReportRequestDialog : IPoliceReportRequestDialog
     {
         private readonly IAccount account;
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
-        public PoliceReportRequestScreen(IAccount account, IGroupStats groupStats, IGovernmentStats governmentStats)
+        public PoliceReportRequestDialog(IAccount account, IGroupStats groupStats, IGovernmentStats governmentStats)
         {
             this.account = account;
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
         }
 
-        public void Draw()
+        public bool Show()
         {
             Console.Clear();
             ConsoleEx.WriteAt(24, 1, "################################");
@@ -32,6 +32,7 @@ namespace Dictator.ConsoleInterface
                 if (Console.ReadKey().Key == ConsoleKey.Y)
                 {
                     this.account.TreasuryBalance -= 1;
+                    return true;
                 }
             }
             else
@@ -40,7 +41,7 @@ namespace Dictator.ConsoleInterface
 
                 int screenRow = 12;
 
-                if(groupStats.PolicePopularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                if (groupStats.PolicePopularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
                 {
                     ConsoleEx.WriteAt(24, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
                 }
@@ -53,9 +54,11 @@ namespace Dictator.ConsoleInterface
                 if (account.TreasuryBalance < 1)
                 {
                     ConsoleEx.WriteAt(24, screenRow++, "    You can't AFFORD a REPORT    ");
-            }
+                }
                 Console.ReadKey();
             }
+
+            return false;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Dictator.ConsoleInterface
             this.userInterface.DisplayTitleScreen();
             this.userInterface.DisplayWelcomeScreen();
             this.userInterface.DisplayAccountScreen();
-            // TODO: userInterface.displayPoliceReport(free);
+            userInterface.DisplayPoliceReportScreen();
 
             while (true)
             {
@@ -47,12 +47,11 @@ namespace Dictator.ConsoleInterface
                 // TODO: engine.End(); break;
 
                 // TODO: plot
-                this.userInterface.DisplayPoliceReportRequestScreen();
-                this.userInterface.DisplayPoliceReportScreen();
+                ProcessPoliceReport();
+
 
                 // TODO: decision
-                this.userInterface.DisplayPoliceReportRequestScreen();
-                this.userInterface.DisplayPoliceReportScreen();
+                ProcessPoliceReport();
 
                 if (engine.ShouldNewsHappen())
                 {
@@ -61,8 +60,7 @@ namespace Dictator.ConsoleInterface
                         userInterface.DisplayNewsScreen();
                         // TODO: ApplyNewsEffects
                         // TODO: plot
-                        userInterface.DisplayPoliceReportRequestScreen();
-                        userInterface.DisplayPoliceReportScreen();
+                        ProcessPoliceReport();
                     }
                 }
 
@@ -72,5 +70,12 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        public void ProcessPoliceReport()
+        {
+            if (userInterface.DisplayPoliceReportRequestDialog())
+            {
+                userInterface.DisplayPoliceReportScreen();
+            }
+        }
     }
 }
