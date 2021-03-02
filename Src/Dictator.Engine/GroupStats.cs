@@ -8,6 +8,9 @@ namespace Dictator.Core
     {
         private Group[] groups;
 
+        public int PolicePopularity { get { return groups[(int)GroupType.SecretPolice].Popularity; } }
+        public int PoliceStrength { get { return groups[(int)GroupType.SecretPolice].Strength; } }
+
         public void Initialise()
         {
             groups = new Group[]

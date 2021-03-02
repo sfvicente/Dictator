@@ -9,10 +9,14 @@ namespace Dictator.ConsoleInterface
     public class PoliceReportRequestScreen : IPoliceReportRequestScreen
     {
         private readonly IAccount account;
+        private readonly IGroupStats groupStats;
+        private readonly IGovernmentStats governmentStats;
 
-        public PoliceReportRequestScreen(IAccount account)
+        public PoliceReportRequestScreen(IAccount account, IGroupStats groupStats, IGovernmentStats governmentStats)
         {
             this.account = account;
+            this.groupStats = groupStats;
+            this.governmentStats = governmentStats;
         }
 
         public void Draw()
@@ -36,7 +40,15 @@ namespace Dictator.ConsoleInterface
 
                 int screenRow = 12;
 
-                // TODO: include secret police strenght and popularity checks
+                if(groupStats.PolicePopularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                {
+                    ConsoleEx.WriteAt(24, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
+                }
+
+                if (groupStats.PoliceStrength <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                {
+                    ConsoleEx.WriteAt(24, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
+                }
 
                 if (account.TreasuryBalance < 1)
                 {
