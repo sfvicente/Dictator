@@ -59,8 +59,10 @@ namespace Dictator.ConsoleInterface
                     if(engine.TryTriggerRandomUnusedNews())
                     {
                         userInterface.DisplayNewsScreen();
-                        // ApplyNewsEffects
-
+                        // TODO: ApplyNewsEffects
+                        // TODO: plot
+                        userInterface.DisplayPoliceReportRequestScreen();
+                        userInterface.DisplayPoliceReportScreen();
                     }
                 }
 
