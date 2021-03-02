@@ -12,5 +12,6 @@
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
         void DisplayMonthScreen();
+        void DisplayMainDecisionDialog();
     }
 }

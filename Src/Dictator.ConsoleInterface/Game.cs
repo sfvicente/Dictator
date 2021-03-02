@@ -50,7 +50,7 @@ namespace Dictator.ConsoleInterface
                 ProcessPoliceReport();
 
 
-                // TODO: decision
+                userInterface.DisplayMainDecisionDialog();
                 ProcessPoliceReport();
 
                 if (engine.ShouldNewsHappen())
