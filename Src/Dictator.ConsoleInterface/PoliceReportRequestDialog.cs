@@ -25,7 +25,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(24, 1, "################################");
             ConsoleEx.WriteAt(24, 3, "     SECRET POLICE REPORT ?     ");
 
-            if (this.account.TreasuryBalance > 0)
+            if (this.account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(24, 12, "         ( costs $1000 )        ");
 
@@ -41,12 +41,12 @@ namespace Dictator.ConsoleInterface
 
                 int screenRow = 12;
 
-                if (groupStats.PolicePopularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                if (!HasEnoughPopularityWithPolice())
                 {
                     ConsoleEx.WriteAt(24, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
                 }
 
-                if (groupStats.PoliceStrength <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                if (!HasEnoughPoliceStrength())
                 {
                     ConsoleEx.WriteAt(24, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
@@ -59,6 +59,16 @@ namespace Dictator.ConsoleInterface
             }
 
             return false;
+        }
+
+        public bool HasEnoughPopularityWithPolice()
+        {
+            return groupStats.PolicePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
+        }
+
+        public bool HasEnoughPoliceStrength()
+        {
+            return groupStats.PoliceStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
     }
 }
