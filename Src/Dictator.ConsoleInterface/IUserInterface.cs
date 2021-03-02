@@ -11,5 +11,6 @@
         public void DisplayRequestScreen();
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
+        void DisplayMonthScreen();
     }
 }

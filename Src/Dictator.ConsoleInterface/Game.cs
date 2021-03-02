@@ -30,7 +30,7 @@ namespace Dictator.ConsoleInterface
                 engine.SetMonthlyMinimalPopularityAndStrength();
                 engine.SetMonthlyRevolutionStrength();
                 this.engine.AdvanceMonth();
-                // TODO: userInterface.displayMonthScreen()
+                userInterface.DisplayMonthScreen();
 
                 // TODO: engine.Plot()
                 if (engine.IsGovernmentBankrupt())

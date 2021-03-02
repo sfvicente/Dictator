@@ -15,6 +15,7 @@ namespace Dictator.ConsoleInterface
         private IRequestScreen requestScreen;
         private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly INewsflashScreen newsflashScreen;
+        private readonly IMonthScreen monthScreen;
 
         public UserInterface(
             IIntroScreen introScreen,
@@ -25,7 +26,8 @@ namespace Dictator.ConsoleInterface
             IPoliceReportScreen policeReportScreen,
             IRequestScreen requestScreen,
             IBankruptcyScreen bankruptcyScreen,
-            INewsflashScreen newsflashScreen)
+            INewsflashScreen newsflashScreen,
+            IMonthScreen monthScreen)
         {
             this.introScreen = introScreen;
             this.welcomeScreen = welcomeScreen;
@@ -36,6 +38,7 @@ namespace Dictator.ConsoleInterface
             this.requestScreen = requestScreen;
             this.bankruptcyScreen = bankruptcyScreen;
             this.newsflashScreen = newsflashScreen;
+            this.monthScreen = monthScreen;
         }
 
         public void DisplayIntroScreen()
@@ -86,6 +89,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayNewsScreen()
         {
             newsflashScreen.Show();
+        }
+
+        public void DisplayMonthScreen()
+        {
+            monthScreen.Show();
         }
     }
 }
