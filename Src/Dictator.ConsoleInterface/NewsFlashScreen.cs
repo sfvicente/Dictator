@@ -20,7 +20,7 @@ namespace Dictator.ConsoleInterface
             
             ConsoleEx.Clear(ConsoleColor.Gray);
             ConsoleEx.WriteAt(24, 10, "NEWSFLASH");
-            ConsoleEx.WriteAt(24, 4, newsStats.CurrentNews.Text);
+            ConsoleEx.WriteAt(24, 14, newsStats.CurrentNews.Text);
 
             Console.ReadKey(true);
         }
