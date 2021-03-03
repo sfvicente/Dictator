@@ -20,7 +20,23 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(24, 15, "    4. RAISE some CASH          ", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(24, 17, "    5. STRENGTHEN a GROUP       ", ConsoleColor.Yellow, ConsoleColor.Black);
 
-            ConsoleKeyInfo keyPressed = Console.ReadKey(true);
+            ConsoleKey keyPressed = Console.ReadKey(true).Key;
+
+            switch(keyPressed)
+            {
+                case ConsoleKey.D1:
+                    return;
+                case ConsoleKey.D2:
+                    return;
+                case ConsoleKey.D3:
+                    return;
+                case ConsoleKey.D4:
+                    return;
+                case ConsoleKey.D5:
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }
