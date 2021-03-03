@@ -19,25 +19,25 @@ namespace Dictator.ConsoleInterface
 
         public void Start()
         {
-            this.userInterface.DisplayIntroScreen();
-            this.userInterface.DisplayTitleScreen();
-            this.userInterface.DisplayWelcomeScreen();
-            this.userInterface.DisplayAccountScreen();
+            userInterface.DisplayIntroScreen();
+            userInterface.DisplayTitleScreen();
+            userInterface.DisplayWelcomeScreen();
+            userInterface.DisplayAccountScreen();
             userInterface.DisplayPoliceReportScreen();
 
             while (true)
             {
                 engine.SetMonthlyMinimalPopularityAndStrength();
                 engine.SetMonthlyRevolutionStrength();
-                this.engine.AdvanceMonth();
+                engine.AdvanceMonth();
                 userInterface.DisplayMonthScreen();
 
                 // TODO: engine.Plot()
                 if (engine.IsGovernmentBankrupt())
                 {
-                    this.userInterface.DisplayBankuptcyScreen();
+                    userInterface.DisplayBankuptcyScreen();
                     // TODO: engine.Plot()
-                    //police report
+                    ProcessPoliceReport();
                 }
 
                 // TODO: audience > this.userInterface.DisplayRequestScreen();
@@ -48,8 +48,6 @@ namespace Dictator.ConsoleInterface
 
                 // TODO: plot
                 ProcessPoliceReport();
-
-
                 userInterface.DisplayMainDecisionDialog();
                 ProcessPoliceReport();
 
@@ -66,7 +64,6 @@ namespace Dictator.ConsoleInterface
 
                 // TODO: if(engine.Revolution())
                 // TODO: engine.End(); break;
-
             }
         }
 
