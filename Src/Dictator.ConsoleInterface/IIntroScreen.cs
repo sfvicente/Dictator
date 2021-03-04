@@ -2,5 +2,6 @@
 {
     public interface IIntroScreen
     {
+        public void Show();
     }
 }

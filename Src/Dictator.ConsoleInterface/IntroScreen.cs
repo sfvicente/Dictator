@@ -7,13 +7,19 @@ namespace Dictator.ConsoleInterface
 {
     public class IntroScreen : IIntroScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+        public IntroScreen(IPressAnyKeyControl pressAnyKeyControl)
+        {
+            this.pressAnyKeyControl = pressAnyKeyControl;
+        }
+
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Black);
             ConsoleEx.WriteAt(26, 4, "DICTATOR", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.WriteAt(24, 8, "  Devised and Written by        ");
             ConsoleEx.WriteAt(24, 10, "  Don PRIESTLEY                 ");
-
             ConsoleEx.WriteAt(24, 14, "  Copyright  ");
             ConsoleEx.Write("D", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.Write("k", ConsoleColor.Yellow, ConsoleColor.Black);
@@ -25,8 +31,11 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Write("C", ConsoleColor.Green, ConsoleColor.Black);
             ConsoleEx.Write("S", ConsoleColor.Cyan, ConsoleColor.Black);
             Console.Write("  1983");
+            ConsoleEx.WriteAt(24, 17, "  Rewritten in C# by ");
+            ConsoleEx.WriteAt(24, 18, "   Sergio Vicente 2021  ");
 
-            ConsoleEx.WriteAt(24, 18, "  Rewritten in C# by Sergio Vicente 2021  ");
+            pressAnyKeyControl.Show();
+            
             Console.ReadKey(true);
         }
     }
