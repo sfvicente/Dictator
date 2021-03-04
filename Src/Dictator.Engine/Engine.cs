@@ -99,5 +99,10 @@ namespace Dictator.Core
 
             return false;         
         }
+
+        public void End()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

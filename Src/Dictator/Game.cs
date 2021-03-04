@@ -44,7 +44,11 @@ namespace Dictator.ConsoleInterface
                 // TODO: plot
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
-                // TODO: engine.End(); break;
+                if (false)
+                {
+                    userInterface.DisplayEndScreen();
+                    break;
+                }
 
                 // TODO: plot
                 ProcessPoliceReport();
@@ -63,7 +67,11 @@ namespace Dictator.ConsoleInterface
                 }
 
                 // TODO: if(engine.Revolution())
-                // TODO: engine.End(); break;
+                if(false)
+                {
+                    userInterface.DisplayEndScreen();
+                    break;
+                }
             }
         }
 
