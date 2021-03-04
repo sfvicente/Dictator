@@ -8,16 +8,19 @@ namespace Dictator.ConsoleInterface
 {
     public class PoliceReportScreen : IPoliceReportScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
         private IGovernmentStats governmentStats { get; }
         private IGroupStats groupStats { get; }
 
-        public PoliceReportScreen(IGovernmentStats governmentStats, IGroupStats groupStats)
+        public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentStats governmentStats, IGroupStats groupStats)
         {
+            this.pressAnyKeyControl = pressAnyKeyControl;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
         }
 
-        public void Draw()
+        public void Show()
         {
             Console.Clear();
 
@@ -34,6 +37,8 @@ namespace Dictator.ConsoleInterface
 
             ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {this.governmentStats.PlayerStrength}           ");
             ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {this.governmentStats.MonthlyRevolutionStrength} ");
+
+            pressAnyKeyControl.Show();
 
             Console.ReadKey();
         }

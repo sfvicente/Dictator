@@ -77,7 +77,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayPoliceReportScreen()
         {
-            this.policeReportScreen.Draw();
+            policeReportScreen.Show();
         }
 
         public void DisplayRequestScreen()
