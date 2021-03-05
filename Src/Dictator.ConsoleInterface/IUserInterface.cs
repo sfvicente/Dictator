@@ -8,7 +8,7 @@
         public void DisplayAccountScreen();
         public bool DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
-        public void DisplayRequestScreen();
+        public void DisplayAudienceScreen();
         void DisplayAdviceScreen();
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();

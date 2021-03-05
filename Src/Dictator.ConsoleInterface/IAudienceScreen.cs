@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IRequestScreen
+    public interface IAudienceScreen
     {
-        void Draw();
+        void Show();
     }
 }

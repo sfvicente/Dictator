@@ -40,7 +40,7 @@ namespace Dictator.ConsoleInterface
                     ProcessPoliceReport();
                 }
 
-                // TODO: audience > this.userInterface.DisplayRequestScreen();
+                userInterface.DisplayAudienceScreen();
                 userInterface.DisplayAdviceScreen();
                 // TODO: plot
 

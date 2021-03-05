@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class RequestScreen : IRequestScreen
+    public class AudienceScreen : IAudienceScreen
     {
-        public void Draw()
+        public void Show()
         {
             Console.Clear();
 
