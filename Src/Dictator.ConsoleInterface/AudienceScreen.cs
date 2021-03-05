@@ -7,17 +7,34 @@ namespace Dictator.ConsoleInterface
 {
     public class AudienceScreen : IAudienceScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+        public AudienceScreen(IPressAnyKeyControl pressAnyKeyControl)
+        {
+            this.pressAnyKeyControl = pressAnyKeyControl;
+        }
+
         public void Show()
         {
             Console.Clear();
 
-            ConsoleEx.WriteAt(24, 3, "           AN AUDIENCE          ");
+            ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
+            ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
+            ConsoleEx.WriteEmptyLineAt(3, ConsoleColor.Green);
+            ConsoleEx.WriteEmptyLineAt(4, ConsoleColor.Green);
+            ConsoleEx.WriteAt(24 + 11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteEmptyLineAt(5, ConsoleColor.Green);
+         
+            for(int row = 6; row < 22; row++)
+            {
+                ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
+            }
 
-            ConsoleEx.WriteAt(24, 5, "A request from {Group}");
-            ConsoleEx.WriteAt(24, 9, "  Will YOUR EXCELLENCY agree to ");
-            ConsoleEx.WriteAt(24, 11, "<petition text>");
+            ConsoleEx.WriteAt(24, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
 
-            // TODO: Display option to ask for advice
+            pressAnyKeyControl.Show();
 
             Console.ReadKey();
         }
