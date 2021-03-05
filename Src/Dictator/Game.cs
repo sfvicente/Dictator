@@ -41,6 +41,7 @@ namespace Dictator.ConsoleInterface
                 }
 
                 // TODO: audience > this.userInterface.DisplayRequestScreen();
+                userInterface.DisplayAdviceScreen();
                 // TODO: plot
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
