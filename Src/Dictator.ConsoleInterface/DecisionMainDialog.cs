@@ -7,6 +7,13 @@ namespace Dictator.ConsoleInterface
 {
     public class DecisionMainDialog : IDecisionMainDialog
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+        public DecisionMainDialog(IPressAnyKeyControl pressAnyKeyControl)
+        {
+            this.pressAnyKeyControl = pressAnyKeyControl;
+        }
+
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Red);
@@ -20,6 +27,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(24, 15, "    4. RAISE some CASH          ", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(24, 17, "    5. STRENGTHEN a GROUP       ", ConsoleColor.Yellow, ConsoleColor.Black);
 
+            pressAnyKeyControl.Show();
             ConsoleKey keyPressed = Console.ReadKey(true).Key;
 
             switch(keyPressed)
