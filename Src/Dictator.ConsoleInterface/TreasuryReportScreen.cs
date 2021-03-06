@@ -8,10 +8,12 @@ namespace Dictator.ConsoleInterface
 {
     public class TreasuryReportScreen : ITreasuryReportScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
         public IAccount account;
 
-        public TreasuryReportScreen(IAccount account)
+        public TreasuryReportScreen(IPressAnyKeyControl pressAnyKeyControl, IAccount account)
         {
+            this.pressAnyKeyControl = pressAnyKeyControl;
             this.account = account;
         }
 
@@ -31,6 +33,7 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteAt(24, 14, $"  [SWISS Acct holds ${this.account.SwissBankAccountBalance},000]");
             }
 
+            pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }
     }
