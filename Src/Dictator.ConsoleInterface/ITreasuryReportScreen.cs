@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IAccountScreen
+    public interface ITreasuryReportScreen
     {
-
-        public void Draw();
+        public void Show();
     }
 }

@@ -6,16 +6,16 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class AccountScreen : IAccountScreen
+    public class TreasuryReportScreen : ITreasuryReportScreen
     {
         public IAccount account;
 
-        public AccountScreen(IAccount account)
+        public TreasuryReportScreen(IAccount account)
         {
             this.account = account;
         }
 
-        public void Draw()
+        public void Show()
         {
             Console.Clear();
             ConsoleEx.WriteAt(24, 1, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
