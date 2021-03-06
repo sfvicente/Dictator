@@ -8,6 +8,9 @@ namespace Dictator.Core
     {
         private Group[] groups;
 
+        private GroupType assassinGroupType;
+        public GroupType AssassinGroupType { get { return assassinGroupType; } }
+
         public int PolicePopularity { get { return groups[(int)GroupType.SecretPolice].Popularity; } }
         public int PoliceStrength { get { return groups[(int)GroupType.SecretPolice].Strength; } }
 
@@ -24,6 +27,11 @@ namespace Dictator.Core
                 new Group(GroupType.Russians, 7, 0, "The RUSSIANS", " RUSSIANS "),
                 new Group(GroupType.Americans, 7, 0, "The AMERICANS", "AMERICANS "),
             };
+        }
+
+        public Group GetGroupByType(GroupType groupType)
+        {
+            return groups[(int)groupType];
         }
 
         public Group[] GetGroups()
@@ -63,6 +71,11 @@ namespace Dictator.Core
             {
                 groups[index].Strength--;
             }
+        }
+
+        public void SetAssassinByGroupType(GroupType groupType)
+        {
+            assassinGroupType = groupType;
         }
     }
 }

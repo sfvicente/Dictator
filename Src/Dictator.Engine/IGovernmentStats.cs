@@ -7,7 +7,7 @@ namespace Dictator.Core
     public interface IGovernmentStats
     {
         public int PlayerStrength { get; set; }
-        public bool IsPlayerAlive { get; set; }
+        public bool IsPlayerAlive { get; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }
@@ -15,5 +15,6 @@ namespace Dictator.Core
 
         public void Initialise();
         public void DecreasePlayerStrength();
+        public void KillPlayer();
     }
 }

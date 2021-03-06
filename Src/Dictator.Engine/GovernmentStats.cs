@@ -6,8 +6,10 @@ namespace Dictator.Core
 {
     public class GovernmentStats : IGovernmentStats
     {
+        private bool isPlayerAlive;
+        public bool IsPlayerAlive { get { return isPlayerAlive; } }
+
         public int PlayerStrength { get; set; }
-        public bool IsPlayerAlive { get; set; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }
@@ -21,7 +23,7 @@ namespace Dictator.Core
         public void Initialise()
         {
             this.PlayerStrength = 4;
-            this.IsPlayerAlive = true;
+            isPlayerAlive = true;
             this.Month = 0;
             this.PlotBonus = 0;
             this.MonthlyRevolutionStrength = 10;
@@ -34,6 +36,11 @@ namespace Dictator.Core
             {
                 PlayerStrength--;
             }
+        }
+
+        public void KillPlayer()
+        {
+            isPlayerAlive = false;
         }
     }
 }
