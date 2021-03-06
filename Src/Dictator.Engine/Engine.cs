@@ -100,6 +100,21 @@ namespace Dictator.Core
             return false;         
         }
 
+        public bool ShouldAssassinationAttemptHappen()
+        {
+            Random random = new Random();
+
+            int number = random.Next(0, 3);
+            Group[] groups = groupStats.GetGroups();  // Select a random group between the army, peasants, landowners and guerrilas
+
+            if(groups[number].Status == GroupStatus.Assassination)
+            { 
+                return true;
+            }
+
+            return false;
+        }
+
         public void End()
         {
             throw new NotImplementedException();

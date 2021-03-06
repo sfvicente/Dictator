@@ -113,6 +113,10 @@ namespace Dictator.ConsoleInterface
             decisionMainDialog.Show();
         }
 
+        public void DisplayAssassinationAttempt()
+        {
+
+        }
 
         public void DisplayEndScreen()
         {

@@ -45,6 +45,7 @@ namespace Dictator.ConsoleInterface
                 // TODO: plot
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
+                ProcessAssassinationAttempt();
                 if (false)
                 {
                     userInterface.DisplayEndScreen();
@@ -81,6 +82,16 @@ namespace Dictator.ConsoleInterface
             if (userInterface.DisplayPoliceReportRequestDialog())
             {
                 userInterface.DisplayPoliceReportScreen();
+            }
+        }
+
+        public void ProcessAssassinationAttempt()
+        {
+            if(engine.ShouldAssassinationAttemptHappen())
+            {
+                userInterface.DisplayAssassinationAttempt();
+
+                // TODO: add check for result
             }
         }
     }

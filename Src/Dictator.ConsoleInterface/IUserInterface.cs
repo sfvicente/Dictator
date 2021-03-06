@@ -14,7 +14,7 @@
         public void DisplayNewsScreen();
         void DisplayMonthScreen();
         void DisplayMainDecisionDialog();
+        void DisplayAssassinationAttempt();
         void DisplayEndScreen();
-        
     }
 }
