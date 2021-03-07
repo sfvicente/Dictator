@@ -27,14 +27,14 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(24, 1, "################################");
             ConsoleEx.WriteAt(24, 3, "     SECRET POLICE REPORT ?     ");
 
-            if (this.account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
+            if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(24, 12, "         ( costs $1000 )        ");
                 pressAnyKeyControl.Show();
 
-                if (Console.ReadKey().Key == ConsoleKey.Y)
+                if (Console.ReadKey(true).Key == ConsoleKey.Y)
                 {
-                    this.account.TreasuryBalance -= 1;
+                    account.TreasuryBalance -= 1;
                     return true;
                 }
             }
@@ -60,18 +60,18 @@ namespace Dictator.ConsoleInterface
                 }
 
                 pressAnyKeyControl.Show();
-                Console.ReadKey();
+                Console.ReadKey(true);
             }
 
             return false;
         }
 
-        public bool HasEnoughPopularityWithPolice()
+        private bool HasEnoughPopularityWithPolice()
         {
             return groupStats.PolicePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
 
-        public bool HasEnoughPoliceStrength()
+        private bool HasEnoughPoliceStrength()
         {
             return groupStats.PoliceStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
