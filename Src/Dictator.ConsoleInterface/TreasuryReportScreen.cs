@@ -19,18 +19,25 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            Console.Clear();
-            ConsoleEx.WriteAt(24, 1, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            ConsoleEx.WriteAt(24, 3, "         TREASURY REPORT        ");
+            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Green);
+            
+            for(int row = 1; row < 22; row++)
+            {
+                ConsoleEx.WriteAt(24, row, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            }
+            ConsoleEx.WriteAt(24 + 1, 4, "                              ", ConsoleColor.Green, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24 + 1, 5, "                              ", ConsoleColor.Green, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24 + 1, 6, "                              ", ConsoleColor.Green, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24 + 8, 9, "TREASURY REPORT", ConsoleColor.White, ConsoleColor.Black);
 
             string balanceWording = (this.account.TreasuryBalance > 0) ? "holds" : "OWES";
             
-            ConsoleEx.WriteAt(24, 10, $"  The TREASURY {balanceWording} ${this.account.TreasuryBalance},000");
-            ConsoleEx.WriteAt(24, 12, $"   MONTHLY COSTS are ${this.account.MonthlyCosts},000 ");
+            ConsoleEx.WriteAt(24 + 1, 13, $" The TREASURY {balanceWording} ${this.account.TreasuryBalance},000 ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(24 + 2, 15, $" MONTHLY COSTS are ${this.account.MonthlyCosts},000 ", ConsoleColor.Blue, ConsoleColor.White);
 
             if (this.account.HasSwissBankAccount)
             {
-                ConsoleEx.WriteAt(24, 14, $"  [SWISS Acct holds ${this.account.SwissBankAccountBalance},000]");
+                ConsoleEx.WriteAt(24 + 2, 17, $" [SWISS Acct holds ${this.account.SwissBankAccountBalance},000] ");
             }
 
             pressAnyKeyControl.Show();
