@@ -63,5 +63,12 @@ namespace Dictator.Common.Extensions
             Console.Clear();
             Console.BackgroundColor = previousBackgroundColor;
         }
+
+        public static void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+        {
+            Console.BackgroundColor = backgroundColor;
+            Console.ForegroundColor = foregroundColor;
+            Console.Clear();
+        }
     }
 }

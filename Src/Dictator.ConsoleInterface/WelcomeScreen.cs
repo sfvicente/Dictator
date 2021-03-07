@@ -16,19 +16,19 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray);
-            ConsoleEx.WriteAt(24, 3, "        WELCOME to OFFICE       ");
-            ConsoleEx.WriteAt(24, 5, "The best DICTATOR of our beloved");
-            ConsoleEx.WriteAt(24, 6, "country of RITIMBA had a final  ");
-            ConsoleEx.WriteAt(24, 7, "rating of 0                     ");
+            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            ConsoleEx.WriteAt(24 + 8, 4, "WELCOME to OFFICE", ConsoleColor.Black, ConsoleColor.Cyan);
+            ConsoleEx.WriteAt(24, 7, "The best DICTATOR of our beloved");
+            ConsoleEx.WriteAt(24, 9, "country of RITIMBA had a final  ");
+            ConsoleEx.WriteAt(24, 11, "rating of 0                     ");
 
             // TODO: add history 
             //ConsoleEx.WriteAt(24, 9, "You can always try for 1 !");
-            ConsoleEx.WriteAt(24, 9, "As this is your first attempt   ");
-            ConsoleEx.WriteAt(24, 10, "you will no doubt do BETTER !   ");
+            ConsoleEx.WriteAt(24, 14, "As this is your first attempt   ");
+            ConsoleEx.WriteAt(24, 16, "you will no doubt do BETTER !   ");
 
-            ConsoleEx.WriteAt(24, 11, "Start with a TREASURY REPORT    ");
-            ConsoleEx.WriteAt(24, 12, "and a POLICE Report. (FREE)     ");
+            ConsoleEx.WriteAt(24, 18, "Start with a TREASURY REPORT    ");
+            ConsoleEx.WriteAt(24, 20, "and a POLICE Report. (FREE)     ");
             
             pressAnyKeyControl.Show();
             Console.ReadKey(true);
