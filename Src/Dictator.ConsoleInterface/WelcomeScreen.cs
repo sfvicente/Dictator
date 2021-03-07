@@ -7,6 +7,13 @@ namespace Dictator.ConsoleInterface
 {
     public class WelcomeScreen : IWelcomeScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+        public WelcomeScreen(IPressAnyKeyControl pressAnyKeyControl)
+        {
+            this.pressAnyKeyControl = pressAnyKeyControl;
+        }
+
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray);
@@ -22,6 +29,8 @@ namespace Dictator.ConsoleInterface
 
             ConsoleEx.WriteAt(24, 11, "Start with a TREASURY REPORT    ");
             ConsoleEx.WriteAt(24, 12, "and a POLICE Report. (FREE)     ");
+            
+            pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }
     }
