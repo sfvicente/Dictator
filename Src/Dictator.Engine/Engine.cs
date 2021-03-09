@@ -156,6 +156,23 @@ namespace Dictator.Core
             return false;
         }
 
+        public void AttemptEscapeThroughLeftoto()
+        {
+            int guerrilasStrength = groupStats.GetGroupByType(GroupType.Guerillas).Strength;
+            int upperLimit = (guerrilasStrength / 3) + 2;
+
+            Random random = new Random();
+            int number = random.Next(0, upperLimit);
+
+            // There is a chance on 1 in 2..5 depending on the guerrilas strength
+            if(number == 0)
+            {
+                // TODO: guerrila celebration
+            }
+
+            // TODO: guerrila didn't catch player
+        }
+
         public void End()
         {
             throw new NotImplementedException();
