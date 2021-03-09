@@ -8,6 +8,7 @@ namespace Dictator.Core
     {
         public int PlayerStrength { get; set; }
         public bool IsPlayerAlive { get; }
+        public bool HasHelicopter { get; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }

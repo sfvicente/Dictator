@@ -16,5 +16,7 @@ namespace Dictator.Core
         public bool ShouldAssassinationAttemptHappen();
         public void End();
         bool TryTriggerRevoltGroup();
+        bool HasPlayerPurchasedHelicopter();
+        bool AttemptEscapeByHelicopter();
     }
 }

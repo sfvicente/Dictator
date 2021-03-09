@@ -9,6 +9,9 @@ namespace Dictator.Core
         private bool isPlayerAlive;
         public bool IsPlayerAlive { get { return isPlayerAlive; } }
 
+        private bool hasHelicopter;
+        public bool HasHelicopter { get { return hasHelicopter; } }
+
         public int PlayerStrength { get; set; }
         public int Month { get; set; }
         public int PlotBonus { get; set; }
@@ -24,6 +27,7 @@ namespace Dictator.Core
         {
             this.PlayerStrength = 4;
             isPlayerAlive = true;
+            hasHelicopter = false;
             this.Month = 0;
             this.PlotBonus = 0;
             this.MonthlyRevolutionStrength = 10;
@@ -36,6 +40,11 @@ namespace Dictator.Core
             {
                 PlayerStrength--;
             }
+        }
+
+        public void PurchaseHelicopter()
+        {
+            hasHelicopter = true;
         }
 
         public void KillPlayer()

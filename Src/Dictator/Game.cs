@@ -100,6 +100,18 @@ namespace Dictator.ConsoleInterface
             {
                 // TODO: perform the rest of the actions in the revolution mode
 
+
+                // In order to escape by helicopter, the player had to previously purchased it
+                if (engine.HasPlayerPurchasedHelicopter())
+                {
+                    if(engine.AttemptEscapeByHelicopter())
+                    {
+                        // TODO: display escape by helicopter screen
+                    }
+                }
+
+                // TODO: display helicopter won't start screen
+
                 return true;
             }
 

@@ -74,7 +74,7 @@ namespace Dictator.Core
 
             int number = random.Next(0, 2);
 
-            if(number == 0)
+            if (number == 0)
             {
                 return true;
             }
@@ -97,7 +97,7 @@ namespace Dictator.Core
                 return true;
             }
 
-            return false;         
+            return false;
         }
 
         public bool ShouldAssassinationAttemptHappen()
@@ -107,8 +107,8 @@ namespace Dictator.Core
             int number = random.Next(0, 3);
             Group[] groups = groupStats.GetGroups();  // Select a random group between the army, peasants, landowners and guerrilas
 
-            if(groups[number].Status == GroupStatus.Assassination)
-            { 
+            if (groups[number].Status == GroupStatus.Assassination)
+            {
                 return true;
             }
 
@@ -130,6 +130,29 @@ namespace Dictator.Core
                 }
             }
 
+            return false;
+        }
+
+        public bool HasPlayerPurchasedHelicopter()
+        {
+            return governmentStats.HasHelicopter;
+        }
+
+        public bool AttemptEscapeByHelicopter()
+        {
+            Random random = new Random();
+            int number = random.Next(0, 3);
+
+            // The player has a 1 in 4 chances that the helicopter won't start
+            if (number != 0)
+            {
+                // TODO: escape successfully
+
+                return true;
+            }
+
+            // TODO: helicopter won't start
+            
             return false;
         }
 
