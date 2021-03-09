@@ -15,5 +15,6 @@ namespace Dictator.Core
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public void End();
+        bool TryTriggerRevoltGroup();
     }
 }

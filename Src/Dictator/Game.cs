@@ -68,8 +68,7 @@ namespace Dictator.ConsoleInterface
                     }
                 }
 
-                // TODO: if(engine.Revolution())
-                if(false)
+                if(TryTriggerRevolution())
                 {
                     userInterface.DisplayEndScreen();
                     break;
@@ -93,6 +92,18 @@ namespace Dictator.ConsoleInterface
 
                 // TODO: add check for result
             }
+        }
+
+        public bool TryTriggerRevolution()
+        {
+            if(engine.TryTriggerRevoltGroup())
+            {
+                // TODO: perform the rest of the actions in the revolution mode
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

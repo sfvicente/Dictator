@@ -115,6 +115,24 @@ namespace Dictator.Core
             return false;
         }
 
+        public bool TryTriggerRevoltGroup()
+        {
+            Random random = new Random();
+
+            for (int guess = 0; guess < 3; guess++)     // Perform 3 tries to guess the revolt group
+            {
+                int number = random.Next(0, 3);
+                Group[] groups = groupStats.GetGroups();
+
+                if (groups[number].Status == GroupStatus.Revolution)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void End()
         {
             throw new NotImplementedException();
