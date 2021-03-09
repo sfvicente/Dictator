@@ -7,17 +7,6 @@ namespace Dictator.Core
 {
     public class Engine : IEngine
     {
-        //public int TreasuryBalance { get; set; }
-        //public int MonthlyCosts { get; set; }
-        //public int SwissBankAccountBalance { get; set; }
-
-        //public int PlayerStrength { get; set; }
-        //public bool IsPlayerAlive { get; set; }
-        //public int Month { get; set; }
-        //public int PlotBonus { get; set; }
-        //public int RevolutionStrength { get; set; }
-        //public int Minimal { get; set; }
-
         private IAccount account;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
@@ -38,15 +27,15 @@ namespace Dictator.Core
 
         public void Initialise()
         {
-            this.account.Initialise();
-            this.governmentStats.Initialise();
-            this.groupStats.Initialise();
+            account.Initialise();
+            governmentStats.Initialise();
+            groupStats.Initialise();
             newsStats.Initialise();
         }
 
         public void AdvanceMonth()
         {
-            this.governmentStats.Month++;
+            governmentStats.Month++;
         }
 
         public bool IsGovernmentBankrupt()
@@ -71,7 +60,6 @@ namespace Dictator.Core
         public bool ShouldNewsHappen()
         {
             Random random = new Random();
-
             int number = random.Next(0, 2);
 
             if (number == 0)
@@ -103,7 +91,6 @@ namespace Dictator.Core
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();
-
             int number = random.Next(0, 3);
             Group[] groups = groupStats.GetGroups();  // Select a random group between the army, peasants, landowners and guerrilas
 
