@@ -132,13 +132,11 @@ namespace Dictator.Core
             // The player has a 1 in 4 chances that the helicopter won't start
             if (number != 0)
             {
-                // TODO: escape successfully
-
+                // The escape by helicopter is successfull
                 return true;
             }
 
-            // TODO: helicopter won't start
-            
+            // The escape by helicopoter fails as the helicopter won't start
             return false;
         }
 

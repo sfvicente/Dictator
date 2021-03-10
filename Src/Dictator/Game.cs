@@ -107,16 +107,20 @@ namespace Dictator.ConsoleInterface
                 {
                     if(engine.AttemptEscapeByHelicopter())
                     {
-                        // TODO: display escape by helicopter screen
+                        userInterface.DisplayEscapeByHelicopterScreen();
+                    }
+                    else
+                    {
+                        userInterface.DisplayEscapeByHelicopterFailScreen();
+                        return false;
                     }
                 }
 
-                // TODO: display helicopter won't start screen
 
-                return true;
+                
             }
 
-            return false;
+            return true;
         }
     }
 }
