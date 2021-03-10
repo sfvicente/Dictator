@@ -22,7 +22,6 @@ namespace Dictator.Core
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
             this.newsStats = newsStats;
-            Initialise();
         }
 
         public void Initialise()
