@@ -112,6 +112,7 @@ namespace Dictator.ConsoleInterface
                     else
                     {
                         userInterface.DisplayEscapeByHelicopterFailScreen();
+                        userInterface.DisplayEscapeToLeftotoScreen();
                         return false;
                     }
                 }

@@ -17,6 +17,7 @@
         void DisplayAssassinationAttempt();
         void DisplayEscapeByHelicopterScreen();
         void DisplayEscapeByHelicopterFailScreen();
+        void DisplayEscapeToLeftotoScreen();
         void DisplayEndScreen();
     }
 }

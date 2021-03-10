@@ -20,6 +20,7 @@ namespace Dictator.ConsoleInterface
         private readonly IDecisionMainDialog decisionMainDialog;
         private readonly IEscapeByHelicopterScreen escapeByHelicopterScreen;
         private readonly IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen;
+        private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
         private readonly IEndScreen endScreen;
 
         public UserInterface(
@@ -37,6 +38,7 @@ namespace Dictator.ConsoleInterface
             IDecisionMainDialog decisionMainDialog,
             IEscapeByHelicopterScreen escapeByHelicopterScreen,
             IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen,
+            IEscapeToLeftotoScreen escapeToLeftotoScreen,
             IEndScreen endScreen)
         {
             this.introScreen = introScreen;
@@ -53,6 +55,7 @@ namespace Dictator.ConsoleInterface
             this.decisionMainDialog = decisionMainDialog;
             this.escapeByHelicopterScreen = escapeByHelicopterScreen;
             this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
+            this.escapeToLeftotoScreen = escapeToLeftotoScreen;
             this.endScreen = endScreen;
         }
 
@@ -129,6 +132,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayEscapeByHelicopterFailScreen()
         {
             escapeByHelicopterFailScreen.Show();
+        }
+
+        public void DisplayEscapeToLeftotoScreen()
+        {
+            escapeToLeftotoScreen.Show();
         }
 
         public void DisplayEndScreen()
