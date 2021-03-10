@@ -6,6 +6,11 @@ namespace Dictator.Common.Extensions
 {
     public static class ConsoleEx
     {
+        private const int ScreenRows = 24;
+        private const int ScreenCols = 32;
+        private const int ScreenColPadding = 24;
+
+
         public static void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
@@ -30,6 +35,11 @@ namespace Dictator.Common.Extensions
             Console.ForegroundColor = previousForegroundColor;
         }
 
+        public static void WriteEmptyLineAt(int top)
+        {
+            WriteAt(ScreenColPadding, top, "                                ");
+        }
+
         public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
@@ -38,7 +48,7 @@ namespace Dictator.Common.Extensions
             Console.BackgroundColor = backgroundColor;
             ConsoleEx.WriteAt(24, top, "                                ");
             Console.BackgroundColor = previousBackgroundColor;
-        }
+        }   
 
         public static void WriteAt(int left, int top, string text)
         {
@@ -60,7 +70,12 @@ namespace Dictator.Common.Extensions
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
             Console.BackgroundColor = backgroundColor;
-            Console.Clear();
+            
+            for(int row = 0; row < ScreenRows; row++)
+            {
+                WriteEmptyLineAt(row);
+            }
+
             Console.BackgroundColor = previousBackgroundColor;
         }
 
@@ -68,7 +83,11 @@ namespace Dictator.Common.Extensions
         {
             Console.BackgroundColor = backgroundColor;
             Console.ForegroundColor = foregroundColor;
-            Console.Clear();
+
+            for (int row = 0; row < ScreenRows; row++)
+            {
+                WriteEmptyLineAt(row);
+            }
         }
     }
 }
