@@ -29,14 +29,14 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(24, 1, "################################");
             ConsoleEx.WriteAt(24, 3, "      SECRET POLICE REPORT      ");
 
-            ConsoleEx.WriteAt(24, 0, $"MONTH {this.governmentStats.Month}                       ");
+            ConsoleEx.WriteAt(24, 0, $"MONTH {governmentStats.Month}                       ");
             ConsoleEx.WriteAt(24, 3, "         POLICE  REPORT        ");
             ConsoleEx.WriteAt(24, 6, " POPULARITY          STRENGTHS ");
 
             this.DrawGroups();
 
-            ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {this.governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {this.governmentStats.MonthlyRevolutionStrength} ");
+            ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
+            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
 
             pressAnyKeyControl.Show();
 
@@ -45,7 +45,7 @@ namespace Dictator.ConsoleInterface
 
         public void DrawGroups()
         {
-            Group[] groups = this.groupStats.GetGroups();
+            Group[] groups = groupStats.GetGroups();
 
             for(int i = 0; i < groups.Length; i++)
             {
