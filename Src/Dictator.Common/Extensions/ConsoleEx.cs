@@ -48,7 +48,7 @@ namespace Dictator.Common.Extensions
             Console.BackgroundColor = backgroundColor;
             ConsoleEx.WriteAt(24, top, "                                ");
             Console.BackgroundColor = previousBackgroundColor;
-        }   
+        }
 
         public static void WriteAt(int left, int top, string text)
         {
@@ -66,16 +66,19 @@ namespace Dictator.Common.Extensions
             Console.Write(text);
         }
 
+        public static void Clear()
+        {
+            for (int row = 0; row < ScreenRows; row++)
+            {
+                WriteEmptyLineAt(row);
+            }
+        }
+
         public static void Clear(ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
             Console.BackgroundColor = backgroundColor;
-            
-            for(int row = 0; row < ScreenRows; row++)
-            {
-                WriteEmptyLineAt(row);
-            }
-
+            Clear();
             Console.BackgroundColor = previousBackgroundColor;
         }
 
@@ -83,11 +86,7 @@ namespace Dictator.Common.Extensions
         {
             Console.BackgroundColor = backgroundColor;
             Console.ForegroundColor = foregroundColor;
-
-            for (int row = 0; row < ScreenRows; row++)
-            {
-                WriteEmptyLineAt(row);
-            }
+            Clear();
         }
     }
 }
