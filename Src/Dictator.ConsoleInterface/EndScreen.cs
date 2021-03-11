@@ -32,6 +32,7 @@ namespace Dictator.ConsoleInterface
             // TODO: save history if it is a new highscore
 
             pressAnyKeyControl.Show();
+            Console.ReadKey(true);
         }
     }
 }

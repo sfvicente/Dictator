@@ -19,8 +19,8 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(24, 10, "   You have to get through the  ");
             ConsoleEx.WriteAt(24, 12, "      MOUNTAINS to LEFTOTO      ");
-
             pressAnyKeyControl.Show();
+            Console.ReadKey(true);
         }
     }
 }
