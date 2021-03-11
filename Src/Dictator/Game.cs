@@ -71,8 +71,28 @@ namespace Dictator.ConsoleInterface
 
                 if(TryTriggerRevolution())
                 {
-                    userInterface.DisplayEndScreen();
-                    break;
+                    if(AttemptsEscape())
+                    {
+                        // In order to escape by helicopter, the player would have to previously purchased it
+                        if (engine.HasPlayerPurchasedHelicopter())
+                        {
+                            if (engine.AttemptEscapeByHelicopter())
+                            {
+                                userInterface.DisplayEscapeByHelicopterScreen();
+                            }
+                            else
+                            {
+                                userInterface.DisplayEscapeByHelicopterFailScreen();
+                                userInterface.DisplayEscapeToLeftotoScreen();
+                                //TODO: add guerrilas interaction
+                            }
+                        }
+
+                        userInterface.DisplayEndScreen();
+                        break;
+                    }
+
+                    // TODO: process the revolution
                 }
             }
         }
@@ -102,26 +122,25 @@ namespace Dictator.ConsoleInterface
                 // TODO: perform the rest of the actions in the revolution mode
 
 
-                // In order to escape by helicopter, the player had to previously purchased it
-                if (engine.HasPlayerPurchasedHelicopter())
-                {
-                    if(engine.AttemptEscapeByHelicopter())
-                    {
-                        userInterface.DisplayEscapeByHelicopterScreen();
-                    }
-                    else
-                    {
-                        userInterface.DisplayEscapeByHelicopterFailScreen();
-                        userInterface.DisplayEscapeToLeftotoScreen();
-                        return false;
-                    }
-                }
+
 
 
                 
             }
 
-            return true;
+            return false;
+        }
+
+        public bool AttemptsEscape()
+        {
+            DialogResult dialogResult = userInterface.DisplayEscapeAttemptDialog();
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class EscapeAttemptScreen : IEscapeAttemptScreen
+    public class EscapeAttemptDialog : IEscapeAttemptDialog
     {
-        public void Show()
+        public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(24, 12, "        ESCAPE ATTEMPT ?        ");
@@ -16,8 +16,10 @@ namespace Dictator.ConsoleInterface
 
             if(keyPressed == ConsoleKey.Y)
             {
-                // TODO: process response
+                return DialogResult.Yes;
             }
+
+            return DialogResult.No;
         }
     }
 }

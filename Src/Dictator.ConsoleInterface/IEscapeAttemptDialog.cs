@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IEscapeAttemptScreen
+    public interface IEscapeAttemptDialog
     {
-        void Show();
+        DialogResult Show();
     }
 }
