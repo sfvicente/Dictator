@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IAdviceRequestScreen
+    public interface IAdviceRequestDialog
     {
-        void Show();
+        DialogResult Show();
     }
 }

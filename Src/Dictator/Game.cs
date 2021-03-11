@@ -42,7 +42,11 @@ namespace Dictator.ConsoleInterface
                 }
 
                 userInterface.DisplayAudienceScreen();
-                userInterface.DisplayAdviceScreen();
+                if(AcceptsAdvice())
+                {
+                    // TODO: DisplayAdviceScreen();
+                }
+                
                 // TODO: plot
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
@@ -95,6 +99,18 @@ namespace Dictator.ConsoleInterface
                     // TODO: process the revolution
                 }
             }
+        }
+
+        public bool AcceptsAdvice()
+        {
+            DialogResult dialogResult = userInterface.DisplayAdviceRequestDialog();
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void ProcessPoliceReport()

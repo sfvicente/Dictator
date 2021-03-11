@@ -9,7 +9,7 @@
         public bool DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
         public void DisplayAudienceScreen();
-        void DisplayAdviceScreen();
+        DialogResult DisplayAdviceRequestDialog();
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
         void DisplayMonthScreen();

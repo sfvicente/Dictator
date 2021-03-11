@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class AdviceRequestScreen : IAdviceRequestScreen
+    public class AdviceRequestDialog : IAdviceRequestDialog
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public AdviceRequestScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public AdviceRequestDialog(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show()
+        public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Green);
             
@@ -32,8 +32,10 @@ namespace Dictator.ConsoleInterface
 
             if(keyPressed == ConsoleKey.Y)
             {
-
+                return DialogResult.Yes;
             }
+
+            return DialogResult.No;
         }
     }
 }
