@@ -22,32 +22,30 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            Console.Clear();
-
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            ConsoleEx.WriteAt(24, 1, "################################");
-            ConsoleEx.WriteAt(24, 3, "      SECRET POLICE REPORT      ");
-
-            ConsoleEx.WriteAt(24, 0, $"MONTH {governmentStats.Month}                       ");
-            ConsoleEx.WriteAt(24, 3, "         POLICE  REPORT        ");
-            ConsoleEx.WriteAt(24, 6, " POPULARITY          STRENGTHS ");
-
-            this.DrawGroups();
-
-            ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
-
+            ConsoleEx.Clear();
+            DisplayHeaders();
+            DisplayGroups();
+            DisplayGovernmentStats();
             pressAnyKeyControl.Show();
-
             Console.ReadKey();
         }
 
-        public void DrawGroups()
+        private void DisplayHeaders()
+        {
+            ConsoleEx.WriteAt(24, 1, "################################");
+            ConsoleEx.WriteAt(24, 3, "      SECRET POLICE REPORT      ");
+            ConsoleEx.WriteAt(24, 0, $"MONTH {governmentStats.Month}                       ");
+            ConsoleEx.WriteAt(24, 3, "         POLICE  REPORT        ");
+            ConsoleEx.WriteAt(24, 6, " POPULARITY          STRENGTHS ");
+        }
+
+        private void DisplayGroups()
         {
             Group[] groups = groupStats.GetGroups();
 
-            for(int i = 0; i < groups.Length; i++)
+            for (int i = 0; i < groups.Length; i++)
             {
                 int currentPopularity = groups[i].Popularity;
                 int popularityStartIndex = 24 + 10 - currentPopularity;
@@ -87,6 +85,12 @@ namespace Dictator.ConsoleInterface
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.White;
             }
+        }
+
+        private void DisplayGovernmentStats()
+        {
+            ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
+            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
         }
     }
 }
