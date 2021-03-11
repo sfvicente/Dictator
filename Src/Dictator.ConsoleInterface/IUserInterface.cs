@@ -10,6 +10,7 @@
         public void DisplayPoliceReportScreen();
         public void DisplayAudienceScreen();
         DialogResult DisplayAdviceRequestDialog();
+        void DisplayAdviceScreen();
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
         void DisplayMonthScreen();

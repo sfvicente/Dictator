@@ -102,6 +102,11 @@ namespace Dictator.ConsoleInterface
             return adviceRequestDialog.Show();
         }
 
+        public void DisplayAdviceScreen()
+        {
+            throw new NotImplementedException();
+        }
+
         public void DisplayBankuptcyScreen()
         {
             bankruptcyScreen.Show();

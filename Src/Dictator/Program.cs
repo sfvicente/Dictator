@@ -29,6 +29,7 @@ namespace Dictator
             .AddScoped<IPoliceReportScreen, PoliceReportScreen>()
             .AddScoped<IAudienceScreen, AudienceScreen>()
             .AddScoped<IAdviceRequestDialog, AdviceRequestDialog>()
+            .AddScoped<IAdviceScreen, AdviceScreen>()
             .AddScoped<IBankruptcyScreen, BankruptcyScreen>()
             .AddScoped<INewsflashScreen, NewsflashScreen>()
             .AddScoped<IMonthScreen, MonthScreen>()
