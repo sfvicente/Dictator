@@ -2,6 +2,7 @@
 {
     public interface IUserInterface
     {
+        void Initialise();
         public void DisplayIntroScreen();
         public void DisplayWelcomeScreen();
         public void DisplayTitleScreen();

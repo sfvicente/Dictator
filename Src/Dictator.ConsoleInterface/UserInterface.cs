@@ -62,6 +62,11 @@ namespace Dictator.ConsoleInterface
             this.endScreen = endScreen;
         }
 
+        public void Initialise()
+        {
+            Console.CursorVisible = false;
+        }
+
         public void DisplayIntroScreen()
         {
             introScreen.Show();

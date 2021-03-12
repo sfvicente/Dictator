@@ -7,8 +7,6 @@ namespace Dictator.ConsoleInterface
     {
         public void Draw()
         {
-            Console.CursorVisible = false;
-
             ConsoleEx.Clear();
             this.DrawBackground();
             this.DrawContent();
