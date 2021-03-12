@@ -31,12 +31,12 @@ namespace Dictator.ConsoleInterface
         public bool Show()
         {
             Console.Clear();
-            ConsoleEx.WriteAt(24, 1, "################################");
-            ConsoleEx.WriteAt(24, 3, "     SECRET POLICE REPORT ?     ");
+            ConsoleEx.WriteAt(0, 1, "################################");
+            ConsoleEx.WriteAt(0, 3, "     SECRET POLICE REPORT ?     ");
 
             if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
-                ConsoleEx.WriteAt(24, 12, "         ( costs $1000 )        ");
+                ConsoleEx.WriteAt(0, 12, "         ( costs $1000 )        ");
                 pressAnyKeyWithYesControl.Show();
 
                 if (Console.ReadKey(true).Key == ConsoleKey.Y)
@@ -47,23 +47,23 @@ namespace Dictator.ConsoleInterface
             }
             else
             {
-                ConsoleEx.WriteAt(24, 10, "          NOT AVAILABLE         ");
+                ConsoleEx.WriteAt(0, 10, "          NOT AVAILABLE         ");
 
                 int screenRow = 12;
 
                 if (!HasEnoughPopularityWithPolice())
                 {
-                    ConsoleEx.WriteAt(24, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
+                    ConsoleEx.WriteAt(0, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
                 }
 
                 if (!HasEnoughPoliceStrength())
                 {
-                    ConsoleEx.WriteAt(24, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
+                    ConsoleEx.WriteAt(0, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
 
                 if (account.TreasuryBalance < 1)
                 {
-                    ConsoleEx.WriteAt(24, screenRow++, "    You can't AFFORD a REPORT    ");
+                    ConsoleEx.WriteAt(0, screenRow++, "    You can't AFFORD a REPORT    ");
                 }
 
                 pressAnyKeyControl.Show();

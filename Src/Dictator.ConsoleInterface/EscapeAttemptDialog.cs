@@ -10,7 +10,7 @@ namespace Dictator.ConsoleInterface
         public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(24, 12, "        ESCAPE ATTEMPT ?        ");
+            ConsoleEx.WriteAt(0, 12, "        ESCAPE ATTEMPT ?        ");
             
             ConsoleKey keyPressed = Console.ReadKey(true).Key;
 

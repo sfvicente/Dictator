@@ -18,8 +18,8 @@ namespace Dictator.ConsoleInterface
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Yellow);
-            ConsoleEx.WriteAt(32, 10, "MONTH ", ConsoleColor.Cyan, ConsoleColor.Black);
-            ConsoleEx.WriteAt(38, 10, $"{governmentStats.Month}", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteAt(8, 10, "MONTH ", ConsoleColor.Cyan, ConsoleColor.Black);
+            ConsoleEx.WriteAt(14, 10, $"{governmentStats.Month}", ConsoleColor.White, ConsoleColor.Black);
             Console.ReadKey(true);
         }
     }

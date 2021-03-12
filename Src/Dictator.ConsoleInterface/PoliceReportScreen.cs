@@ -34,11 +34,11 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayHeaders()
         {
-            ConsoleEx.WriteAt(24, 1, "################################");
-            ConsoleEx.WriteAt(24, 3, "      SECRET POLICE REPORT      ");
-            ConsoleEx.WriteAt(24, 0, $"MONTH {governmentStats.Month}                       ");
-            ConsoleEx.WriteAt(24, 3, "         POLICE  REPORT        ");
-            ConsoleEx.WriteAt(24, 6, " POPULARITY          STRENGTHS ");
+            ConsoleEx.WriteAt(0, 1, "################################");
+            ConsoleEx.WriteAt(0, 3, "      SECRET POLICE REPORT      ");
+            ConsoleEx.WriteAt(0, 0, $"MONTH {governmentStats.Month}                       ");
+            ConsoleEx.WriteAt(0, 3, "         POLICE  REPORT        ");
+            ConsoleEx.WriteAt(0, 6, " POPULARITY          STRENGTHS ");
         }
 
         private void DisplayGroups()
@@ -48,7 +48,7 @@ namespace Dictator.ConsoleInterface
             for (int i = 0; i < groups.Length; i++)
             {
                 int currentPopularity = groups[i].Popularity;
-                int popularityStartIndex = 24 + 10 - currentPopularity;
+                int popularityStartIndex = 10 - currentPopularity;
 
                 Console.SetCursorPosition(popularityStartIndex, 8 + i);
 
@@ -67,7 +67,7 @@ namespace Dictator.ConsoleInterface
 
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.ForegroundColor = ConsoleColor.Black;
-                ConsoleEx.WriteAt(35, 8 + i, $"{groups[i].DisplayName}");
+                ConsoleEx.WriteAt(11, 8 + i, $"{groups[i].DisplayName}");
 
                 // TODO: Print group status in colors
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -89,8 +89,8 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayGovernmentStats()
         {
-            ConsoleEx.WriteAt(24, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(24, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
+            ConsoleEx.WriteAt(0, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
+            ConsoleEx.WriteAt(0, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
         }
     }
 }

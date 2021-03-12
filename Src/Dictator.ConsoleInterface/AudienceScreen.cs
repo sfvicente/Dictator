@@ -22,7 +22,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(3, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(4, ConsoleColor.Green);
-            ConsoleEx.WriteAt(24 + 11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteAt(11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.WriteEmptyLineAt(5, ConsoleColor.Green);
          
             for(int row = 6; row < 22; row++)
@@ -30,9 +30,9 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
             }
 
-            ConsoleEx.WriteAt(24, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(24, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(24, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(0, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(0, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(0, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
 
             pressAnyKeyControl.Show();
 

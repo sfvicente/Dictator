@@ -17,7 +17,7 @@ namespace Dictator.ConsoleInterface
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(24, 12, "  The HELICOPTER won't START !  ");
+            ConsoleEx.WriteAt(0, 12, "  The HELICOPTER won't START !  ");
             pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }

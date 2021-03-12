@@ -21,11 +21,11 @@ namespace Dictator.ConsoleInterface
         {
             Console.Clear();
 
-            ConsoleEx.WriteAt(24, 5, "   The TREASURY is BANKRUPT    ");
-            ConsoleEx.WriteAt(24, 9, "Your POPULARITY with the ARMY &");
-            ConsoleEx.WriteAt(24, 11, " the SECRET POLICE will DROP ! ");
-            ConsoleEx.WriteAt(24, 13, "    POLICE STRENGTH will drop  ");
-            ConsoleEx.WriteAt(24, 15, "and YOUR own STRENGTH will DROP");
+            ConsoleEx.WriteAt(0, 5, "   The TREASURY is BANKRUPT    ");
+            ConsoleEx.WriteAt(0, 9, "Your POPULARITY with the ARMY &");
+            ConsoleEx.WriteAt(0, 11, " the SECRET POLICE will DROP ! ");
+            ConsoleEx.WriteAt(0, 13, "    POLICE STRENGTH will drop  ");
+            ConsoleEx.WriteAt(0, 15, "and YOUR own STRENGTH will DROP");
 
             groupStats.DecreasePopularity(GroupType.Army);
             groupStats.DecreasePopularity(GroupType.SecretPolice);

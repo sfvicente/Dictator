@@ -23,9 +23,9 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            ConsoleEx.WriteAt(24, 3, "    Your RATING as PRESIDENT    ");
-            ConsoleEx.WriteAt(24, 5, " Total POPULARITY         - {totalPopularity}  ");
-            ConsoleEx.WriteAt(24, 7, " MONTHS in OFFICE ({month}x3)");
+            ConsoleEx.WriteAt(0, 3, "    Your RATING as PRESIDENT    ");
+            ConsoleEx.WriteAt(0, 5, " Total POPULARITY         - {totalPopularity}  ");
+            ConsoleEx.WriteAt(0, 7, " MONTHS in OFFICE ({month}x3)");
 
             // TODO: count alive score
 
