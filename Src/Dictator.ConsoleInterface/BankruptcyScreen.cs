@@ -19,7 +19,7 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            Console.Clear();
+            ConsoleEx.Clear();
 
             ConsoleEx.WriteAt(0, 5, "   The TREASURY is BANKRUPT    ");
             ConsoleEx.WriteAt(0, 9, "Your POPULARITY with the ARMY &");

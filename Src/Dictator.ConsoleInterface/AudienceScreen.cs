@@ -16,8 +16,7 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            Console.Clear();
-
+            ConsoleEx.Clear();
             ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(3, ConsoleColor.Green);

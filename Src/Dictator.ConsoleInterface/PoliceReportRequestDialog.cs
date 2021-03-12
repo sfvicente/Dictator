@@ -30,7 +30,7 @@ namespace Dictator.ConsoleInterface
 
         public bool Show()
         {
-            Console.Clear();
+            ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
             ConsoleEx.WriteAt(0, 1, "################################");
             ConsoleEx.WriteAt(0, 3, "     SECRET POLICE REPORT ?     ");
 

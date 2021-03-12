@@ -9,7 +9,7 @@ namespace Dictator.ConsoleInterface
         {
             Console.CursorVisible = false;
 
-            Console.Clear();
+            ConsoleEx.Clear();
             this.DrawBackground();
             this.DrawContent();
             Console.ReadKey(true);
