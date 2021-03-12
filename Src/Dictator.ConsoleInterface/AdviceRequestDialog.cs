@@ -7,11 +7,11 @@ namespace Dictator.ConsoleInterface
 {
     public class AdviceRequestDialog : IAdviceRequestDialog
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
-        public AdviceRequestDialog(IPressAnyKeyControl pressAnyKeyControl)
+        public AdviceRequestDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
         public DialogResult Show()
@@ -26,7 +26,7 @@ namespace Dictator.ConsoleInterface
 
             }
 
-            pressAnyKeyControl.Show();
+            pressAnyKeyWithYesControl.Show();
 
             ConsoleKey keyPressed = Console.ReadKey(true).Key;
 

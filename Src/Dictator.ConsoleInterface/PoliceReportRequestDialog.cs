@@ -9,13 +9,20 @@ namespace Dictator.ConsoleInterface
     public class PoliceReportRequestDialog : IPoliceReportRequestDialog
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
         private readonly IAccount account;
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
-        public PoliceReportRequestDialog(IPressAnyKeyControl pressAnyKeyControl, IAccount account, IGroupStats groupStats, IGovernmentStats governmentStats)
+        public PoliceReportRequestDialog(
+            IPressAnyKeyControl pressAnyKeyControl,
+            IPressAnyKeyWithYesControl pressAnyKeyWithYesControl,
+            IAccount account,
+            IGroupStats groupStats,
+            IGovernmentStats governmentStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
+            this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
             this.account = account;
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
@@ -30,7 +37,7 @@ namespace Dictator.ConsoleInterface
             if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(24, 12, "         ( costs $1000 )        ");
-                pressAnyKeyControl.Show();
+                pressAnyKeyWithYesControl.Show();
 
                 if (Console.ReadKey(true).Key == ConsoleKey.Y)
                 {

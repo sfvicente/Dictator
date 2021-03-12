@@ -47,6 +47,7 @@ namespace Dictator
             .AddScoped<IWarScreen, WarScreen>()
             .AddScoped<IEndScreen, EndScreen>()
             .AddScoped<IPressAnyKeyControl, PressAnyKeyControl>()
+            .AddScoped<IPressAnyKeyWithYesControl, PressAnyKeyWithYesControl>()
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
