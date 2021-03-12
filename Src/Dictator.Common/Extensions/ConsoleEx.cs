@@ -74,6 +74,17 @@ namespace Dictator.Common.Extensions
             }
         }
 
+        public static void Clear(char character)
+        {
+            for (int row = 0; row < ScreenRows; row++)
+            {
+                for(int col = 0; col < ScreenCols; col++)
+                {
+                    WriteAt(ScreenColPadding + col, row, character.ToString());
+                }
+            }
+        }
+
         public static void Clear(ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
@@ -87,6 +98,13 @@ namespace Dictator.Common.Extensions
             Console.BackgroundColor = backgroundColor;
             Console.ForegroundColor = foregroundColor;
             Clear();
+        }
+
+        public static void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+        {
+            Console.BackgroundColor = backgroundColor;
+            Console.ForegroundColor = foregroundColor;
+            Clear(character);
         }
     }
 }
