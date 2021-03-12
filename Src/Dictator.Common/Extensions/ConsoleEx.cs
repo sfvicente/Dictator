@@ -50,6 +50,11 @@ namespace Dictator.Common.Extensions
             Console.ForegroundColor = previousForegroundColor;
         }
 
+        public static void SetCursorPosition(int left, int top)
+        {
+            Console.SetCursorPosition(ScreenColPadding + left, top);
+        }
+
         public static void WriteAt(int left, int top, string text)
         {
             // Validate parameters
@@ -78,7 +83,7 @@ namespace Dictator.Common.Extensions
         {
             for (int row = 0; row < ScreenRows; row++)
             {
-                for(int col = 0; col < ScreenCols; col++)
+                for (int col = 0; col < ScreenCols; col++)
                 {
                     WriteAt(col, row, character.ToString());
                 }

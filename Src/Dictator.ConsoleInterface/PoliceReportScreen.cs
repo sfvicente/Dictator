@@ -50,7 +50,7 @@ namespace Dictator.ConsoleInterface
                 int currentPopularity = groups[i].Popularity;
                 int popularityStartIndex = 10 - currentPopularity;
 
-                Console.SetCursorPosition(popularityStartIndex, 8 + i);
+                ConsoleEx.SetCursorPosition(popularityStartIndex, 8 + i);
 
                 Console.BackgroundColor = ConsoleColor.Green;
                 Console.ForegroundColor = ConsoleColor.White;
