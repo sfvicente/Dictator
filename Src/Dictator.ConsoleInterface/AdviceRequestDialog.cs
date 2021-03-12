@@ -21,9 +21,8 @@ namespace Dictator.ConsoleInterface
             for(int row = 2; row < 21; row++)
             {
                 ConsoleEx.WriteAt(24 + 11, row, "?", ConsoleColor.Black, ConsoleColor.White);
-                ConsoleEx.WriteAt(24 + 12, row, " ADVICE ", ConsoleColor.White, ConsoleColor.Black);
+                ConsoleEx.WriteAt(24 + 12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
                 ConsoleEx.WriteAt(24 + 20, row, "?", ConsoleColor.Black, ConsoleColor.White);
-
             }
 
             pressAnyKeyWithYesControl.Show();
