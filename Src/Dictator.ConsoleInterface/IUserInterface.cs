@@ -10,6 +10,7 @@
         public bool DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
         public void DisplayAudienceScreen();
+        DialogResult DisplayAudienceDecisionDialog();
         DialogResult DisplayAdviceRequestDialog();
         void DisplayAdviceScreen();
         public void DisplayBankuptcyScreen();

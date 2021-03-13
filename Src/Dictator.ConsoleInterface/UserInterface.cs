@@ -13,6 +13,7 @@ namespace Dictator.ConsoleInterface
         private IPoliceReportRequestDialog policeReportRequestScreen;
         private IPoliceReportScreen policeReportScreen;
         private IAudienceScreen audienceScreen;
+        private readonly IAudienceDecisionDialog audienceDecisionDialog;
         private readonly IAdviceRequestDialog adviceRequestDialog;
         private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly INewsflashScreen newsflashScreen;
@@ -32,6 +33,7 @@ namespace Dictator.ConsoleInterface
             IPoliceReportRequestDialog policeReportRequestScreen,
             IPoliceReportScreen policeReportScreen,
             IAudienceScreen audienceScreen,
+            IAudienceDecisionDialog audienceDecisionDialog,
             IAdviceRequestDialog adviceRequestDialog,
             IBankruptcyScreen bankruptcyScreen,
             INewsflashScreen newsflashScreen,
@@ -50,6 +52,7 @@ namespace Dictator.ConsoleInterface
             this.policeReportRequestScreen = policeReportRequestScreen;
             this.policeReportScreen = policeReportScreen;
             this.audienceScreen = audienceScreen;
+            this.audienceDecisionDialog = audienceDecisionDialog;
             this.adviceRequestDialog = adviceRequestDialog;
             this.bankruptcyScreen = bankruptcyScreen;
             this.newsflashScreen = newsflashScreen;
@@ -100,6 +103,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayAudienceScreen()
         {
             audienceScreen.Show();
+        }
+
+        public DialogResult DisplayAudienceDecisionDialog()
+        {
+            return audienceDecisionDialog.Show();
         }
 
         public DialogResult DisplayAdviceRequestDialog()
