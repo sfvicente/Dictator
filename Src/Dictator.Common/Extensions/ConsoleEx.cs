@@ -25,7 +25,7 @@ namespace Dictator.Common.Extensions
 
         public static void WriteEmptyLineAt(int top)
         {
-            WriteAt(0, top, "                                ");
+            WriteAt(1, top, "                                ");
         }
 
         public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
@@ -34,7 +34,7 @@ namespace Dictator.Common.Extensions
             ConsoleColor previousForegroundColor = Console.ForegroundColor;
 
             Console.BackgroundColor = backgroundColor;
-            WriteAt(0, top, "                                ");
+            WriteAt(1, top, "                                ");
             Console.BackgroundColor = previousBackgroundColor;
         }
 
@@ -52,28 +52,20 @@ namespace Dictator.Common.Extensions
 
         public static void SetCursorPosition(int left, int top)
         {
-            Console.SetCursorPosition(ScreenColPadding + left, top);
+            Console.SetCursorPosition(ScreenColPadding + left - 1, top - 1);
         }
 
         public static void WriteAt(int left, int top, string text)
         {
             // Validate parameters
-
-            Console.SetCursorPosition(ScreenColPadding + left, top);
-            Console.Write(text);
-        }
-
-        public static void WriteLineAt(int left, int top, string text)
-        {
-            // Validate parameters
-
-            Console.SetCursorPosition(ScreenColPadding + left, top);
+            
+            SetCursorPosition(left, top);
             Console.Write(text);
         }
 
         public static void Clear()
         {
-            for (int row = 0; row < ScreenRows; row++)
+            for (int row = 1; row <= ScreenRows; row++)
             {
                 WriteEmptyLineAt(row);
             }
@@ -81,9 +73,9 @@ namespace Dictator.Common.Extensions
 
         public static void Clear(char character)
         {
-            for (int row = 0; row < ScreenRows; row++)
+            for (int row = 1; row <= ScreenRows; row++)
             {
-                for (int col = 0; col < ScreenCols; col++)
+                for (int col = 1; col <= ScreenCols; col++)
                 {
                     WriteAt(col, row, character.ToString());
                 }

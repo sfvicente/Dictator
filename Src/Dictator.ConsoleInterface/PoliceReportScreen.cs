@@ -34,11 +34,11 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayHeaders()
         {
-            ConsoleEx.WriteAt(0, 1, "################################");
-            ConsoleEx.WriteAt(0, 3, "      SECRET POLICE REPORT      ");
-            ConsoleEx.WriteAt(0, 0, $"MONTH {governmentStats.Month}                       ");
-            ConsoleEx.WriteAt(0, 3, "         POLICE  REPORT        ");
-            ConsoleEx.WriteAt(0, 6, " POPULARITY          STRENGTHS ");
+            ConsoleEx.WriteAt(1, 2, "################################");
+            ConsoleEx.WriteAt(1, 3, "      SECRET POLICE REPORT      ");
+            ConsoleEx.WriteAt(1, 1, $"MONTH {governmentStats.Month}                       ");
+            ConsoleEx.WriteAt(1, 3, "         POLICE  REPORT        ");
+            ConsoleEx.WriteAt(1, 6, " POPULARITY          STRENGTHS ");
         }
 
         private void DisplayGroups()
@@ -89,8 +89,8 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayGovernmentStats()
         {
-            ConsoleEx.WriteAt(0, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(0, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
+            ConsoleEx.WriteAt(1, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
+            ConsoleEx.WriteAt(1, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
         }
     }
 }

@@ -31,12 +31,12 @@ namespace Dictator.ConsoleInterface
         public bool Show()
         {
             ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
-            ConsoleEx.WriteAt(0, 1, "################################");
-            ConsoleEx.WriteAt(0, 3, "     SECRET POLICE REPORT ?     ");
+            ConsoleEx.WriteAt(1, 1, "################################");
+            ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
 
             if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
-                ConsoleEx.WriteAt(0, 12, "         ( costs $1000 )        ");
+                ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 pressAnyKeyWithYesControl.Show();
 
                 if (Console.ReadKey(true).Key == ConsoleKey.Y)
@@ -47,23 +47,23 @@ namespace Dictator.ConsoleInterface
             }
             else
             {
-                ConsoleEx.WriteAt(0, 10, "          NOT AVAILABLE         ");
+                ConsoleEx.WriteAt(1, 10, "          NOT AVAILABLE         ");
 
                 int screenRow = 12;
 
                 if (!HasEnoughPopularityWithPolice())
                 {
-                    ConsoleEx.WriteAt(0, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
                 }
 
                 if (!HasEnoughPoliceStrength())
                 {
-                    ConsoleEx.WriteAt(0, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
 
                 if (account.TreasuryBalance < 1)
                 {
-                    ConsoleEx.WriteAt(0, screenRow++, "    You can't AFFORD a REPORT    ");
+                    ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
                 }
 
                 pressAnyKeyControl.Show();

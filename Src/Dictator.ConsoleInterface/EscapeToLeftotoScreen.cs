@@ -17,8 +17,8 @@ namespace Dictator.ConsoleInterface
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(0, 10, "   You have to get through the  ");
-            ConsoleEx.WriteAt(0, 12, "      MOUNTAINS to LEFTOTO      ");
+            ConsoleEx.WriteAt(1, 10, "   You have to get through the  ");
+            ConsoleEx.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
             pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }

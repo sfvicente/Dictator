@@ -29,9 +29,9 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
             }
 
-            ConsoleEx.WriteAt(0, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(0, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(0, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
 
             pressAnyKeyControl.Show();
 

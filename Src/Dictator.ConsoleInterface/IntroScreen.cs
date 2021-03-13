@@ -18,9 +18,9 @@ namespace Dictator.ConsoleInterface
         {
             ConsoleEx.Clear(ConsoleColor.Black);
             ConsoleEx.WriteAt(2, 4, "DICTATOR", ConsoleColor.White, ConsoleColor.Black);
-            ConsoleEx.WriteAt(0, 8, "  Devised and Written by        ");
-            ConsoleEx.WriteAt(0, 10, "  Don PRIESTLEY                 ");
-            ConsoleEx.WriteAt(0, 14, "  Copyright  ");
+            ConsoleEx.WriteAt(1, 8, "  Devised and Written by        ");
+            ConsoleEx.WriteAt(1, 10, "  Don PRIESTLEY                 ");
+            ConsoleEx.WriteAt(1, 14, "  Copyright  ");
             ConsoleEx.Write("D", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.Write("k", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.Write("T", ConsoleColor.White, ConsoleColor.Black);
@@ -31,8 +31,8 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Write("C", ConsoleColor.Green, ConsoleColor.Black);
             ConsoleEx.Write("S", ConsoleColor.Cyan, ConsoleColor.Black);
             Console.Write("  1983");
-            ConsoleEx.WriteAt(0, 17, "  Rewritten in C# by ");
-            ConsoleEx.WriteAt(0, 18, "   Sergio Vicente 2021  ");
+            ConsoleEx.WriteAt(1, 17, "  Rewritten in C# by ");
+            ConsoleEx.WriteAt(1, 18, "   Sergio Vicente 2021  ");
 
             pressAnyKeyControl.Show();
             

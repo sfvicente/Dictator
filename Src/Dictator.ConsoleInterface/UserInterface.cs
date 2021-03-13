@@ -71,6 +71,8 @@ namespace Dictator.ConsoleInterface
         public void Initialise()
         {
             Console.CursorVisible = false;
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.Clear();
         }
 
         public void DisplayIntroScreen()

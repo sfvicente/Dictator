@@ -9,9 +9,9 @@ namespace Dictator.ConsoleInterface
     {
         public void Show()
         {
-            ConsoleEx.WriteAt(0, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(0, 23, "              KEY               ", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(0, 24, "                                ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 23, "              KEY               ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 24, "                                ", ConsoleColor.Blue, ConsoleColor.White);
         }
     }
 }
