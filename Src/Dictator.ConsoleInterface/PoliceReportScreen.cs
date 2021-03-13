@@ -34,11 +34,11 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayHeaders()
         {
-            ConsoleEx.WriteAt(1, 2, "################################");
-            ConsoleEx.WriteAt(1, 3, "      SECRET POLICE REPORT      ");
             ConsoleEx.WriteAt(1, 1, $"MONTH {governmentStats.Month}                       ");
-            ConsoleEx.WriteAt(1, 3, "         POLICE  REPORT        ");
-            ConsoleEx.WriteAt(1, 6, " POPULARITY          STRENGTHS ");
+            ConsoleEx.WriteAt(1, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
+            ConsoleEx.WriteAt(7, 4, "SECRET POLICE REPORT", ConsoleColor.White, ConsoleColor.Black);
+            ConsoleEx.WriteAt(27, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
         }
 
         private void DisplayGroups()
@@ -48,9 +48,9 @@ namespace Dictator.ConsoleInterface
             for (int i = 0; i < groups.Length; i++)
             {
                 int currentPopularity = groups[i].Popularity;
-                int popularityStartIndex = 10 - currentPopularity;
+                int popularityStartIndex = 11 - currentPopularity;
 
-                ConsoleEx.SetCursorPosition(popularityStartIndex, 8 + i);
+                ConsoleEx.SetCursorPosition(popularityStartIndex, 9 + i);
 
                 Console.BackgroundColor = ConsoleColor.Green;
                 Console.ForegroundColor = ConsoleColor.White;
@@ -61,13 +61,13 @@ namespace Dictator.ConsoleInterface
 
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write(i);
+                Console.Write(i + 1);
 
                 // TODO: Print group status in colors
 
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.ForegroundColor = ConsoleColor.Black;
-                ConsoleEx.WriteAt(11, 8 + i, $"{groups[i].DisplayName}");
+                ConsoleEx.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
 
                 // TODO: Print group status in colors
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -89,8 +89,8 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayGovernmentStats()
         {
-            ConsoleEx.WriteAt(1, 17, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(1, 19, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
+            ConsoleEx.WriteAt(1, 18, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
+            ConsoleEx.WriteAt(1, 20, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
         }
     }
 }
