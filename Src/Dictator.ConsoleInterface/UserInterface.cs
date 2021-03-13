@@ -153,6 +153,11 @@ namespace Dictator.ConsoleInterface
 
         }
 
+        public void DisplayAssassinationSuccededScreen()
+        {
+
+        }
+
         public DialogResult DisplayEscapeAttemptDialog()
         {
             return escapeAttemptDialog.Show();

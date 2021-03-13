@@ -19,6 +19,7 @@
         void DisplayMainDecisionDialog();
         void DisplayAssassinationAttempt();
         void DisplayAssassinationFailedScreen();
+        void DisplayAssassinationSuccededScreen();
         DialogResult DisplayEscapeAttemptDialog();
         void DisplayEscapeByHelicopterScreen();
         void DisplayEscapeByHelicopterFailScreen();

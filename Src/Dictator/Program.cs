@@ -38,6 +38,7 @@ namespace Dictator
             .AddScoped<IDecisionSubDialog, DecisionSubDialog>()
             .AddScoped<IAssassinationScreen, AssassinationScreen>()
             .AddScoped<IAssassinationFailedScreen, AssassinationFailedScreen>()
+            .AddScoped<IAssassinationSuccededScreen, AssassinationSuccededScreen>()
             .AddScoped<IRevolutionScreen, RevolutionScreen>()
             .AddScoped<IEscapeAttemptDialog, EscapeAttemptDialog>()
             .AddScoped<IEscapeByHelicopterScreen, EscapeByHelicopterScreen>()
