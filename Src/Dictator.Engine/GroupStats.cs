@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dictator.Core
@@ -7,6 +8,8 @@ namespace Dictator.Core
     public class GroupStats : IGroupStats
     {
         private Group[] groups;
+
+        public int TotalPopularity { get => groups.Sum(x => x.Popularity); }
 
         private GroupType assassinGroupType;
         public GroupType AssassinGroupType { get { return assassinGroupType; } }

@@ -23,13 +23,20 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            ConsoleEx.WriteAt(1, 3, "    Your RATING as PRESIDENT    ");
-            ConsoleEx.WriteAt(1, 5, " Total POPULARITY         - {totalPopularity}  ");
-            ConsoleEx.WriteAt(1, 7, " MONTHS in OFFICE ({month}x3)");
+            ConsoleEx.Clear(ConsoleColor.DarkYellow);
+            ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.Black, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {groupStats.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({governmentStats.Month}x3) - { governmentStats.Month * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
             // TODO: count alive score
+            ConsoleEx.WriteAt(1, 10, $" For staying alive - {0}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 12, $" For ");
+            ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING ", ConsoleColor.Green, ConsoleColor.White);
+            ConsoleEx.WriteAt(6, 13, $"($000,000 /00,000) - ", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
             // TODO: save history if it is a new highscore
+            ConsoleEx.WriteAt(1, 16, $" Your TOTAL is", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is 00 ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
             pressAnyKeyControl.Show();
             Console.ReadKey(true);

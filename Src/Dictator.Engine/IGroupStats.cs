@@ -8,6 +8,7 @@ namespace Dictator.Core
     {
         public int PolicePopularity { get; }
         public int PoliceStrength { get; }
+        public int TotalPopularity { get; }
         public GroupType AssassinGroupType { get; }
 
         void Initialise();
