@@ -18,6 +18,7 @@
         void DisplayMonthScreen();
         void DisplayMainDecisionDialog();
         void DisplayAssassinationAttempt();
+        void DisplayAssassinationFailedScreen();
         DialogResult DisplayEscapeAttemptDialog();
         void DisplayEscapeByHelicopterScreen();
         void DisplayEscapeByHelicopterFailScreen();
