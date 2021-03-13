@@ -10,13 +10,11 @@ namespace Dictator.ConsoleInterface
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IGroupStats groupStats;
-        private readonly IGovernmentStats governmentStats;
 
-        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupStats groupStats, IGovernmentStats governmentStats)
+        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupStats groupStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.groupStats = groupStats;
-            this.governmentStats = governmentStats;
         }
 
         public void Show()

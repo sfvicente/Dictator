@@ -95,6 +95,24 @@ namespace Dictator.Core
 
             if (groups[number].Status == GroupStatus.Assassination)
             {
+                groupStats.SetAssassinByGroupType(groups[number].Type);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsAssassinationSuccessful()
+        {
+            Random random = new Random();
+            int number = random.Next(0, 2);
+
+            if (groupStats.DoesMainPopulationHatePlayer() ||
+                DoesPoliceHatePlayer() ||
+                IsPoliceUnableToProtectPlayer() ||
+                number == 0) // Player is just unlucky
+
+            {
                 return true;
             }
 
@@ -160,6 +178,26 @@ namespace Dictator.Core
         public void End()
         {
             throw new NotImplementedException();
+        }
+
+        private bool DoesPoliceHatePlayer()
+        {
+            if (groupStats.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool IsPoliceUnableToProtectPlayer()
+        {
+            if (groupStats.GetGroupByType(GroupType.SecretPolice).Strength <= governmentStats.MonthlyMinimalPopularityAndStrength)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -51,8 +51,7 @@ namespace Dictator.ConsoleInterface
                 // TODO: plot
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
-                ProcessAssassinationAttempt();
-                if (false)
+                if (TryProcessAssassinationAttempt())
                 {
                     userInterface.DisplayEndScreen();
                     break;
@@ -122,14 +121,23 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void ProcessAssassinationAttempt()
+        public bool TryProcessAssassinationAttempt()
         {
             if(engine.ShouldAssassinationAttemptHappen())
             {
                 userInterface.DisplayAssassinationAttempt();
 
-                // TODO: add check for result
+                if(engine.IsAssassinationSuccessful())
+                {
+                    // TODO: display death screen, game must end
+                    return true;
+                }
+
+                // TODO: display attempt failed screen
             }
+
+            // Either no attempt happened or it failed, so the game should progress
+            return false;
         }
 
         public bool TryTriggerRevolution()

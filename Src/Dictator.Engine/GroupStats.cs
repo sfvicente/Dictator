@@ -77,5 +77,22 @@ namespace Dictator.Core
         {
             assassinGroupType = groupType;
         }
+
+        /// <summary>
+        ///     Determines if the main population of Ritimba, which is composed of the army, peasants and landowners, hates the player to the point
+        ///     of wanting to carry out an assassination.
+        /// </summary>
+        /// <returns></returns>
+        public bool DoesMainPopulationHatePlayer()
+        {
+            if (groups[(int)GroupType.Army].Status == GroupStatus.Assassination &&
+                groups[(int)GroupType.Peasants].Status == GroupStatus.Assassination &&
+                groups[(int)GroupType.Landowners].Status == GroupStatus.Assassination)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
