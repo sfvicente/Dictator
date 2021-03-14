@@ -47,6 +47,7 @@ namespace Dictator.ConsoleInterface
                 {
                     userInterface.DisplayAdviceScreen();
                 }
+                AskForAudienceDecision();
                 
                 // TODO: plot
 
@@ -111,6 +112,20 @@ namespace Dictator.ConsoleInterface
             }
 
             return false;
+        }
+
+        public void AskForAudienceDecision()
+        {
+            DialogResult dialogResult = userInterface.DisplayAudienceDecisionDialog();
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // TODO: ApplyDecisionEffects
+            }
+            else
+            {
+                // TODO: ApplyDecisionReverseEffects?
+            }
         }
 
         public void ProcessPoliceReport()
