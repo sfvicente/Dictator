@@ -45,7 +45,7 @@ namespace Dictator.ConsoleInterface
                 userInterface.DisplayAudienceScreen();
                 if(AcceptsAdvice())
                 {
-                    // TODO: DisplayAdviceScreen();
+                    userInterface.DisplayAdviceScreen();
                 }
                 
                 // TODO: plot

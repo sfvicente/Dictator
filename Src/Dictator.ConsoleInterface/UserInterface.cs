@@ -15,6 +15,7 @@ namespace Dictator.ConsoleInterface
         private IAudienceScreen audienceScreen;
         private readonly IAudienceDecisionDialog audienceDecisionDialog;
         private readonly IAdviceRequestDialog adviceRequestDialog;
+        private readonly IAdviceScreen adviceScreen;
         private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
@@ -36,6 +37,7 @@ namespace Dictator.ConsoleInterface
             IAudienceScreen audienceScreen,
             IAudienceDecisionDialog audienceDecisionDialog,
             IAdviceRequestDialog adviceRequestDialog,
+            IAdviceScreen adviceScreen,
             IBankruptcyScreen bankruptcyScreen,
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
@@ -56,6 +58,7 @@ namespace Dictator.ConsoleInterface
             this.audienceScreen = audienceScreen;
             this.audienceDecisionDialog = audienceDecisionDialog;
             this.adviceRequestDialog = adviceRequestDialog;
+            this.adviceScreen = adviceScreen;
             this.bankruptcyScreen = bankruptcyScreen;
             this.newsflashScreen = newsflashScreen;
             this.monthScreen = monthScreen;
@@ -122,7 +125,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayAdviceScreen()
         {
-            throw new NotImplementedException();
+            adviceScreen.Show();
         }
 
         public void DisplayBankuptcyScreen()
