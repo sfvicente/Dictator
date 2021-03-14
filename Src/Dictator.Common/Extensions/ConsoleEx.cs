@@ -10,6 +10,11 @@ namespace Dictator.Common.Extensions
         private const int ScreenCols = 32;
         private const int ScreenColPadding = 24;
 
+        public static void Write(string text, ConsoleColor foregroundColor)
+        {
+            Console.ForegroundColor = foregroundColor;
+            Console.Write(text);
+        }
 
         public static void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {
@@ -48,6 +53,12 @@ namespace Dictator.Common.Extensions
             WriteAt(left, top, text);
             Console.BackgroundColor = previousBackgroundColor;
             Console.ForegroundColor = previousForegroundColor;
+        }
+
+        public static void WriteAt(int left, int top, string text, ConsoleColor foregroundColor)
+        {
+            Console.ForegroundColor = foregroundColor;
+            WriteAt(left, top, text);
         }
 
         public static void SetCursorPosition(int left, int top)
