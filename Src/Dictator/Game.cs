@@ -144,14 +144,16 @@ namespace Dictator.ConsoleInterface
 
                 if(engine.IsAssassinationSuccessful())
                 {
-                    // TODO: display death screen, game must end
+                    // As attempt was successful, display death screen and kill player as game must end
+                    userInterface.DisplayAssassinationSuccededScreen();
+                    engine.KillPlayer();
                     return true;
                 }
 
-                // TODO: display attempt failed screen
+                userInterface.DisplayAssassinationFailedScreen();
             }
 
-            // Either no attempt happened or it failed, so the game should progress
+            // Either no attempt happened or attempt has failed, so the game should progress
             return false;
         }
 

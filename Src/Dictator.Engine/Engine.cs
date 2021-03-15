@@ -175,6 +175,11 @@ namespace Dictator.Core
             // TODO: guerrila didn't catch player
         }
 
+        public void KillPlayer()
+        {
+            governmentStats.KillPlayer();
+        }
+
         public void End()
         {
             throw new NotImplementedException();

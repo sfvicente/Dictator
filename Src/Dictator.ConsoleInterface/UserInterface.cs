@@ -20,6 +20,7 @@ namespace Dictator.ConsoleInterface
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
         private readonly IDecisionMainDialog decisionMainDialog;
+        private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
         private readonly IEscapeByHelicopterScreen escapeByHelicopterScreen;
@@ -42,6 +43,7 @@ namespace Dictator.ConsoleInterface
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
             IDecisionMainDialog decisionMainDialog,
+            IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IEscapeByHelicopterScreen escapeByHelicopterScreen,
@@ -63,6 +65,7 @@ namespace Dictator.ConsoleInterface
             this.newsflashScreen = newsflashScreen;
             this.monthScreen = monthScreen;
             this.decisionMainDialog = decisionMainDialog;
+            this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
             this.escapeByHelicopterScreen = escapeByHelicopterScreen;
@@ -155,12 +158,12 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayAssassinationFailedScreen()
         {
-
+            assassinationFailedScreen.Show();
         }
 
         public void DisplayAssassinationSuccededScreen()
         {
-
+            assassinationSuccededScreen.Show();
         }
 
         public DialogResult DisplayEscapeAttemptDialog()
