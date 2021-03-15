@@ -42,12 +42,7 @@ namespace Dictator.ConsoleInterface
                     ProcessPoliceReport();
                 }
 
-                userInterface.DisplayAudienceScreen();
-                if(AcceptsAdvice())
-                {
-                    userInterface.DisplayAdviceScreen();
-                }
-                AskForAudienceDecision();
+                ProcessAudience();
                 
                 // TODO: plot
 
@@ -100,6 +95,19 @@ namespace Dictator.ConsoleInterface
                     // TODO: process the revolution
                 }
             }
+        }
+
+        public void ProcessAudience()
+        {
+            engine.SelectAudienceRequest();
+            userInterface.DisplayAudienceScreen();
+
+            if (AcceptsAdvice())
+            {
+                userInterface.DisplayAdviceScreen();
+            }
+
+            AskForAudienceDecision();
         }
 
         public bool AcceptsAdvice()

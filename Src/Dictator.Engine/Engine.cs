@@ -56,6 +56,16 @@ namespace Dictator.Core
             governmentStats.MonthlyRevolutionStrength = random.Next(10, 13);
         }
 
+        public void SelectAudienceRequest()
+        {
+            Random random = new Random();
+            int number = random.Next(0, 23);
+
+            //IEnumerable<Audience> unusedAudiences = audienceStats.GetAudiences().Where(x => !x.HasBeenUsed);
+
+            // TODO: set select audience as current audience to be used
+        }
+
         public bool ShouldNewsHappen()
         {
             Random random = new Random();
