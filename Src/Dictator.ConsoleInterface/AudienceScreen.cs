@@ -1,4 +1,5 @@
 ﻿using Dictator.Common.Extensions;
+using Dictator.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,15 +8,19 @@ namespace Dictator.ConsoleInterface
 {
     public class AudienceScreen : IAudienceScreen
     {
+        private readonly IAudienceStats audienceStats;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public AudienceScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public AudienceScreen(IAudienceStats audienceStats, IPressAnyKeyControl pressAnyKeyControl)
         {
+            this.audienceStats = audienceStats;
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
         public void Show()
         {
+            Audience audience = audienceStats.CurrentAudienceRequest;
+
             ConsoleEx.Clear();
             ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
@@ -29,13 +34,12 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
             }
 
-            ConsoleEx.WriteAt(1, 11, " A request from {Group}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 17, "<petition text>                 ", ConsoleColor.Yellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 17, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
 
             pressAnyKeyControl.Show();
-
-            Console.ReadKey();
+            Console.ReadKey(true);
         }
     }
 }

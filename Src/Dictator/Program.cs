@@ -20,7 +20,7 @@ namespace Dictator
         static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args).ConfigureServices((_, services) =>
                 services.AddScoped<IEngine, Engine>()
-                    .AddScoped<IUserInterface, UserInterface>()
+            .AddScoped<IUserInterface, UserInterface>()
             .AddScoped<IIntroScreen, IntroScreen>()
             .AddScoped<IWelcomeScreen, WelcomeScreen>()
             .AddScoped<ITitleScreen, TitleScreen>()
@@ -55,6 +55,7 @@ namespace Dictator
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
             .AddScoped<INewsStats, NewsStats>()
+            .AddScoped<IAudienceStats, AudienceStats>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()

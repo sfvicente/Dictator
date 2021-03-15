@@ -99,7 +99,7 @@ namespace Dictator.ConsoleInterface
 
         public void ProcessAudience()
         {
-            engine.SelectAudienceRequest();
+            engine.SetRandomAudienceRequest();
             userInterface.DisplayAudienceScreen();
 
             if (AcceptsAdvice())

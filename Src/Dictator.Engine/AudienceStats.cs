@@ -1,12 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dictator.Core
 {
-    public class AudienceStats
+    public class AudienceStats : IAudienceStats
     {
         private Audience[] audiences;
+        private Audience currentAudience;
+
+        public Audience CurrentAudienceRequest
+        {
+            get
+            {
+                if (currentAudience == null)
+                {
+                    throw new InvalidOperationException("No audience has been set as the current audience.");
+                }
+
+                return currentAudience;
+            }
+        }
 
         public AudienceStats()
         {
@@ -29,5 +44,34 @@ namespace Dictator.Core
             };
         }
 
+        public void SetRandomAudienceRequest()
+        {
+            IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
+            var rand = new Random();
+
+            currentAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+            currentAudience.HasBeenUsed = true;
+        }
+
+        private IEnumerable<Audience> GetUnusedAudiences()
+        {
+            IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
+
+            if (!unusedAudiences.Any())
+            {
+                ResetAllToUnused();
+                unusedAudiences = ((Audience[])audiences.Clone()).AsEnumerable();
+            }
+
+            return unusedAudiences;
+        }
+
+        private void ResetAllToUnused()
+        {
+            foreach(var audience in audiences)
+            {
+                audience.HasBeenUsed = false;
+            }
+        }
     }
 }

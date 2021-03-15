@@ -13,21 +13,6 @@ namespace Dictator.Core
         private readonly IAudienceStats audienceStats;
         private readonly INewsStats newsStats;
 
-        private readonly Audience currentAudience;
-
-        public Audience CurrentAudience
-        {
-            get
-            {
-                if(currentAudience == null)
-                {
-                    throw new InvalidOperationException("No audience has been set as the current audience.");
-                }
-
-                return currentAudience;
-            }
-        }
-
         public Engine(
             IAccount account,
             IGovernmentStats governmentStats,
@@ -75,14 +60,9 @@ namespace Dictator.Core
             governmentStats.MonthlyRevolutionStrength = random.Next(10, 13);
         }
 
-        public void SelectAudienceRequest()
+        public void SetRandomAudienceRequest()
         {
-            Random random = new Random();
-            int number = random.Next(0, 23);
-
-            //IEnumerable<Audience> unusedAudiences = audienceStats.GetAudiences().Where(x => !x.HasBeenUsed);
-
-            // TODO: set select audience as current audience to be used
+            audienceStats.SetRandomAudienceRequest();
         }
 
         public bool ShouldNewsHappen()
