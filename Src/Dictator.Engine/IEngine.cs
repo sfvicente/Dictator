@@ -6,6 +6,8 @@ namespace Dictator.Core
 {
     public interface IEngine
     {
+        Audience CurrentAudience { get; }
+
         public void Initialise();
         public void AdvanceMonth();
         public bool IsGovernmentBankrupt();

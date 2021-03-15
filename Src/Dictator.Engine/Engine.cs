@@ -10,17 +10,35 @@ namespace Dictator.Core
         private IAccount account;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
+        private readonly IAudienceStats audienceStats;
         private readonly INewsStats newsStats;
+
+        private readonly Audience currentAudience;
+
+        public Audience CurrentAudience
+        {
+            get
+            {
+                if(currentAudience == null)
+                {
+                    throw new InvalidOperationException("No audience has been set as the current audience.");
+                }
+
+                return currentAudience;
+            }
+        }
 
         public Engine(
             IAccount account,
             IGovernmentStats governmentStats,
             IGroupStats groupStats,
+            IAudienceStats audienceStats,
             INewsStats newsStats)
         {
             this.account = account;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
+            this.audienceStats = audienceStats;
             this.newsStats = newsStats;
         }
 
@@ -29,6 +47,7 @@ namespace Dictator.Core
             account.Initialise();
             governmentStats.Initialise();
             groupStats.Initialise();
+            audienceStats.Initialise();
             newsStats.Initialise();
         }
 
