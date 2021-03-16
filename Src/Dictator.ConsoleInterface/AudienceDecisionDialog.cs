@@ -24,7 +24,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(11, 2, "  DECISION  ", ConsoleColor.Black, ConsoleColor.White);
             ConsoleEx.WriteAt(5, 4, $"The {audience.Requester} ask you to", ConsoleColor.Magenta, ConsoleColor.Gray);
-            ConsoleEx.WriteAt(5, 4, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 6, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteEmptyLineAt(8, ConsoleColor.Blue);
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
