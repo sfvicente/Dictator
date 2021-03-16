@@ -21,15 +21,16 @@ namespace Dictator.ConsoleInterface
         {
             Audience audience = audienceStats.CurrentAudienceRequest;
 
-            ConsoleEx.Clear(ConsoleColor.DarkYellow);
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            ConsoleEx.Clear();
             ConsoleEx.WriteAt(1, 2, $"{audience.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
-            Console.Write(" ....");
+            ConsoleEx.Write(" ....", ConsoleColor.Black);
 
             // TODO: display decision impact on each group popularity
 
             ConsoleEx.WriteAt(1, 11, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
-            Console.Write(" ....");
+            ConsoleEx.Write(" ....", ConsoleColor.Black);
 
             // TODO: display decision impact on each group strength
 
