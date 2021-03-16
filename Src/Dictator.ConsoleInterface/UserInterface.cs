@@ -19,7 +19,7 @@ namespace Dictator.ConsoleInterface
         private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
-        private readonly IDecisionMainDialog decisionMainDialog;
+        private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
@@ -42,7 +42,7 @@ namespace Dictator.ConsoleInterface
             IBankruptcyScreen bankruptcyScreen,
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
-            IDecisionMainDialog decisionMainDialog,
+            IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
@@ -64,7 +64,7 @@ namespace Dictator.ConsoleInterface
             this.bankruptcyScreen = bankruptcyScreen;
             this.newsflashScreen = newsflashScreen;
             this.monthScreen = monthScreen;
-            this.decisionMainDialog = decisionMainDialog;
+            this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
@@ -148,7 +148,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayMainDecisionDialog()
         {
-            decisionMainDialog.Show();
+            presidentialDecisionMainDialog.Show();
         }
 
         public void DisplayAssassinationAttempt()

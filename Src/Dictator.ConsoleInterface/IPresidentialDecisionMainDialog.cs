@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public interface IDecisionMainDialog
+    public interface IPresidentialDecisionMainDialog
     {
         public void Show();
     }

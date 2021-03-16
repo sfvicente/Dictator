@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class DecisionMainDialog : IDecisionMainDialog
+    public class PresidentialDecisionMainDialog : IPresidentialDecisionMainDialog
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public DecisionMainDialog(IPressAnyKeyControl pressAnyKeyControl)
+        public PresidentialDecisionMainDialog(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }

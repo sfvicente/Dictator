@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
-    public class DecisionSubDialog : IDecisionSubDialog
+    public class PresidentialDecisionSubDialog : IPresidentialDecisionSubDialog
     {
         private readonly IDecisionStats decisionStats;
 
-        public DecisionSubDialog(IDecisionStats decisionStats)
+        public PresidentialDecisionSubDialog(IDecisionStats decisionStats)
         {
             this.decisionStats = decisionStats;
         }
