@@ -36,6 +36,7 @@ namespace Dictator
             .AddScoped<IMonthScreen, MonthScreen>()
             .AddScoped<IPresidentialDecisionMainDialog, PresidentialDecisionMainDialog>()
             .AddScoped<IPresidentialDecisionSubDialog, PresidentialDecisionSubDialog>()
+            .AddScoped<IPresidentialDecisionActionDialog, PresidentialDecisionActionDialog>()
             .AddScoped<IAssassinationScreen, AssassinationScreen>()
             .AddScoped<IAssassinationFailedScreen, AssassinationFailedScreen>()
             .AddScoped<IAssassinationSuccededScreen, AssassinationSuccededScreen>()

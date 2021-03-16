@@ -17,6 +17,7 @@
         public void DisplayNewsScreen();
         void DisplayMonthScreen();
         void DisplayMainDecisionDialog();
+        void DisplayPresidentialDecisionActionDialog();
         void DisplayAssassinationAttempt();
         void DisplayAssassinationFailedScreen();
         void DisplayAssassinationSuccededScreen();

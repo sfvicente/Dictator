@@ -20,6 +20,7 @@ namespace Dictator.ConsoleInterface
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
+        private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
@@ -43,7 +44,8 @@ namespace Dictator.ConsoleInterface
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
-            IAssassinationSuccededScreen assassinationSuccededScreen,
+            IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
+        IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IEscapeByHelicopterScreen escapeByHelicopterScreen,
@@ -65,6 +67,7 @@ namespace Dictator.ConsoleInterface
             this.newsflashScreen = newsflashScreen;
             this.monthScreen = monthScreen;
             this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
+            this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
@@ -149,6 +152,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayMainDecisionDialog()
         {
             presidentialDecisionMainDialog.Show();
+        }
+
+        public void DisplayPresidentialDecisionActionDialog()
+        {
+            presidentialDecisionActionDialog.Show();
         }
 
         public void DisplayAssassinationAttempt()
