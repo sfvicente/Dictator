@@ -19,13 +19,31 @@ namespace Dictator.ConsoleInterface
         {
             Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
 
-            // TODO: Display screen with appropriate options
+
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
 
+            if(decisions.IsNotEmpty())
+            {
+                // TODO: Display options with the original positioning
+                int line = 4;
+
+                for (int i = 0; i < decisions.Length; i++)
+                {
+                    int optionNumber = i + 1;
+
+                    ConsoleEx.WriteAt(1, line + i, $"{optionNumber}.");
+                    line++;
+                    ConsoleEx.WriteAt(1, line + i, decisions[i].Text);
+                    line++;
+                }
+            }
+            else
+            {
+                ConsoleEx.WriteAt(1, 12, "   ALL of this section USED UP  ");
+            }
+
             Console.ReadKey(true);
         }
-
-
     }
 }
