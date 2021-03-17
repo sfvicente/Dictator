@@ -18,6 +18,7 @@
         void DisplayMonthScreen();
         void DisplayMainDecisionDialog();
         void DisplayPresidentialDecisionActionDialog();
+        void DisplayLoanScreen();
         void DisplayAssassinationAttempt();
         void DisplayAssassinationFailedScreen();
         void DisplayAssassinationSuccededScreen();

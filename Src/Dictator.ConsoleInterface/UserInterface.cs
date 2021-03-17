@@ -21,6 +21,7 @@ namespace Dictator.ConsoleInterface
         private readonly IMonthScreen monthScreen;
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
+        private readonly ILoanScreen loanScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
@@ -45,7 +46,8 @@ namespace Dictator.ConsoleInterface
             IMonthScreen monthScreen,
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
-        IAssassinationSuccededScreen assassinationSuccededScreen,
+            ILoanScreen loanScreen,
+            IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IEscapeByHelicopterScreen escapeByHelicopterScreen,
@@ -68,6 +70,7 @@ namespace Dictator.ConsoleInterface
             this.monthScreen = monthScreen;
             this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
+            this.loanScreen = loanScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
@@ -157,6 +160,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayPresidentialDecisionActionDialog()
         {
             presidentialDecisionActionDialog.Show();
+        }
+
+        public void DisplayLoanScreen()
+        {
+            loanScreen.Show();
         }
 
         public void DisplayAssassinationAttempt()
