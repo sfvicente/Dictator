@@ -1,4 +1,5 @@
-﻿using Dictator.Core;
+﻿using Dictator.Common.Extensions;
+using Dictator.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,6 +20,10 @@ namespace Dictator.ConsoleInterface
             Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
 
             // TODO: Display screen with appropriate options
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            ConsoleEx.Clear();
+
+            Console.ReadKey(true);
         }
 
 

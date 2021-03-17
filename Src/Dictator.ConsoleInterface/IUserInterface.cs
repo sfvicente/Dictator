@@ -1,4 +1,6 @@
-﻿namespace Dictator.ConsoleInterface
+﻿using Dictator.Core;
+
+namespace Dictator.ConsoleInterface
 {
     public interface IUserInterface
     {
@@ -16,7 +18,8 @@
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
         void DisplayMonthScreen();
-        void DisplayMainDecisionDialog();
+        DecisionType DisplayPresidentialDecisionMainDialog();
+        void DisplayPresidentialDecisionSubDialog(DecisionType decisionType);
         void DisplayPresidentialDecisionActionDialog();
         void DisplayLoanScreen();
         void DisplayAssassinationAttempt();
@@ -27,5 +30,6 @@
         void DisplayEscapeByHelicopterFailScreen();
         void DisplayEscapeToLeftotoScreen();
         void DisplayEndScreen();
+        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Dictator.Common.Extensions;
+using Dictator.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Dictator.ConsoleInterface
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show()
+        public DecisionType Show()
         {
             ConsoleEx.Clear('*', ConsoleColor.Red, ConsoleColor.Yellow);
             ConsoleEx.WriteAt(5, 4, "PRESIDENTIAL DECISION", ConsoleColor.Blue, ConsoleColor.White);
@@ -31,17 +32,17 @@ namespace Dictator.ConsoleInterface
             switch(keyPressed)
             {
                 case ConsoleKey.D1:
-                    return;
+                    return DecisionType.PleaseAGroup;
                 case ConsoleKey.D2:
-                    return;
+                    return DecisionType.PleaseAllGroups;
                 case ConsoleKey.D3:
-                    return;
+                    return DecisionType.ImproveYourChanges;
                 case ConsoleKey.D4:
-                    return;
+                    return DecisionType.RaiseSomeCash;
                 case ConsoleKey.D5:
-                    return;
+                    return DecisionType.StrengthenAGroup;
                 default:
-                    return;
+                    return DecisionType.None;
             }
         }
     }

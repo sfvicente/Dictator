@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,6 +21,7 @@ namespace Dictator.ConsoleInterface
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
+        private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
         private readonly ILoanScreen loanScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
@@ -45,6 +47,7 @@ namespace Dictator.ConsoleInterface
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
+            IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
             ILoanScreen loanScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,
@@ -69,6 +72,7 @@ namespace Dictator.ConsoleInterface
             this.newsflashScreen = newsflashScreen;
             this.monthScreen = monthScreen;
             this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
+            this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
             this.loanScreen = loanScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
@@ -152,9 +156,14 @@ namespace Dictator.ConsoleInterface
             monthScreen.Show();
         }
 
-        public void DisplayMainDecisionDialog()
+        public DecisionType DisplayPresidentialDecisionMainDialog()
         {
-            presidentialDecisionMainDialog.Show();
+            return presidentialDecisionMainDialog.Show();
+        }
+
+        public void DisplayPresidentialDecisionSubDialog(DecisionType decisionType)
+        {
+            presidentialDecisionSubDialog.Show(decisionType);
         }
 
         public void DisplayPresidentialDecisionActionDialog()

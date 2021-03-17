@@ -57,6 +57,7 @@ namespace Dictator
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
+            .AddScoped<IDecisionStats, DecisionStats>()
             .AddScoped<INewsStats, NewsStats>()
             .AddScoped<IAudienceStats, AudienceStats>()
             .AddSingleton<Game>()

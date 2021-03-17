@@ -6,10 +6,11 @@ namespace Dictator.Core
 {
     public enum DecisionType
     {
-        PleaseAGroup = 0,
-        PleaseAllGroups = 1,
-        ImproveYourChanges = 2,
-        RaiseSomeCash = 3,
-        StrengthenAGroup = 4
+        None = 0,
+        PleaseAGroup = 1,
+        PleaseAllGroups = 2,
+        ImproveYourChanges = 3,
+        RaiseSomeCash = 4,
+        StrengthenAGroup = 5
     }
 }

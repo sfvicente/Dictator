@@ -55,7 +55,7 @@ namespace Dictator.ConsoleInterface
 
                 // TODO: plot
                 ProcessPoliceReport();
-                userInterface.DisplayMainDecisionDialog();
+                HandlePresidentialDecision();
                 ProcessPoliceReport();
 
                 if (engine.ShouldNewsHappen())
@@ -163,6 +163,16 @@ namespace Dictator.ConsoleInterface
 
             // Either no attempt happened or attempt has failed, so the game should progress
             return false;
+        }
+
+        public void HandlePresidentialDecision()
+        {
+            DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
+
+            if(decisionType != DecisionType.None)
+            {
+                userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+            }
         }
 
         public bool TryTriggerRevolution()
