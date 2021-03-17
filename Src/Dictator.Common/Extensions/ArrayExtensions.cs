@@ -10,5 +10,10 @@ namespace Dictator.Common.Extensions
         {
             return array.Length == 0;
         }
+
+        public static bool IsNotEmpty<T>(this T[] array)
+        {
+            return array.Length > 0;
+        }
     }
 }
