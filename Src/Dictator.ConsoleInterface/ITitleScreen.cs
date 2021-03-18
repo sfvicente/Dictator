@@ -2,6 +2,6 @@
 {
     public interface ITitleScreen
     {
-        public void Draw();
+        public void Show();
     }
 }

@@ -5,16 +5,15 @@ namespace Dictator.ConsoleInterface
 {
     public class TitleScreen : ITitleScreen
     {
-        public void Draw()
+        public void Show()
         {
             ConsoleEx.Clear();
-            this.DrawBackground();
-            this.DrawContent();
+            PrintBackground();
+            PrintContent();
             Console.ReadKey(true);
-
         }
 
-        public void DrawBackground()
+        public void PrintBackground()
         {
             for (int i = 1; i < 25; i++)
             {
@@ -25,7 +24,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void DrawContent()
+        public void PrintContent()
         {
             ConsoleEx.WriteAt(1, 4, "Press any key to become DICTATOR", ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(13, 6, " of the ", ConsoleColor.Gray, ConsoleColor.Black);

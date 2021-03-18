@@ -103,7 +103,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayTitleScreen()
         {
-            titleScreen.Draw();
+            titleScreen.Show();
         }
 
         public void DisplayAccountScreen()
