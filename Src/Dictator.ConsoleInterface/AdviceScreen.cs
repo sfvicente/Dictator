@@ -28,13 +28,10 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 2, $"{audience.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.Write(" ....", ConsoleColor.Black);
-
             DisplayPopularityChanges(audience);
-
-            ConsoleEx.WriteAt(1, 11, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.Write(" ....", ConsoleColor.Black);
-
-            // TODO: display decision impact on each group strength
+            ConsoleEx.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
+            ConsoleEx.Write(" ...", ConsoleColor.Black);
+            DisplayGroupStrengthChanges(audience);
 
             pressAnyKeyControl.Show();
             Console.ReadKey(true);
@@ -52,6 +49,23 @@ namespace Dictator.ConsoleInterface
                     
                     ConsoleEx.WriteAt(1, line, $"  {groupStats.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                     ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
+                    line++;
+                }
+            }
+        }
+
+        public void DisplayGroupStrengthChanges(Audience audience)
+        {
+            int line = Console.CursorTop + 3;
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (audience.GroupStrenghtChanges[i] != 'M')
+                {
+                    int strengthChange = audience.GroupStrenghtChanges[i] - 'M';
+
+                    ConsoleEx.WriteAt(1, line, $"  {groupStats.GetGroupNameByIndex(i)}", ConsoleColor.Black);
+                    ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(strengthChange)}", ConsoleColor.Black);
                     line++;
                 }
             }
