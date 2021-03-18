@@ -6,16 +6,17 @@ namespace Dictator.Core
 {
     public interface IGovernmentStats
     {
-        public int PlayerStrength { get; set; }
-        public bool IsPlayerAlive { get; }
-        public bool HasHelicopter { get; }
-        public int Month { get; set; }
-        public int PlotBonus { get; set; }
-        public int MonthlyRevolutionStrength { get; set; }
-        public int MonthlyMinimalPopularityAndStrength { get; set; }
+        bool IsPlayerAlive { get; }
+        bool HasHelicopter { get; }
+        int PlayerStrength { get; }
+        int Month { get; }
+        int PlotBonus { get; set; }
+        int MonthlyRevolutionStrength { get; set; }
+        int MonthlyMinimalPopularityAndStrength { get; set; }
 
-        public void Initialise();
-        public void DecreasePlayerStrength();
-        public void KillPlayer();
+        void Initialise();
+        void AdvanceMonth();
+        void DecreasePlayerStrength();
+        void KillPlayer();
     }
 }

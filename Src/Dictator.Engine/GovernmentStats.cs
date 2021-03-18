@@ -6,32 +6,33 @@ namespace Dictator.Core
 {
     public class GovernmentStats : IGovernmentStats
     {
-        private bool isPlayerAlive;
-        public bool IsPlayerAlive { get { return isPlayerAlive; } }
-
-        private bool hasHelicopter;
-        public bool HasHelicopter { get { return hasHelicopter; } }
-
-        public int PlayerStrength { get; set; }
-        public int Month { get; set; }
+        public bool IsPlayerAlive { get; private set; }
+        public bool HasHelicopter { get; private set; }
+        public int PlayerStrength { get; private set; }
+        public int Month { get; private set; }
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }
         public int MonthlyMinimalPopularityAndStrength { get; set; }
 
         public GovernmentStats()
         {
-            this.Initialise();
+            Initialise();
         }
 
         public void Initialise()
         {
-            this.PlayerStrength = 4;
-            isPlayerAlive = true;
-            hasHelicopter = false;
-            this.Month = 0;
-            this.PlotBonus = 0;
-            this.MonthlyRevolutionStrength = 10;
-            this.MonthlyMinimalPopularityAndStrength = 0;
+            IsPlayerAlive = true;
+            HasHelicopter = false;
+            PlayerStrength = 4;
+            Month = 0;
+            PlotBonus = 0;
+            MonthlyRevolutionStrength = 10;
+            MonthlyMinimalPopularityAndStrength = 0;
+        }
+
+        public void AdvanceMonth()
+        {
+            Month++;
         }
 
         public void DecreasePlayerStrength()
@@ -44,12 +45,12 @@ namespace Dictator.Core
 
         public void PurchaseHelicopter()
         {
-            hasHelicopter = true;
+            HasHelicopter = true;
         }
 
         public void KillPlayer()
         {
-            isPlayerAlive = false;
+            IsPlayerAlive = false;
         }
     }
 }

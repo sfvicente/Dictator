@@ -38,7 +38,7 @@ namespace Dictator.Core
 
         public void AdvanceMonth()
         {
-            governmentStats.Month++;
+            governmentStats.AdvanceMonth();
         }
 
         public bool IsGovernmentBankrupt()
