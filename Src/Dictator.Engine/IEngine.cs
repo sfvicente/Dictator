@@ -11,15 +11,15 @@ namespace Dictator.Core
         public bool IsGovernmentBankrupt();
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
-        void SetRandomAudienceRequest();
+        public void SetRandomAudienceRequest();
         public bool ShouldNewsHappen();
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
-        bool IsAssassinationSuccessful();
+        public bool IsAssassinationSuccessful();
         public void End();
-        bool TryTriggerRevoltGroup();
-        bool HasPlayerPurchasedHelicopter();
-        bool AttemptEscapeByHelicopter();
-        void KillPlayer();
+        public bool TryTriggerRevoltGroup();
+        public bool HasPlayerPurchasedHelicopter();
+        public bool AttemptEscapeByHelicopter();
+        public void KillPlayer();
     }
 }
