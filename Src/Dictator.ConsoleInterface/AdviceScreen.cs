@@ -60,9 +60,9 @@ namespace Dictator.ConsoleInterface
 
             for (int i = 0; i < 6; i++)
             {
-                if (audience.GroupStrenghtChanges[i] != 'M')
+                if (audience.GroupStrengthChanges[i] != 'M')
                 {
-                    int strengthChange = audience.GroupStrenghtChanges[i] - 'M';
+                    int strengthChange = audience.GroupStrengthChanges[i] - 'M';
 
                     ConsoleEx.WriteAt(1, line, $"  {groupStats.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                     ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(strengthChange)}", ConsoleColor.Black);

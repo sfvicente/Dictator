@@ -11,7 +11,7 @@ namespace Dictator.Core
             this.Cost = cost;
             this.MonthlyCost = monthlyCost;
             this.GroupPopularityChanges = groupPopularityChanges;
-            this.GroupStrenghtChanges = groupStrenghtChanges;
+            this.GroupStrengthChanges = groupStrenghtChanges;
             this.Text = text;
             this.HasBeenUsed = false;
         }
