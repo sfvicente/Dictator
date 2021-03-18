@@ -37,6 +37,16 @@ namespace Dictator.Core
             return groups[(int)groupType];
         }
 
+        public string GetGroupNameByIndex(int index)
+        {
+            if(index < 0 || index > groups.Length)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            return groups[index].Name;
+        }
+
         public Group[] GetGroups()
         {
             return (Group[])groups.Clone();
