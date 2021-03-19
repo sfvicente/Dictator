@@ -2,10 +2,11 @@
 {
     public interface INewsStats
     {
-        public News CurrentNews { get; set; }
+        public News CurrentNews { get; }
 
         public void Initialise();
         public News[] GetNews();
         public void MarkNewsAsUsed(string text);
+        public void SetCurrentNews(News news);
     }
 }
