@@ -11,14 +11,14 @@ namespace Dictator.Core
         public int TotalPopularity { get; }
         public GroupType AssassinGroupType { get; }
 
-        void Initialise();
+        public void Initialise();
         public Group[] GetGroups();
-        Group GetGroupByType(GroupType groupType);
-        string GetGroupNameByIndex(int index);
+        public Group GetGroupByType(GroupType groupType);
+        public string GetGroupNameByIndex(int index);
         public void DecreasePopularity(GroupType groupType);
         public void DecreaseStrength(GroupType groupType);
-        void SetAssassinByGroupType(GroupType groupType);
-        bool DoesMainPopulationHatePlayer();
+        public void SetAssassinByGroupType(GroupType groupType);
+        public bool DoesMainPopulationHatePlayer();
         public void ApplyPopularityChange(string groupPopularityChanges);
         public void ApplyStrengthChange(string groupStrengthChanges);
     }
