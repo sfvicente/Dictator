@@ -108,6 +108,7 @@ namespace Dictator.ConsoleInterface
             }
 
             AskForAudienceDecision();
+            userInterface.DisplayAccountScreen();
         }
 
         public bool AcceptsAdvice()
