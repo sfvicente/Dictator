@@ -4,27 +4,42 @@ namespace Dictator.Core
 {
     public class Account: IAccount
     {
-        public int TreasuryBalance { get; set; }
-        public int MonthlyCosts { get; set; }
-        public int SwissBankAccountBalance { get; set; }
-        public bool HasSwissBankAccount { get; set; }
+        public int TreasuryBalance { get; private set; }
+        public int MonthlyCosts { get; private set; }
+        public int SwissBankAccountBalance { get; private set; }
+        public bool HasSwissBankAccount { get; private set; }
 
         public Account()
         {
-            this.Initialise();
+            Initialise();
         }
 
         public void Initialise()
         {
-            this.TreasuryBalance = 1000;
-            this.MonthlyCosts = 60;
-            this.SwissBankAccountBalance = 0;
-            this.HasSwissBankAccount = false;
+            TreasuryBalance = 1000;
+            MonthlyCosts = 60;
+            SwissBankAccountBalance = 0;
+            HasSwissBankAccount = false;
         }
 
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
             // TODO: apply changes
+        }
+
+        public void OpenSwissBankAccount()
+        {
+            HasSwissBankAccount = true;
+        }
+
+        public void TransferToSwissBankAccount(int amount)
+        {
+            SwissBankAccountBalance += amount;
+        }
+
+        public void ChangeTreasuryBalance(int amount)
+        {
+            TreasuryBalance += amount;
         }
     }
 }

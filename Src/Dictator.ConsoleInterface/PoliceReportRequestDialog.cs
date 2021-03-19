@@ -41,7 +41,7 @@ namespace Dictator.ConsoleInterface
 
                 if (Console.ReadKey(true).Key == ConsoleKey.Y)
                 {
-                    account.TreasuryBalance -= 1;
+                    account.ChangeTreasuryBalance(-1);
                     return true;
                 }
             }
