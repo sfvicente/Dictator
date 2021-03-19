@@ -96,6 +96,15 @@ namespace Dictator.Core
             return false;
         }
 
+        public void ApplyNewsEffects()
+        {
+            News currentNews = newsStats.CurrentNews;
+
+            groupStats.ApplyPopularityChange(currentNews.GroupPopularityChanges);
+            groupStats.ApplyStrengthChange(currentNews.GroupStrengthChanges);
+            account.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();

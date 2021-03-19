@@ -12,5 +12,6 @@ namespace Dictator.Core
         public int SwissBankAccountBalance { get; set; }
 
         public void Initialise();
+        public void ApplyTreasuryChanges(int cost, int monthlyCost);
     }
 }

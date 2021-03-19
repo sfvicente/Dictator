@@ -21,5 +21,10 @@ namespace Dictator.Core
             this.SwissBankAccountBalance = 0;
             this.HasSwissBankAccount = false;
         }
+
+        public void ApplyTreasuryChanges(int cost, int monthlyCost)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

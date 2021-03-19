@@ -19,5 +19,7 @@ namespace Dictator.Core
         public void DecreaseStrength(GroupType groupType);
         void SetAssassinByGroupType(GroupType groupType);
         bool DoesMainPopulationHatePlayer();
+        public void ApplyPopularityChange(string groupPopularityChanges);
+        public void ApplyStrengthChange(string groupStrengthChanges);
     }
 }

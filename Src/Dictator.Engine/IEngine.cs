@@ -13,6 +13,7 @@ namespace Dictator.Core
         public void SetMonthlyRevolutionStrength();
         public void SetRandomAudienceRequest();
         public bool ShouldNewsHappen();
+        public void ApplyNewsEffects();
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public bool IsAssassinationSuccessful();

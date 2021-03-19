@@ -107,5 +107,15 @@ namespace Dictator.Core
 
             return false;
         }
+
+        public void ApplyPopularityChange(string groupPopularityChanges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ApplyStrengthChange(string groupStrengthChanges)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
