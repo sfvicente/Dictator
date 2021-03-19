@@ -24,7 +24,7 @@ namespace Dictator.Core
 
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
-            throw new NotImplementedException();
+            // TODO: apply changes
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Dictator.Core
 
         public string GetGroupNameByIndex(int index)
         {
-            if(index < 0 || index > groups.Length)
+            if (index < 0 || index > groups.Length)
             {
                 throw new ArgumentOutOfRangeException();
             }
@@ -110,12 +110,44 @@ namespace Dictator.Core
 
         public void ApplyPopularityChange(string groupPopularityChanges)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < 8; i++)
+            {
+                if (groupPopularityChanges[i] != 'M')
+                {
+                    int popularity = groups[i].Popularity + groupPopularityChanges[i] - 'M';
+
+                    groups[i].Popularity = GetBoundedAttribute(popularity);
+                }
+            }
         }
 
         public void ApplyStrengthChange(string groupStrengthChanges)
         {
-            throw new NotImplementedException();
+            // Strength changes are applied to all groups except Americans and Russians
+            for (int i = 0; i < 6; i++)
+            {
+                if (groupStrengthChanges[i] != 'M')
+                {
+                    int strength = groups[i].Strength + groupStrengthChanges[i] - 'M';
+
+                    groups[i].Strength = GetBoundedAttribute(strength);
+                }
+            }
+        }
+
+        private int GetBoundedAttribute(int attributeValue)
+        {
+            if(attributeValue < 0)
+            {
+                return 0;
+            }
+
+            if(attributeValue > 9)
+            {
+                return 9;
+            }
+
+            return attributeValue;
         }
     }
 }
