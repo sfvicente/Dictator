@@ -35,12 +35,7 @@ namespace Dictator.ConsoleInterface
                 userInterface.DisplayMonthScreen();
 
                 engine.Plot();
-                if (engine.IsGovernmentBankrupt())
-                {
-                    userInterface.DisplayBankuptcyScreen();
-                    engine.Plot();
-                    ProcessPoliceReport();
-                }
+                CheckAndHandleBankruptcy();
 
                 ProcessAudience();
                 engine.Plot();
@@ -93,6 +88,16 @@ namespace Dictator.ConsoleInterface
 
                     // TODO: process the revolution
                 }
+            }
+        }
+
+        private void CheckAndHandleBankruptcy()
+        {
+            if (engine.IsGovernmentBankrupt())
+            {
+                userInterface.DisplayBankuptcyScreen();
+                engine.Plot();
+                ProcessPoliceReport();
             }
         }
 
