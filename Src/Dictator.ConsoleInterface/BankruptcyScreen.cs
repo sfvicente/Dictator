@@ -8,11 +8,13 @@ namespace Dictator.ConsoleInterface
 {
     public class BankruptcyScreen: IBankruptcyScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
-        public BankruptcyScreen(IGroupStats groupStats, IGovernmentStats governmentStats)
+        public BankruptcyScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupStats groupStats, IGovernmentStats governmentStats)
         {
+            this.pressAnyKeyControl = pressAnyKeyControl;
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
         }
@@ -31,6 +33,8 @@ namespace Dictator.ConsoleInterface
             groupStats.DecreasePopularity(GroupType.SecretPolice);
             groupStats.DecreaseStrength(GroupType.SecretPolice);
             governmentStats.DecreasePlayerStrength();
+
+            pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }
     }
