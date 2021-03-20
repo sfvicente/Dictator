@@ -4,7 +4,7 @@ namespace Dictator.ConsoleInterface
 {
     public interface IUserInterface
     {
-        void Initialise();
+        public void Initialise();
         public void DisplayIntroScreen();
         public void DisplayWelcomeScreen();
         public void DisplayTitleScreen();
@@ -12,24 +12,23 @@ namespace Dictator.ConsoleInterface
         public bool DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
         public void DisplayAudienceScreen();
-        DialogResult DisplayAudienceDecisionDialog();
-        DialogResult DisplayAdviceRequestDialog();
-        void DisplayAdviceScreen();
+        public DialogResult DisplayAudienceDecisionDialog();
+        public DialogResult DisplayAdviceRequestDialog();
+        public void DisplayAdviceScreen();
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen();
-        void DisplayMonthScreen();
-        DecisionType DisplayPresidentialDecisionMainDialog();
-        void DisplayPresidentialDecisionSubDialog(DecisionType decisionType);
-        void DisplayPresidentialDecisionActionDialog();
-        void DisplayLoanScreen();
-        void DisplayAssassinationAttempt();
-        void DisplayAssassinationFailedScreen();
-        void DisplayAssassinationSuccededScreen();
-        DialogResult DisplayEscapeAttemptDialog();
-        void DisplayEscapeByHelicopterScreen();
-        void DisplayEscapeByHelicopterFailScreen();
-        void DisplayEscapeToLeftotoScreen();
-        void DisplayEndScreen();
-        
+        public void DisplayMonthScreen();
+        public DecisionType DisplayPresidentialDecisionMainDialog();
+        public void DisplayPresidentialDecisionSubDialog(DecisionType decisionType);
+        public void DisplayPresidentialDecisionActionDialog();
+        public void DisplayLoanScreen();
+        public void DisplayAssassinationAttempt();
+        public void DisplayAssassinationFailedScreen();
+        public void DisplayAssassinationSuccededScreen();
+        public DialogResult DisplayEscapeAttemptDialog();
+        public void DisplayEscapeByHelicopterScreen();
+        public void DisplayEscapeByHelicopterFailScreen();
+        public void DisplayEscapeToLeftotoScreen();
+        public void DisplayEndScreen();
     }
 }
