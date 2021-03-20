@@ -24,7 +24,13 @@ namespace Dictator.Core
 
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
-            // TODO: apply changes
+            TreasuryBalance += 10 * cost;
+            MonthlyCosts -= monthlyCost;
+
+            if(MonthlyCosts < 0)
+            {
+                MonthlyCosts = 0;
+            }
         }
 
         public void OpenSwissBankAccount()
