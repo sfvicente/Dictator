@@ -6,9 +6,9 @@ namespace Dictator.Core
 {
     public interface IAudienceStats
     {
-        Audience CurrentAudienceRequest { get; }
+        public Audience CurrentAudienceRequest { get; }
 
-        void Initialise();
-        void SetRandomAudienceRequest();
+        public void Initialise();
+        public void SetRandomAudienceRequest();
     }
 }
