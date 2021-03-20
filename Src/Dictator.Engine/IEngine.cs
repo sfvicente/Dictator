@@ -14,6 +14,7 @@ namespace Dictator.Core
         public void SetRandomAudienceRequest();
         public bool ShouldNewsHappen();
         public void ApplyNewsEffects();
+        public void ApplyAudienceEffects();
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public bool IsAssassinationSuccessful();

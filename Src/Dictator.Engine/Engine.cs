@@ -104,6 +104,15 @@ namespace Dictator.Core
             account.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
         }
 
+        public void ApplyAudienceEffects()
+        {
+            Audience currentAudience = audienceStats.CurrentAudienceRequest;
+
+            groupStats.ApplyPopularityChange(currentAudience.GroupPopularityChanges);
+            groupStats.ApplyStrengthChange(currentAudience.GroupStrengthChanges);
+            account.ApplyTreasuryChanges(currentAudience.Cost, currentAudience.MonthlyCost);
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();
