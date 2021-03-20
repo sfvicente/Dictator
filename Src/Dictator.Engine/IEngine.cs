@@ -12,6 +12,7 @@ namespace Dictator.Core
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
         public void SetRandomAudienceRequest();
+        public void Plot();
         public bool ShouldNewsHappen();
         public void ApplyNewsEffects();
         public void ApplyAudienceEffects();

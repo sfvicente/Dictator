@@ -34,17 +34,16 @@ namespace Dictator.ConsoleInterface
                 engine.AdvanceMonth();
                 userInterface.DisplayMonthScreen();
 
-                // TODO: engine.Plot()
+                engine.Plot();
                 if (engine.IsGovernmentBankrupt())
                 {
                     userInterface.DisplayBankuptcyScreen();
-                    // TODO: engine.Plot()
+                    engine.Plot();
                     ProcessPoliceReport();
                 }
 
                 ProcessAudience();
-                
-                // TODO: plot
+                engine.Plot();
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
                 if (TryProcessAssassinationAttempt())
@@ -53,7 +52,7 @@ namespace Dictator.ConsoleInterface
                     break;
                 }
 
-                // TODO: plot
+                engine.Plot();
                 ProcessPoliceReport();
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
@@ -64,7 +63,7 @@ namespace Dictator.ConsoleInterface
                     {
                         userInterface.DisplayNewsScreen();
                         engine.ApplyNewsEffects();
-                        // TODO: plot
+                        engine.Plot();
                         ProcessPoliceReport();
                     }
                 }

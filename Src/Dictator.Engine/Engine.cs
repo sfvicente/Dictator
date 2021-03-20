@@ -65,6 +65,11 @@ namespace Dictator.Core
             audienceStats.SetRandomAudienceRequest();
         }
 
+        public void Plot()
+        {
+
+        }
+
         public bool ShouldNewsHappen()
         {
             Random random = new Random();
