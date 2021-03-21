@@ -134,8 +134,7 @@ namespace Dictator.ConsoleInterface
 
             if (dialogResult == DialogResult.Yes)
             {
-                engine.ApplyAudienceEffects();
-                // TODO: ApplyDecisionEffects
+                engine.AcceptAudienceRequest();
             }
             else
             {

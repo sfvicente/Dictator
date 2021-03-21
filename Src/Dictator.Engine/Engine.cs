@@ -109,7 +109,7 @@ namespace Dictator.Core
             account.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
         }
 
-        public void ApplyAudienceEffects()
+        public void AcceptAudienceRequest()
         {
             Audience currentAudience = audienceStats.CurrentAudienceRequest;
 

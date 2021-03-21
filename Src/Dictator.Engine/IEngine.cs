@@ -16,7 +16,7 @@ namespace Dictator.Core
         public void Plot();
         public bool ShouldNewsHappen();
         public void ApplyNewsEffects();
-        public void ApplyAudienceEffects();
+        public void AcceptAudienceRequest();
         public void RefuseAudienceRequest();
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
