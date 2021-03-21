@@ -118,6 +118,18 @@ namespace Dictator.Core
             account.ApplyTreasuryChanges(currentAudience.Cost, currentAudience.MonthlyCost);
         }
 
+        /// <summary>
+        ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
+        /// </summary>
+        public void RefuseAudienceRequest()
+        {
+            Audience currentAudience = audienceStats.CurrentAudienceRequest;
+            char requesterPopularityChange = currentAudience.GroupPopularityChanges[(int)currentAudience.Requester];
+
+            // Decrease the player's popularity with the petitioners
+            groupStats.DecreasePopularity(currentAudience.Requester, requesterPopularityChange - 'M');
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();

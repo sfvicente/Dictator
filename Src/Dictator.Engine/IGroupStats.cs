@@ -16,6 +16,7 @@ namespace Dictator.Core
         public Group GetGroupByType(GroupType groupType);
         public string GetGroupNameByIndex(int index);
         public void DecreasePopularity(GroupType groupType);
+        public void DecreasePopularity(GroupType groupType, int amount);
         public void DecreaseStrength(GroupType groupType);
         public void SetAssassinByGroupType(GroupType groupType);
         public bool DoesMainPopulationHatePlayer();

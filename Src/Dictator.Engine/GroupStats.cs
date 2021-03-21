@@ -69,6 +69,16 @@ namespace Dictator.Core
             }
         }
 
+        public void DecreasePopularity(GroupType groupType, int amount)
+        {
+            int index = (int)groupType;
+
+            if (groups[index].Popularity > 0)
+            {
+                groups[index].Popularity -= amount;
+            }
+        }
+
         public void IncreaseStrength(GroupType groupType)
         {
             int index = (int)groupType;
