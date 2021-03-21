@@ -51,17 +51,7 @@ namespace Dictator.ConsoleInterface
                 ProcessPoliceReport();
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
-
-                if (engine.ShouldNewsHappen())
-                {
-                    if(engine.TryTriggerRandomUnusedNews())
-                    {
-                        userInterface.DisplayNewsScreen();
-                        engine.ApplyNewsEffects();
-                        engine.Plot();
-                        ProcessPoliceReport();
-                    }
-                }
+                ProcessNews();
 
                 if(TryTriggerRevolution())
                 {
@@ -179,6 +169,20 @@ namespace Dictator.ConsoleInterface
             if(decisionType != DecisionType.None)
             {
                 userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+            }
+        }
+
+        public void ProcessNews()
+        {
+            if (engine.ShouldNewsHappen())
+            {
+                if (engine.TryTriggerRandomUnusedNews())
+                {
+                    userInterface.DisplayNewsScreen();
+                    engine.ApplyNewsEffects();
+                    engine.Plot();
+                    ProcessPoliceReport();
+                }
             }
         }
 
