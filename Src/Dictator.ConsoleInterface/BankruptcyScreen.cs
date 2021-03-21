@@ -28,12 +28,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 11, " the SECRET POLICE will DROP ! ");
             ConsoleEx.WriteAt(1, 13, "    POLICE STRENGTH will drop  ");
             ConsoleEx.WriteAt(1, 15, "and YOUR own STRENGTH will DROP");
-
-            groupStats.DecreasePopularity(GroupType.Army);
-            groupStats.DecreasePopularity(GroupType.SecretPolice);
-            groupStats.DecreaseStrength(GroupType.SecretPolice);
-            governmentStats.DecreasePlayerStrength();
-
             pressAnyKeyControl.Show();
             Console.ReadKey(true);
         }

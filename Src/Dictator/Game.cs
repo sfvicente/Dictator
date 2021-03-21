@@ -96,7 +96,8 @@ namespace Dictator.ConsoleInterface
             if (engine.IsGovernmentBankrupt())
             {
                 userInterface.DisplayBankuptcyScreen();
-                engine.Plot();
+                engine.ApplyBankruptcyEffects();
+                engine.Plot();  // Realculate probability for the assassination and revolution events
                 ProcessPoliceReport();
             }
         }

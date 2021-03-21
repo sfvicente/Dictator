@@ -11,6 +11,7 @@ namespace Dictator.Core
         public bool IsGovernmentBankrupt();
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
+        public void ApplyBankruptcyEffects();
         public void SetRandomAudienceRequest();
         public void Plot();
         public bool ShouldNewsHappen();
