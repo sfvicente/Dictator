@@ -95,7 +95,7 @@ namespace Dictator.ConsoleInterface
         /// <summary>
         ///     Handles the generation and processing of an audience request from one of the groups.
         /// </summary>
-        public void HandleAudienceRequest()
+        private void HandleAudienceRequest()
         {
             engine.SetRandomAudienceRequest();
             userInterface.DisplayAudienceScreen();
@@ -109,7 +109,7 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayAccountScreen();
         }
 
-        public bool AcceptsAdvice()
+        private bool AcceptsAdvice()
         {
             DialogResult dialogResult = userInterface.DisplayAdviceRequestDialog();
 
@@ -121,7 +121,7 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        public void AskForAudienceDecision()
+        private void AskForAudienceDecision()
         {
             DialogResult dialogResult = userInterface.DisplayAudienceDecisionDialog();
 
@@ -135,7 +135,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void ProcessPoliceReport()
+        private void ProcessPoliceReport()
         {
             if (userInterface.DisplayPoliceReportRequestDialog())
             {
@@ -143,7 +143,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public bool TryProcessAssassinationAttempt()
+        private bool TryProcessAssassinationAttempt()
         {
             if(engine.ShouldAssassinationAttemptHappen())
             {
@@ -164,7 +164,7 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        public void HandlePresidentialDecision()
+        private void HandlePresidentialDecision()
         {
             DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
 
@@ -174,7 +174,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void ProcessNews()
+        private void ProcessNews()
         {
             if (engine.ShouldNewsHappen())
             {
@@ -188,7 +188,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public bool TryTriggerRevolution()
+        private bool TryTriggerRevolution()
         {
             if(engine.TryTriggerRevoltGroup())
             {
@@ -204,7 +204,7 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        public bool AttemptsEscape()
+        private bool AttemptsEscape()
         {
             DialogResult dialogResult = userInterface.DisplayEscapeAttemptDialog();
 
