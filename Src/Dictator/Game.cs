@@ -129,7 +129,6 @@ namespace Dictator.ConsoleInterface
             else
             {
                 engine.RefuseAudienceRequest();
-                // TODO: ApplyDecisionReverseEffects?
             }
         }
 
