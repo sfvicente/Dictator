@@ -37,7 +37,7 @@ namespace Dictator.ConsoleInterface
                 engine.Plot();
                 CheckAndHandleBankruptcy();
 
-                ProcessAudience();
+                HandleAudienceRequest();
                 engine.Plot();
 
                 // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
@@ -92,7 +92,10 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void ProcessAudience()
+        /// <summary>
+        ///     Handles the generation and processing of an audience request from one of the groups.
+        /// </summary>
+        public void HandleAudienceRequest()
         {
             engine.SetRandomAudienceRequest();
             userInterface.DisplayAudienceScreen();
