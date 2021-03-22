@@ -13,12 +13,12 @@ namespace Dictator.Core
 
         public Group(GroupType groupType, int popularity, int strength, string name, string displayName)
         {
-            this.Type = groupType;
-            this.Popularity = popularity;
-            this.Strength = strength;
-            this.Name = name;
-            this.DisplayName = displayName;
-            this.Status = GroupStatus.Default;
+            Type = groupType;
+            Popularity = popularity;
+            Strength = strength;
+            Name = name;
+            DisplayName = displayName;
+            Status = GroupStatus.Default;
         }
     }
 }
