@@ -7,6 +7,6 @@ namespace Dictator.ConsoleInterface
 {
     public interface IPresidentialDecisionSubDialog
     {
-        public void Show(DecisionType decisionType);
+        public int Show(DecisionType decisionType);
     }
 }

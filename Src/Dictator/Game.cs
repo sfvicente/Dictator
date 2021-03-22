@@ -53,9 +53,9 @@ namespace Dictator.ConsoleInterface
                 ProcessPoliceReport();
                 ProcessNews();
 
-                if(TryTriggerRevolution())
+                if (TryTriggerRevolution())
                 {
-                    if(AttemptsEscape())
+                    if (AttemptsEscape())
                     {
                         // In order to escape by helicopter, the player would have to previously purchased it
                         if (engine.HasPlayerPurchasedHelicopter())
@@ -145,11 +145,11 @@ namespace Dictator.ConsoleInterface
 
         private bool TryProcessAssassinationAttempt()
         {
-            if(engine.ShouldAssassinationAttemptHappen())
+            if (engine.ShouldAssassinationAttemptHappen())
             {
                 userInterface.DisplayAssassinationAttempt();
 
-                if(engine.IsAssassinationSuccessful())
+                if (engine.IsAssassinationSuccessful())
                 {
                     // As attempt was successful, display death screen and kill player as game must end
                     userInterface.DisplayAssassinationSuccededScreen();
@@ -168,9 +168,16 @@ namespace Dictator.ConsoleInterface
         {
             DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
 
-            if(decisionType != DecisionType.None)
+            if (decisionType != DecisionType.None)
             {
-                userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+                int optionSelected = userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+
+                if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
+                {
+                    // TODO: Apply effects of presidential decision
+                }
+
+                // Else ignore?
             }
         }
 
@@ -190,7 +197,7 @@ namespace Dictator.ConsoleInterface
 
         private bool TryTriggerRevolution()
         {
-            if(engine.TryTriggerRevoltGroup())
+            if (engine.TryTriggerRevoltGroup())
             {
                 // TODO: perform the rest of the actions in the revolution mode
 
@@ -198,7 +205,7 @@ namespace Dictator.ConsoleInterface
 
 
 
-                
+
             }
 
             return false;

@@ -10,6 +10,7 @@ namespace Dictator.Core
         private IAccount account;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
+        private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
         private readonly INewsStats newsStats;
 
@@ -17,12 +18,14 @@ namespace Dictator.Core
             IAccount account,
             IGovernmentStats governmentStats,
             IGroupStats groupStats,
+            IDecisionStats decisionStats,
             IAudienceStats audienceStats,
             INewsStats newsStats)
         {
             this.account = account;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
+            this.decisionStats = decisionStats;
             this.audienceStats = audienceStats;
             this.newsStats = newsStats;
         }
@@ -128,6 +131,23 @@ namespace Dictator.Core
 
             // Decrease the player's popularity with the petitioners
             groupStats.DecreasePopularity(currentAudience.Requester, requesterPopularityChange - 'M');
+        }
+
+        public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
+        {
+            Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
+
+            if (optionNumber > decisions.Length)
+            {
+                return false;
+            }
+
+            if (decisions[optionNumber - 1].HasBeenUsed)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool ShouldAssassinationAttemptHappen()

@@ -18,6 +18,7 @@ namespace Dictator.Core
         public void ApplyNewsEffects();
         public void AcceptAudienceRequest();
         public void RefuseAudienceRequest();
+        public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public bool IsAssassinationSuccessful();

@@ -17,10 +17,9 @@ namespace Dictator.ConsoleInterface
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show(DecisionType decisionType)
+        public int Show(DecisionType decisionType)
         {
             Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
-
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
@@ -51,47 +50,20 @@ namespace Dictator.ConsoleInterface
             switch (keyPressed)
             {
                 case ConsoleKey.D1:
-                    if (OptionExistsAndIsAvailable(decisions, 1))
-                        return;
-                    return;
+                    return 1;
                 case ConsoleKey.D2:
-                    if (OptionExistsAndIsAvailable(decisions, 2))
-                        return;
-                    return;
+                    return 2;
                 case ConsoleKey.D3:
-                    if (OptionExistsAndIsAvailable(decisions, 3))
-                        return;
-                    return;
+                    return 3;
                 case ConsoleKey.D4:
-                    if (OptionExistsAndIsAvailable(decisions, 4))
-                        return;
-                    return;
+                    return 4;
                 case ConsoleKey.D5:
-                    if (OptionExistsAndIsAvailable(decisions, 5))
-                        return;
-                    return;
+                    return 5;
                 case ConsoleKey.D6:
-                    if (OptionExistsAndIsAvailable(decisions, 6))
-                        return;
-                    return;
+                    return 6;
                 default:
-                    return;
+                    return 99;
             }
-        }
-
-        private bool OptionExistsAndIsAvailable(Decision[] decisions, int optionNumber)
-        {
-            if(optionNumber > decisions.Length)
-            {
-                return false;
-            }
-
-            if (decisions[optionNumber - 1].HasBeenUsed)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }
