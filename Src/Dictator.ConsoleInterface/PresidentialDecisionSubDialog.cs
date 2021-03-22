@@ -86,7 +86,7 @@ namespace Dictator.ConsoleInterface
                 return false;
             }
 
-            if (decisions[optionNumber].HasBeenUsed)
+            if (decisions[optionNumber - 1].HasBeenUsed)
             {
                 return false;
             }
