@@ -7,7 +7,7 @@ namespace Dictator.Core
 {
     public class Engine : IEngine
     {
-        private IAccount account;
+        private readonly IAccount account;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
         private readonly IDecisionStats decisionStats;
