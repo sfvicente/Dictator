@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface
 {
     public interface IAssassinationSuccededScreen
     {
-        void Show();
+        public void Show();
     }
 }
