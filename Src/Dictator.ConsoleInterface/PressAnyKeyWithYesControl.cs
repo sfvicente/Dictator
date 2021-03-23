@@ -7,17 +7,19 @@ namespace Dictator.ConsoleInterface
 {
     public class PressAnyKeyWithYesControl : IPressAnyKeyWithYesControl
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IKeyPanel keyPanel;
 
-        public PressAnyKeyWithYesControl(IPressAnyKeyControl pressAnyKeyControl)
+        public PressAnyKeyWithYesControl(IKeyPanel keyPanel)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            this.keyPanel = keyPanel;
         }
+
+
 
         public void Show()
         {
             ConsoleEx.WriteAt(11, 21, " \"Y\"= KEY ", ConsoleColor.White, ConsoleColor.Black); // TODO: the label needs to be flashing
-            pressAnyKeyControl.Show();
+            keyPanel.Show();
         }
     }
 }

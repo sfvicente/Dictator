@@ -7,11 +7,16 @@ namespace Dictator.ConsoleInterface
 {
     public class PressAnyKeyControl : IPressAnyKeyControl
     {
+        private readonly IKeyPanel keyPanel;
+
+        public PressAnyKeyControl(IKeyPanel keyPanel)
+        {
+            this.keyPanel = keyPanel;
+        }
+
         public void Show()
         {
-            ConsoleEx.WriteAt(1, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 23, "              KEY               ", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 24, "                                ", ConsoleColor.Blue, ConsoleColor.White);
+            keyPanel.Show();
             Console.ReadKey(true);
         }
     }
