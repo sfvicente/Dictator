@@ -8,11 +8,11 @@ namespace Dictator.ConsoleInterface
 {
     public class PresidentialDecisionMainDialog : IPresidentialDecisionMainDialog
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
-        public PresidentialDecisionMainDialog(IPressAnyKeyControl pressAnyKeyControl)
+        public PresidentialDecisionMainDialog(IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
 
         public DecisionType Show()
@@ -25,11 +25,10 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(4, 13, "3. IMPROVE your CHANCES ", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(4, 15, "4. RAISE some CASH      ", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(4, 17, "5. STRENGTHEN a GROUP   ", ConsoleColor.Yellow, ConsoleColor.Black);
+            
+            ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
 
-            pressAnyKeyControl.Show();
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
-
-            switch(keyPressed)
+            switch (keyPressed)
             {
                 case ConsoleKey.D1:
                     return DecisionType.PleaseAGroup;

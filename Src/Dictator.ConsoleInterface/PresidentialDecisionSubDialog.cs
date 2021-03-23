@@ -9,12 +9,12 @@ namespace Dictator.ConsoleInterface
     public class PresidentialDecisionSubDialog : IPresidentialDecisionSubDialog
     {
         private readonly IDecisionStats decisionStats;
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
-        public PresidentialDecisionSubDialog(IDecisionStats decisionStats, IPressAnyKeyControl pressAnyKeyControl)
+        public PresidentialDecisionSubDialog(IDecisionStats decisionStats, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         {
             this.decisionStats = decisionStats;
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
 
         public int Show(DecisionType decisionType)
@@ -43,9 +43,8 @@ namespace Dictator.ConsoleInterface
             {
                 ConsoleEx.WriteAt(1, 12, "   ALL of this section USED UP  ");
             }
-
-            pressAnyKeyControl.Show();
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
+            
+            ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
 
             switch (keyPressed)
             {
