@@ -35,7 +35,6 @@ namespace Dictator.ConsoleInterface
             }
 
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

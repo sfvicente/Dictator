@@ -32,9 +32,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.Write(" ...", ConsoleColor.Black);
             DisplayGroupStrengthChanges(audience);
-
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
 
         public void DisplayPopularityChanges(Audience audience)

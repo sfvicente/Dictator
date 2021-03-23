@@ -29,7 +29,6 @@ namespace Dictator.ConsoleInterface
             DisplayGroups();
             DisplayGovernmentStats();
             pressAnyKeyControl.Show();
-            Console.ReadKey();
         }
 
         private void DisplayHeaders()

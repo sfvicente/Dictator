@@ -26,7 +26,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     ");
             ConsoleEx.WriteAt(startPosition, 12, $"by one of {groupName}");
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

@@ -20,7 +20,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 10, "   You have to get through the  ");
             ConsoleEx.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

@@ -19,7 +19,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, "           REVOLUTION           ");
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

@@ -37,9 +37,7 @@ namespace Dictator.ConsoleInterface
             // TODO: save history if it is a new highscore
             ConsoleEx.WriteAt(1, 16, $" Your TOTAL is", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is 00 ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
-
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

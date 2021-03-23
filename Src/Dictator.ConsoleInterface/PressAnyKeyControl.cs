@@ -12,6 +12,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
             ConsoleEx.WriteAt(1, 23, "              KEY               ", ConsoleColor.Blue, ConsoleColor.White);
             ConsoleEx.WriteAt(1, 24, "                                ", ConsoleColor.Blue, ConsoleColor.White);
+            Console.ReadKey(true);
         }
     }
 }

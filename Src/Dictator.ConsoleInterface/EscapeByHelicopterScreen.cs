@@ -19,7 +19,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

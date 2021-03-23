@@ -34,9 +34,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.Write("  1983", ConsoleColor.White);
             ConsoleEx.WriteAt(1, 18, "  Rewritten in C# by ", ConsoleColor.Gray);
             ConsoleEx.WriteAt(1, 20, "  Sergio Vicente 2021  ", ConsoleColor.Gray);
-
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

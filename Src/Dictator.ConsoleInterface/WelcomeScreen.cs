@@ -28,10 +28,8 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 16, "you will no doubt do BETTER !   ");
 
             ConsoleEx.WriteAt(1, 18, "Start with a TREASURY REPORT    ");
-            ConsoleEx.WriteAt(1, 20, "and a POLICE Report. (FREE)     ");
-            
+            ConsoleEx.WriteAt(1, 20, "and a POLICE Report. (FREE)     ");          
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

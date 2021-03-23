@@ -29,7 +29,6 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 13, "    POLICE STRENGTH will drop  ");
             ConsoleEx.WriteAt(1, 15, "and YOUR own STRENGTH will DROP");
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }

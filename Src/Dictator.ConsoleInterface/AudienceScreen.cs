@@ -37,9 +37,7 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 17, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
-
             pressAnyKeyControl.Show();
-            Console.ReadKey(true);
         }
     }
 }
