@@ -13,6 +13,7 @@ namespace Dictator.Core
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }
         public int MonthlyMinimalPopularityAndStrength { get; set; }
+        public int LastScore { get; set; }
 
         public void Initialise();
         public void AdvanceMonth();

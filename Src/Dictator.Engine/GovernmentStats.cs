@@ -13,10 +13,12 @@ namespace Dictator.Core
         public int PlotBonus { get; set; }
         public int MonthlyRevolutionStrength { get; set; }
         public int MonthlyMinimalPopularityAndStrength { get; set; }
+        public int LastScore { get; set; }
 
         public GovernmentStats()
         {
             Initialise();
+            LastScore = 0;
         }
 
         public void Initialise()
