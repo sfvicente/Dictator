@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.Common.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,18 @@ namespace Dictator.ConsoleInterface
 {
     public class RevolutionOverthrownScreen : IRevolutionOverthrownScreen
     {
+        private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+        public RevolutionOverthrownScreen(IPressAnyKeyControl pressAnyKeyControl)
+        {
+            this.pressAnyKeyControl = pressAnyKeyControl;
+        }
+
         public void Show()
         {
-            throw new NotImplementedException();
+            ConsoleEx.WriteAt(1, 10, "    You have been OVERTHROWN    ");
+            ConsoleEx.WriteAt(1, 12, "         and LIQUIDATED         ");
+            pressAnyKeyControl.Show();
         }
     }
 }
