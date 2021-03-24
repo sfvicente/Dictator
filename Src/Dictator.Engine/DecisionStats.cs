@@ -17,7 +17,7 @@ namespace Dictator.Core
         public void Initialise()
         {
             decisions = new Decision[] {
-                new Decision(DecisionType.PleaseAGroup, 0, 0, "QLLMMLMM", "NMMLML", "MAKE ARMY CHIEF \"VICE-PRESIDENT\" "),
+                new Decision(DecisionType.PleaseAGroup, 0, 0, "QLLMMLMM", "NMMLML", "MAKE ARMY CHIEF \"VICE-PRESIDENT\""),
                 new Decision(DecisionType.PleaseAGroup, 0/*L*/, 0/*I*/, "LQNMOMNM", "MMMLMM", "SET UP FREE CLINICS for WORKERS "),
                 new Decision(DecisionType.PleaseAGroup, 0, 0, "LKQMMLLM", "LLOMML", "GIVE LANDOWNERS REGIONAL POWERS "),
                 new Decision(DecisionType.PleaseAGroup, 0/*R*/, 0, "KMMMQMKN", "LMMLPM", "SELL AMERICAN ARMS to LEFTOTO   "),
