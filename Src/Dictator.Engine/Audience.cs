@@ -10,13 +10,13 @@ namespace Dictator.Core
 
         public Audience(GroupType requester, int cost, int monthlyCost, string groupPopularityChanges, string groupStrenghtChanges, string text)
         {
-            this.Requester = requester;
-            this.Cost = cost;
-            this.MonthlyCost = monthlyCost;
-            this.GroupPopularityChanges = groupPopularityChanges;
-            this.GroupStrengthChanges = groupStrenghtChanges;
-            this.Text = text;
-            this.HasBeenUsed = false;
+            Requester = requester;
+            Cost = cost;
+            MonthlyCost = monthlyCost;
+            GroupPopularityChanges = groupPopularityChanges;
+            GroupStrengthChanges = groupStrenghtChanges;
+            Text = text;
+            HasBeenUsed = false;
         }
     }
 }
