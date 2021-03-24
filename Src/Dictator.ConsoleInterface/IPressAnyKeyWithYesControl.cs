@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface
 {
     public interface IPressAnyKeyWithYesControl
     {
-        public void Show();
+        public DialogResult Show();
     }
 }

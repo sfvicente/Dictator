@@ -14,11 +14,12 @@ namespace Dictator.ConsoleInterface
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
-        public void Show()
+        public DialogResult Show()
         {
             ConsoleEx.WriteAt(1, 10, "  The REVOLT has been CRUSHED   ");
             ConsoleEx.WriteAt(1, 12, "  PUNISH the REVOLUTIONARIES ?  ");
-            pressAnyKeyWithYesControl.Show();
+            
+            return pressAnyKeyWithYesControl.Show();
         }
     }
 }

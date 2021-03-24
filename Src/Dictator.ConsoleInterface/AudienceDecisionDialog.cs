@@ -49,16 +49,7 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteAt(2, 16, "RAISE MONTHLY COSTS bt $10,000", ConsoleColor.Black);
             }
 
-            pressAnyKeyWithYesControl.Show();
-
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
-
-            if (keyPressed == ConsoleKey.Y)
-            {
-                return DialogResult.Yes;
-            }
-
-            return DialogResult.No;
+            return pressAnyKeyWithYesControl.Show();
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface
 {
     public interface IRevolutionCrushedScreen
     {
-        void Show();
+        public DialogResult Show();
     }
 }

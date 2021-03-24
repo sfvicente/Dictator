@@ -37,9 +37,10 @@ namespace Dictator.ConsoleInterface
             if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
-                pressAnyKeyWithYesControl.Show();
+                
+                DialogResult dialogResult = pressAnyKeyWithYesControl.Show();
 
-                if (Console.ReadKey(true).Key == ConsoleKey.Y)
+                if (dialogResult == DialogResult.Yes)
                 {
                     account.ChangeTreasuryBalance(-1);
                     return true;

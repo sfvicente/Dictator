@@ -15,10 +15,7 @@ namespace Dictator.ConsoleInterface
 
         public DialogResult Show()
         {
-
-            pressAnyKeyWithYesControl.Show();
-
-            throw new NotImplementedException();
+            return pressAnyKeyWithYesControl.Show();
         }
     }
 }

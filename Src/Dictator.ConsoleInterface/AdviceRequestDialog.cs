@@ -25,16 +25,7 @@ namespace Dictator.ConsoleInterface
                 ConsoleEx.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
             }
 
-            pressAnyKeyWithYesControl.Show();
-
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
-
-            if(keyPressed == ConsoleKey.Y)
-            {
-                return DialogResult.Yes;
-            }
-
-            return DialogResult.No;
+            return pressAnyKeyWithYesControl.Show();
         }
     }
 }
