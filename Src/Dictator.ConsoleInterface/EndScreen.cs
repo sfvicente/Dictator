@@ -34,7 +34,14 @@ namespace Dictator.ConsoleInterface
             ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING ", ConsoleColor.Green, ConsoleColor.White);
             ConsoleEx.WriteAt(6, 13, $"($000,000 /00,000) - ", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
-            // TODO: save history if it is a new highscore
+            int finalScore = 0;
+
+            if (finalScore > governmentStats.LastScore)
+            {
+                // Save the final score as the new highscore
+                governmentStats.LastScore = finalScore;
+            }
+
             ConsoleEx.WriteAt(1, 16, $" Your TOTAL is", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is 00 ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
             pressAnyKeyControl.Show();
