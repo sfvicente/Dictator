@@ -1,4 +1,5 @@
 ﻿using Dictator.ConsoleInterface;
+using Dictator.ConsoleInterface.Revolution;
 using Dictator.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

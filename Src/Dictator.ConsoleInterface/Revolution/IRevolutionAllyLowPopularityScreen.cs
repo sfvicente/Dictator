@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Revolution
 {
-    public interface IRevolutionScreen
+    public interface IRevolutionAllyLowPopularityScreen
     {
         public void Show();
     }
