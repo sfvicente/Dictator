@@ -52,32 +52,7 @@ namespace Dictator.ConsoleInterface
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
                 ProcessNews();
-
-                if (TryTriggerRevolution())
-                {
-                    if (AttemptsEscape())
-                    {
-                        // In order to escape by helicopter, the player would have to previously purchased it
-                        if (engine.HasPlayerPurchasedHelicopter())
-                        {
-                            if (engine.AttemptEscapeByHelicopter())
-                            {
-                                userInterface.DisplayEscapeByHelicopterScreen();
-                            }
-                            else
-                            {
-                                userInterface.DisplayEscapeByHelicopterFailScreen();
-                                userInterface.DisplayEscapeToLeftotoScreen();
-                                //TODO: add guerrilas interaction
-                            }
-                        }
-
-                        userInterface.DisplayEndScreen();
-                        break;
-                    }
-
-                    // TODO: process the revolution
-                }
+                TryTriggerRevolution();
             }
         }
 
@@ -195,20 +170,36 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        private bool TryTriggerRevolution()
+        private void TryTriggerRevolution()
         {
-            if (engine.TryTriggerRevoltGroup())
+            bool shouldRevolutionHappen = engine.TryTriggerRevoltGroup();
+
+            if (shouldRevolutionHappen)
             {
-                // TODO: perform the rest of the actions in the revolution mode
+                if (AttemptsEscape())
+                {
+                    // In order to escape by helicopter, the player would have to previously purchased it
+                    if (engine.HasPlayerPurchasedHelicopter())
+                    {
+                        if (engine.AttemptEscapeByHelicopter())
+                        {
+                            userInterface.DisplayEscapeByHelicopterScreen();
+                        }
+                        else
+                        {
+                            userInterface.DisplayEscapeByHelicopterFailScreen();
+                            userInterface.DisplayEscapeToLeftotoScreen();
+                            //TODO: add guerrilas interaction
+                        }
+                    }
 
-
-
-
-
-
+                    userInterface.DisplayEndScreen();
+                }
+                else
+                {
+                    // TODO: process the revolution
+                }
             }
-
-            return false;
         }
 
         private bool AttemptsEscape()
