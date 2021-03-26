@@ -7,19 +7,19 @@ namespace Dictator.ConsoleInterface.Escape
 {
     public class EscapeAttemptDialog : IEscapeAttemptDialog
     {
+        private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
+
+        public EscapeAttemptDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        {
+            this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+        }
+
         public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, "        ESCAPE ATTEMPT ?        ");
-            
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
 
-            if(keyPressed == ConsoleKey.Y)
-            {
-                return DialogResult.Yes;
-            }
-
-            return DialogResult.No;
+            return pressAnyKeyWithYesControl.Show();
         }
     }
 }
