@@ -149,10 +149,11 @@ namespace Dictator.ConsoleInterface
 
                 if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
                 {
-                    // TODO: Apply effects of presidential decision
-                }
+                    //decisionSubType = engine.GetDecisionSubType(decisionType, optionSelected);
 
-                // Else ignore?
+                    // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
+                    // Otherwise, apply effects of presidential decision
+                }
             }
         }
 
