@@ -200,6 +200,15 @@ namespace Dictator.ConsoleInterface
                 else
                 {
                     // TODO: process the revolution
+                    engine.InitialiseRevolution();
+
+                    // TODO: pass required data and display the ask for help screen
+                    //userInterface.DisplayRevolutionAskForHelpScreen();
+
+                    // TODO: Display revolution has started screen
+                    //userInterface.DisplayRevolutionStartedScreen();
+
+                    // TODO: Display outcome of the revolution
                 }
             }
         }

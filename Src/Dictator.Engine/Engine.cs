@@ -13,6 +13,9 @@ namespace Dictator.Core
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
         private readonly INewsStats newsStats;
+        private Group revolutionCurrentGroup;
+        private int revolutionPlayerStrength;
+        private int revolutionGroupStrength;
 
         public Engine(
             IAccount account,
@@ -193,11 +196,21 @@ namespace Dictator.Core
 
                 if (groups[number].Status == GroupStatus.Revolution)
                 {
+                    revolutionCurrentGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public void InitialiseRevolution()
+        {
+            // TODO: Define possible allies
+
+            // TODO: Determine the player combined strength
+
+            // TODO: Determine the current revolutionary combined strength
         }
 
         public bool HasPlayerPurchasedHelicopter()
