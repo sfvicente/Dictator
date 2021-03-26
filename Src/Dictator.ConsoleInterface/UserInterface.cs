@@ -1,4 +1,5 @@
 ﻿using Dictator.ConsoleInterface.Escape;
+using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;

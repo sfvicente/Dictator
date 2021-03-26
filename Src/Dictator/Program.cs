@@ -1,5 +1,6 @@
 ﻿using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Escape;
+using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.Core;
 using Microsoft.Extensions.DependencyInjection;
