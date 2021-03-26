@@ -176,6 +176,8 @@ namespace Dictator.ConsoleInterface
 
             if (shouldRevolutionHappen)
             {
+                userInterface.DisplayRevolutionScreen();
+
                 if (AttemptsEscape())
                 {
                     // In order to escape by helicopter, the player would have to previously purchased it

@@ -1,5 +1,6 @@
 ﻿using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.PoliceReport;
+using Dictator.ConsoleInterface.Revolution;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Dictator.ConsoleInterface
         private readonly ILoanScreen loanScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
+        private readonly IRevolutionScreen revolutionScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
         private readonly IEscapeByHelicopterScreen escapeByHelicopterScreen;
         private readonly IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen;
@@ -54,6 +56,7 @@ namespace Dictator.ConsoleInterface
             ILoanScreen loanScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
+            IRevolutionScreen revolutionScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IEscapeByHelicopterScreen escapeByHelicopterScreen,
             IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen,
@@ -79,6 +82,7 @@ namespace Dictator.ConsoleInterface
             this.loanScreen = loanScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
+            this.revolutionScreen = revolutionScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
             this.escapeByHelicopterScreen = escapeByHelicopterScreen;
             this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
@@ -191,6 +195,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayAssassinationSuccededScreen()
         {
             assassinationSuccededScreen.Show();
+        }
+
+        public void DisplayRevolutionScreen()
+        {
+            revolutionScreen.Show();
         }
 
         public DialogResult DisplayEscapeAttemptDialog()
