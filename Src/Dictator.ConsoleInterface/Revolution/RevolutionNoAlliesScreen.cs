@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.Common.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,7 +16,8 @@ namespace Dictator.ConsoleInterface.Revolution
 
         public void Show()
         {
-            throw new NotImplementedException();
+            ConsoleEx.WriteAt(1, 12, "      You're ON YOUR OWN !      ");
+            pressAnyKeyControl.Show();
         }
     }
 }
