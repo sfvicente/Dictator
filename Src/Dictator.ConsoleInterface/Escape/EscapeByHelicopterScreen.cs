@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Escape
 {
-    public class EscapeToLeftotoScreen : IEscapeToLeftotoScreen
+    public class EscapeByHelicopterScreen : IEscapeByHelicopterScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public EscapeToLeftotoScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public EscapeByHelicopterScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -17,8 +17,7 @@ namespace Dictator.ConsoleInterface
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 10, "   You have to get through the  ");
-            ConsoleEx.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
+            ConsoleEx.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
             pressAnyKeyControl.Show();
         }
     }

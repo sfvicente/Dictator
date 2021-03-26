@@ -1,4 +1,5 @@
-﻿using Dictator.Core;
+﻿using Dictator.ConsoleInterface.Escape;
+using Dictator.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
