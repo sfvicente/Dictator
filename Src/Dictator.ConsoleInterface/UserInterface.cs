@@ -1,5 +1,6 @@
 ﻿using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Escape;
+using Dictator.ConsoleInterface.News;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Treasury;

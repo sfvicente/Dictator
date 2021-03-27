@@ -1,4 +1,4 @@
-﻿namespace Dictator.ConsoleInterface
+﻿namespace Dictator.ConsoleInterface.News
 {
     public interface INewsflashScreen
     {
