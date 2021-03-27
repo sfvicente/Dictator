@@ -11,13 +11,13 @@ namespace Dictator.ConsoleInterface
 {
     public class UserInterface : IUserInterface
     {
-        private IIntroScreen introScreen;
-        private IWelcomeScreen welcomeScreen;
-        private ITitleScreen titleScreen;
-        private ITreasuryReportScreen treasuryReportScreen;
-        private IPoliceReportRequestDialog policeReportRequestScreen;
-        private IPoliceReportScreen policeReportScreen;
-        private IAudienceScreen audienceScreen;
+        private readonly IIntroScreen introScreen;
+        private readonly IWelcomeScreen welcomeScreen;
+        private readonly ITitleScreen titleScreen;
+        private readonly ITreasuryReportScreen treasuryReportScreen;
+        private readonly IPoliceReportRequestDialog policeReportRequestScreen;
+        private readonly IPoliceReportScreen policeReportScreen;
+        private readonly IAudienceScreen audienceScreen;
         private readonly IAudienceDecisionDialog audienceDecisionDialog;
         private readonly IAdviceRequestDialog adviceRequestDialog;
         private readonly IAdviceScreen adviceScreen;
