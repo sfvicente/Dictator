@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Assassination
 {
-    public interface IAssassinationSuccededScreen
+    public interface IAssassinationScreen
     {
         public void Show();
     }
