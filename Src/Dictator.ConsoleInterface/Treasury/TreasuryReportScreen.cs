@@ -2,7 +2,7 @@
 using Dictator.Core;
 using System;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Treasury
 {
     public class TreasuryReportScreen : ITreasuryReportScreen
     {

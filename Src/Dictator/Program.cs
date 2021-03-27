@@ -3,6 +3,7 @@ using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.Revolution;
+using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,13 +30,13 @@ namespace Dictator
             .AddScoped<IWelcomeScreen, WelcomeScreen>()
             .AddScoped<ITitleScreen, TitleScreen>()
             .AddScoped<ITreasuryReportScreen, TreasuryReportScreen>()
+            .AddScoped<IBankruptcyScreen, BankruptcyScreen>()
             .AddScoped<IPoliceReportRequestDialog, PoliceReportRequestDialog>()
             .AddScoped<IPoliceReportScreen, PoliceReportScreen>()
             .AddScoped<IAudienceScreen, AudienceScreen>()
             .AddScoped<IAudienceDecisionDialog, AudienceDecisionDialog>()
             .AddScoped<IAdviceRequestDialog, AdviceRequestDialog>()
             .AddScoped<IAdviceScreen, AdviceScreen>()
-            .AddScoped<IBankruptcyScreen, BankruptcyScreen>()
             .AddScoped<INewsflashScreen, NewsflashScreen>()
             .AddScoped<IMonthScreen, MonthScreen>()
             .AddScoped<IPresidentialDecisionMainDialog, PresidentialDecisionMainDialog>()

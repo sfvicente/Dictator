@@ -2,6 +2,7 @@
 using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.Revolution;
+using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,13 @@ namespace Dictator.ConsoleInterface
         private readonly IWelcomeScreen welcomeScreen;
         private readonly ITitleScreen titleScreen;
         private readonly ITreasuryReportScreen treasuryReportScreen;
+        private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly IPoliceReportRequestDialog policeReportRequestScreen;
         private readonly IPoliceReportScreen policeReportScreen;
         private readonly IAudienceScreen audienceScreen;
         private readonly IAudienceDecisionDialog audienceDecisionDialog;
         private readonly IAdviceRequestDialog adviceRequestDialog;
         private readonly IAdviceScreen adviceScreen;
-        private readonly IBankruptcyScreen bankruptcyScreen;
         private readonly INewsflashScreen newsflashScreen;
         private readonly IMonthScreen monthScreen;
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
@@ -43,13 +44,13 @@ namespace Dictator.ConsoleInterface
             IWelcomeScreen welcomeScreen,
             ITitleScreen titleScreen,
             ITreasuryReportScreen treasuryReportScreen,
+            IBankruptcyScreen bankruptcyScreen,
             IPoliceReportRequestDialog policeReportRequestScreen,
             IPoliceReportScreen policeReportScreen,
             IAudienceScreen audienceScreen,
             IAudienceDecisionDialog audienceDecisionDialog,
             IAdviceRequestDialog adviceRequestDialog,
             IAdviceScreen adviceScreen,
-            IBankruptcyScreen bankruptcyScreen,
             INewsflashScreen newsflashScreen,
             IMonthScreen monthScreen,
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,

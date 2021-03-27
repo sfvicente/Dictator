@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Treasury
 {
     public class BankruptcyScreen: IBankruptcyScreen
     {
