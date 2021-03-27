@@ -28,6 +28,7 @@ namespace Dictator.ConsoleInterface
         private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
         private readonly ILoanScreen loanScreen;
+        private readonly IAssassinationScreen assassinationScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
@@ -185,7 +186,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayAssassinationAttempt()
         {
-
+            assassinationScreen.Show();
         }
 
         public void DisplayAssassinationFailedScreen()
