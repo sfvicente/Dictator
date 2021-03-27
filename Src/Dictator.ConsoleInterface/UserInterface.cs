@@ -57,6 +57,7 @@ namespace Dictator.ConsoleInterface
             IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
             ILoanScreen loanScreen,
+            IAssassinationScreen assassinationScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
@@ -83,6 +84,7 @@ namespace Dictator.ConsoleInterface
             this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
             this.loanScreen = loanScreen;
+            this.assassinationScreen = assassinationScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
