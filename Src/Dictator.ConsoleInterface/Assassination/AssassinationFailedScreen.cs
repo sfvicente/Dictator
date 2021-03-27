@@ -17,7 +17,7 @@ namespace Dictator.ConsoleInterface.Assassination
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray);
-            ConsoleEx.WriteAt(1, 11, "          You're DEAD !         ", ConsoleColor.Gray, ConsoleColor.Black);         
+            ConsoleEx.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);         
             pressAnyKeyControl.Show();
         }
     }
