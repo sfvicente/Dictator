@@ -8,6 +8,7 @@ using Dictator.ConsoleInterface.News;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.PresidentialDecision;
 using Dictator.ConsoleInterface.Revolution;
+using Dictator.ConsoleInterface.Start;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.ConsoleInterface.War;
 using Dictator.Core;

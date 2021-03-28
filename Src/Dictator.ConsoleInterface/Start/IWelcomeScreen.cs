@@ -1,4 +1,4 @@
-﻿namespace Dictator.ConsoleInterface
+﻿namespace Dictator.ConsoleInterface.Start
 {
     public interface IWelcomeScreen
     {

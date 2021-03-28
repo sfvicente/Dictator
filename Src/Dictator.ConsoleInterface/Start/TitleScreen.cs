@@ -1,7 +1,7 @@
 ﻿using Dictator.Common.Extensions;
 using System;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.Start
 {
     public class TitleScreen : ITitleScreen
     {
