@@ -6,6 +6,7 @@ using Dictator.ConsoleInterface.News;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Treasury;
+using Dictator.ConsoleInterface.War;
 using Dictator.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

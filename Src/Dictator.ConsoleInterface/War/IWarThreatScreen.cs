@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.War
 {
-    public interface IWarResultScreen
+    public interface IWarThreatScreen
     {
         void Show();
     }
