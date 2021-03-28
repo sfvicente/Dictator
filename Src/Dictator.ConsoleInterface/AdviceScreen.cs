@@ -21,7 +21,7 @@ namespace Dictator.ConsoleInterface
 
         public void Show()
         {
-            Audience audience = audienceStats.CurrentAudienceRequest;
+            Core.Audience audience = audienceStats.CurrentAudienceRequest;
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
@@ -35,7 +35,7 @@ namespace Dictator.ConsoleInterface
             pressAnyKeyControl.Show();
         }
 
-        public void DisplayPopularityChanges(Audience audience)
+        public void DisplayPopularityChanges(Core.Audience audience)
         {
             int line = 6;
 
@@ -52,7 +52,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        public void DisplayGroupStrengthChanges(Audience audience)
+        public void DisplayGroupStrengthChanges(Core.Audience audience)
         {
             int line = Console.CursorTop + 3;
 
