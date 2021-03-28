@@ -1,4 +1,5 @@
 ﻿using Dictator.ConsoleInterface;
+using Dictator.ConsoleInterface.Advice;
 using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.End;
 using Dictator.ConsoleInterface.Escape;
