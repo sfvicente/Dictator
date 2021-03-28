@@ -1,5 +1,6 @@
 ﻿using Dictator.ConsoleInterface.Advice;
 using Dictator.ConsoleInterface.Assassination;
+using Dictator.ConsoleInterface.Audience;
 using Dictator.ConsoleInterface.End;
 using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.News;
