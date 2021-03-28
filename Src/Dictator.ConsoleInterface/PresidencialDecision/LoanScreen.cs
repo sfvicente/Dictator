@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public class LoanScreen : ILoanScreen
     {

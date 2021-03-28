@@ -4,6 +4,7 @@ using Dictator.ConsoleInterface.End;
 using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.News;
 using Dictator.ConsoleInterface.PoliceReport;
+using Dictator.ConsoleInterface.PresidentialDecision;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core;
