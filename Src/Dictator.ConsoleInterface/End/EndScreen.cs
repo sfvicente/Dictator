@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface
+namespace Dictator.ConsoleInterface.End
 {
     public class EndScreen : IEndScreen
     {
