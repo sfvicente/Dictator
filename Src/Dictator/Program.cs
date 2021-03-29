@@ -81,6 +81,8 @@ namespace Dictator
             .AddScoped<IDecisionStats, DecisionStats>()
             .AddScoped<INewsStats, NewsStats>()
             .AddScoped<IAudienceStats, AudienceStats>()
+            // Services
+            .AddScoped<IPlotService, PlotService>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()
