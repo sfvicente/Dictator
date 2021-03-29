@@ -4,6 +4,7 @@ using Dictator.ConsoleInterface.Audience;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.End;
 using Dictator.ConsoleInterface.Escape;
+using Dictator.ConsoleInterface.Month;
 using Dictator.ConsoleInterface.News;
 using Dictator.ConsoleInterface.PoliceReport;
 using Dictator.ConsoleInterface.PresidentialDecision;
