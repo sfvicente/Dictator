@@ -1,4 +1,5 @@
 ﻿using Dictator.Common.Extensions;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 
 namespace Dictator.ConsoleInterface
