@@ -14,6 +14,7 @@ using Dictator.ConsoleInterface.Start;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.ConsoleInterface.War;
 using Dictator.Core;
+using Dictator.Core.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
