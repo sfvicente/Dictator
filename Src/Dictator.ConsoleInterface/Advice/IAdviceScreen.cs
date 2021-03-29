@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Advice
 {
     public interface IAdviceScreen
     {
-        void Show();
+        public void Show();
     }
 }
