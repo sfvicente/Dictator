@@ -10,6 +10,7 @@ namespace Dictator.Core
         private readonly IAccount account;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
+        private readonly IPlotService plotService;
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
         private readonly INewsStats newsStats;
@@ -21,6 +22,7 @@ namespace Dictator.Core
             IAccount account,
             IGovernmentStats governmentStats,
             IGroupStats groupStats,
+            IPlotService plotService,
             IDecisionStats decisionStats,
             IAudienceStats audienceStats,
             INewsStats newsStats)
@@ -28,6 +30,7 @@ namespace Dictator.Core
             this.account = account;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
+            this.plotService = plotService;
             this.decisionStats = decisionStats;
             this.audienceStats = audienceStats;
             this.newsStats = newsStats;
@@ -73,7 +76,7 @@ namespace Dictator.Core
 
         public void Plot()
         {
-
+            plotService.Plot();
         }
 
         public bool ShouldNewsHappen()
