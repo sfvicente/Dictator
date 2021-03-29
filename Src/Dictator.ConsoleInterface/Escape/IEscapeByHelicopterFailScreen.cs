@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Escape
 {
     public interface IEscapeByHelicopterFailScreen
     {
-        void Show();
+        public void Show();
     }
 }
