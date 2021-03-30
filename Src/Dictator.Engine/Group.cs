@@ -10,6 +10,7 @@ namespace Dictator.Core
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public GroupStatus Status { get; set; }
+        public Group Ally { get; set; }
 
         public Group(GroupType groupType, int popularity, int strength, string name, string displayName)
         {
