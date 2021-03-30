@@ -157,6 +157,11 @@ namespace Dictator.Core
             return true;
         }
 
+        public void IncreaseBodyguard()
+        {
+            governmentStats.IncreasePlayerStrength(2);
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();

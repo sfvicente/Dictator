@@ -17,6 +17,7 @@ namespace Dictator.Core
 
         public void Initialise();
         public void AdvanceMonth();
+        public void IncreasePlayerStrength(int amount);
         public void DecreasePlayerStrength();
         public void KillPlayer();
     }

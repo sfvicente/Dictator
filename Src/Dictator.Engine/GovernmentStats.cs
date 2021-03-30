@@ -37,6 +37,11 @@ namespace Dictator.Core
             Month++;
         }
 
+        public void IncreasePlayerStrength(int amount)
+        {
+            PlayerStrength += amount;
+        }
+
         public void DecreasePlayerStrength()
         {
             if (PlayerStrength > 0)
