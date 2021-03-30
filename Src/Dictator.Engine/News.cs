@@ -8,12 +8,12 @@ namespace Dictator.Core
     {
         public News(int cost, int monthlyCost, string groupPopularityChanges, string groupStrenghtChanges, string text)
         {
-            this.Cost = cost;
-            this.MonthlyCost = monthlyCost;
-            this.GroupPopularityChanges = groupPopularityChanges;
-            this.GroupStrengthChanges = groupStrenghtChanges;
-            this.Text = text;
-            this.HasBeenUsed = false;
+            Cost = cost;
+            MonthlyCost = monthlyCost;
+            GroupPopularityChanges = groupPopularityChanges;
+            GroupStrengthChanges = groupStrenghtChanges;
+            Text = text;
+            HasBeenUsed = false;
         }
     }
 }
