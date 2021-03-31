@@ -11,14 +11,14 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
-        private readonly IAccount account;
+        private readonly IAccountService account;
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
         public PoliceReportRequestDialog(
             IPressAnyKeyControl pressAnyKeyControl,
             IPressAnyKeyWithYesControl pressAnyKeyWithYesControl,
-            IAccount account,
+            IAccountService account,
             IGroupStats groupStats,
             IGovernmentStats governmentStats)
         {
@@ -35,7 +35,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
             ConsoleEx.WriteAt(1, 1, "################################");
             ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
 
-            if (account.TreasuryBalance > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
+            if (account.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 
@@ -63,7 +63,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
                     ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
 
-                if (account.TreasuryBalance < 1)
+                if (account.GetTreasuryBalance() < 1)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
                 }

@@ -8,7 +8,7 @@ namespace Dictator.Core
 {
     public class Engine : IEngine
     {
-        private readonly IAccount account;
+        private readonly IAccountService accountService;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
         private readonly IPlotService plotService;
@@ -20,7 +20,7 @@ namespace Dictator.Core
         private int revolutionGroupStrength;
 
         public Engine(
-            IAccount account,
+            IAccountService accountService,
             IGovernmentStats governmentStats,
             IGroupStats groupStats,
             IPlotService plotService,
@@ -28,7 +28,7 @@ namespace Dictator.Core
             IAudienceStats audienceStats,
             INewsStats newsStats)
         {
-            this.account = account;
+            this.accountService = accountService;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
             this.plotService = plotService;
@@ -39,7 +39,7 @@ namespace Dictator.Core
 
         public void Initialise()
         {
-            account.Initialise();
+            accountService.Initialise();
             governmentStats.Initialise();
             groupStats.Initialise();
             audienceStats.Initialise();
@@ -53,7 +53,7 @@ namespace Dictator.Core
 
         public bool IsGovernmentBankrupt()
         {
-            return account.TreasuryBalance <= 0;
+            return accountService.GetTreasuryBalance() <= 0;
         }
 
         public void SetMonthlyMinimalPopularityAndStrength()
@@ -116,7 +116,7 @@ namespace Dictator.Core
 
             groupStats.ApplyPopularityChange(currentNews.GroupPopularityChanges);
             groupStats.ApplyStrengthChange(currentNews.GroupStrengthChanges);
-            account.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
+            accountService.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
         }
 
         public void AcceptAudienceRequest()
@@ -125,7 +125,7 @@ namespace Dictator.Core
 
             groupStats.ApplyPopularityChange(currentAudience.GroupPopularityChanges);
             groupStats.ApplyStrengthChange(currentAudience.GroupStrengthChanges);
-            account.ApplyTreasuryChanges(currentAudience.Cost, currentAudience.MonthlyCost);
+            accountService.ApplyTreasuryChanges(currentAudience.Cost, currentAudience.MonthlyCost);
         }
 
         /// <summary>

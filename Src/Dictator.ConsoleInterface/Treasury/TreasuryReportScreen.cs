@@ -8,12 +8,12 @@ namespace Dictator.ConsoleInterface.Treasury
     public class TreasuryReportScreen : ITreasuryReportScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IAccount account;
+        private readonly IAccountService accountService;
 
-        public TreasuryReportScreen(IPressAnyKeyControl pressAnyKeyControl, IAccount account)
+        public TreasuryReportScreen(IPressAnyKeyControl pressAnyKeyControl, IAccountService accountService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.account = account;
+            this.accountService = accountService;
         }
 
         public void Show()
@@ -25,14 +25,14 @@ namespace Dictator.ConsoleInterface.Treasury
             ConsoleEx.WriteAt(2, 6, "                              ", ConsoleColor.Green, ConsoleColor.Black);
             ConsoleEx.WriteAt(8, 9, "TREASURY REPORT", ConsoleColor.White, ConsoleColor.Black);
 
-            string balanceWording = (account.TreasuryBalance > 0) ? "holds" : "OWES";
+            string balanceWording = (accountService.GetTreasuryBalance() > 0) ? "holds" : "OWES";
 
-            ConsoleEx.WriteAt(2, 13, $" The TREASURY {balanceWording} ${account.TreasuryBalance},000 ", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(3, 15, $" MONTHLY COSTS are ${account.MonthlyCosts},000 ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(2, 13, $" The TREASURY {balanceWording} ${accountService.GetTreasuryBalance()},000 ", ConsoleColor.Blue, ConsoleColor.White);
+            ConsoleEx.WriteAt(3, 15, $" MONTHLY COSTS are ${accountService.GetMonthlyCosts()},000 ", ConsoleColor.Blue, ConsoleColor.White);
 
-            if (account.HasSwissBankAccount)
+            if (accountService.HasSwissBankAccount())
             {
-                ConsoleEx.WriteAt(3, 17, $" [SWISS Acct holds ${account.SwissBankAccountBalance},000] ");
+                ConsoleEx.WriteAt(3, 17, $" [SWISS Acct holds ${accountService.GetSwissBankAccountBalance()},000] ");
             }
 
             pressAnyKeyControl.Show();

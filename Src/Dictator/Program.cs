@@ -76,6 +76,7 @@ namespace Dictator
             .AddScoped<IPressAnyKeyControl, PressAnyKeyControl>()
             .AddScoped<IPressAnyKeyOrOptionControl, PressAnyKeyOrOptionControl>()
             .AddScoped<IPressAnyKeyWithYesControl, PressAnyKeyWithYesControl>()
+            // Models
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
@@ -83,6 +84,7 @@ namespace Dictator
             .AddScoped<INewsStats, NewsStats>()
             .AddScoped<IAudienceStats, AudienceStats>()
             // Services
+            .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
