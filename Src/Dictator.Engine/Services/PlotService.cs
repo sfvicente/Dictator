@@ -23,16 +23,11 @@ namespace Dictator.Core.Services
                 return;
             }
 
-            ResetStates();
+            groupStats.ResetStatusAndAllies();
 
             // TODO: plot bonus check
 
             // TODO: perform plot logic
-        }
-
-        public void ResetStates()
-        {
-            // TODO: Implement
         }
     }
 }
