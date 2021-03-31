@@ -177,6 +177,21 @@ namespace Dictator.Core
             return false;
         }
 
+        public LoanRequest AskForLoan(Country country)
+        {
+            LoanRequest loanRequest = new LoanRequest();
+
+            // TODO: Check if it's not to yearly for a loan
+
+            // TODO: Check if loans have been used
+
+            // TODO: Check if popularity is above minimal
+
+            // TODO: If accepted, calculate amount
+
+            return loanRequest;
+        }
+
         public bool IsAssassinationSuccessful()
         {
             Random random = new Random();

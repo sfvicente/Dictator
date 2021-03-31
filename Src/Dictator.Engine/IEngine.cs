@@ -20,6 +20,7 @@ namespace Dictator.Core
         public void RefuseAudienceRequest();
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public void IncreaseBodyguard();
+        public LoanRequest AskForLoan(Country country);
         public bool TryTriggerRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public bool IsAssassinationSuccessful();
