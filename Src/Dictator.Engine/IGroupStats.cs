@@ -22,5 +22,6 @@ namespace Dictator.Core
         public bool DoesMainPopulationHatePlayer();
         public void ApplyPopularityChange(string groupPopularityChanges);
         public void ApplyStrengthChange(string groupStrengthChanges);
+        public void ResetStatusAndAllies();
     }
 }

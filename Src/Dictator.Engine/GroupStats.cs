@@ -159,5 +159,17 @@ namespace Dictator.Core
 
             return attributeValue;
         }
+
+        /// <summary>
+        ///     Resets the status and current ally for the army, peasants and landowners groups.
+        /// </summary>
+        public void ResetStatusAndAllies()
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                groups[i].Status = GroupStatus.Default;
+                groups[i].Ally = null;
+            }
+        }
     }
 }
