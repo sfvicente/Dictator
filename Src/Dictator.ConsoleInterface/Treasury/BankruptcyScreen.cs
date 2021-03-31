@@ -10,14 +10,10 @@ namespace Dictator.ConsoleInterface.Treasury
     public class BankruptcyScreen: IBankruptcyScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IGroupStats groupStats;
-        private readonly IGovernmentStats governmentStats;
 
-        public BankruptcyScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupStats groupStats, IGovernmentStats governmentStats)
+        public BankruptcyScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.groupStats = groupStats;
-            this.governmentStats = governmentStats;
         }
 
         public void Show()
