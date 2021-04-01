@@ -33,9 +33,12 @@ namespace Dictator
         }
 
         static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args).ConfigureServices((_, services) =>
-                services.AddScoped<IEngine, Engine>()
+            Host.CreateDefaultBuilder(args).ConfigureServices((_, services) => services
+            // Main
+            .AddSingleton<Game>()
+            .AddScoped<IEngine, Engine>()
             .AddScoped<IUserInterface, UserInterface>()
+            // Screens
             .AddScoped<IIntroScreen, IntroScreen>()
             .AddScoped<IWelcomeScreen, WelcomeScreen>()
             .AddScoped<ITitleScreen, TitleScreen>()
@@ -73,6 +76,7 @@ namespace Dictator
             .AddScoped<IWarScreen, WarScreen>()
             .AddScoped<IWarResultScreen, WarResultScreen>()
             .AddScoped<IEndScreen, EndScreen>()
+            // Controls
             .AddScoped<IKeyPanel, KeyPanel>()
             .AddScoped<IPressAnyKeyControl, PressAnyKeyControl>()
             .AddScoped<IPressAnyKeyOrOptionControl, PressAnyKeyOrOptionControl>()
@@ -88,10 +92,6 @@ namespace Dictator
             .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()
             .AddScoped<IScoreService, ScoreService>()
-
-            .AddSingleton<Game>()
-        //.AddSingleton<ISingletonOperation, DefaultOperation>()
-        //.AddTransient<OperationLogger>()
         );
     }
 }
