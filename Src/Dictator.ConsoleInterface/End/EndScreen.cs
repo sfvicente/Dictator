@@ -11,14 +11,14 @@ namespace Dictator.ConsoleInterface.End
     public class EndScreen : IEndScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IAccountService account;
+        private readonly IAccountService accountService;
         private readonly IGovernmentStats governmentStats;
         private readonly IGroupStats groupStats;
 
         public EndScreen(IPressAnyKeyControl pressAnyKeyControl, IAccountService account, IGovernmentStats governmentStats, IGroupStats groupStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.account = account;
+            this.accountService = account;
             this.governmentStats = governmentStats;
             this.groupStats = groupStats;
         }
