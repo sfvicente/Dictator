@@ -177,6 +177,19 @@ namespace Dictator.Core
             return false;
         }
 
+        public bool ShouldWarHappen()
+        {
+            Random random = new Random();
+            int number = random.Next(0, 2);
+
+            if(number == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public LoanRequest AskForLoan(Country country)
         {
             LoanRequest loanRequest = new LoanRequest();

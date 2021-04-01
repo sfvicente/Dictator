@@ -40,8 +40,7 @@ namespace Dictator.ConsoleInterface
                 HandleAudienceRequest();
                 engine.Plot();
 
-                // TODO: if(engine.AssassinationAtempt() or engine.WarHasStarted())
-                if (TryProcessAssassinationAttempt())
+                if (TryProcessAssassinationAttempt() || TryProcessWar())
                 {
                     userInterface.DisplayEndScreen();
                     break;
@@ -136,6 +135,26 @@ namespace Dictator.ConsoleInterface
             }
 
             // Either no attempt happened or attempt has failed, so the game should progress
+            return false;
+        }
+
+        private bool TryProcessWar()
+        {
+            if(engine.ShouldWarHappen())
+            {
+                //userInterface.DisplayWarScreen
+                
+                //engine.GenerateWarResult()
+
+                // logic for outcome
+            }
+            else
+            {
+                //userInterface.DisplayWarThreatScreen();
+                
+                //engine.ApplyThreatOfWarEffects();
+            }
+
             return false;
         }
 
