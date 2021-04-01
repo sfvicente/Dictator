@@ -87,6 +87,8 @@ namespace Dictator
             // Services
             .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()
+            .AddScoped<IScoreService, ScoreService>()
+
             .AddSingleton<Game>()
         //.AddSingleton<ISingletonOperation, DefaultOperation>()
         //.AddTransient<OperationLogger>()
