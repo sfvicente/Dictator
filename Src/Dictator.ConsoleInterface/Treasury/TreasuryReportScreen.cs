@@ -1,6 +1,7 @@
 ﻿using Dictator.Common.Extensions;
 using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
+using Dictator.Core.Services;
 using System;
 
 namespace Dictator.ConsoleInterface.Treasury
