@@ -12,20 +12,20 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
-        private readonly IAccountService account;
+        private readonly IAccountService accountService;
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
         public PoliceReportRequestDialog(
             IPressAnyKeyControl pressAnyKeyControl,
             IPressAnyKeyWithYesControl pressAnyKeyWithYesControl,
-            IAccountService account,
+            IAccountService accountService,
             IGroupStats groupStats,
             IGovernmentStats governmentStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
-            this.account = account;
+            this.accountService = accountService;
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
         }
@@ -36,7 +36,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
             ConsoleEx.WriteAt(1, 1, "################################");
             ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
 
-            if (account.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
+            if (accountService.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 
@@ -44,7 +44,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    account.ChangeTreasuryBalance(-1);
+                    accountService.ChangeTreasuryBalance(-1);
                     return true;
                 }
             }
@@ -64,7 +64,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
                     ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
 
-                if (account.GetTreasuryBalance() < 1)
+                if (accountService.GetTreasuryBalance() < 1)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
                 }
