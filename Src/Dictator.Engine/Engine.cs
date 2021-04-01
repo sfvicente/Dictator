@@ -162,6 +162,26 @@ namespace Dictator.Core
             governmentStats.IncreasePlayerStrength(2);
         }
 
+        /// <summary>
+        ///     Asks for foreign aid in the form of a loan to either America or Russia.
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
+        public LoanRequest AskForLoan(Country country)
+        {
+            LoanRequest loanRequest = new LoanRequest();
+
+            // TODO: Check if it's not to yearly for a loan
+
+            // TODO: Check if loans have been used
+
+            // TODO: Check if popularity is above minimal
+
+            // TODO: If accepted, calculate amount
+
+            return loanRequest;
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();
@@ -188,21 +208,6 @@ namespace Dictator.Core
             }
 
             return false;
-        }
-
-        public LoanRequest AskForLoan(Country country)
-        {
-            LoanRequest loanRequest = new LoanRequest();
-
-            // TODO: Check if it's not to yearly for a loan
-
-            // TODO: Check if loans have been used
-
-            // TODO: Check if popularity is above minimal
-
-            // TODO: If accepted, calculate amount
-
-            return loanRequest;
         }
 
         public bool IsAssassinationSuccessful()
