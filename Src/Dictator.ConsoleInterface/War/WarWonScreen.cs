@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.War
 {
-    public class WarResultScreen : IWarResultScreen
+    public class WarWonScreen : IWarWonScreen
     {
         public void Show()
         {
