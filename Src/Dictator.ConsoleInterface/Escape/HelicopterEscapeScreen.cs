@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Escape
 {
-    public class EscapeByHelicopterScreen : IEscapeByHelicopterScreen
+    public class HelicopterEscapeScreen : IHelicopterEscapeScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public EscapeByHelicopterScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public HelicopterEscapeScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
