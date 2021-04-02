@@ -64,6 +64,7 @@ namespace Dictator
             .AddScoped<IEscapeAttemptDialog, EscapeAttemptDialog>()
             .AddScoped<IHelicopterEscapeScreen, HelicopterEscapeScreen>()
             .AddScoped<IEscapeByHelicopterFailScreen, EscapeByHelicopterFailScreen>()
+            .AddScoped<IHelicopterEngineFailureScreen, HelicopterEngineFailureScreen>()
             .AddScoped<IEscapeToLeftotoScreen, EscapeToLeftotoScreen>()
             .AddScoped<IRevolutionScreen, RevolutionScreen>()
             .AddScoped<IRevolutionAskForHelpDialog, RevolutionAskForHelpDialog>()
