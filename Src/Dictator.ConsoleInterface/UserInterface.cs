@@ -43,7 +43,7 @@ namespace Dictator.ConsoleInterface
         private readonly IRevolutionScreen revolutionScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
         private readonly IHelicopterEscapeScreen escapeByHelicopterScreen;
-        private readonly IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen;
+        private readonly IHelicopterWontStartScreen escapeByHelicopterFailScreen;
         private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
         private readonly IEndScreen endScreen;
 
@@ -71,7 +71,7 @@ namespace Dictator.ConsoleInterface
             IRevolutionScreen revolutionScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IHelicopterEscapeScreen escapeByHelicopterScreen,
-            IEscapeByHelicopterFailScreen escapeByHelicopterFailScreen,
+            IHelicopterWontStartScreen escapeByHelicopterFailScreen,
             IEscapeToLeftotoScreen escapeToLeftotoScreen,
             IEndScreen endScreen)
         {

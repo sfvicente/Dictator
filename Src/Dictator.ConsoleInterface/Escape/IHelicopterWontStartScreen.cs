@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Escape
 {
-    public interface IEscapeByHelicopterFailScreen
+    public interface IHelicopterWontStartScreen
     {
         public void Show();
     }
