@@ -27,6 +27,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayAssassinationFailedScreen();
         public void DisplayAssassinationSuccededScreen();
         public void DisplayRevolutionScreen();
+        public void DisplayWarWonScreen();
         public DialogResult DisplayEscapeAttemptDialog();
         public void DisplayEscapeByHelicopterScreen();
         public void DisplayEscapeByHelicopterFailScreen();

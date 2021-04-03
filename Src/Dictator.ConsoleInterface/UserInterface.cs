@@ -11,6 +11,7 @@ using Dictator.ConsoleInterface.PresidentialDecision;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Start;
 using Dictator.ConsoleInterface.Treasury;
+using Dictator.ConsoleInterface.War;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace Dictator.ConsoleInterface
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
+        private readonly IWarWonScreen warWonScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
         private readonly IHelicopterEscapeScreen escapeByHelicopterScreen;
         private readonly IHelicopterWontStartScreen escapeByHelicopterFailScreen;
@@ -69,6 +71,7 @@ namespace Dictator.ConsoleInterface
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
+            IWarWonScreen warWonScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IHelicopterEscapeScreen escapeByHelicopterScreen,
             IHelicopterWontStartScreen escapeByHelicopterFailScreen,
@@ -96,6 +99,7 @@ namespace Dictator.ConsoleInterface
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
+            this.warWonScreen = warWonScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
             this.escapeByHelicopterScreen = escapeByHelicopterScreen;
             this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
@@ -213,6 +217,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionScreen()
         {
             revolutionScreen.Show();
+        }
+
+        public void DisplayWarWonScreen()
+        {
+            warWonScreen.Show();
         }
 
         public DialogResult DisplayEscapeAttemptDialog()

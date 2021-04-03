@@ -79,6 +79,18 @@ namespace Dictator.Core
             }
         }
 
+        /// <summary>
+        ///     Sets the value of the strength of a specific group.
+        /// </summary>
+        /// <param name="groupType"></param>
+        /// <param name="strength"></param>
+        public void SetStrength(GroupType groupType, int strength)
+        {
+            int index = (int)groupType;
+
+            groups[index].Strength = GetBoundedAttribute(strength);
+        }
+
         public void IncreaseStrength(GroupType groupType)
         {
             int index = (int)groupType;

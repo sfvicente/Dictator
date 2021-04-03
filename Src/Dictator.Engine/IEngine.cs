@@ -7,6 +7,7 @@ namespace Dictator.Core
     public interface IEngine
     {
         public void Initialise();
+        public void SetGroupStrength(GroupType groupType, int strength);
         public void AdvanceMonth();
         public bool IsGovernmentBankrupt();
         public void SetMonthlyMinimalPopularityAndStrength();

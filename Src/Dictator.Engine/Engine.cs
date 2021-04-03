@@ -46,6 +46,11 @@ namespace Dictator.Core
             newsStats.Initialise();
         }
 
+        public void SetGroupStrength(GroupType groupType, int strength)
+        {
+            groupStats.SetStrength(groupType, strength);
+        }
+
         public void AdvanceMonth()
         {
             governmentStats.AdvanceMonth();

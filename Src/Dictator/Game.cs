@@ -158,6 +158,12 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        private void ProcessWarWon()
+        {
+            userInterface.DisplayWarWonScreen();
+            engine.SetGroupStrength(GroupType.Leftotans, 0);
+        }
+
         private void HandlePresidentialDecision()
         {
             DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
