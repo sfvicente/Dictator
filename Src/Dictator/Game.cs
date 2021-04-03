@@ -142,7 +142,7 @@ namespace Dictator.ConsoleInterface
         {
             if(engine.ShouldWarHappen())
             {
-                //userInterface.DisplayWarScreen
+                userInterface.DisplayWarScreen();
                 
                 //engine.GenerateWarResult()
 
