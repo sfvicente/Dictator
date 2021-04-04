@@ -154,7 +154,7 @@ namespace Dictator.ConsoleInterface
                 }
                 else
                 {
-                    //userInterface.DisplayWarThreatScreen();
+                    userInterface.DisplayWarThreatScreen();
 
                     //engine.ApplyThreatOfWarEffects();
                 }
