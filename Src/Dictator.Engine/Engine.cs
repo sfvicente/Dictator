@@ -205,7 +205,7 @@ namespace Dictator.Core
         public bool ShouldWarHappen()
         {
             Random random = new Random();
-            int number = random.Next(0, 2);
+            int number = random.Next(0, 3);
 
             if(number == 0)
             {
