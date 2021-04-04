@@ -143,10 +143,12 @@ namespace Dictator.ConsoleInterface
             if(engine.ShouldWarHappen())
             {
                 userInterface.DisplayWarScreen();
-                
+
                 //engine.GenerateWarResult()
 
-                // logic for outcome
+                //TODO: complete logic for outcome
+
+
             }
             else
             {
@@ -162,6 +164,30 @@ namespace Dictator.ConsoleInterface
         {
             userInterface.DisplayWarWonScreen();
             engine.SetGroupStrength(GroupType.Leftotans, 0);
+        }
+
+        private void ProcessWarLost()
+        {
+            userInterface.DisplayWarLostScreen();
+
+            if (engine.HasPlayerPurchasedHelicopter())
+            {
+                //Chances of escape are 2/3
+                if (true)//engine.HasPlayerEscaped)
+                {
+                    //userInterface.DisplayHelicopterEscapeScreen();
+                }
+                else
+                {
+                    //userInterface.DisplayHelicopterEngineFailure();
+
+                    // engine.KillPlayer();
+                }
+            }
+            else
+            {
+                //userInterface.DisplayWarExecution();
+            }
         }
 
         private void HandlePresidentialDecision()
