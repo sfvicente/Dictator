@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Escape
 {
     public interface IEscapeToLeftotoScreen
     {
-        void Show();
+        public void Show();
     }
 }
