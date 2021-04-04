@@ -2,6 +2,6 @@
 {
     public interface INewsflashScreen
     {
-        void Show();
+        public void Show();
     }
 }
