@@ -40,7 +40,7 @@ namespace Dictator.ConsoleInterface
                 HandleAudienceRequest();
                 engine.Plot();
 
-                if (TryProcessAssassinationAttempt() || TryProcessWar())
+                if (TryProcessAssassinationAttempt() || TryProcessConflict())
                 {
                     userInterface.DisplayEndScreen();
                     break;
@@ -138,23 +138,26 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        private bool TryProcessWar()
+        private bool TryProcessConflict()
         {
-            if(engine.ShouldWarHappen())
+            if (engine.DoesConflictExist())
             {
-                userInterface.DisplayWarScreen();
+                if (engine.ShouldWarHappen())
+                {
+                    userInterface.DisplayWarScreen();
 
-                //engine.GenerateWarResult()
+                    //engine.GenerateWarResult()
 
-                //TODO: complete logic for outcome
+                    //TODO: complete logic for outcome
 
+                    return true;
+                }
+                else
+                {
+                    //userInterface.DisplayWarThreatScreen();
 
-            }
-            else
-            {
-                //userInterface.DisplayWarThreatScreen();
-                
-                //engine.ApplyThreatOfWarEffects();
+                    //engine.ApplyThreatOfWarEffects();
+                }
             }
 
             return false;

@@ -202,6 +202,24 @@ namespace Dictator.Core
             return false;
         }
 
+        /// <summary>
+        ///     Determines if there is conflict between the republic of Ritimba and Leftoto. A conflict does not exist if the player is popular
+        ///     with the leftotans or leftotans are weak.
+        /// </summary>
+        /// <returns></returns>
+        public bool DoesConflictExist()
+        {
+            Group leftotans = groupStats.GetGroupByType(GroupType.Leftotans);
+
+            if(leftotans.Popularity > governmentStats.MonthlyMinimalPopularityAndStrength ||
+                leftotans.Strength < governmentStats.MonthlyMinimalPopularityAndStrength)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public bool ShouldWarHappen()
         {
             Random random = new Random();
