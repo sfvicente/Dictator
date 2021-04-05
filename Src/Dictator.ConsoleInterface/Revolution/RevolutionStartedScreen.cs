@@ -1,4 +1,5 @@
-﻿using Dictator.ConsoleInterface.Common;
+﻿using Dictator.Common.Extensions;
+using Dictator.ConsoleInterface.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,9 @@ namespace Dictator.ConsoleInterface.Revolution
 
         public void Show()
         {
-            throw new NotImplementedException();
+            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            ConsoleEx.WriteAt(12, 24, "   The REVOLUTION has STARTED   ");
+            pressAnyKeyControl.Show();
         }
     }
 }
