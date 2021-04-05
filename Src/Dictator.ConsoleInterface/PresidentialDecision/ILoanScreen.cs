@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public interface ILoanScreen
     {
-        void Show();
+        public void Show();
     }
 }
