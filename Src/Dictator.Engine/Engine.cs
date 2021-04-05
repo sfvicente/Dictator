@@ -14,7 +14,7 @@ namespace Dictator.Core
         private readonly IPlotService plotService;
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
-        private readonly INewsStats newsStats;
+        private readonly INewsService newsService;
         private Group revolutionCurrentGroup;
         private int revolutionPlayerStrength;
         private int revolutionGroupStrength;
@@ -26,7 +26,7 @@ namespace Dictator.Core
             IPlotService plotService,
             IDecisionStats decisionStats,
             IAudienceStats audienceStats,
-            INewsStats newsStats)
+            INewsService newsService)
         {
             this.accountService = accountService;
             this.governmentStats = governmentStats;
@@ -34,7 +34,7 @@ namespace Dictator.Core
             this.plotService = plotService;
             this.decisionStats = decisionStats;
             this.audienceStats = audienceStats;
-            this.newsStats = newsStats;
+            this.newsService = newsService;
         }
 
         public void Initialise()
@@ -43,7 +43,7 @@ namespace Dictator.Core
             governmentStats.Initialise();
             groupStats.Initialise();
             audienceStats.Initialise();
-            newsStats.Initialise();
+            newsService.Initialise();
         }
 
         public void SetGroupStrength(GroupType groupType, int strength)
@@ -100,14 +100,14 @@ namespace Dictator.Core
 
         public bool TryTriggerRandomUnusedNews()
         {
-            IEnumerable<News> unusedNews = newsStats.GetNews().Where(x => !x.HasBeenUsed);
+            IEnumerable<News> unusedNews = newsService.GetNews().Where(x => !x.HasBeenUsed);
 
             if (unusedNews.Any())
             {
                 var rand = new Random();
                 var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
 
-                newsStats.SetCurrentNews(randomUnusedNews);
+                newsService.SetCurrentNews(randomUnusedNews);
 
                 return true;
             }
@@ -117,7 +117,7 @@ namespace Dictator.Core
 
         public void ApplyNewsEffects()
         {
-            News currentNews = newsStats.CurrentNews;
+            News currentNews = newsService.CurrentNews;
 
             groupStats.ApplyPopularityChange(currentNews.GroupPopularityChanges);
             groupStats.ApplyStrengthChange(currentNews.GroupStrengthChanges);

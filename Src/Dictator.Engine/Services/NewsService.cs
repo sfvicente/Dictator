@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dictator.Core
+namespace Dictator.Core.Services
 {
-    public class NewsStats : INewsStats
+    public class NewsService : INewsService
     {
         private News[] news;
 

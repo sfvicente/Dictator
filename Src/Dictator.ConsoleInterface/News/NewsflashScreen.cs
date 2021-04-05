@@ -1,5 +1,6 @@
 ﻿using Dictator.Common.Extensions;
 using Dictator.Core;
+using Dictator.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +9,11 @@ namespace Dictator.ConsoleInterface.News
 {
     public class NewsflashScreen : INewsflashScreen
     {
-        private readonly INewsStats newsStats;
+        private readonly INewsService newsService;
 
-        public NewsflashScreen(INewsStats newsStats)
+        public NewsflashScreen(INewsService newsService)
         {
-            this.newsStats = newsStats;
+            this.newsService = newsService;
         }
 
         public void Show()
@@ -20,7 +21,7 @@ namespace Dictator.ConsoleInterface.News
             
             ConsoleEx.Clear(ConsoleColor.Gray);
             ConsoleEx.WriteAt(1, 10, "NEWSFLASH");
-            ConsoleEx.WriteAt(1, 14, newsStats.CurrentNews.Text);
+            ConsoleEx.WriteAt(1, 14, newsService.CurrentNews.Text);
 
             Console.ReadKey(true);
         }

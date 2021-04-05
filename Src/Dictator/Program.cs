@@ -89,7 +89,7 @@ namespace Dictator
             .AddScoped<IGovernmentStats, GovernmentStats>()
             .AddScoped<IGroupStats, GroupStats>()
             .AddScoped<IDecisionStats, DecisionStats>()
-            .AddScoped<INewsStats, NewsStats>()
+            .AddScoped<INewsService, NewsService>()
             .AddScoped<IAudienceStats, AudienceStats>()
             // Services
             .AddScoped<IAccountService, AccountService>()

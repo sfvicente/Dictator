@@ -1,6 +1,6 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Services
 {
-    public interface INewsStats
+    public interface INewsService
     {
         public News CurrentNews { get; }
 
