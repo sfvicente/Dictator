@@ -98,7 +98,19 @@ namespace Dictator.Core
             return false;
         }
 
-        public bool TryTriggerRandomUnusedNews()
+        public bool DoesUnusedNewsExist()
+        {
+            IEnumerable<News> news = newsService.GetNews().Where(x => !x.HasBeenUsed);
+
+            if (news.Any())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public News GetRandomUnusedNews()
         {
             IEnumerable<News> unusedNews = newsService.GetNews().Where(x => !x.HasBeenUsed);
 
@@ -109,19 +121,22 @@ namespace Dictator.Core
 
                 newsService.SetCurrentNews(randomUnusedNews);
 
-                return true;
+                return randomUnusedNews;
             }
 
-            return false;
+            throw new InvalidOperationException("There are unused news items in the collection.");
         }
 
-        public void ApplyNewsEffects()
+        public void ApplyNewsEffects(News news)
         {
-            News currentNews = newsService.CurrentNews;
+            if(news == null)
+            {
+                throw new ArgumentNullException();
+            }
 
-            groupStats.ApplyPopularityChange(currentNews.GroupPopularityChanges);
-            groupStats.ApplyStrengthChange(currentNews.GroupStrengthChanges);
-            accountService.ApplyTreasuryChanges(currentNews.Cost, currentNews.MonthlyCost);
+            groupStats.ApplyPopularityChange(news.GroupPopularityChanges);
+            groupStats.ApplyStrengthChange(news.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
         }
 
         public void AcceptAudienceRequest()

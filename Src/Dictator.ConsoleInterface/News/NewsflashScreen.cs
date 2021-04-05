@@ -9,20 +9,11 @@ namespace Dictator.ConsoleInterface.News
 {
     public class NewsflashScreen : INewsflashScreen
     {
-        private readonly INewsService newsService;
-
-        public NewsflashScreen(INewsService newsService)
+        public void Show(string headline)
         {
-            this.newsService = newsService;
-        }
-
-        public void Show()
-        {
-            
             ConsoleEx.Clear(ConsoleColor.Gray);
             ConsoleEx.WriteAt(1, 10, "NEWSFLASH");
-            ConsoleEx.WriteAt(1, 14, newsService.CurrentNews.Text);
-
+            ConsoleEx.WriteAt(1, 14, headline);
             Console.ReadKey(true);
         }
     }

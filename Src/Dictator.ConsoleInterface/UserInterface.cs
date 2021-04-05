@@ -178,9 +178,9 @@ namespace Dictator.ConsoleInterface
             bankruptcyScreen.Show();
         }
 
-        public void DisplayNewsScreen()
+        public void DisplayNewsScreen(string headline)
         {
-            newsflashScreen.Show();
+            newsflashScreen.Show(headline);
         }
 
         public void DisplayMonthScreen()

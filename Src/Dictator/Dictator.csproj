@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dictator.ConsoleInterface\Dictator.ConsoleInterface.csproj" />
+    <ProjectReference Include="..\Dictator.Engine\Dictator.Core.csproj" />
   </ItemGroup>
 
 </Project>

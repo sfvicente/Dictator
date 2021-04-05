@@ -16,13 +16,14 @@ namespace Dictator.Core
         public void SetRandomAudienceRequest();
         public void Plot();
         public bool ShouldNewsHappen();
-        public void ApplyNewsEffects();
+        public void ApplyNewsEffects(News news);
         public void AcceptAudienceRequest();
         public void RefuseAudienceRequest();
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public void IncreaseBodyguard();
         public LoanRequest AskForLoan(Country country);
-        public bool TryTriggerRandomUnusedNews();
+        public bool DoesUnusedNewsExist();
+        public News GetRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public bool IsAssassinationSuccessful();
         public bool DoesConflictExist();

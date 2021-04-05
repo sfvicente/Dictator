@@ -229,10 +229,12 @@ namespace Dictator.ConsoleInterface
         {
             if (engine.ShouldNewsHappen())
             {
-                if (engine.TryTriggerRandomUnusedNews())
+                if (engine.DoesUnusedNewsExist())
                 {
-                    userInterface.DisplayNewsScreen();
-                    engine.ApplyNewsEffects();
+                    Core.News unusedRandomNews = engine.GetRandomUnusedNews();
+
+                    userInterface.DisplayNewsScreen(unusedRandomNews.Text);
+                    engine.ApplyNewsEffects(unusedRandomNews);
                     engine.Plot();
                     ProcessPoliceReport();
                 }
