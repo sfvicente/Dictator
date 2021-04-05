@@ -36,7 +36,6 @@ namespace Dictator.Common.Extensions
         public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
-            ConsoleColor previousForegroundColor = Console.ForegroundColor;
 
             Console.BackgroundColor = backgroundColor;
             WriteAt(1, top, "                                ");
