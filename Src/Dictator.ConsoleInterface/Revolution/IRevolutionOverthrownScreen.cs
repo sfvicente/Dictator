@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Revolution
 {
     public interface IRevolutionOverthrownScreen
     {
-        void Show();
+        public void Show();
     }
 }
