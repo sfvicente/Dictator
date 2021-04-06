@@ -50,6 +50,7 @@ namespace Dictator.ConsoleInterface
         private readonly IHelicopterEscapeScreen escapeByHelicopterScreen;
         private readonly IHelicopterWontStartScreen escapeByHelicopterFailScreen;
         private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
+        private readonly IWarExecutionScreen warExecutionScreen;
         private readonly IEndScreen endScreen;
 
         public UserInterface(
@@ -82,6 +83,7 @@ namespace Dictator.ConsoleInterface
             IHelicopterEscapeScreen escapeByHelicopterScreen,
             IHelicopterWontStartScreen escapeByHelicopterFailScreen,
             IEscapeToLeftotoScreen escapeToLeftotoScreen,
+            IWarExecutionScreen warExecutionScreen,
             IEndScreen endScreen)
         {
             this.introScreen = introScreen;
@@ -113,6 +115,7 @@ namespace Dictator.ConsoleInterface
             this.escapeByHelicopterScreen = escapeByHelicopterScreen;
             this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
             this.escapeToLeftotoScreen = escapeToLeftotoScreen;
+            this.warExecutionScreen = warExecutionScreen;
             this.endScreen = endScreen;
         }
 
@@ -266,6 +269,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayEscapeToLeftotoScreen()
         {
             escapeToLeftotoScreen.Show();
+        }
+
+        public void DisplayWarExecutionScreen()
+        {
+            warExecutionScreen.Show();
         }
 
         public void DisplayEndScreen()

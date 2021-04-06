@@ -189,7 +189,8 @@ namespace Dictator.ConsoleInterface
             }
             else
             {
-                //userInterface.DisplayWarExecution();
+                userInterface.DisplayWarExecutionScreen();
+                engine.KillPlayer();
             }
         }
 
