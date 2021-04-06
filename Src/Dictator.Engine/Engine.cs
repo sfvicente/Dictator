@@ -314,7 +314,11 @@ namespace Dictator.Core
             return false;
         }
 
-        public void AttemptEscapeThroughLeftoto()
+        /// <summary>
+        ///     Checks if the player is captured by gurrilas when attempting to escape through leftoto.
+        /// </summary>
+        /// <returns></returns>
+        public bool DoesGuerrilaCatchPlayerEscaping()
         {
             int guerrilasStrength = groupStats.GetGroupByType(GroupType.Guerillas).Strength;
             int upperLimit = (guerrilasStrength / 3) + 2;
@@ -323,12 +327,12 @@ namespace Dictator.Core
             int number = random.Next(0, upperLimit);
 
             // There is a chance on 1 in 2..5 depending on the guerrilas strength
-            if(number == 0)
+            if (number == 0)
             {
-                // TODO: guerrila celebration
+                return true;
             }
 
-            // TODO: guerrila didn't catch player
+            return false;
         }
 
         public void KillPlayer()

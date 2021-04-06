@@ -262,7 +262,16 @@ namespace Dictator.ConsoleInterface
                         {
                             userInterface.DisplayEscapeByHelicopterFailScreen();
                             userInterface.DisplayEscapeToLeftotoScreen();
-                            //TODO: add guerrilas interaction
+
+                            if (engine.DoesGuerrilaCatchPlayerEscaping())
+                            {
+                                // TODO: guerrila celebration
+                                // TODO: kill player?
+                            }
+                            else
+                            {
+                                // TODO: guerrila didn't catch player
+                            }
                         }
                     }
 
