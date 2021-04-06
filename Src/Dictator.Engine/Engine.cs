@@ -298,7 +298,7 @@ namespace Dictator.Core
             return governmentStats.HasHelicopter;
         }
 
-        public bool AttemptEscapeByHelicopter()
+        public bool IsAbleToEscapeByHelicopter()
         {
             Random random = new Random();
             int number = random.Next(0, 3);

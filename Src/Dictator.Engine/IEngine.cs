@@ -32,7 +32,7 @@ namespace Dictator.Core
         public bool TryTriggerRevoltGroup();
         public void InitialiseRevolution();
         public bool HasPlayerPurchasedHelicopter();
-        public bool AttemptEscapeByHelicopter();
+        public bool IsAbleToEscapeByHelicopter();
         public bool DoesGuerrilaCatchPlayerEscaping();
         public void KillPlayer();
     }
