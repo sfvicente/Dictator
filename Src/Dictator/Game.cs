@@ -203,10 +203,22 @@ namespace Dictator.ConsoleInterface
 
                 if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
                 {
-                    //decisionSubType = engine.GetDecisionSubType(decisionType, optionSelected);
+                    Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                    // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
-                    // Otherwise, apply effects of presidential decision
+                    switch(decision.DecisionSubType)
+                    {
+                        // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
+
+                        case DecisionSubType.IncreaseBodyGuard:
+                            return;
+                        case DecisionSubType.TransferToSwissAccount:
+                            return;
+                        case DecisionSubType.AskForALoan:
+                            return;
+                        default:
+                            // Otherwise, apply effects of presidential decision
+                            return;
+                    }                  
                 }
             }
         }

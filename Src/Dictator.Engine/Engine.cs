@@ -177,6 +177,23 @@ namespace Dictator.Core
             return true;
         }
 
+        public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
+        {
+            if (optionNumber < 0)
+            {
+                throw new ArgumentException(nameof(optionNumber));
+            }
+
+            Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
+
+            if (optionNumber > decisions.Length)
+            {
+                throw new ArgumentException(nameof(optionNumber));
+            }
+
+            return decisions[optionNumber - 1];
+        }
+
         public void IncreaseBodyguard()
         {
             governmentStats.IncreasePlayerStrength(2);
