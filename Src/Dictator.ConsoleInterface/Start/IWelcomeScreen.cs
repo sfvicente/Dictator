@@ -2,6 +2,6 @@
 {
     public interface IWelcomeScreen
     {
-        void Show();
+        public void Show();
     }
 }
