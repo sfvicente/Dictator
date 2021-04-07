@@ -27,6 +27,13 @@ namespace Dictator.Core.Services
             return (News[])news.Clone();
         }
 
+        public News[] GetUnusedNews()
+        {
+            News[] unusedNews = news.Where(x => !x.HasBeenUsed).ToArray();
+
+            return unusedNews;
+        }
+
         public void MarkNewsAsUsed(string text)
         {
             News item = news.Where(x => x.Text == text).Single();

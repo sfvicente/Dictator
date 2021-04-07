@@ -100,9 +100,9 @@ namespace Dictator.Core
 
         public bool DoesUnusedNewsExist()
         {
-            IEnumerable<News> news = newsService.GetNews().Where(x => !x.HasBeenUsed);
+            News[] unusedNews = newsService.GetUnusedNews();
 
-            if (news.Any())
+            if (unusedNews.Any())
             {
                 return true;
             }
@@ -112,7 +112,7 @@ namespace Dictator.Core
 
         public News GetRandomUnusedNews()
         {
-            IEnumerable<News> unusedNews = newsService.GetNews().Where(x => !x.HasBeenUsed);
+            News[] unusedNews = newsService.GetUnusedNews();
 
             if (unusedNews.Any())
             {
