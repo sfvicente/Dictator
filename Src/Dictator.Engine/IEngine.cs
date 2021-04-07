@@ -34,6 +34,7 @@ namespace Dictator.Core
         public void InitialiseRevolution();
         public bool HasPlayerPurchasedHelicopter();
         public bool IsAbleToEscapeByHelicopter();
+        public bool IsPlayerAbleToEscapeAfterLosingWar();
         public bool DoesGuerrilaCatchPlayerEscaping();
         public void KillPlayer();
     }

@@ -175,8 +175,7 @@ namespace Dictator.ConsoleInterface
 
             if (engine.HasPlayerPurchasedHelicopter())
             {
-                //Chances of escape are 2/3
-                if (true)//engine.HasPlayerEscaped)
+                if (engine.IsPlayerAbleToEscapeAfterLosingWar())
                 {
                     //userInterface.DisplayHelicopterEscapeScreen();
                 }
