@@ -182,9 +182,8 @@ namespace Dictator.ConsoleInterface
                 }
                 else
                 {
-                    //userInterface.DisplayHelicopterEngineFailure();
-
-                    // engine.KillPlayer();
+                    userInterface.DisplayHelicopterEngineFailure();
+                    engine.KillPlayer();
                 }
             }
             else
