@@ -265,7 +265,7 @@ namespace Dictator.ConsoleInterface
                     // In order to escape by helicopter, the player would have to previously purchased it
                     if (engine.HasPlayerPurchasedHelicopter())
                     {
-                        if (engine.IsAbleToEscapeByHelicopter())
+                        if (engine.IsPlayerAbleToEscapeByHelicopter())
                         {
                             userInterface.DisplayEscapeByHelicopterScreen();
                         }
