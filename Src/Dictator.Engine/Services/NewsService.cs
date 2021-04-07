@@ -9,8 +9,6 @@ namespace Dictator.Core.Services
     {
         private News[] news;
 
-        public News CurrentNews { get; private set; }
-
         public void Initialise()
         {
             news = new News[]
@@ -34,12 +32,6 @@ namespace Dictator.Core.Services
             News item = news.Where(x => x.Text == text).Single();
 
             item.HasBeenUsed = true;
-        }
-
-        public void SetCurrentNews(News news)
-        {
-            CurrentNews = news;
-            MarkNewsAsUsed(news.Text);
         }
     }
 }

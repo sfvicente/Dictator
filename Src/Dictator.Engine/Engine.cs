@@ -119,8 +119,6 @@ namespace Dictator.Core
                 var rand = new Random();
                 var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
 
-                newsService.SetCurrentNews(randomUnusedNews);
-
                 return randomUnusedNews;
             }
 
