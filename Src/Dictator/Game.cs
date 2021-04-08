@@ -271,7 +271,7 @@ namespace Dictator.ConsoleInterface
                         }
                         else
                         {
-                            userInterface.DisplayEscapeByHelicopterFailScreen();
+                            userInterface.DisplayHelicopterWontStartScreen();
                             userInterface.DisplayEscapeToLeftotoScreen();
 
                             if (engine.DoesGuerrilaCatchPlayerEscaping())

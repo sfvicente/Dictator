@@ -48,7 +48,7 @@ namespace Dictator.ConsoleInterface
         private readonly IWarWonScreen warWonScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
         private readonly IHelicopterEscapeScreen helicopterEscapeScreen;
-        private readonly IHelicopterWontStartScreen escapeByHelicopterFailScreen;
+        private readonly IHelicopterWontStartScreen helicopterWontStartScreen;
         private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
         private readonly IHelicopterEngineFailureScreen helicopterEngineFailureScreen;
         private readonly IWarExecutionScreen warExecutionScreen;
@@ -82,7 +82,7 @@ namespace Dictator.ConsoleInterface
             IWarWonScreen warWonScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
             IHelicopterEscapeScreen helicopterEscapeScreen,
-            IHelicopterWontStartScreen escapeByHelicopterFailScreen,
+            IHelicopterWontStartScreen helicopterWontStartScreen,
             IEscapeToLeftotoScreen escapeToLeftotoScreen,
             IHelicopterEngineFailureScreen helicopterEngineFailureScreen,
             IWarExecutionScreen warExecutionScreen,
@@ -115,7 +115,7 @@ namespace Dictator.ConsoleInterface
             this.warWonScreen = warWonScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
             this.helicopterEscapeScreen = helicopterEscapeScreen;
-            this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
+            this.helicopterWontStartScreen = helicopterWontStartScreen;
             this.escapeToLeftotoScreen = escapeToLeftotoScreen;
             this.helicopterEngineFailureScreen = helicopterEngineFailureScreen;
             this.warExecutionScreen = warExecutionScreen;
@@ -264,9 +264,9 @@ namespace Dictator.ConsoleInterface
             helicopterEscapeScreen.Show();
         }
 
-        public void DisplayEscapeByHelicopterFailScreen()
+        public void DisplayHelicopterWontStartScreen()
         {
-            escapeByHelicopterFailScreen.Show();
+            helicopterWontStartScreen.Show();
         }
 
         public void DisplayEscapeToLeftotoScreen()
