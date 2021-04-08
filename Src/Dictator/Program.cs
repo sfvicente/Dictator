@@ -67,6 +67,7 @@ namespace Dictator
             .AddScoped<IHelicopterEngineFailureScreen, HelicopterEngineFailureScreen>()
             .AddScoped<IEscapeToLeftotoScreen, EscapeToLeftotoScreen>()
             .AddScoped<IGuerrilasCelebratingScreen, GuerrilasCelebratingScreen>()
+            .AddScoped<IGuerillasMissedScreen, GuerillasMissedScreen>()
             .AddScoped<IRevolutionScreen, RevolutionScreen>()
             .AddScoped<IRevolutionAskForHelpDialog, RevolutionAskForHelpDialog>()
             .AddScoped<IRevolutionNoAlliesScreen, RevolutionNoAlliesScreen>()
