@@ -260,7 +260,7 @@ namespace Dictator.ConsoleInterface
             {
                 userInterface.DisplayRevolutionScreen();
 
-                if (AttemptsEscape())
+                if (DoesPlayerAttemptsEscape())
                 {
                     // In order to escape by helicopter, the player would have to previously purchased it
                     if (engine.HasPlayerPurchasedHelicopter())
@@ -304,7 +304,7 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        private bool AttemptsEscape()
+        private bool DoesPlayerAttemptsEscape()
         {
             DialogResult dialogResult = userInterface.DisplayEscapeAttemptDialog();
 
