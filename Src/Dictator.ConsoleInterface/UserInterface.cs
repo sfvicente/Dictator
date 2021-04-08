@@ -47,7 +47,7 @@ namespace Dictator.ConsoleInterface
         private readonly IWarLostScreen warLostScreen;
         private readonly IWarWonScreen warWonScreen;
         private readonly IEscapeAttemptDialog escapeAttemptDialog;
-        private readonly IHelicopterEscapeScreen escapeByHelicopterScreen;
+        private readonly IHelicopterEscapeScreen helicopterEscapeScreen;
         private readonly IHelicopterWontStartScreen escapeByHelicopterFailScreen;
         private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
         private readonly IHelicopterEngineFailureScreen helicopterEngineFailureScreen;
@@ -81,7 +81,7 @@ namespace Dictator.ConsoleInterface
             IWarLostScreen warLostScreen,
             IWarWonScreen warWonScreen,
             IEscapeAttemptDialog escapeAttemptDialog,
-            IHelicopterEscapeScreen escapeByHelicopterScreen,
+            IHelicopterEscapeScreen helicopterEscapeScreen,
             IHelicopterWontStartScreen escapeByHelicopterFailScreen,
             IEscapeToLeftotoScreen escapeToLeftotoScreen,
             IHelicopterEngineFailureScreen helicopterEngineFailureScreen,
@@ -114,7 +114,7 @@ namespace Dictator.ConsoleInterface
             this.warLostScreen = warLostScreen;
             this.warWonScreen = warWonScreen;
             this.escapeAttemptDialog = escapeAttemptDialog;
-            this.escapeByHelicopterScreen = escapeByHelicopterScreen;
+            this.helicopterEscapeScreen = helicopterEscapeScreen;
             this.escapeByHelicopterFailScreen = escapeByHelicopterFailScreen;
             this.escapeToLeftotoScreen = escapeToLeftotoScreen;
             this.helicopterEngineFailureScreen = helicopterEngineFailureScreen;
@@ -259,9 +259,9 @@ namespace Dictator.ConsoleInterface
             return escapeAttemptDialog.Show();
         }
 
-        public void DisplayEscapeByHelicopterScreen()
+        public void DisplayHelicopterEscapeScreen()
         {
-            escapeByHelicopterScreen.Show();
+            helicopterEscapeScreen.Show();
         }
 
         public void DisplayEscapeByHelicopterFailScreen()

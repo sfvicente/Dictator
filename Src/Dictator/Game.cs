@@ -177,7 +177,7 @@ namespace Dictator.ConsoleInterface
             {
                 if (engine.IsPlayerAbleToEscapeAfterLosingWar())
                 {
-                    //userInterface.DisplayHelicopterEscapeScreen();
+                    userInterface.DisplayHelicopterEscapeScreen();
                 }
                 else
                 {
@@ -267,7 +267,7 @@ namespace Dictator.ConsoleInterface
                     {
                         if (engine.IsPlayerAbleToEscapeByHelicopter())
                         {
-                            userInterface.DisplayEscapeByHelicopterScreen();
+                            userInterface.DisplayHelicopterEscapeScreen();
                         }
                         else
                         {
