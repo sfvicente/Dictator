@@ -1,4 +1,5 @@
-﻿using Dictator.ConsoleInterface.Common;
+﻿using Dictator.Common.Extensions;
+using Dictator.ConsoleInterface.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,9 @@ namespace Dictator.ConsoleInterface.Escape
 
         public void Show()
         {
-            throw new NotImplementedException();
+            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");
+            pressAnyKeyControl.Show();
         }
     }
 }
