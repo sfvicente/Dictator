@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Escape
 {
-    public interface IGuerrilasCelebratingScreen
+    public interface IGuerillasCelebratingScreen
     {
         public void Show();
     }
