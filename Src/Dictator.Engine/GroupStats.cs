@@ -56,7 +56,10 @@ namespace Dictator.Core
         {
             int index = (int)groupType;
 
-            groups[index].Popularity++;
+            if(groups[index].Popularity < 9)
+            {
+                groups[index].Popularity++;
+            }
         }
 
         public void DecreasePopularity(GroupType groupType)
