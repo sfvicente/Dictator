@@ -16,6 +16,7 @@ namespace Dictator.ConsoleInterface
         public DialogResult DisplayAudienceDecisionDialog();
         public DialogResult DisplayAdviceRequestDialog();
         public void DisplayAdviceScreen();
+        public void DisplayAdviceScreen(Decision decision);
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen(string headline);
         public void DisplayMonthScreen();

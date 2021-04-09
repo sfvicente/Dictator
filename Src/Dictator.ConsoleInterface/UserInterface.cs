@@ -179,6 +179,11 @@ namespace Dictator.ConsoleInterface
             adviceScreen.Show();
         }
 
+        public void DisplayAdviceScreen(Decision decision)
+        {
+            adviceScreen.Show(decision);
+        }
+
         public void DisplayBankuptcyScreen()
         {
             bankruptcyScreen.Show();

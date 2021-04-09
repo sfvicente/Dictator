@@ -215,6 +215,11 @@ namespace Dictator.ConsoleInterface
                         case DecisionSubType.AskForALoan:
                             return;
                         default:
+                            if (AcceptsAdvice())
+                            {
+                                userInterface.DisplayAdviceScreen(decision);
+                            }
+
                             engine.ApplyDecisionEffects(decision);
                             return;
                     }                  
