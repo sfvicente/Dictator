@@ -275,6 +275,17 @@ namespace Dictator.Core
             return false;
         }
 
+        /// <summary>
+        ///     Applies the effects of a threat of war with leftoto, which results in an increase of the popularity of the army, peasants, landowners and secret police.
+        /// </summary>
+        public void ApplyThreatOfWarEffects()
+        {
+            groupStats.IncreasePopularity(GroupType.Army);
+            groupStats.IncreasePopularity(GroupType.Peasants);
+            groupStats.IncreasePopularity(GroupType.Landowners);
+            groupStats.DecreasePopularity(GroupType.SecretPolice);
+        }
+
         public bool IsAssassinationSuccessful()
         {
             Random random = new Random();

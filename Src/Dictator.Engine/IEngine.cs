@@ -30,6 +30,7 @@ namespace Dictator.Core
         public bool IsAssassinationSuccessful();
         public bool DoesConflictExist();
         public bool ShouldWarHappen();
+        public void ApplyThreatOfWarEffects();
         public void End();
         public bool TryTriggerRevoltGroup();
         public void InitialiseRevolution();
