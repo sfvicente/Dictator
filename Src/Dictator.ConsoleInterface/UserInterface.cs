@@ -209,9 +209,9 @@ namespace Dictator.ConsoleInterface
             return presidentialDecisionSubDialog.Show(decisionType);
         }
 
-        public void DisplayPresidentialDecisionActionDialog()
+        public DialogResult DisplayPresidentialDecisionActionDialog()
         {
-            presidentialDecisionActionDialog.Show();
+            return presidentialDecisionActionDialog.Show();
         }
 
         public void DisplayLoanScreen()
