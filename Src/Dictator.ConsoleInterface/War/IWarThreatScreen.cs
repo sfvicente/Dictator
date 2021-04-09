@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.War
 {
     public interface IWarThreatScreen
     {
-        void Show();
+        public void Show();
     }
 }
