@@ -217,6 +217,18 @@ namespace Dictator.Core
             return loanRequest;
         }
 
+        public void ApplyDecisionEffects(Decision decision)
+        {
+            if (decision == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            groupStats.ApplyPopularityChange(decision.GroupPopularityChanges);
+            groupStats.ApplyStrengthChange(decision.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();

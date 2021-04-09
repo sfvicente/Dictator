@@ -215,7 +215,7 @@ namespace Dictator.ConsoleInterface
                         case DecisionSubType.AskForALoan:
                             return;
                         default:
-                            // Otherwise, apply effects of presidential decision
+                            engine.ApplyDecisionEffects(decision);
                             return;
                     }                  
                 }

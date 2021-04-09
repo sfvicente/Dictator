@@ -23,6 +23,7 @@ namespace Dictator.Core
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
         public void IncreaseBodyguard();
         public LoanRequest AskForLoan(Country country);
+        public void ApplyDecisionEffects(Decision decision);
         public bool DoesUnusedNewsExist();
         public News GetRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
