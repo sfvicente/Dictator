@@ -321,5 +321,12 @@ namespace Dictator.ConsoleInterface
 
             return false;
         }
+
+        private void ProcessEnd()
+        {
+            Score score = engine.GetCurrentScore();
+
+            
+        }
     }
 }

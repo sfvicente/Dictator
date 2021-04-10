@@ -396,6 +396,15 @@ namespace Dictator.Core
             governmentStats.KillPlayer();
         }
 
+        public Score GetCurrentScore()
+        {
+            var score = new Score();
+
+            // TODO: Calculate score and store it
+
+            return score;
+        }
+
         public void End()
         {
             throw new NotImplementedException();
