@@ -74,7 +74,7 @@ namespace Dictator.ConsoleInterface
             engine.SetRandomAudienceRequest();
             userInterface.DisplayAudienceScreen();
 
-            if (AcceptsAdvice())
+            if (DoesPlayerAcceptAdvice())
             {
                 userInterface.DisplayAdviceScreen();
             }
@@ -83,7 +83,7 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayAccountScreen();
         }
 
-        private bool AcceptsAdvice()
+        private bool DoesPlayerAcceptAdvice()
         {
             DialogResult dialogResult = userInterface.DisplayAdviceRequestDialog();
 
@@ -203,7 +203,7 @@ namespace Dictator.ConsoleInterface
                 {
                     Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                    if (AcceptsAdvice())
+                    if (DoesPlayerAcceptAdvice())
                     {
                         userInterface.DisplayAdviceScreen(decision);
                     }
