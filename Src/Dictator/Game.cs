@@ -50,7 +50,7 @@ namespace Dictator.ConsoleInterface
                 ProcessPoliceReport();
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
-                ProcessNews();
+                TryProcessNews();
                 TryTriggerRevolution();
             }
         }
@@ -240,7 +240,7 @@ namespace Dictator.ConsoleInterface
             //}
         }
 
-        private void ProcessNews()
+        private void TryProcessNews()
         {
             if (engine.ShouldNewsHappen())
             {
