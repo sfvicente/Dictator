@@ -42,7 +42,7 @@ namespace Dictator.ConsoleInterface
 
                 if (TryProcessAssassinationAttempt() || TryProcessConflict())
                 {
-                    userInterface.DisplayEndScreen();
+                    ProcessEnd();
                     break;
                 }
 
@@ -189,6 +189,8 @@ namespace Dictator.ConsoleInterface
                 userInterface.DisplayWarExecutionScreen();
                 engine.KillPlayer();
             }
+
+            ProcessEnd();
         }
 
         private void HandlePresidentialDecision()
@@ -292,7 +294,7 @@ namespace Dictator.ConsoleInterface
                         }
                     }
 
-                    userInterface.DisplayEndScreen();
+                    ProcessEnd();
                 }
                 else
                 {
@@ -326,7 +328,9 @@ namespace Dictator.ConsoleInterface
         {
             Score score = engine.GetCurrentScore();
 
-            
+            // TODO: Pass score to the end screen
+
+            userInterface.DisplayEndScreen();
         }
     }
 }
