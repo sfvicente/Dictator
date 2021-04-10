@@ -203,7 +203,12 @@ namespace Dictator.ConsoleInterface
                 {
                     Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                    switch(decision.DecisionSubType)
+                    if (AcceptsAdvice())
+                    {
+                        userInterface.DisplayAdviceScreen(decision);
+                    }
+
+                    switch (decision.DecisionSubType)
                     {
                         // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
 
@@ -214,10 +219,7 @@ namespace Dictator.ConsoleInterface
                         case DecisionSubType.AskForALoan:
                             return;
                         default:
-                            if (AcceptsAdvice())
-                            {
-                                userInterface.DisplayAdviceScreen(decision);
-                            }
+
 
                             engine.ApplyDecisionEffects(decision);
                             return;
