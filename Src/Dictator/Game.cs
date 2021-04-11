@@ -51,7 +51,15 @@ namespace Dictator.ConsoleInterface
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
                 TryProcessNews();
-                TryTriggerRevolution();
+
+                if (TryTriggerRevolution())
+                {
+                    if (TryProcessGovernmentOverthrown())
+                    {
+                        ProcessEnd();
+                        break;
+                    }
+                }
             }
         }
 
@@ -225,7 +233,7 @@ namespace Dictator.ConsoleInterface
 
                             engine.ApplyDecisionEffects(decision);
                             return;
-                    }                  
+                    }
                 }
             }
         }
@@ -260,55 +268,60 @@ namespace Dictator.ConsoleInterface
             }
         }
 
-        private void TryTriggerRevolution()
+        private bool TryTriggerRevolution()
         {
             bool shouldRevolutionHappen = engine.TryTriggerRevoltGroup();
 
-            if (shouldRevolutionHappen)
-            {
-                userInterface.DisplayRevolutionScreen();
+            return shouldRevolutionHappen;
+        }
 
-                if (DoesPlayerAttemptEscape())
+        private bool TryProcessGovernmentOverthrown()
+        {
+            userInterface.DisplayRevolutionScreen();
+
+            if (DoesPlayerAttemptEscape())
+            {
+                // In order to escape by helicopter, the player would have to previously purchased it
+                if (engine.HasPlayerPurchasedHelicopter())
                 {
-                    // In order to escape by helicopter, the player would have to previously purchased it
-                    if (engine.HasPlayerPurchasedHelicopter())
+                    if (engine.IsPlayerAbleToEscapeByHelicopter())
                     {
-                        if (engine.IsPlayerAbleToEscapeByHelicopter())
+                        userInterface.DisplayHelicopterEscapeScreen();
+                    }
+                    else
+                    {
+                        userInterface.DisplayHelicopterWontStartScreen();
+                        userInterface.DisplayEscapeToLeftotoScreen();
+
+                        if (engine.DoesGuerrilaCatchPlayerEscaping())
                         {
-                            userInterface.DisplayHelicopterEscapeScreen();
+                            // TODO: guerrila celebration
+                            // TODO: kill player?
                         }
                         else
                         {
-                            userInterface.DisplayHelicopterWontStartScreen();
-                            userInterface.DisplayEscapeToLeftotoScreen();
-
-                            if (engine.DoesGuerrilaCatchPlayerEscaping())
-                            {
-                                // TODO: guerrila celebration
-                                // TODO: kill player?
-                            }
-                            else
-                            {
-                                // TODO: guerrila didn't catch player
-                            }
+                            // TODO: guerrila didn't catch player
                         }
                     }
-
-                    ProcessEnd();
                 }
-                else
-                {
-                    // TODO: process the revolution
-                    engine.InitialiseRevolution();
 
-                    // TODO: pass required data and display the ask for help screen
-                    //userInterface.DisplayRevolutionAskForHelpScreen();
+                return true;
+            }
+            else
+            {
+                // TODO: process the revolution
+                engine.InitialiseRevolution();
 
-                    // TODO: Display revolution has started screen
-                    //userInterface.DisplayRevolutionStartedScreen();
+                // TODO: pass required data and display the ask for help screen
+                //userInterface.DisplayRevolutionAskForHelpScreen();
 
-                    // TODO: Display outcome of the revolution
-                }
+                // TODO: Display revolution has started screen
+                //userInterface.DisplayRevolutionStartedScreen();
+
+                // TODO: Display outcome of the revolution
+
+                // TODO: if revolution is lost return true, if won, return false
+                return false;
             }
         }
 
