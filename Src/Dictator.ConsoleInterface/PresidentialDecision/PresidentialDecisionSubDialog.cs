@@ -34,9 +34,18 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
                 {
                     int optionNumber = i + 1;
 
-                    ConsoleEx.WriteAt(1, line + i, $"{optionNumber}.");
+                    if (!decisions[i].HasBeenUsed)
+                    {
+                        ConsoleEx.WriteAt(1, line + i, $"{optionNumber}.");
+                    }
+                    
                     line++;
-                    ConsoleEx.WriteAt(1, line + i, decisions[i].Text);
+
+                    if (!decisions[i].HasBeenUsed)
+                    {
+                        ConsoleEx.WriteAt(1, line + i, decisions[i].Text);
+                    }
+
                     line++;
                 }
             }
