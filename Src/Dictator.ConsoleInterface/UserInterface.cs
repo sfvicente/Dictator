@@ -50,6 +50,7 @@ namespace Dictator.ConsoleInterface
         private readonly IHelicopterEscapeScreen helicopterEscapeScreen;
         private readonly IHelicopterWontStartScreen helicopterWontStartScreen;
         private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
+        private readonly IGuerillasMissedScreen guerillasMissedScreen;
         private readonly IHelicopterEngineFailureScreen helicopterEngineFailureScreen;
         private readonly IWarExecutionScreen warExecutionScreen;
         private readonly IEndScreen endScreen;
@@ -84,6 +85,7 @@ namespace Dictator.ConsoleInterface
             IHelicopterEscapeScreen helicopterEscapeScreen,
             IHelicopterWontStartScreen helicopterWontStartScreen,
             IEscapeToLeftotoScreen escapeToLeftotoScreen,
+            IGuerillasMissedScreen guerillasMissedScreen,
             IHelicopterEngineFailureScreen helicopterEngineFailureScreen,
             IWarExecutionScreen warExecutionScreen,
             IEndScreen endScreen)
@@ -117,6 +119,7 @@ namespace Dictator.ConsoleInterface
             this.helicopterEscapeScreen = helicopterEscapeScreen;
             this.helicopterWontStartScreen = helicopterWontStartScreen;
             this.escapeToLeftotoScreen = escapeToLeftotoScreen;
+            this.guerillasMissedScreen = guerillasMissedScreen;
             this.helicopterEngineFailureScreen = helicopterEngineFailureScreen;
             this.warExecutionScreen = warExecutionScreen;
             this.endScreen = endScreen;
@@ -277,6 +280,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayEscapeToLeftotoScreen()
         {
             escapeToLeftotoScreen.Show();
+        }
+
+        public void DisplayGuerillasMissedScreen()
+        {
+            guerillasMissedScreen.Show();
         }
 
         public void DisplayHelicopterEngineFailure()

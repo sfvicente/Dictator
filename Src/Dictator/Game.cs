@@ -300,7 +300,7 @@ namespace Dictator.ConsoleInterface
                         }
                         else
                         {
-                            // TODO: guerrila didn't catch player
+                            userInterface.DisplayGuerillasMissedScreen();
                         }
                     }
                 }

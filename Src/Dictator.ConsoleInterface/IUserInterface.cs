@@ -36,6 +36,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayHelicopterEscapeScreen();
         public void DisplayHelicopterWontStartScreen();
         public void DisplayEscapeToLeftotoScreen();
+        public void DisplayGuerillasMissedScreen();
         public void DisplayHelicopterEngineFailure();
         public void DisplayWarExecutionScreen();
         public void DisplayEndScreen();
