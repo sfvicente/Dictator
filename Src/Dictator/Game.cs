@@ -223,16 +223,14 @@ namespace Dictator.ConsoleInterface
                         // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
 
                         case DecisionSubType.IncreaseBodyGuard:
-                            return;
+                            break;
                         case DecisionSubType.TransferToSwissAccount:
-                            return;
+                            break;
                         case DecisionSubType.AskForALoan:
-                            return;
+                            break;
                         default:
-
-
                             engine.ApplyDecisionEffects(decision);
-                            return;
+                            break;
                     }
                 }
             }
