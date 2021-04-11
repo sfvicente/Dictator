@@ -18,6 +18,19 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
 
+        private bool HaveAllDecisionsBeenUsed(Decision[] decisions)
+        {
+            for (int i = 0; i < decisions.Length; i++)
+            {
+                if (!decisions[i].HasBeenUsed)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public int Show(DecisionType decisionType)
         {
             Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
@@ -25,7 +38,11 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
 
-            if(decisions.IsNotEmpty())
+            if(HaveAllDecisionsBeenUsed(decisions))
+            {
+                ConsoleEx.WriteAt(1, 12, "   ALL of this section USED UP  ");
+            }
+            else
             {
                 // TODO: Display options with the original positioning
                 int line = 4;
@@ -38,7 +55,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
                     {
                         ConsoleEx.WriteAt(1, line + i, $"{optionNumber}.");
                     }
-                    
+
                     line++;
 
                     if (!decisions[i].HasBeenUsed)
@@ -48,10 +65,6 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
                     line++;
                 }
-            }
-            else
-            {
-                ConsoleEx.WriteAt(1, 12, "   ALL of this section USED UP  ");
             }
             
             ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
