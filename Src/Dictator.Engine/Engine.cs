@@ -229,6 +229,11 @@ namespace Dictator.Core
             accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
         }
 
+        public void MarkDecisionAsUsed(string text)
+        {
+            decisionStats.MarkDecisionAsUsed(text);
+        }
+
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();

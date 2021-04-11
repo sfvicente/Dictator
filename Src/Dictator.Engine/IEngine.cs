@@ -24,6 +24,7 @@ namespace Dictator.Core
         public void IncreaseBodyguard();
         public LoanRequest AskForLoan(Country country);
         public void ApplyDecisionEffects(Decision decision);
+        public void MarkDecisionAsUsed(string text);
         public bool DoesUnusedNewsExist();
         public News GetRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();

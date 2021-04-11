@@ -232,6 +232,8 @@ namespace Dictator.ConsoleInterface
                             engine.ApplyDecisionEffects(decision);
                             break;
                     }
+
+                    engine.MarkDecisionAsUsed(decision.Text);
                 }
             }
         }
