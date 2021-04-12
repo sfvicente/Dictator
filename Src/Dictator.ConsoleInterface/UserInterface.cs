@@ -38,7 +38,7 @@ namespace Dictator.ConsoleInterface
         private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
         private readonly ILoanScreen loanScreen;
-        private readonly ITransferToSwissBankAccount transferToSwissBankAccount;
+        private readonly ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen;
         private readonly IAssassinationScreen assassinationScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
@@ -74,7 +74,7 @@ namespace Dictator.ConsoleInterface
             IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
             ILoanScreen loanScreen,
-            ITransferToSwissBankAccount transferToSwissBankAccount,
+            ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen,
             IAssassinationScreen assassinationScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
@@ -109,7 +109,7 @@ namespace Dictator.ConsoleInterface
             this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
             this.loanScreen = loanScreen;
-            this.transferToSwissBankAccount = transferToSwissBankAccount;
+            this.transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
             this.assassinationScreen = assassinationScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;

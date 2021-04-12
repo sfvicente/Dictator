@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
-    public class TransferToSwissBankAccount : ITransferToSwissBankAccount
+    public class TransferToSwissBankAccountScreen : ITransferToSwissBankAccountScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public TransferToSwissBankAccount(IPressAnyKeyControl pressAnyKeyControl)
+        public TransferToSwissBankAccountScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }

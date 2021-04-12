@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
-    public interface ITransferToSwissBankAccount
+    public interface ITransferToSwissBankAccountScreen
     {
         public void Show(SwissBankAccountTransfer swissBankAccountTransfer);
     }
