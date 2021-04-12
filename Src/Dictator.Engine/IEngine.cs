@@ -9,6 +9,7 @@ namespace Dictator.Core
         public void Initialise();
         public void SetGroupStrength(GroupType groupType, int strength);
         public void AdvanceMonth();
+        public SwissBankAccountTransfer TransferToSwissBankAccount();
         public bool IsGovernmentBankrupt();
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();

@@ -34,16 +34,6 @@ namespace Dictator.Core.Services
             return account.MonthlyCosts;
         }
 
-        public int GetSwissBankAccountBalance()
-        {
-            return account.SwissBankAccountBalance;
-        }
-
-        public bool HasSwissBankAccount()
-        {
-            return account.HasSwissBankAccount;
-        }
-
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
             account.TreasuryBalance += 10 * cost;
@@ -68,6 +58,25 @@ namespace Dictator.Core.Services
         public void ChangeTreasuryBalance(int amount)
         {
             account.TreasuryBalance += amount;
+        }
+
+        public bool HasSwissBankAccount()
+        {
+            return account.HasSwissBankAccount;
+        }
+
+        public int GetSwissBankAccountBalance()
+        {
+            return account.SwissBankAccountBalance;
+        }
+
+        /// <summary>
+        ///     Adds the specified amount to the Swiss bank account balance.
+        /// </summary>
+        /// <param name="amount">The amount to be added to the account.</param>
+        public void DepositToSwissBankAccount(int amount)
+        {
+            account.SwissBankAccountBalance += amount;
         }
     }
 }

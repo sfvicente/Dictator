@@ -61,6 +61,26 @@ namespace Dictator.Core
             return accountService.GetTreasuryBalance() <= 0;
         }
 
+        public SwissBankAccountTransfer TransferToSwissBankAccount()
+        {
+            int treasuryBalance = accountService.GetTreasuryBalance();
+            int amountStolen = treasuryBalance / 2;
+
+            if(amountStolen > 0)
+            {
+                accountService.ChangeTreasuryBalance(-amountStolen);
+                accountService.DepositToSwissBankAccount(amountStolen);
+            }
+
+            var swissBankAccountTransfer = new SwissBankAccountTransfer()
+            {
+                AmountStolen = amountStolen,
+                TreasuryBalance = treasuryBalance
+            };
+
+            return swissBankAccountTransfer;
+        }
+
         public void SetMonthlyMinimalPopularityAndStrength()
         {
             Random random = new Random();

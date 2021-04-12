@@ -9,9 +9,11 @@ namespace Dictator.Core.Services
         public void Initialise();
         public int GetTreasuryBalance();
         public int GetMonthlyCosts();
-        public int GetSwissBankAccountBalance();
-        public bool HasSwissBankAccount();
         public void ApplyTreasuryChanges(int cost, int monthlyCost);
         public void ChangeTreasuryBalance(int amount);
+
+        public bool HasSwissBankAccount();
+        public int GetSwissBankAccountBalance();
+        public void DepositToSwissBankAccount(int amount);
     }
 }
