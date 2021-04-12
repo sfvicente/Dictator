@@ -225,9 +225,9 @@ namespace Dictator.ConsoleInterface
             loanScreen.Show();
         }
 
-        public void DisplayTransferToSwissBankAccount(int amountStolen, int treasuryBalance)
+        public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer)
         {
-            transferToSwissBankAccount.Show(amountStolen, treasuryBalance);
+            transferToSwissBankAccountScreen.Show(swissBankAccountTransfer);
         }
 
         public void DisplayAssassinationAttempt()
