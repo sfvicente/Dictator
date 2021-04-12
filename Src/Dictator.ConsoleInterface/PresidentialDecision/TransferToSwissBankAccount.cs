@@ -1,5 +1,6 @@
 ﻿using Dictator.Common.Extensions;
 using Dictator.ConsoleInterface.Common;
+using Dictator.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,17 +16,17 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show(int amountStolen, int treasuryBalance)
+        public void Show(SwissBankAccountTransfer swissBankAccountTransfer)
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleEx.Clear();
             ConsoleEx.WriteAt(1, 3, "TRANSFER to a SWISS BANK ACCOUNT");
 
-            if (amountStolen > 0)
+            if (swissBankAccountTransfer.AmountStolen > 0)
             {
-                ConsoleEx.WriteAt(1, 11, $"The TREASURY held ${treasuryBalance}, 000");
-                ConsoleEx.WriteAt(1, 13, $"${amountStolen}, 000 has been TRANSFERRED");
+                ConsoleEx.WriteAt(1, 11, $"The TREASURY held ${swissBankAccountTransfer.TreasuryBalance}, 000");
+                ConsoleEx.WriteAt(1, 13, $"${swissBankAccountTransfer.AmountStolen}, 000 has been TRANSFERRED");
             }
             else
             {
