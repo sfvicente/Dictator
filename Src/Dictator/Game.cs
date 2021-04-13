@@ -221,30 +221,35 @@ namespace Dictator.ConsoleInterface
                     {
                         Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                        if (DoesPlayerAcceptAdvice())
-                        {
-                            userInterface.DisplayAdviceScreen(decision);
-                        }
-
-                        switch (decision.DecisionSubType)
-                        {
-                            // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
-
-                            case DecisionSubType.IncreaseBodyGuard:
-                                break;
-                            case DecisionSubType.TransferToSwissAccount:
-                                break;
-                            case DecisionSubType.AskForALoan:
-                                break;
-                            default:
-                                engine.ApplyDecisionEffects(decision);
-                                break;
-                        }
-
-                        engine.MarkDecisionAsUsed(decision.Text);
+                        ExecuteSelectedDecision(decision);
                     }
                 }
             }
+        }
+
+        private void ExecuteSelectedDecision(Decision decision)
+        {
+            if (DoesPlayerAcceptAdvice())
+            {
+                userInterface.DisplayAdviceScreen(decision);
+            }
+
+            switch (decision.DecisionSubType)
+            {
+                // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
+
+                case DecisionSubType.IncreaseBodyGuard:
+                    break;
+                case DecisionSubType.TransferToSwissAccount:
+                    break;
+                case DecisionSubType.AskForALoan:
+                    break;
+                default:
+                    engine.ApplyDecisionEffects(decision);
+                    break;
+            }
+
+            engine.MarkDecisionAsUsed(decision.Text);
         }
 
         private void AskForLoan(Country country)
