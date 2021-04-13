@@ -68,6 +68,11 @@ namespace Dictator.Core
 
             if(amountStolen > 0)
             {
+                if(!accountService.HasSwissBankAccount())
+                {
+                    accountService.OpenSwissBankAccount();
+                }
+
                 accountService.ChangeTreasuryBalance(-amountStolen);
                 accountService.DepositToSwissBankAccount(amountStolen);
             }

@@ -13,6 +13,7 @@ namespace Dictator.Core.Services
         public void ChangeTreasuryBalance(int amount);
 
         public bool HasSwissBankAccount();
+        public void OpenSwissBankAccount();
         public int GetSwissBankAccountBalance();
         public void DepositToSwissBankAccount(int amount);
     }
