@@ -18,10 +18,8 @@ namespace Dictator.ConsoleInterface.Audience
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show()
+        public void Show(Core.Audience audience)
         {
-            Core.Audience audience = audienceStats.CurrentAudienceRequest;
-
             ConsoleEx.Clear();
             ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
             ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);

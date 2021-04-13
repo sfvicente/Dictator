@@ -7,6 +7,6 @@ namespace Dictator.ConsoleInterface.Audience
 {
     public interface IAudienceDecisionDialog
     {
-        DialogResult Show();
+        DialogResult Show(Core.Audience audience);
     }
 }

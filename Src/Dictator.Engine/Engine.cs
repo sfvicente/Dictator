@@ -95,11 +95,6 @@ namespace Dictator.Core
             governmentStats.MonthlyRevolutionStrength = random.Next(10, 13);
         }
 
-        public void SetRandomAudienceRequest()
-        {
-            audienceStats.SetRandomAudienceRequest();
-        }
-
         public void Plot()
         {
             plotService.Plot();
@@ -157,25 +152,32 @@ namespace Dictator.Core
             accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
         }
 
-        public void AcceptAudienceRequest()
+        public Audience GetRandomUnusedAudienceRequest()
         {
-            Audience currentAudience = audienceStats.CurrentAudienceRequest;
+            IEnumerable<Audience> unusedAudiences = audienceStats.GetUnusedAudiences();
 
-            groupStats.ApplyPopularityChange(currentAudience.GroupPopularityChanges);
-            groupStats.ApplyStrengthChange(currentAudience.GroupStrengthChanges);
-            accountService.ApplyTreasuryChanges(currentAudience.Cost, currentAudience.MonthlyCost);
+            var rand = new Random();
+            var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+
+            return randomUnusedAudience;
+        }
+
+        public void AcceptAudienceRequest(Core.Audience audience)
+        {
+            groupStats.ApplyPopularityChange(audience.GroupPopularityChanges);
+            groupStats.ApplyStrengthChange(audience.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(audience.Cost, audience.MonthlyCost);
         }
 
         /// <summary>
         ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
         /// </summary>
-        public void RefuseAudienceRequest()
+        public void RefuseAudienceRequest(Core.Audience audience)
         {
-            Audience currentAudience = audienceStats.CurrentAudienceRequest;
-            char requesterPopularityChange = currentAudience.GroupPopularityChanges[(int)currentAudience.Requester];
+            char requesterPopularityChange = audience.GroupPopularityChanges[(int)audience.Requester];
 
             // Decrease the player's popularity with the petitioners
-            groupStats.DecreasePopularity(currentAudience.Requester, requesterPopularityChange - 'M');
+            groupStats.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
         }
 
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)

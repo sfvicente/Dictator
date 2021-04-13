@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Audience
 {
     public interface IAudienceScreen
     {
-        public void Show();
+        public void Show(Core.Audience audience);
     }
 }

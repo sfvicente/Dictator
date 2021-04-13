@@ -8,20 +8,6 @@ namespace Dictator.Core
     public class AudienceStats : IAudienceStats
     {
         private Audience[] audiences;
-        private Audience currentAudience;
-
-        public Audience CurrentAudienceRequest
-        {
-            get
-            {
-                if (currentAudience == null)
-                {
-                    throw new InvalidOperationException("No audience has been set as the current audience.");
-                }
-
-                return currentAudience;
-            }
-        }
 
         public AudienceStats()
         {
@@ -52,16 +38,16 @@ namespace Dictator.Core
             };
         }
 
-        public void SetRandomAudienceRequest()
-        {
-            IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
-            var rand = new Random();
+        //public void SetRandomAudienceRequest()
+        //{
+        //    IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
+        //    var rand = new Random();
 
-            currentAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
-            currentAudience.HasBeenUsed = true;
-        }
+        //    currentAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+        //    currentAudience.HasBeenUsed = true;
+        //}
 
-        private IEnumerable<Audience> GetUnusedAudiences()
+        public IEnumerable<Audience> GetUnusedAudiences()
         {
             IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
 

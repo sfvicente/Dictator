@@ -12,10 +12,10 @@ namespace Dictator.ConsoleInterface
         public void DisplayAccountScreen();
         public bool DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
-        public void DisplayAudienceScreen();
-        public DialogResult DisplayAudienceDecisionDialog();
+        public void DisplayAudienceScreen(Core.Audience audience);
+        public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience);
         public DialogResult DisplayAdviceRequestDialog();
-        public void DisplayAdviceScreen();
+        public void DisplayAdviceScreen(Core.Audience audience);
         public void DisplayAdviceScreen(Decision decision);
         public void DisplayBankuptcyScreen();
         public void DisplayNewsScreen(string headline);

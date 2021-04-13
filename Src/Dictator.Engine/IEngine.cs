@@ -14,12 +14,12 @@ namespace Dictator.Core
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
         public void ApplyBankruptcyEffects();
-        public void SetRandomAudienceRequest();
+        public Audience GetRandomUnusedAudienceRequest();
         public void Plot();
         public bool ShouldNewsHappen();
         public void ApplyNewsEffects(News news);
-        public void AcceptAudienceRequest();
-        public void RefuseAudienceRequest();
+        public void AcceptAudienceRequest(Audience audience);
+        public void RefuseAudienceRequest(Audience audience);
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
         public void IncreaseBodyguard();

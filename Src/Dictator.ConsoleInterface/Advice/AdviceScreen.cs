@@ -20,10 +20,8 @@ namespace Dictator.ConsoleInterface.Advice
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show()
+        public void Show(Core.Audience audience)
         {
-            Core.Audience audience = audienceStats.CurrentAudienceRequest;
-
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
             ConsoleEx.WriteAt(1, 2, $"{audience.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);

@@ -18,10 +18,8 @@ namespace Dictator.ConsoleInterface.Audience
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
-        public DialogResult Show()
+        public DialogResult Show(Core.Audience audience)
         {
-            Core.Audience audience = audienceStats.CurrentAudienceRequest;
-
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(11, 2, "  DECISION  ", ConsoleColor.Black, ConsoleColor.White);
             ConsoleEx.WriteAt(5, 4, $"The {audience.Requester} ask you to", ConsoleColor.Magenta, ConsoleColor.Gray);

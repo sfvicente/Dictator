@@ -165,14 +165,14 @@ namespace Dictator.ConsoleInterface
             policeReportScreen.Show();
         }
 
-        public void DisplayAudienceScreen()
+        public void DisplayAudienceScreen(Core.Audience audience)
         {
-            audienceScreen.Show();
+            audienceScreen.Show(audience);
         }
 
-        public DialogResult DisplayAudienceDecisionDialog()
+        public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience)
         {
-            return audienceDecisionDialog.Show();
+            return audienceDecisionDialog.Show(audience);
         }
 
         public DialogResult DisplayAdviceRequestDialog()
@@ -180,9 +180,9 @@ namespace Dictator.ConsoleInterface
             return adviceRequestDialog.Show();
         }
 
-        public void DisplayAdviceScreen()
+        public void DisplayAdviceScreen(Core.Audience audience)
         {
-            adviceScreen.Show();
+            adviceScreen.Show(audience);
         }
 
         public void DisplayAdviceScreen(Decision decision)

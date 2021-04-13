@@ -79,15 +79,16 @@ namespace Dictator.ConsoleInterface
         /// </summary>
         private void HandleAudienceRequest()
         {
-            engine.SetRandomAudienceRequest();
-            userInterface.DisplayAudienceScreen();
+            Core.Audience audience = engine.GetRandomUnusedAudienceRequest();
+
+            userInterface.DisplayAudienceScreen(audience);
 
             if (DoesPlayerAcceptAdvice())
             {
-                userInterface.DisplayAdviceScreen();
+                userInterface.DisplayAdviceScreen(audience);
             }
 
-            AskForAudienceDecision();
+            AskForAudienceDecision(audience);
             userInterface.DisplayAccountScreen();
         }
 
@@ -103,17 +104,17 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        private void AskForAudienceDecision()
+        private void AskForAudienceDecision(Core.Audience audience)
         {
-            DialogResult dialogResult = userInterface.DisplayAudienceDecisionDialog();
+            DialogResult dialogResult = userInterface.DisplayAudienceDecisionDialog(audience);
 
             if (dialogResult == DialogResult.Yes)
             {
-                engine.AcceptAudienceRequest();
+                engine.AcceptAudienceRequest(audience);
             }
             else
             {
-                engine.RefuseAudienceRequest();
+                engine.RefuseAudienceRequest(audience);
             }
         }
 

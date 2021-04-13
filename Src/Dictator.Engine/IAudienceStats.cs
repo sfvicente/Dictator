@@ -6,9 +6,7 @@ namespace Dictator.Core
 {
     public interface IAudienceStats
     {
-        public Audience CurrentAudienceRequest { get; }
-
         public void Initialise();
-        public void SetRandomAudienceRequest();
+        public IEnumerable<Audience> GetUnusedAudiences();
     }
 }
