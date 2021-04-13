@@ -45,7 +45,7 @@ namespace Dictator.ConsoleInterface.Audience
 
             if (audience.MonthlyCost != 0)
             {
-                ConsoleEx.WriteAt(2, 16, "RAISE MONTHLY COSTS bt $10,000", ConsoleColor.Black);
+                ConsoleEx.WriteAt(2, 16, "RAISE MONTHLY COSTS by $10,000", ConsoleColor.Black);
             }
 
             return pressAnyKeyWithYesControl.Show();
