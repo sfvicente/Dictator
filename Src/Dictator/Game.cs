@@ -229,27 +229,34 @@ namespace Dictator.ConsoleInterface
 
         private void ExecuteSelectedDecision(Decision decision)
         {
-            if (DoesPlayerAcceptAdvice())
+            if (decision.DecisionSubType == DecisionSubType.TransferToSwissAccount)
             {
-                userInterface.DisplayAdviceScreen(decision);
-            }
 
-            switch (decision.DecisionSubType)
+            }
+            else if (decision.DecisionSubType == DecisionSubType.AskForALoan)
             {
-                // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
 
-                case DecisionSubType.IncreaseBodyGuard:
-                    break;
-                case DecisionSubType.TransferToSwissAccount:
-                    break;
-                case DecisionSubType.AskForALoan:
-                    break;
-                default:
-                    engine.ApplyDecisionEffects(decision);
-                    break;
             }
+            else
+            {
+                if (DoesPlayerAcceptAdvice())
+                {
+                    userInterface.DisplayAdviceScreen(decision);
+                }
 
-            engine.MarkDecisionAsUsed(decision.Text);
+                // TODO: Ask player for confirmation to execute decision
+
+                if (decision.DecisionSubType == DecisionSubType.IncreaseBodyGuard)
+                {
+                    
+                }
+                else
+                {
+                    engine.MarkDecisionAsUsed(decision.Text);
+                }
+
+                engine.ApplyDecisionEffects(decision);
+            }         
         }
 
         private void AskForLoan(Country country)
