@@ -203,37 +203,46 @@ namespace Dictator.ConsoleInterface
 
         private void HandlePresidentialDecision()
         {
-            DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
+            bool hasChosenOption = true;
 
-            if (decisionType != DecisionType.None)
+            while (hasChosenOption)
             {
-                int optionSelected = userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+                DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
 
-                if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
+                if (decisionType == DecisionType.None)
                 {
-                    Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
+                    hasChosenOption = false;
+                }
+                else
+                {
+                    int optionSelected = userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
 
-                    if (DoesPlayerAcceptAdvice())
+                    if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
                     {
-                        userInterface.DisplayAdviceScreen(decision);
+                        Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
+
+                        if (DoesPlayerAcceptAdvice())
+                        {
+                            userInterface.DisplayAdviceScreen(decision);
+                        }
+
+                        switch (decision.DecisionSubType)
+                        {
+                            // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
+
+                            case DecisionSubType.IncreaseBodyGuard:
+                                break;
+                            case DecisionSubType.TransferToSwissAccount:
+                                break;
+                            case DecisionSubType.AskForALoan:
+                                break;
+                            default:
+                                engine.ApplyDecisionEffects(decision);
+                                break;
+                        }
+
+                        engine.MarkDecisionAsUsed(decision.Text);
                     }
-
-                    switch (decision.DecisionSubType)
-                    {
-                        // Handle special cases: IncreaseBodyGuard(), TransferToSwissAccount(), AskForALoan()
-
-                        case DecisionSubType.IncreaseBodyGuard:
-                            break;
-                        case DecisionSubType.TransferToSwissAccount:
-                            break;
-                        case DecisionSubType.AskForALoan:
-                            break;
-                        default:
-                            engine.ApplyDecisionEffects(decision);
-                            break;
-                    }
-
-                    engine.MarkDecisionAsUsed(decision.Text);
                 }
             }
         }
