@@ -233,7 +233,9 @@ namespace Dictator.ConsoleInterface
         {
             if (decision.DecisionSubType == DecisionSubType.TransferToSwissAccount)
             {
+                SwissBankAccountTransfer transfer = engine.TransferToSwissBankAccount();
 
+                userInterface.DisplayTransferToSwissBankAccount(transfer);
             }
             else if (decision.DecisionSubType == DecisionSubType.AskForALoan)
             {
