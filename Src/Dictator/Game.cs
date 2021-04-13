@@ -204,15 +204,15 @@ namespace Dictator.ConsoleInterface
 
         private void HandlePresidentialDecision()
         {
-            bool hasChosenOption = true;
+            bool hasNotChosenDecisionOrExited = true;
 
-            while (hasChosenOption)
+            while (hasNotChosenDecisionOrExited)
             {
                 DecisionType decisionType = userInterface.DisplayPresidentialDecisionMainDialog();
 
                 if (decisionType == DecisionType.None)
                 {
-                    hasChosenOption = false;
+                    hasNotChosenDecisionOrExited = false;
                 }
                 else
                 {
@@ -223,6 +223,7 @@ namespace Dictator.ConsoleInterface
                         Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
                         ExecuteSelectedDecision(decision);
+                        hasNotChosenDecisionOrExited = false;
                     }
                 }
             }
