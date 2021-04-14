@@ -9,12 +9,10 @@ namespace Dictator.ConsoleInterface.Audience
 {
     public class AudienceDecisionDialog : IAudienceDecisionDialog
     {
-        private readonly IAudienceStats audienceStats;
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
-        public AudienceDecisionDialog(IAudienceStats audienceStats, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        public AudienceDecisionDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
-            this.audienceStats = audienceStats;
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
