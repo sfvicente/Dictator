@@ -38,15 +38,6 @@ namespace Dictator.Core
             };
         }
 
-        //public void SetRandomAudienceRequest()
-        //{
-        //    IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
-        //    var rand = new Random();
-
-        //    currentAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
-        //    currentAudience.HasBeenUsed = true;
-        //}
-
         public IEnumerable<Audience> GetUnusedAudiences()
         {
             IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
