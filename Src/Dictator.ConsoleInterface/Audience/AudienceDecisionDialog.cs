@@ -35,7 +35,7 @@ namespace Dictator.ConsoleInterface.Audience
 
             if (audience.Cost != 0)
             {
-                ConsoleEx.WriteAt(2, 12, "TAKE from the TREASURY $120,000", ConsoleColor.Black);
+                ConsoleEx.WriteAt(2, 12, $"TAKE from the TREASURY ${audience.Cost},000", ConsoleColor.Black);
             }
 
             if (audience.Cost != 0 && audience.MonthlyCost != 0)
@@ -45,7 +45,7 @@ namespace Dictator.ConsoleInterface.Audience
 
             if (audience.MonthlyCost != 0)
             {
-                ConsoleEx.WriteAt(2, 16, "RAISE MONTHLY COSTS by $10,000", ConsoleColor.Black);
+                ConsoleEx.WriteAt(2, 16, $"RAISE MONTHLY COSTS by ${audience.MonthlyCost},000", ConsoleColor.Black);
             }
 
             return pressAnyKeyWithYesControl.Show();
