@@ -10,7 +10,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayWelcomeScreen();
         public void DisplayTitleScreen();
         public void DisplayAccountScreen(Account account);
-        public bool DisplayPoliceReportRequestDialog();
+        public DialogResult DisplayPoliceReportRequestDialog();
         public void DisplayPoliceReportScreen();
         public void DisplayAudienceScreen(Core.Audience audience);
         public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience);

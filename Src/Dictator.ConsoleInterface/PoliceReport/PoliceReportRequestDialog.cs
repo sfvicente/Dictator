@@ -30,22 +30,23 @@ namespace Dictator.ConsoleInterface.PoliceReport
             this.governmentStats = governmentStats;
         }
 
-        public bool Show()
+        public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
             ConsoleEx.WriteAt(1, 1, "################################");
             ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
 
+            DialogResult dialogResult;
+
             if (accountService.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 
-                DialogResult dialogResult = pressAnyKeyWithYesControl.Show();
+                dialogResult = pressAnyKeyWithYesControl.Show();
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     accountService.ChangeTreasuryBalance(-1);
-                    return true;
                 }
             }
             else
@@ -69,10 +70,11 @@ namespace Dictator.ConsoleInterface.PoliceReport
                     ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
                 }
 
+                dialogResult = DialogResult.No;
                 pressAnyKeyControl.Show();
             }
 
-            return false;
+            return dialogResult;
         }
 
         private bool HasEnoughPopularityWithPolice()

@@ -155,7 +155,7 @@ namespace Dictator.ConsoleInterface
             treasuryReportScreen.Show(account);
         }
 
-        public bool DisplayPoliceReportRequestDialog()
+        public DialogResult DisplayPoliceReportRequestDialog()
         {
             return policeReportRequestScreen.Show();
         }

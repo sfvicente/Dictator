@@ -127,7 +127,9 @@ namespace Dictator.ConsoleInterface
 
         private void ProcessPoliceReport()
         {
-            if (userInterface.DisplayPoliceReportRequestDialog())
+            DialogResult dialogResult = userInterface.DisplayPoliceReportRequestDialog();
+
+            if (dialogResult == DialogResult.Yes)
             {
                 userInterface.DisplayPoliceReportScreen();
             }
