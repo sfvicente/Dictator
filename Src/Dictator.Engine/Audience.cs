@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class Audience : EventAction
+    public class Audience : GameAction
     {
         public GroupType Requester { get; set; }
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public abstract class EventAction
+    public abstract class GameAction
     {
         public int Cost { get; set; }
         public int MonthlyCost { get; set; }

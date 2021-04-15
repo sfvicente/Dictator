@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class News : EventAction
+    public class News : GameAction
     {
         public News(int cost, int monthlyCost, string groupPopularityChanges, string groupStrenghtChanges, string text)
         {
