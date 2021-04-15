@@ -24,7 +24,7 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayIntroScreen();
             userInterface.DisplayTitleScreen();
             userInterface.DisplayWelcomeScreen();
-            userInterface.DisplayAccountScreen();
+            DisplayAccountDetails();
             userInterface.DisplayPoliceReportScreen();
 
             while (true)
@@ -63,6 +63,13 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        private void DisplayAccountDetails()
+        {
+            Account account = engine.GetAccount();
+
+            userInterface.DisplayAccountScreen(account);
+        }
+
         private void CheckAndHandleBankruptcy()
         {
             if (engine.IsGovernmentBankrupt())
@@ -89,7 +96,7 @@ namespace Dictator.ConsoleInterface
             }
 
             AskForAudienceDecision(audience);
-            userInterface.DisplayAccountScreen();
+            DisplayAccountDetails();
         }
 
         private bool DoesPlayerAcceptAdvice()

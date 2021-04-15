@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,6 @@ namespace Dictator.ConsoleInterface.Treasury
 {
     public interface ITreasuryReportScreen
     {
-        public void Show();
+        public void Show(Account account);
     }
 }

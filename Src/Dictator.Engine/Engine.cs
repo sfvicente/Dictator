@@ -46,6 +46,11 @@ namespace Dictator.Core
             newsService.Initialise();
         }
 
+        public Account GetAccount()
+        {
+            return accountService.GetAccount();
+        }
+
         public void SetGroupStrength(GroupType groupType, int strength)
         {
             groupStats.SetStrength(groupType, strength);

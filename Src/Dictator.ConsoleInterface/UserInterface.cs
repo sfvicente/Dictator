@@ -150,9 +150,9 @@ namespace Dictator.ConsoleInterface
             titleScreen.Show();
         }
 
-        public void DisplayAccountScreen()
+        public void DisplayAccountScreen(Account account)
         {
-            treasuryReportScreen.Show();
+            treasuryReportScreen.Show(account);
         }
 
         public bool DisplayPoliceReportRequestDialog()

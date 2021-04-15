@@ -7,6 +7,7 @@ namespace Dictator.Core.Services
     public interface IAccountService
     {
         public void Initialise();
+        public Account GetAccount();
         public int GetTreasuryBalance();
         public int GetMonthlyCosts();
         public void ApplyTreasuryChanges(int cost, int monthlyCost);

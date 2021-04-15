@@ -20,6 +20,11 @@ namespace Dictator.Core.Services
             account.HasSwissBankAccount = false;
         }
 
+        public Account GetAccount()
+        {
+            return (Account)account;
+        }
+
         /// <summary>
         ///     Gets the current balance of the government treasury.
         /// </summary>
