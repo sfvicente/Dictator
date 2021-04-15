@@ -22,7 +22,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayMonthScreen();
         public DecisionType DisplayPresidentialDecisionMainDialog();
         public int DisplayPresidentialDecisionSubDialog(DecisionType decisionType);
-        public DialogResult DisplayPresidentialDecisionActionDialog();
+        public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision);
         public void DisplayLoanScreen();
         public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer);
         public void DisplayAssassinationAttempt();
