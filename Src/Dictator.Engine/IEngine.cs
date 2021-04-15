@@ -12,6 +12,7 @@ namespace Dictator.Core
         public void AdvanceMonth();
         public SwissBankAccountTransfer TransferToSwissBankAccount();
         public bool IsGovernmentBankrupt();
+        public void PayFromTreasury(int amount);
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
         public void ApplyBankruptcyEffects();

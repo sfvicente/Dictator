@@ -131,6 +131,7 @@ namespace Dictator.ConsoleInterface
 
             if (dialogResult == DialogResult.Yes)
             {
+                engine.PayFromTreasury(1);
                 userInterface.DisplayPoliceReportScreen();
             }
         }

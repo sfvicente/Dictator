@@ -66,6 +66,11 @@ namespace Dictator.Core
             return accountService.GetTreasuryBalance() <= 0;
         }
 
+        public void PayFromTreasury(int amount)
+        {
+            accountService.ChangeTreasuryBalance(-amount);
+        }
+
         public SwissBankAccountTransfer TransferToSwissBankAccount()
         {
             int treasuryBalance = accountService.GetTreasuryBalance();

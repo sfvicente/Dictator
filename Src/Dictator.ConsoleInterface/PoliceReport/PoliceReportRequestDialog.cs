@@ -41,13 +41,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
             if (accountService.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
-                
                 dialogResult = pressAnyKeyWithYesControl.Show();
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    accountService.ChangeTreasuryBalance(-1);
-                }
             }
             else
             {
