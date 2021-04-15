@@ -33,8 +33,14 @@ namespace Dictator.Core
                 new Audience(GroupType.Peasants, 0, 0, "MQJMNLNM", "MPJMML", "LEGALISE the FORMATION of UNIONS"),
                 new Audience(GroupType.Peasants, 0, 0, "LQKMNLMM", "MOLLMM", "  FREE their IMPRISONED LEADER  "),
                 new Audience(GroupType.Peasants, 0, 0/*S*/, "MPLMMMMM", "MMMLMM", "     START a PUBLIC LOTTERY     "),
-
-                // TODO: add land owners petition data
+                new Audience(GroupType.Landowners, 0, 0, "KMPMMMMM", "LMMMMM", "STOP MILITARY USE of THEIR LAND "),
+                new Audience(GroupType.Landowners, 0, 0, "MIQMLMLM", "MKONMM", "  LOWER the BASIC MINIMUM WAGE  "),
+                new Audience(GroupType.Landowners, 0/*W*/, 0/*H*/, "MMPMNMOI", "MMNMMM", "NATIONALISE AMERICAN BUSINESSES "),
+                new Audience(GroupType.Landowners, 0, 0/*R*/, "MMPMJMLM", "MNOMLM", "LEVY DUTY on ALL LEFTOTO IMPORTS"),
+                new Audience(GroupType.Landowners, 0, 0/*Q*/, "NNPMMIMM", "NMNNMK", " CUT SPENDING on the S. POLICE  "),
+                new Audience(GroupType.Landowners, 0, 0/*H*/, "MMQMMMMM", "MMOMMM", "  DECREASE HEAVY LAND TAXATION  "),
+                new Audience(GroupType.Landowners, 0, 0, "KLPMMMMM", "LLNNMM", "RELEASE TROOPS to WORK the LAND "),
+                new Audience(GroupType.Landowners, 0/*A*/, 0/*C*/, "NNPMJMON", "MMPMKM", "BUILD a LARGE IRRIGATION SYSTEM "),
             };
         }
 
@@ -53,7 +59,7 @@ namespace Dictator.Core
 
         private void ResetAllToUnused()
         {
-            foreach(var audience in audiences)
+            foreach (var audience in audiences)
             {
                 audience.HasBeenUsed = false;
             }
