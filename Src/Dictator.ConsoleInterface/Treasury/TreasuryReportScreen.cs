@@ -31,7 +31,7 @@ namespace Dictator.ConsoleInterface.Treasury
 
             if (account.HasSwissBankAccount)
             {
-                ConsoleEx.WriteAt(3, 17, $" [SWISS Acct holds ${account.SwissBankAccountBalance},000] ");
+                ConsoleEx.WriteAt(3, 18, $"[SWISS Acct holds ${account.SwissBankAccountBalance},000]", ConsoleColor.Blue, ConsoleColor.White);
             }
 
             pressAnyKeyControl.Show();
