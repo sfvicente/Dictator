@@ -232,14 +232,14 @@ namespace Dictator.ConsoleInterface
                     {
                         Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                        ExecuteSelectedDecision(decision);
+                        ProcessSelectedDecision(decision);
                         hasNotChosenDecisionOrExited = false;
                     }
                 }
             }
         }
 
-        private void ExecuteSelectedDecision(Decision decision)
+        private void ProcessSelectedDecision(Decision decision)
         {
             if (decision.DecisionSubType == DecisionSubType.TransferToSwissAccount)
             {
@@ -258,19 +258,32 @@ namespace Dictator.ConsoleInterface
                     userInterface.DisplayAdviceScreen(decision);
                 }
 
-                // TODO: Ask player for confirmation to execute decision
-
-                if (decision.DecisionSubType == DecisionSubType.IncreaseBodyGuard)
+                if(DoesPlayerConfirmDecision(decision))
                 {
-                    
-                }
-                else
-                {
-                    engine.MarkDecisionAsUsed(decision.Text);
-                }
+                    if (decision.DecisionSubType == DecisionSubType.IncreaseBodyGuard)
+                    {
 
-                engine.ApplyDecisionEffects(decision);
+                    }
+                    else
+                    {
+                        engine.MarkDecisionAsUsed(decision.Text);
+                    }
+
+                    engine.ApplyDecisionEffects(decision);
+                }
             }         
+        }
+
+        private bool DoesPlayerConfirmDecision(Decision decision)
+        {
+            DialogResult dialogResult = userInterface.DisplayPresidentialDecisionActionDialog(decision);
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void AskForLoan(Country country)
