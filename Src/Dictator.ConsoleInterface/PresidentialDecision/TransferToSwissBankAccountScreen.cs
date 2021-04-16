@@ -25,7 +25,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
             if (swissBankAccountTransfer.AmountStolen > 0)
             {
-                ConsoleEx.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryBalance}, 000");
+                ConsoleEx.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryPreviousBalance}, 000");
                 ConsoleEx.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen}, 000 has been TRANSFERRED");
             }
             else

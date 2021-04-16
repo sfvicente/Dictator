@@ -73,8 +73,8 @@ namespace Dictator.Core
 
         public SwissBankAccountTransfer TransferToSwissBankAccount()
         {
-            int treasuryBalance = accountService.GetTreasuryBalance();
-            int amountStolen = treasuryBalance / 2;
+            int treasuryPreviousBalance = accountService.GetTreasuryBalance();
+            int amountStolen = treasuryPreviousBalance / 2;
 
             if(amountStolen > 0)
             {
@@ -90,7 +90,7 @@ namespace Dictator.Core
             var swissBankAccountTransfer = new SwissBankAccountTransfer()
             {
                 AmountStolen = amountStolen,
-                TreasuryBalance = treasuryBalance
+                TreasuryPreviousBalance = treasuryPreviousBalance
             };
 
             return swissBankAccountTransfer;

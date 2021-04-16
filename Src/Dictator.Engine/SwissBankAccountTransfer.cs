@@ -7,6 +7,6 @@ namespace Dictator.Core
     public class SwissBankAccountTransfer
     {
         public int AmountStolen { get; set; }
-        public int TreasuryBalance { get; set; }
+        public int TreasuryPreviousBalance { get; set; }
     }
 }
