@@ -232,24 +232,29 @@ namespace Dictator.ConsoleInterface
                     {
                         Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                        ProcessSelectedDecision(decision);
-                        hasNotChosenDecisionOrExited = false;
+                        if(TryProcessSelectedDecision(decision))
+                        {
+                            hasNotChosenDecisionOrExited = false;
+                        }
                     }
                 }
             }
         }
 
-        private void ProcessSelectedDecision(Decision decision)
+        private bool TryProcessSelectedDecision(Decision decision)
         {
+            bool hasDecisionBeenCompleted = false;
+
             if (decision.DecisionSubType == DecisionSubType.TransferToSwissAccount)
             {
                 SwissBankAccountTransfer transfer = engine.TransferToSwissBankAccount();
 
                 userInterface.DisplayTransferToSwissBankAccount(transfer);
+                hasDecisionBeenCompleted = true;
             }
             else if (decision.DecisionSubType == DecisionSubType.AskForALoan)
             {
-
+                hasDecisionBeenCompleted = true;
             }
             else
             {
@@ -270,8 +275,11 @@ namespace Dictator.ConsoleInterface
                     }
 
                     engine.ApplyDecisionEffects(decision);
+                    hasDecisionBeenCompleted = true;
                 }
-            }         
+            }
+
+            return hasDecisionBeenCompleted;
         }
 
         private bool DoesPlayerConfirmDecision(Decision decision)
