@@ -262,7 +262,7 @@ namespace Dictator.ConsoleInterface
                 {
                     if (decision.DecisionSubType == DecisionSubType.IncreaseBodyGuard)
                     {
-
+                        engine.IncreaseBodyguard();
                     }
                     else
                     {
