@@ -23,28 +23,32 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
 
-            if (decision.Cost != 0 || decision.MonthlyCost != 0)
+            if (decision.Cost == 0 && decision.MonthlyCost == 0)
+            {
+                ConsoleEx.WriteAt(1, 11, "        NO MONEY INVOLVED       ", ConsoleColor.Black);
+            }
+            else
             {
                 ConsoleEx.WriteAt(2, 10, "This decision would", ConsoleColor.Black);
-            }
 
-            if (decision.Cost != 0)
-            {
-                string addOrTake = (decision.Cost > 0) ? "ADD to" : "TAKE from";
+                if (decision.Cost != 0)
+                {
+                    string addOrTake = (decision.Cost > 0) ? "ADD to" : "TAKE from";
 
-                ConsoleEx.WriteAt(2, 12, $"{addOrTake} the TREASURY ${Math.Abs(decision.Cost)},000", ConsoleColor.Black);
-            }
+                    ConsoleEx.WriteAt(2, 12, $"{addOrTake} the TREASURY ${Math.Abs(decision.Cost)},000", ConsoleColor.Black);
+                }
 
-            if (decision.Cost != 0 && decision.MonthlyCost != 0)
-            {
-                ConsoleEx.WriteAt(2, 14, "and", ConsoleColor.Black);
-            }
+                if (decision.Cost != 0 && decision.MonthlyCost != 0)
+                {
+                    ConsoleEx.WriteAt(2, 14, "and", ConsoleColor.Black);
+                }
 
-            if (decision.MonthlyCost != 0)
-            {
-                string raiseOrLower = (decision.MonthlyCost < 0) ? "RAISE" : "LOWER";
+                if (decision.MonthlyCost != 0)
+                {
+                    string raiseOrLower = (decision.MonthlyCost < 0) ? "RAISE" : "LOWER";
 
-                ConsoleEx.WriteAt(2, 16, $"{raiseOrLower} MONTHLY COSTS by ${Math.Abs(decision.MonthlyCost)},000", ConsoleColor.Black);
+                    ConsoleEx.WriteAt(2, 16, $"{raiseOrLower} MONTHLY COSTS by ${Math.Abs(decision.MonthlyCost)},000", ConsoleColor.Black);
+                }
             }
 
             return pressAnyKeyWithYesControl.Show();
