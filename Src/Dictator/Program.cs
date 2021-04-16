@@ -81,7 +81,9 @@ namespace Dictator
             .AddScoped<IWarLostScreen, WarLostScreen>()
             .AddScoped<IWarExecutionScreen, WarExecutionScreen>()
             .AddScoped<IEndScreen, EndScreen>()
-            // Controls
+            // Controls: Specific
+            .AddScoped<IAccountControl, AccountControl>()
+            // Controls: Generic
             .AddScoped<IKeyPanel, KeyPanel>()
             .AddScoped<IPressAnyKeyControl, PressAnyKeyControl>()
             .AddScoped<IPressAnyKeyOrOptionControl, PressAnyKeyOrOptionControl>()
