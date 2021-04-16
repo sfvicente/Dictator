@@ -18,19 +18,19 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
         public void Show(SwissBankAccountTransfer swissBankAccountTransfer)
         {
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.Black;
             ConsoleEx.Clear();
-            ConsoleEx.WriteAt(1, 3, "TRANSFER to a SWISS BANK ACCOUNT");
+            ConsoleEx.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
 
             if (swissBankAccountTransfer.AmountStolen > 0)
             {
-                ConsoleEx.WriteAt(1, 11, $"The TREASURY held ${swissBankAccountTransfer.TreasuryBalance}, 000");
-                ConsoleEx.WriteAt(1, 13, $"${swissBankAccountTransfer.AmountStolen}, 000 has been TRANSFERRED");
+                ConsoleEx.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryBalance}, 000");
+                ConsoleEx.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen}, 000 has been TRANSFERRED");
             }
             else
             {
-                ConsoleEx.WriteAt(8, 11, "NO TRANSFER made");
+                ConsoleEx.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
             }
 
             pressAnyKeyControl.Show();
