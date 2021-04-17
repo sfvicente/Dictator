@@ -7,6 +7,6 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public interface ITransferToSwissBankAccountScreen
     {
-        public void Show(SwissBankAccountTransfer swissBankAccountTransfer);
+        public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Dictator.Common.Extensions;
 using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,16 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public class TransferToSwissBankAccountScreen : ITransferToSwissBankAccountScreen
     {
+        private readonly IAccountControl accountControl;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public TransferToSwissBankAccountScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public TransferToSwissBankAccountScreen(IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
         {
+            this.accountControl = accountControl;
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show(SwissBankAccountTransfer swissBankAccountTransfer)
+        public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -33,6 +36,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
                 ConsoleEx.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
             }
 
+            accountControl.Show(account);
             pressAnyKeyControl.Show();
         }
     }
