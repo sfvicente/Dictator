@@ -7,7 +7,6 @@ namespace Dictator.ConsoleInterface.Advice
 {
     public interface IAdviceScreen
     {
-        public void Show(Core.Audience audience);
-        public void Show(Decision decision);
+        public void Show(GameAction gameAction);
     }
 }

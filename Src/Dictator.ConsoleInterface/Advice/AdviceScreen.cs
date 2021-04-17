@@ -20,33 +20,18 @@ namespace Dictator.ConsoleInterface.Advice
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show(Core.Audience audience)
+        public void Show(GameAction gameAction)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
-            ConsoleEx.WriteAt(1, 2, $"{audience.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
+            ConsoleEx.WriteAt(1, 2, $"{gameAction.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.Write(" ....", ConsoleColor.Black);
-            DisplayPopularityChanges(audience.GroupPopularityChanges);
+            DisplayPopularityChanges(gameAction.GroupPopularityChanges);
             ConsoleEx.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.Write(" ...", ConsoleColor.Black);
-            DisplayGroupStrengthChanges(audience.GroupStrengthChanges);
+            DisplayGroupStrengthChanges(gameAction.GroupStrengthChanges);
             pressAnyKeyControl.Show();
-        }
-
-        public void Show(Decision decision)
-        {
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-            ConsoleEx.Clear();
-            ConsoleEx.WriteAt(1, 2, $"{decision.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
-            ConsoleEx.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.Write(" ....", ConsoleColor.Black);
-            DisplayPopularityChanges(decision.GroupPopularityChanges);
-            ConsoleEx.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.Write(" ...", ConsoleColor.Black);
-            DisplayGroupStrengthChanges(decision.GroupStrengthChanges);
-            pressAnyKeyControl.Show();
-
         }
 
         public void DisplayPopularityChanges(string groupPopularityChanges)
