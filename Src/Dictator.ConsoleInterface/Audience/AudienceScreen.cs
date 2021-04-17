@@ -9,12 +9,10 @@ namespace Dictator.ConsoleInterface.Audience
 {
     public class AudienceScreen : IAudienceScreen
     {
-        private readonly IAudienceStats audienceStats;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public AudienceScreen(IAudienceStats audienceStats, IPressAnyKeyControl pressAnyKeyControl)
+        public AudienceScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
-            this.audienceStats = audienceStats;
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
