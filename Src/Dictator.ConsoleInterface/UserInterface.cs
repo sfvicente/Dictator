@@ -305,9 +305,9 @@ namespace Dictator.ConsoleInterface
             warExecutionScreen.Show();
         }
 
-        public void DisplayEndScreen()
+        public void DisplayEndScreen(Score score)
         {
-            endScreen.Show();
+            endScreen.Show(score);
         }
     }
 }

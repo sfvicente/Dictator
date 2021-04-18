@@ -8,7 +8,6 @@ namespace Dictator.Core
     {
         public int PolicePopularity { get; }
         public int PoliceStrength { get; }
-        public int TotalPopularity { get; }
         public GroupType AssassinGroupType { get; }
 
         public void Initialise();
@@ -18,6 +17,7 @@ namespace Dictator.Core
         public void IncreasePopularity(GroupType groupType);
         public void DecreasePopularity(GroupType groupType);
         public void DecreasePopularity(GroupType groupType, int amount);
+        public int GetTotalPopularity();
         public void SetStrength(GroupType groupType, int strength);
         public void DecreaseStrength(GroupType groupType);
         public void SetAssassinByGroupType(GroupType groupType);

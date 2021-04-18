@@ -15,6 +15,7 @@ namespace Dictator.Core
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
         private readonly INewsService newsService;
+        private readonly IScoreService scoreService;
         private Group revolutionCurrentGroup;
         private int revolutionPlayerStrength;
         private int revolutionGroupStrength;
@@ -26,7 +27,8 @@ namespace Dictator.Core
             IPlotService plotService,
             IDecisionStats decisionStats,
             IAudienceStats audienceStats,
-            INewsService newsService)
+            INewsService newsService,
+            IScoreService scoreService)
         {
             this.accountService = accountService;
             this.governmentStats = governmentStats;
@@ -35,6 +37,7 @@ namespace Dictator.Core
             this.decisionStats = decisionStats;
             this.audienceStats = audienceStats;
             this.newsService = newsService;
+            this.scoreService = scoreService;
         }
 
         public void Initialise()
@@ -440,9 +443,7 @@ namespace Dictator.Core
 
         public Score GetCurrentScore()
         {
-            var score = new Score();
-
-            // TODO: Calculate score and store it
+            var score = scoreService.GetCurrentScore();
 
             return score;
         }

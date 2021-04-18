@@ -40,6 +40,6 @@ namespace Dictator.ConsoleInterface
         public void DisplayGuerillasMissedScreen();
         public void DisplayHelicopterEngineFailure();
         public void DisplayWarExecutionScreen();
-        public void DisplayEndScreen();
+        public void DisplayEndScreen(Score score);
     }
 }

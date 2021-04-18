@@ -9,8 +9,6 @@ namespace Dictator.Core
     {
         private Group[] groups;
 
-        public int TotalPopularity { get => groups.Sum(x => x.Popularity); }
-
         private GroupType assassinGroupType;
         public GroupType AssassinGroupType { get { return assassinGroupType; } }
 
@@ -56,7 +54,7 @@ namespace Dictator.Core
         {
             int index = (int)groupType;
 
-            if(groups[index].Popularity < 9)
+            if (groups[index].Popularity < 9)
             {
                 groups[index].Popularity++;
             }
@@ -80,6 +78,11 @@ namespace Dictator.Core
             {
                 groups[index].Popularity -= amount;
             }
+        }
+
+        public int GetTotalPopularity()
+        {
+            return groups.Sum(x => x.Popularity); 
         }
 
         /// <summary>
@@ -162,12 +165,12 @@ namespace Dictator.Core
 
         private int GetBoundedAttribute(int attributeValue)
         {
-            if(attributeValue < 0)
+            if (attributeValue < 0)
             {
                 return 0;
             }
 
-            if(attributeValue > 9)
+            if (attributeValue > 9)
             {
                 return 9;
             }
@@ -180,7 +183,7 @@ namespace Dictator.Core
         /// </summary>
         public void ResetStatusAndAllies()
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 groups[i].Status = GroupStatus.Default;
                 groups[i].Ally = null;

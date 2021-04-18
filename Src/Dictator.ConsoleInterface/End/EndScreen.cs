@@ -23,11 +23,11 @@ namespace Dictator.ConsoleInterface.End
             this.groupStats = groupStats;
         }
 
-        public void Show()
+        public void Show(Score score)
         {
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.Black, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {groupStats.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({governmentStats.Month}x3) - { governmentStats.Month * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
             // TODO: count alive score

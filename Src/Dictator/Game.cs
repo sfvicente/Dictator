@@ -398,9 +398,7 @@ namespace Dictator.ConsoleInterface
         {
             Score score = engine.GetCurrentScore();
 
-            // TODO: Pass score to the end screen
-
-            userInterface.DisplayEndScreen();
+            userInterface.DisplayEndScreen(score);
         }
     }
 }

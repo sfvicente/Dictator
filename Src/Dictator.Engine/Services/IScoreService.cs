@@ -6,6 +6,6 @@ namespace Dictator.Core.Services
 {
     public interface IScoreService
     {
-
+        public Score GetCurrentScore();
     }
 }
