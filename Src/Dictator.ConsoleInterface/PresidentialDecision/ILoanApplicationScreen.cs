@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
-    public interface ILoanScreen
+    public interface ILoanApplicationScreen
     {
         public void Show();
     }

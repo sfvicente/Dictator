@@ -37,7 +37,7 @@ namespace Dictator.ConsoleInterface
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
         private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
-        private readonly ILoanScreen loanScreen;
+        private readonly ILoanApplicationScreen loanScreen;
         private readonly ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen;
         private readonly IAssassinationScreen assassinationScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
@@ -73,7 +73,7 @@ namespace Dictator.ConsoleInterface
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
             IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
-            ILoanScreen loanScreen,
+            ILoanApplicationScreen loanScreen,
             ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen,
             IAssassinationScreen assassinationScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,

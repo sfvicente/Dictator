@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
-    public class LoanScreen : ILoanScreen
+    public class LoanApplicationScreen : ILoanApplicationScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public LoanScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public LoanApplicationScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
