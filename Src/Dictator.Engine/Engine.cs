@@ -242,9 +242,9 @@ namespace Dictator.Core
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        public LoanRequest AskForLoan(Country country)
+        public LoanResult AskForLoan(Country country)
         {
-            LoanRequest loanRequest = new LoanRequest();
+            LoanResult loanRequest = new LoanResult();
 
             // TODO: Check if it's not to yearly for a loan
 
