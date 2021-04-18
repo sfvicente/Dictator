@@ -448,11 +448,6 @@ namespace Dictator.Core
             return score;
         }
 
-        public void End()
-        {
-            throw new NotImplementedException();
-        }
-
         private bool DoesPoliceHatePlayer()
         {
             if (groupStats.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
