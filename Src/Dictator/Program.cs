@@ -56,6 +56,7 @@ namespace Dictator
             .AddScoped<IPresidentialDecisionSubDialog, PresidentialDecisionSubDialog>()
             .AddScoped<IPresidentialDecisionActionDialog, PresidentialDecisionActionDialog>()
             .AddScoped<ILoanScreen, LoanScreen>()
+            .AddScoped<ILoanApplicationResultScreen, LoanApplicationResultScreen>()
             .AddScoped<ITransferToSwissBankAccountScreen, TransferToSwissBankAccountScreen>()
             .AddScoped<IAssassinationScreen, AssassinationScreen>()
             .AddScoped<IAssassinationFailedScreen, AssassinationFailedScreen>()
