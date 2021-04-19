@@ -38,6 +38,7 @@ namespace Dictator.ConsoleInterface
         private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
         private readonly ILoanApplicationScreen loanScreen;
+        private readonly ILoanApplicationResultScreen loanApplicationResultScreen;
         private readonly ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen;
         private readonly IAssassinationScreen assassinationScreen;
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
@@ -74,6 +75,7 @@ namespace Dictator.ConsoleInterface
             IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
             ILoanApplicationScreen loanScreen,
+            ILoanApplicationResultScreen loanApplicationResultScreen,
             ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen,
             IAssassinationScreen assassinationScreen,
             IAssassinationSuccededScreen assassinationSuccededScreen,
@@ -109,6 +111,7 @@ namespace Dictator.ConsoleInterface
             this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
             this.loanScreen = loanScreen;
+            this.loanApplicationResultScreen = loanApplicationResultScreen;
             this.transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
             this.assassinationScreen = assassinationScreen;
             this.assassinationSuccededScreen = assassinationSuccededScreen;
@@ -220,9 +223,9 @@ namespace Dictator.ConsoleInterface
             return presidentialDecisionActionDialog.Show(decision);
         }
 
-        public void DisplayLoanScreen()
+        public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult)
         {
-            loanScreen.Show();
+            loanApplicationResultScreen.Show(loanApplicationResult);
         }
 
         public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account)

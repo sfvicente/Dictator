@@ -297,16 +297,9 @@ namespace Dictator.ConsoleInterface
 
         private void AskForLoan(Country country)
         {
-            LoanApplicationResult loanRequest = engine.AskForLoan(country);
+            LoanApplicationResult loanApplicationResult = engine.AskForLoan(country);
 
-            //if(loanRequest.IsAccepted)
-            //{
-            //    userInterface.DisplayLoanScreen();
-            //}
-            //else
-            //{
-            //    // TODO: loan rejected?
-            //}
+            userInterface.DisplayLoanApplicationResultScreen(loanApplicationResult);
         }
 
         private void TryProcessNews()
