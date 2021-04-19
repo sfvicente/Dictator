@@ -37,7 +37,7 @@ namespace Dictator.ConsoleInterface
         private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
         private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
         private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
-        private readonly ILoanApplicationScreen loanScreen;
+        private readonly ILoanApplicationScreen loanApplicationScreen;
         private readonly ILoanApplicationResultScreen loanApplicationResultScreen;
         private readonly ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen;
         private readonly IAssassinationScreen assassinationScreen;
@@ -74,7 +74,7 @@ namespace Dictator.ConsoleInterface
             IPresidentialDecisionMainDialog presidentialDecisionMainDialog,
             IPresidentialDecisionSubDialog presidentialDecisionSubDialog,
             IPresidentialDecisionActionDialog presidentialDecisionActionDialog,
-            ILoanApplicationScreen loanScreen,
+            ILoanApplicationScreen loanApplicationScreen,
             ILoanApplicationResultScreen loanApplicationResultScreen,
             ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen,
             IAssassinationScreen assassinationScreen,
@@ -110,7 +110,7 @@ namespace Dictator.ConsoleInterface
             this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
             this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
             this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
-            this.loanScreen = loanScreen;
+            this.loanApplicationScreen = loanApplicationScreen;
             this.loanApplicationResultScreen = loanApplicationResultScreen;
             this.transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
             this.assassinationScreen = assassinationScreen;
@@ -221,6 +221,11 @@ namespace Dictator.ConsoleInterface
         public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision)
         {
             return presidentialDecisionActionDialog.Show(decision);
+        }
+
+        public void DisplayLoanApplicationScreen()
+        {
+            loanApplicationScreen.Show();
         }
 
         public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult)
