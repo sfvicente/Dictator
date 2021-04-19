@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class LoanResult
+    public class LoanApplicationResult
     {
         public bool IsAccepted { get; set; }
         public int Amount { get; set; }

@@ -25,7 +25,7 @@ namespace Dictator.Core
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
         public void IncreaseBodyguard();
-        public LoanResult AskForLoan(Country country);
+        public LoanApplicationResult AskForLoan(Country country);
         public void ApplyDecisionEffects(Decision decision);
         public void MarkDecisionAsUsed(string text);
         public bool DoesUnusedNewsExist();

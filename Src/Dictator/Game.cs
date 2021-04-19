@@ -297,7 +297,7 @@ namespace Dictator.ConsoleInterface
 
         private void AskForLoan(Country country)
         {
-            LoanResult loanRequest = engine.AskForLoan(country);
+            LoanApplicationResult loanRequest = engine.AskForLoan(country);
 
             //if(loanRequest.IsAccepted)
             //{
