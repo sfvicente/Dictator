@@ -1,4 +1,5 @@
-﻿using Dictator.ConsoleInterface.Common;
+﻿using Dictator.Common.Extensions;
+using Dictator.ConsoleInterface.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,8 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
         public void Show()
         {
+            ConsoleEx.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
+            ConsoleEx.WriteAt(1, 12, "              WAIT              ");
             pressAnyKeyControl.Show();
         }
     }
