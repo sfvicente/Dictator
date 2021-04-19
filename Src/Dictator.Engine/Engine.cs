@@ -321,7 +321,8 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Applies the effects of a threat of war with leftoto, which results in an increase of the popularity of the army, peasants, landowners and secret police.
+        ///     Applies the effects of a threat of war with leftoto, which results in an increase of the player's popularity amongst the army,
+        ///     peasants, landowners and secret police.
         /// </summary>
         public void ApplyThreatOfWarEffects()
         {
