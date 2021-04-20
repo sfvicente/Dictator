@@ -149,9 +149,12 @@ namespace Dictator.Core
             }
         }
 
+        /// <summary>
+        ///     Applies the specified strength changes to all groups except Americans and Russians.
+        /// </summary>
+        /// <param name="groupStrengthChanges"></param>
         public void ApplyStrengthChange(string groupStrengthChanges)
         {
-            // Strength changes are applied to all groups except Americans and Russians
             for (int i = 0; i < 6; i++)
             {
                 if (groupStrengthChanges[i] != 'M')
