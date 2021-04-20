@@ -422,6 +422,10 @@ namespace Dictator.Core
             // TODO: Determine the current revolutionary combined strength
         }
 
+        /// <summary>
+        ///     Determines if the player has purchased an helicopter.
+        /// </summary>
+        /// <returns></returns>
         public bool HasPlayerPurchasedHelicopter()
         {
             return governmentStats.HasHelicopter;
