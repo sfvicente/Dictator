@@ -12,33 +12,27 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
-        private readonly IAccountService accountService;
         private readonly IGroupStats groupStats;
-        private readonly IGovernmentStats governmentStats;
 
         public PoliceReportRequestDialog(
             IPressAnyKeyControl pressAnyKeyControl,
             IPressAnyKeyWithYesControl pressAnyKeyWithYesControl,
-            IAccountService accountService,
-            IGroupStats groupStats,
-            IGovernmentStats governmentStats)
+            IGroupStats groupStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
-            this.accountService = accountService;
             this.groupStats = groupStats;
-            this.governmentStats = governmentStats;
         }
 
-        public DialogResult Show()
+        public DialogResult Show(bool hasEnoughBalance, bool hasEnoughPopularityWithPolice, bool hasPoliceEnoughStrength)
         {
             ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
             ConsoleEx.WriteAt(1, 1, "################################");
             ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
 
             DialogResult dialogResult;
-
-            if (accountService.GetTreasuryBalance() > 0 && HasEnoughPopularityWithPolice() && HasEnoughPoliceStrength())
+            
+            if (hasEnoughBalance && hasEnoughPopularityWithPolice && hasPoliceEnoughStrength)
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 dialogResult = pressAnyKeyWithYesControl.Show();
@@ -49,17 +43,17 @@ namespace Dictator.ConsoleInterface.PoliceReport
 
                 int screenRow = 12;
 
-                if (!HasEnoughPopularityWithPolice())
+                if (!hasEnoughPopularityWithPolice)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
                 }
 
-                if (!HasEnoughPoliceStrength())
+                if (!hasPoliceEnoughStrength)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
                 }
 
-                if (accountService.GetTreasuryBalance() < 1)
+                if (!hasEnoughBalance)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
                 }
@@ -69,16 +63,6 @@ namespace Dictator.ConsoleInterface.PoliceReport
             }
 
             return dialogResult;
-        }
-
-        private bool HasEnoughPopularityWithPolice()
-        {
-            return groupStats.PolicePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
-        }
-
-        private bool HasEnoughPoliceStrength()
-        {
-            return groupStats.PoliceStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
     }
 }

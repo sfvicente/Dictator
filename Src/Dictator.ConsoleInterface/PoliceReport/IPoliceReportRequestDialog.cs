@@ -7,6 +7,6 @@ namespace Dictator.ConsoleInterface.PoliceReport
 {
     public interface IPoliceReportRequestDialog
     {
-        public DialogResult Show();
+        public DialogResult Show(bool hasEnoughBalance, bool hasEnoughPopularityWithPolice, bool hasPoliceEnoughStrength);
     }
 }

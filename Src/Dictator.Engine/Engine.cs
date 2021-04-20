@@ -60,6 +60,21 @@ namespace Dictator.Core
             groupStats.SetStrength(groupType, strength);
         }
 
+        public int GetTreasuryBalance()
+        {
+            return accountService.GetTreasuryBalance();
+        }
+
+        public bool HasEnoughPopularityWithPolice()
+        {
+            return groupStats.PolicePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
+        }
+
+        public bool HasPoliceEnoughStrength()
+        {
+            return groupStats.PoliceStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
+        }
+
         public void AdvanceMonth()
         {
             governmentStats.AdvanceMonth();
