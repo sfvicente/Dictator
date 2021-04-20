@@ -412,6 +412,10 @@ namespace Dictator.Core
             return governmentStats.HasHelicopter;
         }
 
+        /// <summary>
+        ///     Determines if the player is able to escape by helicopter. There is a 1/4 chances that the helicopter won't start.
+        /// </summary>
+        /// <returns></returns>
         public bool IsPlayerAbleToEscapeByHelicopter()
         {
             Random random = new Random();
