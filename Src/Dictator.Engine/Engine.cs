@@ -415,7 +415,7 @@ namespace Dictator.Core
         public bool IsPlayerAbleToEscapeByHelicopter()
         {
             Random random = new Random();
-            int number = random.Next(0, 3);
+            int number = random.Next(0, 4);
 
             // The player has a 1 in 4 chances that the helicopter won't start
             if (number != 0)
