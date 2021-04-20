@@ -1,6 +1,7 @@
 ﻿using Dictator.Core.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -244,17 +245,42 @@ namespace Dictator.Core
         /// <returns></returns>
         public LoanApplicationResult AskForLoan(Country country)
         {
-            LoanApplicationResult loanRequest = new LoanApplicationResult();
+            LoanApplicationResult loanApplicationResult = new LoanApplicationResult();
 
             // TODO: Check if it's not to yearly for a loan
 
             // TODO: Check if loans have been used
 
-            // TODO: Check if popularity is above minimal
+            GroupType groupType;
 
-            // TODO: If accepted, calculate amount
+            switch(country)
+            {
+                case Country.America:
+                    groupType = GroupType.Americans;
+                    break;
 
-            return loanRequest;
+                case Country.Russia:
+                    groupType = GroupType.Russians;
+                    break;
+
+                default:
+                    throw new InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
+            }
+
+            Group group = groupStats.GetGroupByType(groupType);
+
+            if(group.Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+            {
+                loanApplicationResult.IsAccepted = false;
+            }
+            else
+            {
+                loanApplicationResult.IsAccepted = true;
+                
+                // TODO: calculate loan amount
+            }
+
+            return loanApplicationResult;
         }
 
         public void ApplyDecisionEffects(Decision decision)
