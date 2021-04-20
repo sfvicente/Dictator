@@ -283,6 +283,10 @@ namespace Dictator.Core
             return loanApplicationResult;
         }
 
+        /// <summary>
+        ///     Applies the effects of a decision on the groups popularity and strength with the costs of treasury.
+        /// </summary>
+        /// <param name="decision"></param>
         public void ApplyDecisionEffects(Decision decision)
         {
             if (decision == null)
