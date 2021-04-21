@@ -196,6 +196,9 @@ namespace Dictator.Core
             return randomUnusedAudience;
         }
 
+        /// <summary>
+        ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
+        /// </summary>
         public void AcceptAudienceRequest(Core.Audience audience)
         {
             groupStats.ApplyPopularityChange(audience.GroupPopularityChanges);
