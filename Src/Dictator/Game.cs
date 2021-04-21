@@ -31,8 +31,8 @@ namespace Dictator.ConsoleInterface
             {
                 engine.SetMonthlyMinimalPopularityAndStrength();
                 engine.SetMonthlyRevolutionStrength();
-                engine.AdvanceMonth();
-                userInterface.DisplayMonthScreen();
+
+                AdvanceAndDisplayCurrentMonth();
 
                 engine.Plot();
                 CheckAndHandleBankruptcy();
@@ -61,6 +61,15 @@ namespace Dictator.ConsoleInterface
                     }
                 }
             }
+        }
+
+        private void AdvanceAndDisplayCurrentMonth()
+        {
+            engine.AdvanceMonth();
+
+            int currentMonth = engine.GetMonth();
+
+            userInterface.DisplayMonthScreen(currentMonth);
         }
 
         private void DisplayAccountDetails()

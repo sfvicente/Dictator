@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Month
 {
     public interface IMonthScreen
     {
-        public void Show();
+        public void Show(int month);
     }
 }

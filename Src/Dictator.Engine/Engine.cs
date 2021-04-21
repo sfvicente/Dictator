@@ -80,6 +80,11 @@ namespace Dictator.Core
             governmentStats.AdvanceMonth();
         }
 
+        public int GetMonth()
+        {
+            return governmentStats.Month;
+        }
+
         public bool IsGovernmentBankrupt()
         {
             return accountService.GetTreasuryBalance() <= 0;

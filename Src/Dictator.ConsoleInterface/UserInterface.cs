@@ -203,9 +203,9 @@ namespace Dictator.ConsoleInterface
             newsflashScreen.Show(headline);
         }
 
-        public void DisplayMonthScreen()
+        public void DisplayMonthScreen(int month)
         {
-            monthScreen.Show();
+            monthScreen.Show(month);
         }
 
         public DecisionType DisplayPresidentialDecisionMainDialog()
