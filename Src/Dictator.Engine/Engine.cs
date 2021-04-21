@@ -291,8 +291,8 @@ namespace Dictator.Core
             else
             {
                 loanApplicationResult.IsAccepted = true;
-                
-                // TODO: calculate loan amount
+                loanApplicationResult.Amount = CalculateLoanAmount(group);
+                accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
             }
 
             return loanApplicationResult;
@@ -520,6 +520,15 @@ namespace Dictator.Core
             }
 
             return false;
+        }
+
+        private int CalculateLoanAmount(Group group)
+        {
+            Random random = new Random();
+            int randomAdditionalAmount = random.Next(0, 200);
+            int amount = group.Popularity * 30 + randomAdditionalAmount;
+
+            return amount;
         }
 
         /// <summary>
