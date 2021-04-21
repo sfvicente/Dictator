@@ -316,6 +316,8 @@ namespace Dictator.ConsoleInterface
 
         private void AskForLoan(Country country)
         {
+            userInterface.DisplayLoanApplicationScreen();
+
             LoanApplicationResult loanApplicationResult = engine.AskForLoan(country);
 
             userInterface.DisplayLoanApplicationResultScreen(loanApplicationResult);
