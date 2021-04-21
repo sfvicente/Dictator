@@ -254,6 +254,12 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Attempts to process the selected presidential decision taking into account the non-standard decisions such as loan
+        ///     increase bodyguard and transfer to Swiss bank account.
+        /// </summary>
+        /// <param name="decision"></param>
+        /// <returns></returns>
         private bool TryProcessSelectedDecision(Decision decision)
         {
             bool hasDecisionBeenCompleted = false;
