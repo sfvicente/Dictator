@@ -9,6 +9,7 @@ namespace Dictator.Core
         None = 0,
         IncreaseBodyGuard = 1,
         TransferToSwissAccount = 2,
-        AskForALoan = 3
+        AskForAmericanLoan = 3,
+        AskForRussianLoan = 4,
     }
 }

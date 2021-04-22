@@ -272,8 +272,14 @@ namespace Dictator.ConsoleInterface
                 userInterface.DisplayTransferToSwissBankAccount(transfer, account);
                 hasDecisionBeenCompleted = true;
             }
-            else if (decision.DecisionSubType == DecisionSubType.AskForALoan)
+            else if (decision.DecisionSubType == DecisionSubType.AskForAmericanLoan)
             {
+                AskForLoan(Country.America);
+                hasDecisionBeenCompleted = true;
+            }
+            else if (decision.DecisionSubType == DecisionSubType.AskForRussianLoan)
+            {
+                AskForLoan(Country.Russia);
                 hasDecisionBeenCompleted = true;
             }
             else
