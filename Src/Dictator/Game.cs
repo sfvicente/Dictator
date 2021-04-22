@@ -50,7 +50,7 @@ namespace Dictator.ConsoleInterface
                 ProcessPoliceReport();
                 HandlePresidentialDecision();
                 ProcessPoliceReport();
-                TryProcessNews();
+                TryTriggerNews();
 
                 if (TryTriggerRevolution())
                 {
