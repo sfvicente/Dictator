@@ -329,7 +329,7 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayLoanApplicationResultScreen(loanApplicationResult);
         }
 
-        private void TryProcessNews()
+        private void TryTriggerNews()
         {
             if (engine.ShouldNewsHappen())
             {
