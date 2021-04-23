@@ -299,10 +299,12 @@ namespace Dictator.Core
             if(group.Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
             {
                 loanApplicationResult.IsAccepted = false;
+                loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
             }
             else
             {
                 loanApplicationResult.IsAccepted = true;
+                loanApplicationResult.RefusalType = LoanApplicationRefusalType.None;
                 loanApplicationResult.Amount = CalculateLoanAmount(group);
                 accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
             }
