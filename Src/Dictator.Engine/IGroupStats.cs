@@ -6,12 +6,12 @@ namespace Dictator.Core
 {
     public interface IGroupStats
     {
-        public int PolicePopularity { get; }
-        public int PoliceStrength { get; }
         public GroupType AssassinGroupType { get; }
 
         public void Initialise();
         public Group[] GetGroups();
+        public int GetPopularityByGroupType(GroupType groupType);
+        public int GetStrengthByGroupType(GroupType groupType);
         public Group GetGroupByType(GroupType groupType);
         public string GetGroupNameByIndex(int index);
         public void IncreasePopularity(GroupType groupType);

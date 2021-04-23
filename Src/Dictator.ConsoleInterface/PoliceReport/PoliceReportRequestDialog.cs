@@ -45,12 +45,12 @@ namespace Dictator.ConsoleInterface.PoliceReport
 
                 if (!hasEnoughPopularityWithPolice)
                 {
-                    ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {groupStats.PoliceStrength}  ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {groupStats.GetPopularityByGroupType(GroupType.SecretPolice)}  ");
                 }
 
                 if (!hasPoliceEnoughStrength)
                 {
-                    ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.PoliceStrength}      ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.GetStrengthByGroupType(GroupType.SecretPolice)}      ");
                 }
 
                 if (!hasEnoughBalance)

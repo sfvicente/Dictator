@@ -67,12 +67,16 @@ namespace Dictator.Core
 
         public bool HasEnoughPopularityWithPolice()
         {
-            return groupStats.PolicePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
+            int policePopularity = groupStats.GetPopularityByGroupType(GroupType.SecretPolice);
+
+            return policePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
 
         public bool HasPoliceEnoughStrength()
         {
-            return groupStats.PoliceStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
+            int policeStrength = groupStats.GetStrengthByGroupType(GroupType.SecretPolice);
+
+            return policeStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
 
         public void AdvanceMonth()
