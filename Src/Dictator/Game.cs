@@ -320,6 +320,10 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        /// <summary>
+        ///     Requests a loan to a foreign country.
+        /// </summary>
+        /// <param name="country">The country to whom the request is performed.</param>
         private void AskForLoan(Country country)
         {
             userInterface.DisplayLoanApplicationScreen();
