@@ -333,6 +333,11 @@ namespace Dictator.Core
             decisionStats.MarkDecisionAsUsed(text);
         }
 
+        /// <summary>
+        ///     Determines if an assassination attempt should be performed by one of the following groups: army, 
+        ///     peasants, landowners and guerrilas.
+        /// </summary>
+        /// <returns></returns>
         public bool ShouldAssassinationAttemptHappen()
         {
             Random random = new Random();
