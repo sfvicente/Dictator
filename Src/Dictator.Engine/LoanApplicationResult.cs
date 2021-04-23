@@ -15,6 +15,11 @@ namespace Dictator.Core
         public bool IsAccepted { get; set; }
 
         /// <summary>
+        ///     Gets or sets the reason why the loan has been refused by the country.
+        /// </summary>
+        public LoanApplicationRefusalType RefusalType { get; set; }
+
+        /// <summary>
         ///     Gets or sets the amount of the loan provided by the country when the application has been accepted. 
         /// </summary>
         public int Amount { get; set; }
