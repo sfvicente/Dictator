@@ -376,7 +376,7 @@ namespace Dictator.ConsoleInterface
 
                         if (engine.DoesGuerrilaCatchPlayerEscaping())
                         {
-                            // TODO: guerrila celebration
+                            userInterface.DisplayGuerillasCelebratingScreen();
                             // TODO: kill player?
                         }
                         else
