@@ -78,6 +78,7 @@ namespace Dictator
             .AddScoped<IRevolutionCrushedScreen, RevolutionCrushedScreen>()
             .AddScoped<IWarThreatScreen, WarThreatScreen>()
             .AddScoped<IWarScreen, WarScreen>()
+            .AddScoped<IWarLeftotoInvadesScreen, WarLeftotoInvadesScreen>()
             .AddScoped<IWarWonScreen, WarWonScreen>()
             .AddScoped<IWarLostScreen, WarLostScreen>()
             .AddScoped<IWarExecutionScreen, WarExecutionScreen>()
