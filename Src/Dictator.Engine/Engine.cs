@@ -421,6 +421,17 @@ namespace Dictator.Core
             return false;
         }
 
+        public WarStats BeginInvasion()
+        {
+            var warStats = new WarStats();
+
+            // TODO: calculate ritimba's strength
+
+            // TODO: calculate leftoto's strength
+
+            return warStats;
+        }
+
         public bool TryTriggerRevoltGroup()
         {
             Random random = new Random();
