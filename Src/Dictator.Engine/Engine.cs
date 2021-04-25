@@ -565,6 +565,11 @@ namespace Dictator.Core
             return false;
         }
 
+        /// <summary>
+        ///     Calculates the amount of a loan based on the popularity of a group and a random component.
+        /// </summary>
+        /// <param name="group">The group from which the popularity will be used as a component to calculate the amount.</param>
+        /// <returns>The calculated amount of the loan.</returns>
         private int CalculateLoanAmount(Group group)
         {
             Random random = new Random();
