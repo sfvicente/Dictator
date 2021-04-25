@@ -86,7 +86,8 @@ namespace Dictator.Core
                 HasEnoughBalance = GetTreasuryBalance() > 0,
                 HasEnoughPopularityWithPolice = HasEnoughPopularityWithPolice(),
                 HasPoliceEnoughStrength = HasPoliceEnoughStrength(),
-
+                PolicePopularity = groupStats.GetPopularityByGroupType(GroupType.SecretPolice),
+                PoliceStrength = groupStats.GetStrengthByGroupType(GroupType.SecretPolice)
             };
 
             return policeReportRequest;

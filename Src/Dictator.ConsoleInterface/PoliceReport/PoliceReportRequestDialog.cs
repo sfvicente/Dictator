@@ -12,16 +12,13 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
-        private readonly IGroupStats groupStats;
 
         public PoliceReportRequestDialog(
             IPressAnyKeyControl pressAnyKeyControl,
-            IPressAnyKeyWithYesControl pressAnyKeyWithYesControl,
-            IGroupStats groupStats)
+            IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
-            this.groupStats = groupStats;
         }
 
         public DialogResult Show(PoliceReportRequest policeReportRequest)
@@ -45,12 +42,12 @@ namespace Dictator.ConsoleInterface.PoliceReport
 
                 if (!policeReportRequest.HasEnoughPopularityWithPolice)
                 {
-                    ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {groupStats.GetPopularityByGroupType(GroupType.SecretPolice)}  ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {policeReportRequest.PolicePopularity}  ");
                 }
 
                 if (!policeReportRequest.HasPoliceEnoughStrength)
                 {
-                    ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {groupStats.GetStrengthByGroupType(GroupType.SecretPolice)}      ");
+                    ConsoleEx.WriteAt(1, screenRow++, $"      POLICE strength is {policeReportRequest.PoliceStrength}      ");
                 }
 
                 if (!policeReportRequest.HasEnoughBalance)

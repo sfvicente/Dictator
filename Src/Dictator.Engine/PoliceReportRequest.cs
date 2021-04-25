@@ -10,5 +10,6 @@ namespace Dictator.Core
         public bool HasEnoughPopularityWithPolice { get; set; }
         public bool HasPoliceEnoughStrength { get; set; }
         public int PoliceStrength { get; set; }
+        public int PolicePopularity { get; set; }
     }
 }
