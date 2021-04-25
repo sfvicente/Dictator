@@ -176,11 +176,16 @@ namespace Dictator.ConsoleInterface
                     userInterface.DisplayWarScreen();
                     
                     WarStats warStats = engine.BeginInvasion();
+                    bool hasWarBeenWon = engine.ExecuteWar(warStats);
 
-
-                    //engine.GenerateWarResult()
-
-                    //TODO: complete logic for outcome
+                    if(hasWarBeenWon)
+                    {
+                        ProcessWarWon();
+                    }
+                    else
+                    {
+                        ProcessWarLost();
+                    }
 
                     return true;
                 }

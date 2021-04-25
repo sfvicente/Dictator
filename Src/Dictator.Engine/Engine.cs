@@ -445,6 +445,11 @@ namespace Dictator.Core
             return warStats;
         }
 
+        public bool ExecuteWar(WarStats warStats)
+        {
+            return true;
+        }
+
         public bool TryTriggerRevoltGroup()
         {
             Random random = new Random();
