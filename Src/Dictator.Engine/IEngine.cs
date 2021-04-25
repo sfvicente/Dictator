@@ -10,8 +10,6 @@ namespace Dictator.Core
         public Account GetAccount();
         public void SetGroupStrength(GroupType groupType, int strength);
         public int GetTreasuryBalance();
-        public bool HasEnoughPopularityWithPolice();
-        public bool HasPoliceEnoughStrength();
         public PoliceReportRequest RequestPoliceReport();
         public int GetMonth();
         public void AdvanceMonth();

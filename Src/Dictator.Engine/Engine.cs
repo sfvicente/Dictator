@@ -65,20 +65,6 @@ namespace Dictator.Core
             return accountService.GetTreasuryBalance();
         }
 
-        public bool HasEnoughPopularityWithPolice()
-        {
-            int policePopularity = groupStats.GetPopularityByGroupType(GroupType.SecretPolice);
-
-            return policePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
-        }
-
-        public bool HasPoliceEnoughStrength()
-        {
-            int policeStrength = groupStats.GetStrengthByGroupType(GroupType.SecretPolice);
-
-            return policeStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
-        }
-
         public PoliceReportRequest RequestPoliceReport()
         {
             PoliceReportRequest policeReportRequest = new PoliceReportRequest
@@ -599,5 +585,20 @@ namespace Dictator.Core
             groupStats.DecreaseStrength(GroupType.SecretPolice);
             governmentStats.DecreasePlayerStrength();
         }
+
+        private bool HasEnoughPopularityWithPolice()
+        {
+            int policePopularity = groupStats.GetPopularityByGroupType(GroupType.SecretPolice);
+
+            return policePopularity > governmentStats.MonthlyMinimalPopularityAndStrength;
+        }
+
+        private bool HasPoliceEnoughStrength()
+        {
+            int policeStrength = groupStats.GetStrengthByGroupType(GroupType.SecretPolice);
+
+            return policeStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
+        }
+
     }
 }
