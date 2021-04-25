@@ -176,6 +176,9 @@ namespace Dictator.ConsoleInterface
                     userInterface.DisplayWarScreen();
                     
                     WarStats warStats = engine.BeginInvasion();
+
+                    userInterface.DisplayLeftotoInvadesScreen();
+
                     bool hasWarBeenWon = engine.ExecuteWar(warStats);
 
                     if(hasWarBeenWon)

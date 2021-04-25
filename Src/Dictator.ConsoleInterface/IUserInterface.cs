@@ -32,6 +32,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionScreen();
         public void DisplayWarThreatScreen();
         public void DisplayWarScreen();
+        public void DisplayLeftotoInvadesScreen();
         public void DisplayWarLostScreen();
         public void DisplayWarWonScreen();
         public DialogResult DisplayEscapeAttemptDialog();
