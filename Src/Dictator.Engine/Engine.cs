@@ -79,6 +79,19 @@ namespace Dictator.Core
             return policeStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
 
+        public PoliceReportRequest RequestPoliceReport()
+        {
+            PoliceReportRequest policeReportRequest = new PoliceReportRequest
+            {
+                HasEnoughBalance = GetTreasuryBalance() > 0,
+                HasEnoughPopularityWithPolice = HasEnoughPopularityWithPolice(),
+                HasPoliceEnoughStrength = HasPoliceEnoughStrength(),
+
+            };
+
+            return policeReportRequest;
+        }
+
         public void AdvanceMonth()
         {
             governmentStats.AdvanceMonth();

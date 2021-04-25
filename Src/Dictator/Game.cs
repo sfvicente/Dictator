@@ -136,11 +136,8 @@ namespace Dictator.ConsoleInterface
 
         private void ProcessPoliceReport()
         {
-            bool hasEnoughBalance = engine.GetTreasuryBalance() > 0;
-            bool hasEnoughPopularityWithPolice = engine.HasEnoughPopularityWithPolice();
-            bool hasPoliceEnoughStrength = engine.HasPoliceEnoughStrength();
-
-            DialogResult dialogResult = userInterface.DisplayPoliceReportRequestDialog(hasEnoughBalance, hasEnoughPopularityWithPolice, hasPoliceEnoughStrength);
+            PoliceReportRequest policeReportRequest = engine.RequestPoliceReport();
+            DialogResult dialogResult = userInterface.DisplayPoliceReportRequestDialog(policeReportRequest);
 
             if (dialogResult == DialogResult.Yes)
             {

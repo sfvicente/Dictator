@@ -161,9 +161,9 @@ namespace Dictator.ConsoleInterface
             treasuryReportScreen.Show(account);
         }
 
-        public DialogResult DisplayPoliceReportRequestDialog(bool hasEnoughBalance, bool hasEnoughPopularityWithPolice, bool hasPoliceEnoughStrength)
+        public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest)
         {
-            return policeReportRequestScreen.Show(hasEnoughBalance, hasEnoughPopularityWithPolice, hasPoliceEnoughStrength);
+            return policeReportRequestScreen.Show(policeReportRequest);
         }
 
         public void DisplayPoliceReportScreen()

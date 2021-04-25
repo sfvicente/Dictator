@@ -12,6 +12,7 @@ namespace Dictator.Core
         public int GetTreasuryBalance();
         public bool HasEnoughPopularityWithPolice();
         public bool HasPoliceEnoughStrength();
+        public PoliceReportRequest RequestPoliceReport();
         public int GetMonth();
         public void AdvanceMonth();
         public SwissBankAccountTransfer TransferToSwissBankAccount();
