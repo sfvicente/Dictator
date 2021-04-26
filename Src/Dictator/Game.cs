@@ -183,11 +183,11 @@ namespace Dictator.ConsoleInterface
 
                     if(hasWarBeenWon)
                     {
-                        ProcessWarWon();
+                        ProcessWarWonScenario();
                     }
                     else
                     {
-                        ProcessWarLost();
+                        ProcessWarLostScenario();
                     }
 
                     return true;
@@ -202,13 +202,13 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
-        private void ProcessWarWon()
+        private void ProcessWarWonScenario()
         {
             userInterface.DisplayWarWonScreen();
             engine.SetGroupStrength(GroupType.Leftotans, 0);
         }
 
-        private void ProcessWarLost()
+        private void ProcessWarLostScenario()
         {
             userInterface.DisplayWarLostScreen();
 
