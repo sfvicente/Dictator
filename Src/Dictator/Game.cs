@@ -233,6 +233,9 @@ namespace Dictator.ConsoleInterface
             ProcessEnd();
         }
 
+        /// <summary>
+        ///     Handles the menu and sub menu selection of the presidential decision until it is executed.
+        /// </summary>
         private void HandlePresidentialDecision()
         {
             bool hasNotChosenDecisionOrExited = true;
