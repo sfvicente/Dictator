@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictator.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,6 @@ namespace Dictator.ConsoleInterface.War
 {
     public interface IWarLeftotoInvadesScreen
     {
-        public void Show();
+        public void Show(WarStats warStats);
     }
 }
