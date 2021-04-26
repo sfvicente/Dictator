@@ -425,6 +425,9 @@ namespace Dictator.Core
         {
             var warStats = new WarStats();
 
+            warStats.RitimbanStrength = CalculateRitimbaStrength();
+
+
             // TODO: calculate ritimba's strength
 
             // TODO: calculate leftoto's strength
@@ -605,5 +608,36 @@ namespace Dictator.Core
             return policeStrength > governmentStats.MonthlyMinimalPopularityAndStrength;
         }
 
+        /// <summary>
+        ///     Calculates the strength of the Ritimba republic in a scenario of war.
+        /// </summary>
+        /// <returns></returns>
+        private int CalculateRitimbaStrength()
+        {
+            int totalStrength = 0;
+            Group[] groups = groupStats.GetGroups();
+
+            // Sum the strength of the army, peasants and landowners if they have minimal popularity
+            for (int i = 0; i < 3; i++)
+            {
+                if (groups[i].Popularity > governmentStats.MonthlyMinimalPopularityAndStrength)
+                {
+                    totalStrength += groups[i].Strength;
+                }
+            }
+
+            Group secretPoliceGroup = groupStats.GetGroupByType(GroupType.SecretPolice);
+
+            // Add the strength of the secret police strength if they have minimal popularity
+            if (secretPoliceGroup.Popularity > governmentStats.MonthlyMinimalPopularityAndStrength)
+            {
+                totalStrength += secretPoliceGroup.Strength;
+            }
+                
+            // Add the strength of the player to the total
+            totalStrength += governmentStats.PlayerStrength;
+
+            return totalStrength;
+        }
     }
 }
