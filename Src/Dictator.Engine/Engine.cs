@@ -84,6 +84,17 @@ namespace Dictator.Core
             governmentStats.AdvanceMonth();
         }
 
+        /// <summary>
+        ///     Takes the required funds from treasury to pay for the monthly expenses.
+        /// </summary>
+        public void PayMonthlyCosts()
+        {
+            if(accountService.GetTreasuryBalance() > 0)
+            {
+                accountService.ChangeTreasuryBalance(-accountService.GetMonthlyCosts());
+            }
+        }
+
         public int GetMonth()
         {
             return governmentStats.Month;

@@ -13,6 +13,7 @@ namespace Dictator.Core
         public PoliceReportRequest RequestPoliceReport();
         public int GetMonth();
         public void AdvanceMonth();
+        public void PayMonthlyCosts();
         public SwissBankAccountTransfer TransferToSwissBankAccount();
         public bool IsGovernmentBankrupt();
         public void PayFromTreasury(int amount);

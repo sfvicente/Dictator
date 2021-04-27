@@ -35,8 +35,7 @@ namespace Dictator.ConsoleInterface
                 AdvanceAndDisplayCurrentMonth();
 
                 engine.Plot();
-                CheckAndHandleBankruptcy();
-
+                ProcessTreasuryCosts();
                 HandleAudienceRequest();
                 engine.Plot();
 
@@ -72,15 +71,10 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayMonthScreen(currentMonth);
         }
 
-        private void DisplayAccountDetails()
+        private void ProcessTreasuryCosts()
         {
-            Account account = engine.GetAccount();
-
-            userInterface.DisplayAccountScreen(account);
-        }
-
-        private void CheckAndHandleBankruptcy()
-        {
+            engine.PayMonthlyCosts();
+            
             if (engine.IsGovernmentBankrupt())
             {
                 userInterface.DisplayBankuptcyScreen();
@@ -88,6 +82,13 @@ namespace Dictator.ConsoleInterface
                 engine.Plot();  // Realculate probability for the assassination and revolution events
                 ProcessPoliceReport();
             }
+        }
+
+        private void DisplayAccountDetails()
+        {
+            Account account = engine.GetAccount();
+
+            userInterface.DisplayAccountScreen(account);
         }
 
         /// <summary>
