@@ -404,6 +404,10 @@ namespace Dictator.Core
             groupStats.DecreasePopularity(GroupType.SecretPolice);
         }
 
+        /// <summary>
+        ///     Determines if an assassination attempt on the player is successful.
+        /// </summary>
+        /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
         public bool IsAssassinationSuccessful()
         {
             Random random = new Random();
