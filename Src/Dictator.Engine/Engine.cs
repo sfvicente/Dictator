@@ -60,6 +60,10 @@ namespace Dictator.Core
             groupStats.SetStrength(groupType, strength);
         }
 
+        /// <summary>
+        ///     Gets the current treasury balance.
+        /// </summary>
+        /// <returns>The amount of dollars currently in the treasury.</returns>
         public int GetTreasuryBalance()
         {
             return accountService.GetTreasuryBalance();
