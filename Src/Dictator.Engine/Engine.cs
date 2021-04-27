@@ -426,11 +426,7 @@ namespace Dictator.Core
             var warStats = new WarStats();
 
             warStats.RitimbanStrength = CalculateRitimbaStrength();
-
-
-            // TODO: calculate ritimba's strength
-
-            // TODO: calculate leftoto's strength
+            warStats.LeftotanStrength = CalculateLeftotoStrength();
 
             return warStats;
         }
@@ -654,6 +650,27 @@ namespace Dictator.Core
                 
             // Add the strength of the player to the total
             totalStrength += governmentStats.PlayerStrength;
+
+            return totalStrength;
+        }
+
+        /// <summary>
+        ///     Calculates the strength of Leftoto in a scenario of war.
+        /// </summary>
+        /// <returns>The total strength of Leftoto.</returns>
+        public int CalculateLeftotoStrength()
+        {
+            int totalStrength = 0;
+            Group[] groups = groupStats.GetGroups();
+
+            // Add the strength of all groups except Russians and Americans that are equal or below the minimal popularity
+            for(int i = 0; i < 6; i++)
+            {
+                if (groups[i].Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
+                {
+                    totalStrength += groups[i].Strength;
+                }
+            }
 
             return totalStrength;
         }
