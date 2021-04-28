@@ -74,7 +74,7 @@ namespace Dictator.ConsoleInterface
         private void ProcessTreasuryCosts()
         {
             engine.PayMonthlyCosts();
-            
+
             if (engine.IsGovernmentBankrupt())
             {
                 userInterface.DisplayBankuptcyScreen();
@@ -175,14 +175,14 @@ namespace Dictator.ConsoleInterface
                 if (engine.ShouldWarHappen())
                 {
                     userInterface.DisplayWarScreen();
-                    
+
                     WarStats warStats = engine.BeginInvasion();
 
                     userInterface.DisplayLeftotoInvadesScreen(warStats);
 
                     bool hasWarBeenWon = engine.ExecuteWar(warStats);
 
-                    if(hasWarBeenWon)
+                    if (hasWarBeenWon)
                     {
                         ProcessWarWonScenario();
                     }
@@ -257,7 +257,7 @@ namespace Dictator.ConsoleInterface
                     {
                         Decision decision = engine.GetDecisionByTypeAndIndex(decisionType, optionSelected);
 
-                        if(TryProcessSelectedDecision(decision))
+                        if (TryProcessSelectedDecision(decision))
                         {
                             hasNotChosenDecisionOrExited = false;
                         }
@@ -301,7 +301,7 @@ namespace Dictator.ConsoleInterface
                     userInterface.DisplayAdviceScreen(decision);
                 }
 
-                if(DoesPlayerConfirmDecision(decision))
+                if (DoesPlayerConfirmDecision(decision))
                 {
                     if (decision.DecisionSubType == DecisionSubType.IncreaseBodyGuard)
                     {
@@ -324,7 +324,7 @@ namespace Dictator.ConsoleInterface
         {
             DialogResult dialogResult = userInterface.DisplayPresidentialDecisionActionDialog(decision);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 return true;
             }
@@ -384,17 +384,7 @@ namespace Dictator.ConsoleInterface
                     else
                     {
                         userInterface.DisplayHelicopterWontStartScreen();
-                        userInterface.DisplayEscapeToLeftotoScreen();
-
-                        if (engine.DoesGuerrilaCatchPlayerEscaping())
-                        {
-                            userInterface.DisplayGuerillasCelebratingScreen();
-                            // TODO: kill player?
-                        }
-                        else
-                        {
-                            userInterface.DisplayGuerillasMissedScreen();
-                        }
+                        EscapeToLeftoto();
                     }
                 }
 
@@ -428,6 +418,21 @@ namespace Dictator.ConsoleInterface
             }
 
             return false;
+        }
+
+        private void EscapeToLeftoto()
+        {
+            userInterface.DisplayEscapeToLeftotoScreen();
+
+            if (engine.DoesGuerrilaCatchPlayerEscaping())
+            {
+                userInterface.DisplayGuerillasCelebratingScreen();
+                // TODO: kill player?
+            }
+            else
+            {
+                userInterface.DisplayGuerillasMissedScreen();
+            }
         }
 
         private void ProcessEnd()
