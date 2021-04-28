@@ -73,6 +73,13 @@ namespace Dictator.Common.Extensions
             Console.Write(text);
         }
 
+        public static void WriteCenteredAt(int top, string text)
+        {
+            int left = ScreenCols - text.Length / 2;
+
+            WriteAt(left, top, text);
+        }
+
         public static void Clear()
         {
             for (int row = 1; row <= ScreenRows; row++)
