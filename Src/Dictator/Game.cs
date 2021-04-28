@@ -271,7 +271,7 @@ namespace Dictator.ConsoleInterface
         ///     increase bodyguard and transfer to Swiss bank account.
         /// </summary>
         /// <param name="decision"></param>
-        /// <returns></returns>
+        /// <returns><c>true</c> if a decision has been chosen and executed; otherwise, <c>false</c>.</returns>
         private bool TryProcessSelectedDecision(Decision decision)
         {
             bool hasDecisionBeenCompleted = false;
