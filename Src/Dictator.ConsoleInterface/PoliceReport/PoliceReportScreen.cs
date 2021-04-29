@@ -62,9 +62,6 @@ namespace Dictator.ConsoleInterface.PoliceReport
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Write(i + 1);
-
-                // TODO: Print group status in colors
-
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.ForegroundColor = ConsoleColor.Black;
                 ConsoleEx.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
