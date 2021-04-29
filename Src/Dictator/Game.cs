@@ -413,6 +413,10 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Determines if the player attempts to escape in a scenario of revolution or war.
+        /// </summary>
+        /// <returns><c>true</c> if the player has decided to escape; otherwise, <c>false</c>.</returns>
         private bool DoesPlayerAttemptEscape()
         {
             DialogResult dialogResult = userInterface.DisplayEscapeAttemptDialog();
