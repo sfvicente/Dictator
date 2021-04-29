@@ -660,7 +660,7 @@ namespace Dictator.Core
         /// <summary>
         ///     Calculates the strength of the Ritimba republic in a scenario of war.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The total strength of Ritimba in a scenario of war.</returns>
         private int CalculateRitimbaStrength()
         {
             int totalStrength = 0;
