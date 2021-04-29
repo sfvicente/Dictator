@@ -309,6 +309,11 @@ namespace Dictator.ConsoleInterface
                     }
                     else
                     {
+                        if(decision.DecisionSubType == DecisionSubType.PurchaseHelicopter)
+                        {
+                            engine.PurchasedHelicopter();
+                        }
+
                         engine.MarkDecisionAsUsed(decision.Text);
                     }
 

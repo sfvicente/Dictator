@@ -502,6 +502,14 @@ namespace Dictator.Core
         }
 
         /// <summary>
+        ///     Purchases an helicopter for a possible escape in revolution or war scenarios.
+        /// </summary>
+        public void PurchasedHelicopter()
+        {
+            governmentStats.PurchaseHelicopter();
+        }
+
+        /// <summary>
         ///     Determines if the player has purchased an helicopter.
         /// </summary>
         /// <returns></returns>

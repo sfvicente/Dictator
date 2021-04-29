@@ -20,5 +20,6 @@ namespace Dictator.Core
         public void IncreasePlayerStrength(int amount);
         public void DecreasePlayerStrength();
         public void KillPlayer();
+        void PurchaseHelicopter();
     }
 }

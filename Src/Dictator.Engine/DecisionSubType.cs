@@ -7,9 +7,10 @@ namespace Dictator.Core
     public enum DecisionSubType
     {
         None = 0,
-        IncreaseBodyGuard = 1,
-        TransferToSwissAccount = 2,
-        AskForAmericanLoan = 3,
-        AskForRussianLoan = 4,
+        PurchaseHelicopter = 1,
+        IncreaseBodyGuard = 2,
+        TransferToSwissAccount = 3,
+        AskForAmericanLoan = 4,
+        AskForRussianLoan = 5,
     }
 }
