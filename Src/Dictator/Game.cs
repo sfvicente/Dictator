@@ -379,20 +379,7 @@ namespace Dictator.ConsoleInterface
 
             if (DoesPlayerAttemptEscape())
             {
-                // In order to escape by helicopter, the player would have to previously purchased it
-                if (engine.HasPlayerPurchasedHelicopter())
-                {
-                    if (engine.IsPlayerAbleToEscapeByHelicopter())
-                    {
-                        userInterface.DisplayHelicopterEscapeScreen();
-                    }
-                    else
-                    {
-                        userInterface.DisplayHelicopterWontStartScreen();
-                        EscapeToLeftoto();
-                    }
-                }
-
+                AttemptEscape();
                 return true;
             }
             else
@@ -435,6 +422,23 @@ namespace Dictator.ConsoleInterface
             }
 
             return false;
+        }
+
+        private void AttemptEscape()
+        {
+            // In order to escape by helicopter, the player would have to previously purchased it
+            if (engine.HasPlayerPurchasedHelicopter())
+            {
+                if (engine.IsPlayerAbleToEscapeByHelicopter())
+                {
+                    userInterface.DisplayHelicopterEscapeScreen();
+                }
+                else
+                {
+                    userInterface.DisplayHelicopterWontStartScreen();
+                    EscapeToLeftoto();
+                }
+            }
         }
 
         private void EscapeToLeftoto()
