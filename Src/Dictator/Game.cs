@@ -398,7 +398,14 @@ namespace Dictator.ConsoleInterface
                 
                 if(temporaryDoesRevolutionFail)
                 {
-                    userInterface.DisplayRevolutionCrushedScreen();
+                    DialogResult dialogResult = userInterface.DisplayRevolutionCrushedScreen();
+
+                    if(dialogResult == DialogResult.Yes)
+                    {
+                        engine.PunishRevolutionaries();                        
+                    }
+
+                    engine.ApplyRevolutionCrushedEffects();
                     hasGovernmentBeenOverthrown = false;
                 }
                 else

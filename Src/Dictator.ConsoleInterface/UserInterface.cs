@@ -270,9 +270,9 @@ namespace Dictator.ConsoleInterface
             revolutionScreen.Show();
         }
 
-        public void DisplayRevolutionCrushedScreen()
+        public DialogResult DisplayRevolutionCrushedScreen()
         {
-            revolutionCrushedScreen.Show();
+            return revolutionCrushedScreen.Show();
         }
 
         public void DisplayRevolutionOverthrownScreen()

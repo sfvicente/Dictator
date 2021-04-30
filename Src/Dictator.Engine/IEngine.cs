@@ -43,6 +43,8 @@ namespace Dictator.Core
         public bool ExecuteWar(WarStats warStats);
         public bool TryTriggerRevoltGroup();
         public void InitialiseRevolution();
+        public void PunishRevolutionaries();
+        public void ApplyRevolutionCrushedEffects();
         public void PurchasedHelicopter();
         public bool HasPlayerPurchasedHelicopter();
         public bool IsPlayerAbleToEscapeByHelicopter();

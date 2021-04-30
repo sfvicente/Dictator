@@ -501,6 +501,16 @@ namespace Dictator.Core
             // TODO: Determine the current revolutionary combined strength
         }
 
+        public void PunishRevolutionaries()
+        {
+
+        }
+
+        public void ApplyRevolutionCrushedEffects()
+        {
+
+        }
+        
         /// <summary>
         ///     Purchases an helicopter for a possible escape in revolution or war scenarios.
         /// </summary>
