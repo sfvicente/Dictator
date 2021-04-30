@@ -406,10 +406,18 @@ namespace Dictator.ConsoleInterface
                 // TODO: Display revolution has started screen
                 //userInterface.DisplayRevolutionStartedScreen();
 
-                // TODO: Display outcome of the revolution
-
-                // TODO: if revolution is lost return true, if won, return false
-                return false;
+                bool temporaryDoesRevolutionFail = true;
+                
+                if(temporaryDoesRevolutionFail)
+                {
+                    userInterface.DisplayRevolutionCrushedScreen();
+                    return false;
+                }
+                else
+                {
+                    userInterface.DisplayRevolutionOverthrownScreen();
+                    return true;
+                }
             }
         }
 
