@@ -377,10 +377,11 @@ namespace Dictator.ConsoleInterface
         {
             userInterface.DisplayRevolutionScreen();
 
+            bool hasGovernmentBeenOverthrown = true;
+
             if (DoesPlayerAttemptEscape())
             {
                 AttemptEscape();
-                return true;
             }
             else
             {
@@ -398,14 +399,15 @@ namespace Dictator.ConsoleInterface
                 if(temporaryDoesRevolutionFail)
                 {
                     userInterface.DisplayRevolutionCrushedScreen();
-                    return false;
+                    hasGovernmentBeenOverthrown = false;
                 }
                 else
                 {
                     userInterface.DisplayRevolutionOverthrownScreen();
-                    return true;
                 }
             }
+
+            return hasGovernmentBeenOverthrown;
         }
 
         /// <summary>
