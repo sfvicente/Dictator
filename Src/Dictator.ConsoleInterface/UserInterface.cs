@@ -45,6 +45,7 @@ namespace Dictator.ConsoleInterface
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
         private readonly IRevolutionCrushedScreen revolutionCrushedScreen;
+        private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
         private readonly IWarScreen warScreen;
         private readonly IWarLeftotoInvadesScreen leftotoInvadesScreen;
@@ -85,6 +86,7 @@ namespace Dictator.ConsoleInterface
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
             IRevolutionCrushedScreen revolutionCrushedScreen,
+            IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
             IWarScreen warScreen,
             IWarLeftotoInvadesScreen leftotoInvadesScreen,
@@ -124,6 +126,7 @@ namespace Dictator.ConsoleInterface
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
             this.revolutionCrushedScreen = revolutionCrushedScreen;
+            this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
             this.warScreen = warScreen;
             this.leftotoInvadesScreen = leftotoInvadesScreen;
@@ -270,6 +273,11 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionCrushedScreen()
         {
             revolutionCrushedScreen.Show();
+        }
+
+        public void DisplayRevolutionOverthrownScreen()
+        {
+            revolutionOverthrownScreen.Show();
         }
 
         public void DisplayWarThreatScreen()
