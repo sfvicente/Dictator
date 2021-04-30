@@ -19,7 +19,6 @@ namespace Dictator.ConsoleInterface.Revolution
         {
             ConsoleEx.WriteAt(1, 10, "  The REVOLT has been CRUSHED   ");
             ConsoleEx.WriteAt(1, 12, "  PUNISH the REVOLUTIONARIES ?  ");
-            
             return pressAnyKeyWithYesControl.Show();
         }
     }
