@@ -102,6 +102,7 @@ namespace Dictator
             .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()
             .AddScoped<IScoreService, ScoreService>()
+            .AddScoped<IRevolutionService, RevolutionService>()
         );
     }
 }
