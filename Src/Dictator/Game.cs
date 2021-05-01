@@ -350,6 +350,9 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayLoanApplicationResultScreen(loanApplicationResult);
         }
 
+        /// <summary>
+        ///     Attempts to trigger a random unused newsflash.
+        /// </summary>
         private void TryTriggerNews()
         {
             if (engine.ShouldNewsHappen())
