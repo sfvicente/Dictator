@@ -16,6 +16,7 @@ namespace Dictator.Core
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceStats audienceStats;
         private readonly INewsService newsService;
+        private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
         private Group revolutionCurrentGroup;
         private int revolutionPlayerStrength;
@@ -29,6 +30,7 @@ namespace Dictator.Core
             IDecisionStats decisionStats,
             IAudienceStats audienceStats,
             INewsService newsService,
+            IRevolutionService revolutionService,
             IScoreService scoreService)
         {
             this.accountService = accountService;
@@ -38,6 +40,7 @@ namespace Dictator.Core
             this.decisionStats = decisionStats;
             this.audienceStats = audienceStats;
             this.newsService = newsService;
+            this.revolutionService = revolutionService;
             this.scoreService = scoreService;
         }
 
@@ -503,7 +506,7 @@ namespace Dictator.Core
 
         public void PunishRevolutionaries()
         {
-
+            revolutionService.PunishRevolutionaries();
         }
 
         public void ApplyRevolutionCrushedEffects()

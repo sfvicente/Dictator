@@ -6,6 +6,6 @@ namespace Dictator.Core.Services
 {
     public interface IRevolutionService
     {
-
+        public void PunishRevolutionaries();
     }
 }

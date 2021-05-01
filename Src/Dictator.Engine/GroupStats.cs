@@ -57,6 +57,13 @@ namespace Dictator.Core
             return (Group[])groups.Clone();
         }
 
+        public void SetPopularity(GroupType groupType, int popularity)
+        {
+            int index = (int)groupType;
+
+            groups[index].Popularity = GetBoundedAttribute(popularity);
+        }
+
         public void IncreasePopularity(GroupType groupType)
         {
             int index = (int)groupType;
