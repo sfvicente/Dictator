@@ -57,6 +57,15 @@ namespace Dictator.Core
             return unusedAudiences;
         }
 
+        public Audience SelectRandomUnusedAudienceRequest()
+        {
+            IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
+            var rand = new Random();
+            var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+
+            return randomUnusedAudience;
+        }
+
         private void ResetAllToUnused()
         {
             foreach (var audience in audiences)

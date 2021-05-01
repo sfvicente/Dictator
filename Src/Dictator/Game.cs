@@ -96,7 +96,7 @@ namespace Dictator.ConsoleInterface
         /// </summary>
         private void HandleAudienceRequest()
         {
-            Core.Audience audience = engine.GetRandomUnusedAudienceRequest();
+            Core.Audience audience = engine.SelectRandomUnusedAudienceRequest();
 
             userInterface.DisplayAudienceScreen(audience);
 

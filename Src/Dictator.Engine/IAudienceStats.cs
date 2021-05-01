@@ -8,5 +8,6 @@ namespace Dictator.Core
     {
         public void Initialise();
         public IEnumerable<Audience> GetUnusedAudiences();
+        public Audience SelectRandomUnusedAudienceRequest();
     }
 }

@@ -214,14 +214,11 @@ namespace Dictator.Core
             accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
         }
 
-        public Audience GetRandomUnusedAudienceRequest()
+        public Audience SelectRandomUnusedAudienceRequest()
         {
-            IEnumerable<Audience> unusedAudiences = audienceStats.GetUnusedAudiences();
+            Audience audience = audienceStats.SelectRandomUnusedAudienceRequest();
 
-            var rand = new Random();
-            var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
-
-            return randomUnusedAudience;
+            return audience;
         }
 
         /// <summary>
