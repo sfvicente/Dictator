@@ -18,7 +18,6 @@ namespace Dictator.Core
         private readonly INewsService newsService;
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
-        private Group revolutionCurrentGroup;
         private int revolutionPlayerStrength;
         private int revolutionGroupStrength;
 
@@ -487,7 +486,7 @@ namespace Dictator.Core
 
                 if (groups[number].Status == GroupStatus.Revolution)
                 {
-                    revolutionCurrentGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
+                    revolutionService.SetRevolutionaryGroup(groups[number]);  // As the group has been triggered, set the group as the current revolutionary
                     return true;
                 }
             }

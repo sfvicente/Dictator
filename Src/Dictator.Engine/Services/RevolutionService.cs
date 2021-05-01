@@ -15,6 +15,11 @@ namespace Dictator.Core.Services
             this.groupStats = groupStats;
         }
 
+        public void SetRevolutionaryGroup(Group revolutionaryGroup)
+        {
+            revolution.RevolutionaryGroup = revolutionaryGroup;
+        }
+
         public void PunishRevolutionaries()
         {
             Group revolutionaries = revolution.RevolutionaryGroup;
