@@ -18,8 +18,6 @@ namespace Dictator.Core
         private readonly INewsService newsService;
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
-        private int revolutionPlayerStrength;
-        private int revolutionGroupStrength;
 
         public Engine(
             IAccountService accountService,
