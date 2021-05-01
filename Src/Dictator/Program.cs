@@ -97,6 +97,7 @@ namespace Dictator
             .AddScoped<IDecisionStats, DecisionStats>()
             .AddScoped<INewsService, NewsService>()
             .AddScoped<IAudienceStats, AudienceStats>()
+            .AddScoped<IRevolution, Revolution>()
             // Services
             .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()

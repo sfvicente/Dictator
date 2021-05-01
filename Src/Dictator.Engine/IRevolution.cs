@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core
 {
-    public class Revolution : IRevolution
+    public interface IRevolution
     {
         /// <summary>
         ///     Gets or sets the current player's strength.
