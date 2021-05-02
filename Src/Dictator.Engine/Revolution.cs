@@ -20,10 +20,5 @@ namespace Dictator.Core
         ///     Gets or sets the current group that has started the revolution.
         /// </summary>
         public Group RevolutionaryGroup { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the ally of the current group that has started the revolution.
-        /// </summary>
-        public Group RevolutionGroupAlly { get; set; }
     }
 }
