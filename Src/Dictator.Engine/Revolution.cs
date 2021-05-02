@@ -12,6 +12,11 @@ namespace Dictator.Core
         public int PlayerStrength { get; set; }
 
         /// <summary>
+        ///     Gets or sets the current player's ally.
+        /// </summary>
+        public Group PlayerAlly { get; set; }
+
+        /// <summary>
         ///     Gets or sets the current revolution strength. 
         /// </summary>
         public int RevolutionStrength { get; set; }
