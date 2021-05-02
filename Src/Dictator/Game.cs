@@ -401,7 +401,7 @@ namespace Dictator.ConsoleInterface
                 
                 if(temporaryDoesRevolutionFail)
                 {
-                    DialogResult dialogResult = userInterface.DisplayRevolutionCrushedScreen();
+                    DialogResult dialogResult = userInterface.DisplayRevolutionCrushedDialog();
 
                     if(dialogResult == DialogResult.Yes)
                     {

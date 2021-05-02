@@ -44,7 +44,7 @@ namespace Dictator.ConsoleInterface
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
-        private readonly IRevolutionCrushedScreen revolutionCrushedScreen;
+        private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
         private readonly IWarScreen warScreen;
@@ -85,7 +85,7 @@ namespace Dictator.ConsoleInterface
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
-            IRevolutionCrushedScreen revolutionCrushedScreen,
+            IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
             IWarScreen warScreen,
@@ -125,7 +125,7 @@ namespace Dictator.ConsoleInterface
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
-            this.revolutionCrushedScreen = revolutionCrushedScreen;
+            this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
             this.warScreen = warScreen;
@@ -270,9 +270,9 @@ namespace Dictator.ConsoleInterface
             revolutionScreen.Show();
         }
 
-        public DialogResult DisplayRevolutionCrushedScreen()
+        public DialogResult DisplayRevolutionCrushedDialog()
         {
-            return revolutionCrushedScreen.Show();
+            return revolutionCrushedDialog.Show();
         }
 
         public void DisplayRevolutionOverthrownScreen()

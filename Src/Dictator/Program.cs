@@ -75,7 +75,7 @@ namespace Dictator
             .AddScoped<IRevolutionAllyLowPopularityScreen, RevolutionAllyLowPopularityScreen>()
             .AddScoped<IRevolutionStartedScreen, RevolutionStartedScreen>()
             .AddScoped<IRevolutionOverthrownScreen, RevolutionOverthrownScreen>()
-            .AddScoped<IRevolutionCrushedScreen, RevolutionCrushedScreen>()
+            .AddScoped<IRevolutionCrushedDialog, RevolutionCrushedDialog>()
             .AddScoped<IWarThreatScreen, WarThreatScreen>()
             .AddScoped<IWarScreen, WarScreen>()
             .AddScoped<IWarLeftotoInvadesScreen, WarLeftotoInvadesScreen>()

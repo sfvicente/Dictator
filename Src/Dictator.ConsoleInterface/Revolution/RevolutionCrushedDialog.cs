@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Revolution
 {
-    public class RevolutionCrushedScreen : IRevolutionCrushedScreen
+    public class RevolutionCrushedDialog : IRevolutionCrushedDialog
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
-        public RevolutionCrushedScreen(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        public RevolutionCrushedDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }

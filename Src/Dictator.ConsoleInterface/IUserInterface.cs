@@ -30,7 +30,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayAssassinationFailedScreen();
         public void DisplayAssassinationSuccededScreen();
         public void DisplayRevolutionScreen();
-        public DialogResult DisplayRevolutionCrushedScreen();
+        public DialogResult DisplayRevolutionCrushedDialog();
         public void DisplayRevolutionOverthrownScreen();
         public void DisplayWarThreatScreen();
         public void DisplayWarScreen();

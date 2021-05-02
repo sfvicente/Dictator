@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Revolution
 {
-    public interface IRevolutionCrushedScreen
+    public interface IRevolutionCrushedDialog
     {
         public DialogResult Show();
     }
