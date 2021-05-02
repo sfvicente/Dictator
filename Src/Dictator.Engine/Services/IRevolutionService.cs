@@ -8,5 +8,6 @@ namespace Dictator.Core.Services
     {
         public void SetRevolutionaryGroup(Group revolutionaryGroup);
         public void PunishRevolutionaries();
+        public void ApplyRevolutionCrushedEffects();
     }
 }

@@ -30,5 +30,19 @@ namespace Dictator.Core.Services
             groupStats.SetStrength(revolutionaryAllies.Type, 0);
             groupStats.SetPopularity(revolutionaryAllies.Type, 0);
         }
+
+        public void ApplyRevolutionCrushedEffects()
+        {
+            if(revolution.PlayerAlly != null)
+            {
+                groupStats.SetPopularity(revolution.PlayerAlly.Type, 9);
+            }
+
+            // TODO: set plot bonus
+
+            groupStats.ResetStatusAndAllies();
+
+            // TODO: reset player's ally and revolution properties?
+        }
     }
 }

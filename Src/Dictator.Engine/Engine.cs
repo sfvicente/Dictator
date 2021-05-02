@@ -506,7 +506,7 @@ namespace Dictator.Core
 
         public void ApplyRevolutionCrushedEffects()
         {
-
+            revolutionService.ApplyRevolutionCrushedEffects();
         }
         
         /// <summary>
