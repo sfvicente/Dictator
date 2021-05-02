@@ -8,8 +8,8 @@ namespace Dictator.ConsoleInterface
 {
     public class Game
     {
-        private IEngine engine;
-        private IUserInterface userInterface;
+        private readonly IEngine engine;
+        private readonly IUserInterface userInterface;
 
         public Game(IEngine engine, IUserInterface userInterface)
         {
