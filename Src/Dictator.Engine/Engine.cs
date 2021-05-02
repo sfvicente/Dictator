@@ -439,10 +439,11 @@ namespace Dictator.Core
 
         public WarStats BeginInvasion()
         {
-            var warStats = new WarStats();
-
-            warStats.RitimbanStrength = CalculateRitimbaStrength();
-            warStats.LeftotanStrength = CalculateLeftotoStrength();
+            var warStats = new WarStats
+            {
+                RitimbanStrength = CalculateRitimbaStrength(),
+                LeftotanStrength = CalculateLeftotoStrength()
+            };
 
             return warStats;
         }
