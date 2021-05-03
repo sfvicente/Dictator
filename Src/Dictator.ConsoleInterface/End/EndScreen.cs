@@ -33,15 +33,6 @@ namespace Dictator.ConsoleInterface.End
             ConsoleEx.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING", ConsoleColor.Green, ConsoleColor.White);
             ConsoleEx.WriteAt(6, 13, $"(${score.MoneyGrabbed}.000,000 /00,000) - {score.PointsForMoneyGrabbing}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-
-            int finalScore = 0;
-
-            if (finalScore > governmentStats.LastScore)
-            {
-                // Save the final score as the new highscore
-                governmentStats.LastScore = finalScore;
-            }
-
             ConsoleEx.WriteAt(1, 16, $" Your TOTAL is ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.Write($"{score.TotalScore}", ConsoleColor.Yellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is {score.HighestScore} ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
