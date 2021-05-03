@@ -11,12 +11,10 @@ namespace Dictator.ConsoleInterface.End
     public class EndScreen : IEndScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IGovernmentStats governmentStats;
 
-        public EndScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentStats governmentStats)
+        public EndScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.governmentStats = governmentStats;
         }
 
         public void Show(Score score)
@@ -26,7 +24,7 @@ namespace Dictator.ConsoleInterface.End
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
             ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({governmentStats.Month}x3) - { governmentStats.Month * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - {score.MonthsInOffice * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
             // TODO: count alive score
             ConsoleEx.WriteAt(1, 10, $" For staying alive - {score.PointsForStayingAlive}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
