@@ -26,7 +26,7 @@ namespace Dictator.ConsoleInterface.Audience
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
 
-            if (audience.Cost == 0 && audience.MonthlyCost == 0)
+            if (audience.NoMoneyInvolved)
             {
                 ConsoleEx.WriteAt(1, 11, "        NO MONEY INVOLVED       ", ConsoleColor.Black);
             }
