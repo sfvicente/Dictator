@@ -25,9 +25,14 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             }
             else
             {
-                // TODO: check country
-                ConsoleEx.WriteAt(1, 12, "             NIET !             ");
-                ConsoleEx.WriteAt(1, 12, "            \"nuts !\"            ");
+                if (loanApplicationResult.Country == Country.America)
+                {
+                    ConsoleEx.WriteAt(1, 12, "            \"nuts !\"            ");
+                }
+                else if(loanApplicationResult.Country == Country.Russia)
+                {
+                    ConsoleEx.WriteAt(1, 12, "             NIET !             ");
+                }
             }
 
             pressAnyKeyControl.Show();
