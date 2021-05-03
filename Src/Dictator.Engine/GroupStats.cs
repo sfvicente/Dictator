@@ -9,6 +9,9 @@ namespace Dictator.Core
     {
         private Group[] groups;
 
+        public const int MaxPopularityAndStrength = 9;
+        public const int MinPopularityAndStrength = 0;
+
         private GroupType assassinGroupType;
         public GroupType AssassinGroupType { get { return assassinGroupType; } }
 
@@ -68,7 +71,7 @@ namespace Dictator.Core
         {
             int index = (int)groupType;
 
-            if (groups[index].Popularity < 9)
+            if (groups[index].Popularity < MaxPopularityAndStrength)
             {
                 groups[index].Popularity++;
             }
@@ -78,7 +81,7 @@ namespace Dictator.Core
         {
             int index = (int)groupType;
 
-            if (groups[index].Popularity > 0)
+            if (groups[index].Popularity > MinPopularityAndStrength)
             {
                 groups[index].Popularity--;
             }
@@ -122,7 +125,7 @@ namespace Dictator.Core
         {
             int index = (int)groupType;
 
-            if (groups[index].Strength > 0)
+            if (groups[index].Strength > MinPopularityAndStrength)
             {
                 groups[index].Strength--;
             }
@@ -182,14 +185,14 @@ namespace Dictator.Core
 
         private int GetBoundedAttribute(int attributeValue)
         {
-            if (attributeValue < 0)
+            if (attributeValue < MinPopularityAndStrength)
             {
-                return 0;
+                return MinPopularityAndStrength;
             }
 
-            if (attributeValue > 9)
+            if (attributeValue > MaxPopularityAndStrength)
             {
-                return 9;
+                return MaxPopularityAndStrength;
             }
 
             return attributeValue;
