@@ -31,6 +31,9 @@ namespace Dictator.Core.Services
             groupStats.SetPopularity(revolutionaryAllies.Type, 0);
         }
 
+        /// <summary>
+        ///     Applies the resulting effects when the player crushes the revolution.
+        /// </summary>
         public void ApplyRevolutionCrushedEffects()
         {
             if(revolution.PlayerAlly != null)

@@ -8,6 +8,10 @@ namespace Dictator.Core.Services
     {
         public void SetRevolutionaryGroup(Group revolutionaryGroup);
         public void PunishRevolutionaries();
+
+        /// <summary>
+        ///     Applies the resulting effects when the player crushes the revolution.
+        /// </summary>
         public void ApplyRevolutionCrushedEffects();
     }
 }
