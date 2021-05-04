@@ -507,6 +507,7 @@ namespace Dictator.Core
         public void ApplyRevolutionCrushedEffects()
         {
             revolutionService.ApplyRevolutionCrushedEffects();
+            governmentStats.PlotBonus = governmentStats.Month + 2;  // Prevent revolutions for the next two months
         }
         
         /// <summary>

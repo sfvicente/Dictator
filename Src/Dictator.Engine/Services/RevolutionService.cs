@@ -41,8 +41,6 @@ namespace Dictator.Core.Services
                 groupStats.SetPopularity(revolution.PlayerAlly.Type, 9);
             }
 
-            // TODO: set plot bonus
-
             groupStats.ResetStatusAndAllies();
 
             // TODO: reset player's ally and revolution properties?
