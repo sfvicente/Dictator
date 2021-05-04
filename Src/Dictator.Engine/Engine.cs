@@ -601,6 +601,10 @@ namespace Dictator.Core
             return score;
         }
 
+        /// <summary>
+        ///     Determines if the popularity with the secret police is less or equal to the minimum required monthly popularity.
+        /// </summary>
+        /// <returns><c>true</c> if the player is not popular enough with the secret police; otherwise, <c>false</c>.</returns>
         private bool DoesPoliceHatePlayer()
         {
             if (groupStats.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentStats.MonthlyMinimalPopularityAndStrength)
