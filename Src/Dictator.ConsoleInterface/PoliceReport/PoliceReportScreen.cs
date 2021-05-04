@@ -11,8 +11,8 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        private IGovernmentStats governmentStats { get; }
-        private IGroupStats groupStats { get; }
+        private readonly IGovernmentStats governmentStats;
+        private readonly IGroupStats groupStats;
 
         public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentStats governmentStats, IGroupStats groupStats)
         {
