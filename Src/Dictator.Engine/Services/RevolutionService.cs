@@ -32,18 +32,14 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
-        ///     Applies the resulting effects when the player crushes the revolution.
+        ///     Boosts the player ally's popularity, which normally happens when the player crushes the revolution.
         /// </summary>
-        public void ApplyRevolutionCrushedEffects()
+        public void BoostAllyPopularity()
         {
             if(revolution.PlayerAlly != null)
             {
                 groupStats.SetPopularity(revolution.PlayerAlly.Type, 9);
             }
-
-            groupStats.ResetStatusAndAllies();
-
-            // TODO: reset player's ally and revolution properties?
         }
     }
 }

@@ -506,10 +506,13 @@ namespace Dictator.Core
 
         public void ApplyRevolutionCrushedEffects()
         {
-            revolutionService.ApplyRevolutionCrushedEffects();
+            revolutionService.BoostAllyPopularity();
             governmentStats.PlotBonus = governmentStats.Month + 2;  // Prevent revolutions for the next two months
+            groupStats.ResetStatusAndAllies();
+            // TODO: reset player's ally and revolution properties?
+
         }
-        
+
         /// <summary>
         ///     Purchases an helicopter for a possible escape in revolution or war scenarios.
         /// </summary>
