@@ -9,7 +9,7 @@ namespace Dictator.Core.Services
         private readonly IGroupStats groupStats;
         private readonly IGovernmentStats governmentStats;
 
-        public PlotService(IGroupStats groupStats, IGovernmentStats governmentStats)
+        public PlotService(IGroupStats groupStats, IGovernmentStats governmentStats, IRevolution revolution)
         {
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
@@ -17,12 +17,16 @@ namespace Dictator.Core.Services
 
         public void Plot()
         {
+            // Do not trigger assatinations or revolutions after failed revolution
+            if (governmentStats.Month < governmentStats.PlotBonus)
+            {
+                return;
+            }
+
             // Do not trigger assassinations or revolutions in the first 2 months of government
             if (governmentStats.Month > 2)
             {
                 groupStats.ResetStatusAndAllies();
-
-                // TODO: plot bonus check
 
                 Group[] groups = groupStats.GetGroups();
                 int monthlyMinimalPopularityAndStrength = governmentStats.MonthlyMinimalPopularityAndStrength;
