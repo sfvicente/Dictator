@@ -10,13 +10,11 @@ namespace Dictator.ConsoleInterface.Advice
     public class AdviceScreen : IAdviceScreen
     {
         private readonly IGroupStats groupStats;
-        private readonly IAudienceStats audienceStats;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public AdviceScreen(IGroupStats groupStats, IAudienceStats audienceStats, IPressAnyKeyControl pressAnyKeyControl)
+        public AdviceScreen(IGroupStats groupStats, IPressAnyKeyControl pressAnyKeyControl)
         {
             this.groupStats = groupStats;
-            this.audienceStats = audienceStats;
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
