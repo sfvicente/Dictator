@@ -17,6 +17,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
         public void Show()
         {
+            ConsoleEx.Clear();
             ConsoleEx.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
             ConsoleEx.WriteAt(1, 12, "              WAIT              ");
             pressAnyKeyControl.Show();
