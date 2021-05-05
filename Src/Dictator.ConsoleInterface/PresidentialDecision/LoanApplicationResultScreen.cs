@@ -20,7 +20,18 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         {
             if(loanApplicationResult.IsAccepted)
             {
-                ConsoleEx.WriteAt(1, 12, $"<groupName> will let you have");
+                string groupName = string.Empty;
+
+                if (loanApplicationResult.Country == Country.America)
+                {
+                    groupName = "Americans";
+                }
+                else if (loanApplicationResult.Country == Country.Russia)
+                {
+                    groupName = "Russians";
+                }
+
+                ConsoleEx.WriteAt(1, 12, $"{groupName} will let you have");
                 ConsoleEx.WriteAt(8, 14, $"{loanApplicationResult.Amount},000 DOLLARS");
             }
             else
