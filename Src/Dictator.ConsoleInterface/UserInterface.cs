@@ -155,9 +155,9 @@ namespace Dictator.ConsoleInterface
             introScreen.Show();
         }
 
-        public void DisplayWelcomeScreen()
+        public void DisplayWelcomeScreen(int highscore)
         {
-            welcomeScreen.Show();
+            welcomeScreen.Show(highscore);
         }
 
         public void DisplayTitleScreen()

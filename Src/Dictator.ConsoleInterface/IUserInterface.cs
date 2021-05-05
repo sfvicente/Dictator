@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface
     {
         public void Initialise();
         public void DisplayIntroScreen();
-        public void DisplayWelcomeScreen();
+        public void DisplayWelcomeScreen(int highscore);
         public void DisplayTitleScreen();
         public void DisplayAccountScreen(Account account);
         public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest);

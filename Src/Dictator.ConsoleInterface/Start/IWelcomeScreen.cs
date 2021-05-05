@@ -2,6 +2,6 @@
 {
     public interface IWelcomeScreen
     {
-        public void Show();
+        public void Show(int highscore);
     }
 }

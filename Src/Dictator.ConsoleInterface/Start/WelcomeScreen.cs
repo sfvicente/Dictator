@@ -18,7 +18,7 @@ namespace Dictator.ConsoleInterface.Start
             this.governmentStats = governmentStats;
         }
 
-        public void Show()
+        public void Show(int highscore)
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(8, 4, "WELCOME to OFFICE", ConsoleColor.Black, ConsoleColor.Cyan);

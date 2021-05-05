@@ -23,7 +23,7 @@ namespace Dictator.ConsoleInterface
             userInterface.Initialise();
             userInterface.DisplayIntroScreen();
             userInterface.DisplayTitleScreen();
-            userInterface.DisplayWelcomeScreen();
+            DisplayWelcomeScreen();
             DisplayAccountDetails();
             userInterface.DisplayPoliceReportScreen();
 
@@ -60,6 +60,14 @@ namespace Dictator.ConsoleInterface
                     }
                 }
             }
+        }
+
+        private void DisplayWelcomeScreen()
+        {
+            int highscore = 0;
+            // TODO: get current highscore
+
+            userInterface.DisplayWelcomeScreen(highscore);
         }
 
         private void AdvanceAndDisplayCurrentMonth()
