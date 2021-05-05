@@ -19,7 +19,6 @@ namespace Dictator.ConsoleInterface.Treasury
         public void Show()
         {
             ConsoleEx.Clear();
-
             ConsoleEx.WriteAt(1, 5, "   The TREASURY is BANKRUPT    ");
             ConsoleEx.WriteAt(1, 9, "Your POPULARITY with the ARMY &");
             ConsoleEx.WriteAt(1, 11, " the SECRET POLICE will DROP ! ");
