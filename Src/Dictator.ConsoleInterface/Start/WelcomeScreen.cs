@@ -10,12 +10,10 @@ namespace Dictator.ConsoleInterface.Start
     public class WelcomeScreen : IWelcomeScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IGovernmentStats governmentStats;
 
-        public WelcomeScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentStats governmentStats)
+        public WelcomeScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.governmentStats = governmentStats;
         }
 
         public void Show(int highscore)
@@ -24,11 +22,11 @@ namespace Dictator.ConsoleInterface.Start
             ConsoleEx.WriteAt(8, 4, "WELCOME to OFFICE", ConsoleColor.Black, ConsoleColor.Cyan);
             ConsoleEx.WriteAt(1, 7, "The best DICTATOR of our beloved");
             ConsoleEx.WriteAt(1, 9, "country of RITIMBA had a final  ");
-            ConsoleEx.WriteAt(1, 11, "rating of 0                     ");
+            ConsoleEx.WriteAt(1, 11, $"rating of {highscore}");
 
-            if(governmentStats.LastScore > 0)
+            if (highscore > 0)
             {
-                ConsoleEx.WriteAt(1, 14, $"You can always try for {governmentStats.LastScore++} !");
+                ConsoleEx.WriteAt(1, 14, $"You can always try for {highscore++} !");
             }
             else
             {
