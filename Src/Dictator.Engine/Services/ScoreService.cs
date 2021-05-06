@@ -47,9 +47,9 @@ namespace Dictator.Core.Services
 
         public int GetCurrentHighscore()
         {
-            // TODO: Store highscore state somewhere.
+            int highestScore = governmentStats.LastScore;
 
-            return 0;
+            return highestScore;
         }
     }
 }
