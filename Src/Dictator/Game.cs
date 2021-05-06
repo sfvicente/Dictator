@@ -64,8 +64,7 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayWelcomeScreen()
         {
-            int highscore = 0;
-            // TODO: get current highscore
+            int highscore = engine.GetHighscore();
 
             userInterface.DisplayWelcomeScreen(highscore);
         }

@@ -23,5 +23,12 @@ namespace Dictator.Core.Services
 
             return score;
         }
+
+        public int GetCurrentHighscore()
+        {
+            // TODO: Store highscore state somewhere.
+
+            return 0;
+        }
     }
 }

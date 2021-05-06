@@ -594,6 +594,14 @@ namespace Dictator.Core
             governmentStats.KillPlayer();
         }
 
+        public int GetHighscore()
+        {
+            var score = scoreService.GetCurrentHighscore();
+
+            return score;
+
+        }
+
         public Score GetCurrentScore()
         {
             var score = scoreService.GetCurrentScore();
