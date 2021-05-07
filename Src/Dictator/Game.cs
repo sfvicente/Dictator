@@ -401,8 +401,7 @@ namespace Dictator.ConsoleInterface
                 // TODO: pass required data and display the ask for help screen
                 //userInterface.DisplayRevolutionAskForHelpScreen();
 
-                // TODO: Display revolution has started screen
-                //userInterface.DisplayRevolutionStartedScreen();
+                userInterface.DisplayRevolutionStartedScreen();
 
                 bool temporaryDoesRevolutionFail = true;
                 

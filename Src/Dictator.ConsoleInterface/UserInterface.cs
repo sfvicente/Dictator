@@ -44,6 +44,7 @@ namespace Dictator.ConsoleInterface
         private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
+        private readonly IRevolutionStartedScreen revolutionStartedScreen;
         private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
@@ -85,6 +86,7 @@ namespace Dictator.ConsoleInterface
             IAssassinationSuccededScreen assassinationSuccededScreen,
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
+            IRevolutionStartedScreen revolutionStartedScreen,
             IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
@@ -125,6 +127,7 @@ namespace Dictator.ConsoleInterface
             this.assassinationSuccededScreen = assassinationSuccededScreen;
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
+            this.revolutionStartedScreen = revolutionStartedScreen;
             this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
@@ -269,6 +272,8 @@ namespace Dictator.ConsoleInterface
         {
             revolutionScreen.Show();
         }
+
+        public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
 
         public DialogResult DisplayRevolutionCrushedDialog()
         {
