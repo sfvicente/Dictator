@@ -153,206 +153,86 @@ namespace Dictator.ConsoleInterface
             Console.Clear();
         }
 
-        public void DisplayIntroScreen()
-        {
-            introScreen.Show();
-        }
+        public void DisplayIntroScreen() => introScreen.Show();
 
-        public void DisplayWelcomeScreen(int highscore)
-        {
-            welcomeScreen.Show(highscore);
-        }
+        public void DisplayWelcomeScreen(int highscore) => welcomeScreen.Show(highscore);
 
-        public void DisplayTitleScreen()
-        {
-            titleScreen.Show();
-        }
+        public void DisplayTitleScreen() => titleScreen.Show();
 
-        public void DisplayAccountScreen(Account account)
-        {
-            treasuryReportScreen.Show(account);
-        }
+        public void DisplayAccountScreen(Account account) => treasuryReportScreen.Show(account);
 
-        public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest)
-        {
-            return policeReportRequestScreen.Show(policeReportRequest);
-        }
+        public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest) => policeReportRequestScreen.Show(policeReportRequest);
 
-        public void DisplayPoliceReportScreen()
-        {
-            policeReportScreen.Show();
-        }
+        public void DisplayPoliceReportScreen() => policeReportScreen.Show();
 
-        public void DisplayAudienceScreen(Core.Audience audience)
-        {
-            audienceScreen.Show(audience);
-        }
+        public void DisplayAudienceScreen(Core.Audience audience) => audienceScreen.Show(audience);
 
-        public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience)
-        {
-            return audienceDecisionDialog.Show(audience);
-        }
+        public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience) => audienceDecisionDialog.Show(audience);
 
-        public DialogResult DisplayAdviceRequestDialog()
-        {
-            return adviceRequestDialog.Show();
-        }
+        public DialogResult DisplayAdviceRequestDialog() => adviceRequestDialog.Show();
 
-        public void DisplayAdviceScreen(Core.Audience audience)
-        {
-            adviceScreen.Show(audience);
-        }
+        public void DisplayAdviceScreen(Core.Audience audience) => adviceScreen.Show(audience);
 
-        public void DisplayAdviceScreen(Decision decision)
-        {
-            adviceScreen.Show(decision);
-        }
+        public void DisplayAdviceScreen(Decision decision) => adviceScreen.Show(decision);
 
-        public void DisplayBankuptcyScreen()
-        {
-            bankruptcyScreen.Show();
-        }
+        public void DisplayBankuptcyScreen() => bankruptcyScreen.Show();
 
-        public void DisplayNewsScreen(string headline)
-        {
-            newsflashScreen.Show(headline);
-        }
+        public void DisplayNewsScreen(string headline) => newsflashScreen.Show(headline);
 
-        public void DisplayMonthScreen(int month)
-        {
-            monthScreen.Show(month);
-        }
+        public void DisplayMonthScreen(int month) => monthScreen.Show(month);
 
-        public DecisionType DisplayPresidentialDecisionMainDialog()
-        {
-            return presidentialDecisionMainDialog.Show();
-        }
+        public DecisionType DisplayPresidentialDecisionMainDialog() => presidentialDecisionMainDialog.Show();
 
-        public int DisplayPresidentialDecisionSubDialog(DecisionType decisionType)
-        {
-            return presidentialDecisionSubDialog.Show(decisionType);
-        }
+        public int DisplayPresidentialDecisionSubDialog(DecisionType decisionType) => presidentialDecisionSubDialog.Show(decisionType);
 
-        public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision)
-        {
-            return presidentialDecisionActionDialog.Show(decision);
-        }
+        public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision) => presidentialDecisionActionDialog.Show(decision);
 
-        public void DisplayLoanApplicationScreen()
-        {
-            loanApplicationScreen.Show();
-        }
+        public void DisplayLoanApplicationScreen() => loanApplicationScreen.Show();
 
-        public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult)
-        {
-            loanApplicationResultScreen.Show(loanApplicationResult);
-        }
+        public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult) => loanApplicationResultScreen.Show(loanApplicationResult);
 
-        public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
-        {
-            transferToSwissBankAccountScreen.Show(swissBankAccountTransfer, account);
-        }
+        public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account) => transferToSwissBankAccountScreen.Show(swissBankAccountTransfer, account);
 
-        public void DisplayAssassinationAttempt()
-        {
-            assassinationScreen.Show();
-        }
+        public void DisplayAssassinationAttempt() => assassinationScreen.Show();
 
-        public void DisplayAssassinationFailedScreen()
-        {
-            assassinationFailedScreen.Show();
-        }
+        public void DisplayAssassinationFailedScreen() => assassinationFailedScreen.Show();
 
-        public void DisplayAssassinationSuccededScreen()
-        {
-            assassinationSuccededScreen.Show();
-        }
+        public void DisplayAssassinationSuccededScreen() => assassinationSuccededScreen.Show();
 
-        public void DisplayRevolutionScreen()
-        {
-            revolutionScreen.Show();
-        }
+        public void DisplayRevolutionScreen() => revolutionScreen.Show();
 
         public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
 
-        public DialogResult DisplayRevolutionCrushedDialog()
-        {
-            return revolutionCrushedDialog.Show();
-        }
+        public DialogResult DisplayRevolutionCrushedDialog() => revolutionCrushedDialog.Show();
 
-        public void DisplayRevolutionOverthrownScreen()
-        {
-            revolutionOverthrownScreen.Show();
-        }
+        public void DisplayRevolutionOverthrownScreen() => revolutionOverthrownScreen.Show();
 
-        public void DisplayWarThreatScreen()
-        {
-            warThreatScreen.Show();
-        }
+        public void DisplayWarThreatScreen() => warThreatScreen.Show();
 
-        public void DisplayWarScreen()
-        {
-            warScreen.Show();
-        }
+        public void DisplayWarScreen() => warScreen.Show();
 
-        public void DisplayLeftotoInvadesScreen(WarStats warStats)
-        {
-            leftotoInvadesScreen.Show(warStats);
-        }
+        public void DisplayLeftotoInvadesScreen(WarStats warStats) => leftotoInvadesScreen.Show(warStats);
 
-        public void DisplayWarLostScreen()
-        {
-            warLostScreen.Show();
-        }
+        public void DisplayWarLostScreen() => warLostScreen.Show();
 
-        public void DisplayWarWonScreen()
-        {
-            warWonScreen.Show();
-        }
+        public void DisplayWarWonScreen() => warWonScreen.Show();
 
-        public DialogResult DisplayEscapeAttemptDialog()
-        {
-            return escapeAttemptDialog.Show();
-        }
+        public DialogResult DisplayEscapeAttemptDialog() => escapeAttemptDialog.Show();
 
-        public void DisplayHelicopterEscapeScreen()
-        {
-            helicopterEscapeScreen.Show();
-        }
+        public void DisplayHelicopterEscapeScreen() => helicopterEscapeScreen.Show();
 
-        public void DisplayHelicopterWontStartScreen()
-        {
-            helicopterWontStartScreen.Show();
-        }
+        public void DisplayHelicopterWontStartScreen() => helicopterWontStartScreen.Show();
 
-        public void DisplayEscapeToLeftotoScreen()
-        {
-            escapeToLeftotoScreen.Show();
-        }
+        public void DisplayEscapeToLeftotoScreen() => escapeToLeftotoScreen.Show();
 
-        public void DisplayGuerillasMissedScreen()
-        {
-            guerillasMissedScreen.Show();
-        }
+        public void DisplayGuerillasMissedScreen() => guerillasMissedScreen.Show();
 
-        public void DisplayGuerillasCelebratingScreen()
-        {
-            guerillasCelebratingScreen.Show();
-        }
+        public void DisplayGuerillasCelebratingScreen() => guerillasCelebratingScreen.Show();
 
-        public void DisplayHelicopterEngineFailure()
-        {
-            helicopterEngineFailureScreen.Show();
-        }
+        public void DisplayHelicopterEngineFailure() => helicopterEngineFailureScreen.Show();
 
-        public void DisplayWarExecutionScreen()
-        {
-            warExecutionScreen.Show();
-        }
+        public void DisplayWarExecutionScreen() => warExecutionScreen.Show();
 
-        public void DisplayEndScreen(Score score)
-        {
-            endScreen.Show(score);
-        }
+        public void DisplayEndScreen(Score score) => endScreen.Show(score);
     }
 }
