@@ -480,11 +480,7 @@ namespace Dictator.ConsoleInterface
             Score score = engine.GetCurrentScore();
 
             userInterface.DisplayEndScreen(score);
-
-            if (score.TotalScore > score.HighestScore)
-            {
-                // TODO: save new score as the the highest score
-            }
+            engine.SaveHighScore();
         }
     }
 }

@@ -609,6 +609,11 @@ namespace Dictator.Core
             return score;
         }
 
+        public void SaveHighScore()
+        {
+            scoreService.SaveHighScore();
+        }
+
         /// <summary>
         ///     Determines if the popularity with the secret police is less or equal to the minimum required monthly popularity.
         /// </summary>

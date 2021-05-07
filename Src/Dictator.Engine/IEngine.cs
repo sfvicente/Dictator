@@ -53,5 +53,6 @@ namespace Dictator.Core
         public void KillPlayer();
         public int GetHighscore();
         public Score GetCurrentScore();
+        public void SaveHighScore();
     }
 }

@@ -45,6 +45,17 @@ namespace Dictator.Core.Services
             return score;
         }
 
+        public void SaveHighScore()
+        {
+            Score score = GetCurrentScore();
+            int highestScore = GetCurrentHighscore();
+
+            if(score.TotalScore > highestScore)
+            {
+                governmentStats.LastScore = score.TotalScore;                
+            }
+        }
+
         public int GetCurrentHighscore()
         {
             int highestScore = governmentStats.LastScore;

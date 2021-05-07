@@ -8,5 +8,6 @@ namespace Dictator.Core.Services
     {
         public Score GetCurrentScore();
         public int GetCurrentHighscore();
+        public void SaveHighScore();
     }
 }
