@@ -599,7 +599,6 @@ namespace Dictator.Core
             var score = scoreService.GetCurrentHighscore();
 
             return score;
-
         }
 
         public Score GetCurrentScore()
