@@ -457,6 +457,10 @@ namespace Dictator.ConsoleInterface
                     EscapeToLeftoto();
                 }
             }
+            else
+            {
+                EscapeToLeftoto();
+            }
         }
 
         private void EscapeToLeftoto()
