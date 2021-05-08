@@ -1,4 +1,5 @@
-﻿using Dictator.Core.Services;
+﻿using Dictator.Common.Extensions;
+using Dictator.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,7 +89,7 @@ namespace Dictator.Core
             PoliceReport policeReport = new PoliceReport
             {
                 Month = governmentStats.Month,
-                Groups = Array.AsReadOnly<Group>(groupStats.GetGroups()),
+                Groups = groupStats.GetGroups().AsReadOnly(),
                 PlayerStrength = governmentStats.PlayerStrength,
                 MonthlyRevolutionStrength = governmentStats.MonthlyRevolutionStrength
             };
