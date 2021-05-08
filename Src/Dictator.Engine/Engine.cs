@@ -15,7 +15,7 @@ namespace Dictator.Core
         private readonly IGroupStats groupStats;
         private readonly IPlotService plotService;
         private readonly IDecisionStats decisionStats;
-        private readonly IAudienceStats audienceStats;
+        private readonly IAudienceService audienceStats;
         private readonly INewsService newsService;
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
@@ -26,7 +26,7 @@ namespace Dictator.Core
             IGroupStats groupStats,
             IPlotService plotService,
             IDecisionStats decisionStats,
-            IAudienceStats audienceStats,
+            IAudienceService audienceStats,
             INewsService newsService,
             IRevolutionService revolutionService,
             IScoreService scoreService)

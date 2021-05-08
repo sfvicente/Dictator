@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class AudienceStats : IAudienceStats
+    public class AudienceService : IAudienceService
     {
         private Audience[] audiences;
 
-        public AudienceStats()
+        public AudienceService()
         {
             Initialise();
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public interface IAudienceStats
+    public interface IAudienceService
     {
         public void Initialise();
         public IEnumerable<Audience> GetUnusedAudiences();
