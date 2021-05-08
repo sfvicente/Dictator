@@ -12,7 +12,7 @@ namespace Dictator.Core
     {
         private readonly IAccountService accountService;
         private readonly IGovernmentService governmentStats;
-        private readonly IGroupStats groupStats;
+        private readonly IGroupService groupStats;
         private readonly IPlotService plotService;
         private readonly IDecisionStats decisionStats;
         private readonly IAudienceService audienceStats;
@@ -23,7 +23,7 @@ namespace Dictator.Core
         public Engine(
             IAccountService accountService,
             IGovernmentService governmentStats,
-            IGroupStats groupStats,
+            IGroupService groupStats,
             IPlotService plotService,
             IDecisionStats decisionStats,
             IAudienceService audienceStats,

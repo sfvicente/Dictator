@@ -7,9 +7,9 @@ namespace Dictator.Core.Services
     public class RevolutionService : IRevolutionService
     {
         private readonly IRevolution revolution;
-        private readonly IGroupStats groupStats;
+        private readonly IGroupService groupStats;
 
-        public RevolutionService(IRevolution revolution, IGroupStats groupStats)
+        public RevolutionService(IRevolution revolution, IGroupService groupStats)
         {
             this.revolution = revolution;
             this.groupStats = groupStats;

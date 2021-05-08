@@ -10,9 +10,9 @@ namespace Dictator.ConsoleInterface.Assassination
     public class AssassinationScreen : IAssassinationScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IGroupStats groupStats;
+        private readonly IGroupService groupStats;
 
-        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupStats groupStats)
+        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupService groupStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.groupStats = groupStats;

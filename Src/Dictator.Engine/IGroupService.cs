@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public interface IGroupStats
+    public interface IGroupService
     {
         public GroupType AssassinGroupType { get; }
 

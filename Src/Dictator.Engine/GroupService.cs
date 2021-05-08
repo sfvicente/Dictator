@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class GroupStats : IGroupStats
+    public class GroupService : IGroupService
     {
         private Group[] groups;
 
