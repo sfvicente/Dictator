@@ -95,7 +95,7 @@ namespace Dictator
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernmentService, GovernmentService>()
             .AddScoped<IGroupService, GroupService>()
-            .AddScoped<IDecisionStats, DecisionStats>()
+            .AddScoped<IDecisionService, DecisionService>()
             .AddScoped<INewsService, NewsService>()
             .AddScoped<IAudienceService, AudienceService>()
             .AddScoped<IRevolution, Revolution>()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public interface IDecisionStats
+    public interface IDecisionService
     {
         public void Initialise();
         public Decision[] GetDecisionsByType(DecisionType decisionType);

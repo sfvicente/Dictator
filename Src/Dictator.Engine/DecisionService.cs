@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class DecisionStats : IDecisionStats
+    public class DecisionService : IDecisionService
     {
         private Decision[] decisions;
 
-        public DecisionStats()
+        public DecisionService()
         {
             Initialise();
         }

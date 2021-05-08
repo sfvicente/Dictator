@@ -9,10 +9,10 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public class PresidentialDecisionSubDialog : IPresidentialDecisionSubDialog
     {
-        private readonly IDecisionStats decisionStats;
+        private readonly IDecisionService decisionStats;
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
-        public PresidentialDecisionSubDialog(IDecisionStats decisionStats, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+        public PresidentialDecisionSubDialog(IDecisionService decisionStats, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         {
             this.decisionStats = decisionStats;
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
