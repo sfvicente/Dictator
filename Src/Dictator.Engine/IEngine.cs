@@ -11,6 +11,7 @@ namespace Dictator.Core
         public void SetGroupStrength(GroupType groupType, int strength);
         public int GetTreasuryBalance();
         public PoliceReportRequest RequestPoliceReport();
+        public PoliceReport GetPoliceReport();
         public int GetMonth();
         public void AdvanceMonth();
         public void PayMonthlyCosts();

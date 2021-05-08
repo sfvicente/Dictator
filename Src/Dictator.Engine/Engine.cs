@@ -83,6 +83,19 @@ namespace Dictator.Core
             return policeReportRequest;
         }
 
+        public PoliceReport GetPoliceReport()
+        {
+            PoliceReport policeReport = new PoliceReport
+            {
+                Month = governmentStats.Month,
+                Groups = Array.AsReadOnly<Group>(groupStats.GetGroups()),
+                PlayerStrength = governmentStats.PlayerStrength,
+                MonthlyRevolutionStrength = governmentStats.MonthlyRevolutionStrength
+            };
+
+            return policeReport;
+        }
+
         public void AdvanceMonth()
         {
             governmentStats.AdvanceMonth();
