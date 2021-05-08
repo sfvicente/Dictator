@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public interface IGovernmentStats
+    public interface IGovernmentService
     {
         public bool IsPlayerAlive { get; }
         public bool HasHelicopter { get; }

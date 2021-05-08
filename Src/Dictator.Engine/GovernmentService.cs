@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dictator.Core
 {
-    public class GovernmentStats : IGovernmentStats
+    public class GovernmentService : IGovernmentService
     {
         public bool IsPlayerAlive { get; private set; }
         public bool HasHelicopter { get; private set; }
@@ -15,7 +15,7 @@ namespace Dictator.Core
         public int MonthlyMinimalPopularityAndStrength { get; set; }
         public int LastScore { get; set; }
 
-        public GovernmentStats()
+        public GovernmentService()
         {
             Initialise();
             LastScore = 0;

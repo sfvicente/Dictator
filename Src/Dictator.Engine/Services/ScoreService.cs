@@ -7,10 +7,10 @@ namespace Dictator.Core.Services
     public class ScoreService : IScoreService
     {
         private readonly IGroupStats groupStats;
-        private readonly IGovernmentStats governmentStats;
+        private readonly IGovernmentService governmentStats;
         private readonly IAccountService accountService;
 
-        public ScoreService(IGroupStats groupStats, IGovernmentStats governmentStats, IAccountService accountService)
+        public ScoreService(IGroupStats groupStats, IGovernmentService governmentStats, IAccountService accountService)
         {
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;

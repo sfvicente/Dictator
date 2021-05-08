@@ -11,10 +11,10 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        private readonly IGovernmentStats governmentStats;
+        private readonly IGovernmentService governmentStats;
         private readonly IGroupStats groupStats;
 
-        public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentStats governmentStats, IGroupStats groupStats)
+        public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentService governmentStats, IGroupStats groupStats)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
             this.governmentStats = governmentStats;

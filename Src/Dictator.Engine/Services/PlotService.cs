@@ -7,9 +7,9 @@ namespace Dictator.Core.Services
     public class PlotService : IPlotService
     {
         private readonly IGroupStats groupStats;
-        private readonly IGovernmentStats governmentStats;
+        private readonly IGovernmentService governmentStats;
 
-        public PlotService(IGroupStats groupStats, IGovernmentStats governmentStats)
+        public PlotService(IGroupStats groupStats, IGovernmentService governmentStats)
         {
             this.groupStats = groupStats;
             this.governmentStats = governmentStats;
