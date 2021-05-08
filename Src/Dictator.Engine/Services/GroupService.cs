@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dictator.Core
+namespace Dictator.Core.Services
 {
     public class GroupService : IGroupService
     {
@@ -99,7 +99,7 @@ namespace Dictator.Core
 
         public int GetTotalPopularity()
         {
-            return groups.Sum(x => x.Popularity); 
+            return groups.Sum(x => x.Popularity);
         }
 
         /// <summary>

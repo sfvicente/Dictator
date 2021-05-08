@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.Core
+namespace Dictator.Core.Services
 {
     public interface IGroupService
     {
