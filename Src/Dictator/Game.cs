@@ -258,7 +258,8 @@ namespace Dictator.ConsoleInterface
                 }
                 else
                 {
-                    int optionSelected = userInterface.DisplayPresidentialDecisionSubDialog(decisionType);
+                    Decision[] decisions = engine.GetDecisionsByType(decisionType);
+                    int optionSelected = userInterface.DisplayPresidentialDecisionSubDialog(decisions);
 
                     if (engine.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionSelected))
                     {

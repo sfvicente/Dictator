@@ -10,12 +10,10 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 {
     public class PresidentialDecisionSubDialog : IPresidentialDecisionSubDialog
     {
-        private readonly IDecisionService decisionStats;
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
-        public PresidentialDecisionSubDialog(IDecisionService decisionStats, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+        public PresidentialDecisionSubDialog(IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         {
-            this.decisionStats = decisionStats;
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
 
@@ -32,10 +30,8 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             return true;
         }
 
-        public int Show(DecisionType decisionType)
+        public int Show(Decision[] decisions)
         {
-            Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
-
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             ConsoleEx.Clear();
 

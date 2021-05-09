@@ -183,7 +183,7 @@ namespace Dictator.ConsoleInterface
 
         public DecisionType DisplayPresidentialDecisionMainDialog() => presidentialDecisionMainDialog.Show();
 
-        public int DisplayPresidentialDecisionSubDialog(DecisionType decisionType) => presidentialDecisionSubDialog.Show(decisionType);
+        public int DisplayPresidentialDecisionSubDialog(Decision[] decisions) => presidentialDecisionSubDialog.Show(decisions);
 
         public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision) => presidentialDecisionActionDialog.Show(decision);
 

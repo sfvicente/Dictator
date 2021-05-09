@@ -28,6 +28,7 @@ namespace Dictator.Core
         public void AcceptAudienceRequest(Audience audience);
         public void RefuseAudienceRequest(Audience audience);
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
+        public Decision[] GetDecisionsByType(DecisionType decisionType);
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
         public void IncreaseBodyguard();
         public LoanApplicationResult AskForLoan(Country country);

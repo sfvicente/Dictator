@@ -273,6 +273,13 @@ namespace Dictator.Core
             return true;
         }
 
+        public Decision[] GetDecisionsByType(DecisionType decisionType)
+        {
+            Decision[] decisions = decisionStats.GetDecisionsByType(decisionType);
+
+            return decisions;
+        }
+
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
         {
             if (optionNumber < 0)
