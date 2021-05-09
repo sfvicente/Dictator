@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dictator.Core
+namespace Dictator.Core.Services
 {
     public class AudienceService : IAudienceService
     {
