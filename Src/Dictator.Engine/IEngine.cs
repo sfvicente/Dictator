@@ -45,6 +45,7 @@ namespace Dictator.Core
         public bool ExecuteWar(WarStats warStats);
         public bool TryTriggerRevoltGroup();
         public void InitialiseRevolution();
+        public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
         public void PurchasedHelicopter();

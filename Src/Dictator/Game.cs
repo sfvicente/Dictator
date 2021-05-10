@@ -402,25 +402,27 @@ namespace Dictator.ConsoleInterface
                 // TODO: pass required data and display the ask for help screen
                 //userInterface.DisplayRevolutionAskForHelpScreen();
 
+                Core.Revolution revolution = new Core.Revolution();
+
                 userInterface.DisplayRevolutionStartedScreen();
 
-                bool temporaryDoesRevolutionFail = true;
-                
-                if(temporaryDoesRevolutionFail)
+                bool doesRevolutionSucceed = engine.DoesRevolutionSucceed(revolution.PlayerStrength, revolution.RevolutionStrength);
+               
+                if(doesRevolutionSucceed)
+                {
+                    userInterface.DisplayRevolutionOverthrownScreen();
+                }
+                else
                 {
                     DialogResult dialogResult = userInterface.DisplayRevolutionCrushedDialog();
 
-                    if(dialogResult == DialogResult.Yes)
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        engine.PunishRevolutionaries();                        
+                        engine.PunishRevolutionaries();
                     }
 
                     engine.ApplyRevolutionCrushedEffects();
                     hasGovernmentBeenOverthrown = false;
-                }
-                else
-                {
-                    userInterface.DisplayRevolutionOverthrownScreen();
                 }
             }
 

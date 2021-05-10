@@ -520,6 +520,19 @@ namespace Dictator.Core
             // TODO: Determine the current revolutionary combined strength
         }
 
+        public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength)
+        {
+            Random random = new Random();
+            int number = random.Next(0, 3);
+
+            if (revolutionStrength > playerStrength + number - 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public void PunishRevolutionaries()
         {
             revolutionService.PunishRevolutionaries();
