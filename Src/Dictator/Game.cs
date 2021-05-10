@@ -411,6 +411,7 @@ namespace Dictator.ConsoleInterface
                 if(doesRevolutionSucceed)
                 {
                     userInterface.DisplayRevolutionOverthrownScreen();
+                    engine.KillPlayer();
                 }
                 else
                 {
