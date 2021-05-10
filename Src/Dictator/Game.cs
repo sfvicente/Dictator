@@ -446,6 +446,9 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        /// <summary>
+        ///     Attempts an escape from a situation of war or revolution either through helicopter or Leftoto.
+        /// </summary>
         private void AttemptEscape()
         {
             // In order to escape by helicopter, the player would have to previously purchased it
