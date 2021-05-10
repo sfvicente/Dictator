@@ -163,7 +163,7 @@ namespace Dictator.ConsoleInterface
 
         public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest) => policeReportRequestScreen.Show(policeReportRequest);
 
-        public void DisplayPoliceReportScreen() => policeReportScreen.Show();
+        public void DisplayPoliceReportScreen(Core.PoliceReport policeReport) => policeReportScreen.Show(policeReport);
 
         public void DisplayAudienceScreen(Core.Audience audience) => audienceScreen.Show(audience);
 

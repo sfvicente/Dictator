@@ -4,6 +4,7 @@ using Dictator.Core;
 using Dictator.Core.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Dictator.ConsoleInterface.PoliceReport
@@ -12,40 +13,33 @@ namespace Dictator.ConsoleInterface.PoliceReport
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        private readonly IGovernmentService governmentStats;
-        private readonly IGroupService groupStats;
-
-        public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl, IGovernmentService governmentStats, IGroupService groupStats)
+        public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.governmentStats = governmentStats;
-            this.groupStats = groupStats;
         }
 
-        public void Show()
+        public void Show(Core.PoliceReport policeReport)
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleEx.Clear();
-            DisplayHeaders();
-            DisplayGroups();
-            DisplayGovernmentStats();
+            DisplayHeaders(policeReport.Month);
+            DisplayGroups(policeReport.Groups.ToArray());
+            DisplayGovernmentStats(policeReport.PlayerStrength, policeReport.MonthlyRevolutionStrength);
             pressAnyKeyControl.Show();
         }
 
-        private void DisplayHeaders()
+        private void DisplayHeaders(int month)
         {
-            ConsoleEx.WriteAt(1, 1, $"MONTH {governmentStats.Month}                       ");
+            ConsoleEx.WriteAt(1, 1, $"MONTH {month}                       ");
             ConsoleEx.WriteAt(1, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
             ConsoleEx.WriteAt(7, 4, "SECRET POLICE REPORT", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.WriteAt(27, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
         }
 
-        private void DisplayGroups()
+        private void DisplayGroups(Group[] groups)
         {
-            Group[] groups = groupStats.GetGroups();
-
             for (int i = 0; i < groups.Length; i++)
             {
                 int currentPopularity = groups[i].Popularity;
@@ -93,10 +87,10 @@ namespace Dictator.ConsoleInterface.PoliceReport
             }
         }
 
-        private void DisplayGovernmentStats()
+        private void DisplayGovernmentStats(int playerStrength, int monthlyRevolutionStrength)
         {
-            ConsoleEx.WriteAt(1, 18, $"  Your STRENGTH is {governmentStats.PlayerStrength}           ");
-            ConsoleEx.WriteAt(1, 20, $"  STRENGTH for REVOLUTION is {governmentStats.MonthlyRevolutionStrength} ");
+            ConsoleEx.WriteAt(1, 18, $"  Your STRENGTH is {playerStrength}           ");
+            ConsoleEx.WriteAt(1, 20, $"  STRENGTH for REVOLUTION is {monthlyRevolutionStrength} ");
         }
     }
 }

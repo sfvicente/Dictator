@@ -25,7 +25,7 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayTitleScreen();
             DisplayWelcomeScreen();
             DisplayAccountDetails();
-            userInterface.DisplayPoliceReportScreen();
+            DisplayPoliceReportScreen();
 
             while (true)
             {
@@ -98,6 +98,13 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayAccountScreen(account);
         }
 
+        private void DisplayPoliceReportScreen()
+        {
+            Core.PoliceReport policeReport = engine.GetPoliceReport();
+
+            userInterface.DisplayPoliceReportScreen(policeReport);
+        }
+
         /// <summary>
         ///     Handles the generation and processing of an audience request from one of the groups.
         /// </summary>
@@ -150,7 +157,7 @@ namespace Dictator.ConsoleInterface
             if (dialogResult == DialogResult.Yes)
             {
                 engine.PayFromTreasury(1);
-                userInterface.DisplayPoliceReportScreen();
+                DisplayPoliceReportScreen();
             }
         }
 
