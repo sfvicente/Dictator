@@ -20,6 +20,11 @@ namespace Dictator.Core.Services
             revolution.RevolutionaryGroup = revolutionaryGroup;
         }
 
+        public IRevolution GetRevolutionState()
+        {
+            return revolution;
+        }
+
         public void PunishRevolutionaries()
         {
             Group revolutionaries = revolution.RevolutionaryGroup;
