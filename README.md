@@ -15,7 +15,15 @@ is the People's Republic of Leftoto, a left-wing agricultural country that is sp
 there is a mountain range that serves as a refuge for the guerrillas, whose only purpose in life is to free Ritimba from the tyranny
 of the player's dictatorship.
 
-**TODO: Screenshots**
+<p float="left">
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator1.png?raw=true" width="350" /> 
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator2.png?raw=true" width="350" /> 
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator3.png?raw=true" width="350" /> 
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator4.png?raw=true" width="350" /> 
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator5.png?raw=true" width="350" /> 
+<img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator6.png?raw=true" width="350" /> 
+</p>
+<center><sup>Screenshots from the original game</sup></center>
 
 ## Objective
 The objective of the game is to stay alive and in power as long as you can, while transferring as much state money and development
