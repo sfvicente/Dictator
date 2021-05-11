@@ -24,7 +24,7 @@ of the player's dictatorship.
 <img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator6.png?raw=true" width="350" /> 
 </p>
 <center><sup>Screenshots from the original game</sup></center>
-
+e
 ## Objective
 The objective of the game is to stay alive and in power as long as you can, while transferring as much state money and development
 aid as possible to the player's private *Swiss* bank account.
@@ -41,3 +41,18 @@ get away with life and as much money as possible when everything collapses in th
 As a game progresses, there is a constantly decreasing number of possible courses of action and an ongoing escalation of the political
 situation. This is due to randomly interspersed events ensures that the game generates. A game frequently ends with a revolution or
 assassination attempt by a dissatisfied group, which can result in the death of the dictator.
+
+## Development Status
+All the major functionality is implemented except for a small part in the revolution mechanic. In terms of the UI, it has
+been built as a console application, so some graphics, design and effects (such as flashing buttons and titles) are missing
+or different from the original.
+
+Currently, I'm documenting the code, fixing small issues and finishing the missing revolution logic.
+
+## Future Development
+It should be easy to port it to an environment which can be used to simulate the _ZX Spectrum_ graphics (such as _JavaScript_ or _Blazor_
+with the `Canvas` element). Most of the code would be used as-is and the UI part can be easily modified.
+
+This project can probably be converted into for modern game using _Unity_ or a similar framework with new original graphics with
+support for mobile devices. Another nice feature would be to allow players to enjoy the game online and have an improved mechanism 
+to store and display the multiple scores.
