@@ -217,12 +217,19 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        /// <summary>
+        ///     Processes the scenario when the player wins the war.
+        /// </summary>
+
         private void ProcessWarWonScenario()
         {
             userInterface.DisplayWarWonScreen();
             engine.SetGroupStrength(GroupType.Leftotans, 0);
         }
 
+        /// <summary>
+        ///     Processes the scenario when the player loses the war.
+        /// </summary>
         private void ProcessWarLostScenario()
         {
             userInterface.DisplayWarLostScreen();
