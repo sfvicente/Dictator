@@ -21,42 +21,44 @@ namespace Dictator.ConsoleInterface
         {
             engine.Initialise();
             userInterface.Initialise();
-            userInterface.DisplayIntroScreen();
-            userInterface.DisplayTitleScreen();
-            DisplayWelcomeScreen();
-            DisplayAccountDetails();
-            DisplayPoliceReportScreen();
 
             while (true)
             {
-                engine.SetMonthlyMinimalPopularityAndStrength();
-                engine.SetMonthlyRevolutionStrength();
+                userInterface.DisplayIntroScreen();
+                userInterface.DisplayTitleScreen();
+                DisplayWelcomeScreen();
+                DisplayAccountDetails();
+                DisplayPoliceReportScreen();
 
-                AdvanceAndDisplayCurrentMonth();
-
-                engine.Plot();
-                ProcessTreasuryCosts();
-                HandleAudienceRequest();
-                engine.Plot();
-
-                if (TryProcessAssassinationAttempt() || TryProcessConflict())
+                while (true)
                 {
-                    ProcessEnd();
-                    break;
-                }
+                    engine.SetMonthlyMinimalPopularityAndStrength();
+                    engine.SetMonthlyRevolutionStrength();
+                    AdvanceAndDisplayCurrentMonth();
+                    engine.Plot();
+                    ProcessTreasuryCosts();
+                    HandleAudienceRequest();
+                    engine.Plot();
 
-                engine.Plot();
-                ProcessPoliceReport();
-                HandlePresidentialDecision();
-                ProcessPoliceReport();
-                TryTriggerNews();
-
-                if (TryTriggerRevolution())
-                {
-                    if (TryProcessGovernmentOverthrown())
+                    if (TryProcessAssassinationAttempt() || TryProcessConflict())
                     {
                         ProcessEnd();
                         break;
+                    }
+
+                    engine.Plot();
+                    ProcessPoliceReport();
+                    HandlePresidentialDecision();
+                    ProcessPoliceReport();
+                    TryTriggerNews();
+
+                    if (TryTriggerRevolution())
+                    {
+                        if (TryProcessGovernmentOverthrown())
+                        {
+                            ProcessEnd();
+                            break;
+                        }
                     }
                 }
             }
@@ -331,7 +333,7 @@ namespace Dictator.ConsoleInterface
                     }
                     else
                     {
-                        if(decision.DecisionSubType == DecisionSubType.PurchaseHelicopter)
+                        if (decision.DecisionSubType == DecisionSubType.PurchaseHelicopter)
                         {
                             engine.PurchasedHelicopter();
                         }
@@ -421,8 +423,8 @@ namespace Dictator.ConsoleInterface
                 userInterface.DisplayRevolutionStartedScreen();
 
                 bool doesRevolutionSucceed = engine.DoesRevolutionSucceed(revolution.PlayerStrength, revolution.RevolutionStrength);
-               
-                if(doesRevolutionSucceed)
+
+                if (doesRevolutionSucceed)
                 {
                     userInterface.DisplayRevolutionOverthrownScreen();
                     engine.KillPlayer();
