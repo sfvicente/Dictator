@@ -53,6 +53,6 @@ Currently, I'm documenting the code, fixing small issues and finishing the missi
 It should be easy to port it to an environment which can be used to simulate the _ZX Spectrum_ graphics (such as _JavaScript_ or _Blazor_
 with the `Canvas` element). Most of the code would be used as-is and the UI part can be easily modified.
 
-This project can probably be converted into for modern game using _Unity_ or a similar framework with new original graphics with
+This project can probably be converted into a modern game using _Unity_ or a similar framework with new original graphics with
 support for mobile devices. Another nice feature would be to allow players to enjoy the game online and have an improved mechanism 
 to store and display the multiple scores.
