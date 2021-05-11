@@ -18,7 +18,7 @@ namespace Dictator.ConsoleInterface.Revolution
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(12, 24, "   The REVOLUTION has STARTED   ");
+            ConsoleEx.WriteAt(1, 12, "   The REVOLUTION has STARTED   ");
             pressAnyKeyControl.Show();
         }
     }
