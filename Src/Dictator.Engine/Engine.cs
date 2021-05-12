@@ -48,6 +48,7 @@ namespace Dictator.Core
             governmentStats.Initialise();
             groupStats.Initialise();
             audienceStats.Initialise();
+            decisionStats.Initialise();
             newsService.Initialise();
         }
 
