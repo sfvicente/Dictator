@@ -310,7 +310,16 @@ namespace Dictator.Core
         /// <returns></returns>
         public LoanApplicationResult AskForLoan(Country country)
         {
-            // TODO: Check if it's not to yearly for a loan
+            LoanApplicationResult loanApplicationResult = new LoanApplicationResult
+            {
+                Country = country
+            };
+
+            if (IsTooEarlyForLoan())
+            {
+                loanApplicationResult.IsAccepted = false;
+                loanApplicationResult.RefusalType = LoanApplicationRefusalType.TooEarly;
+            }
 
             // TODO: Check if loans have been used
 
@@ -331,10 +340,6 @@ namespace Dictator.Core
             }
 
             Group group = groupService.GetGroupByType(groupType);
-            LoanApplicationResult loanApplicationResult = new LoanApplicationResult
-            {
-                Country = country
-            };
 
             if (group.Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
             {
@@ -728,6 +733,19 @@ namespace Dictator.Core
             int policeStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
             return policeStrength > governmentService.MonthlyMinimalPopularityAndStrength;
+        }
+
+        private bool IsTooEarlyForLoan()
+        {
+            Random random = new Random();
+            int minimumRandomMonthRequirement = random.Next(0, 5) + 3;
+
+            if(governmentService.Month <= minimumRandomMonthRequirement)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
