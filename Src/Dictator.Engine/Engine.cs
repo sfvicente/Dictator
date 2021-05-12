@@ -310,8 +310,6 @@ namespace Dictator.Core
         /// <returns></returns>
         public LoanApplicationResult AskForLoan(Country country)
         {
-            LoanApplicationResult loanApplicationResult = new LoanApplicationResult();
-
             // TODO: Check if it's not to yearly for a loan
 
             // TODO: Check if loans have been used
@@ -333,8 +331,12 @@ namespace Dictator.Core
             }
 
             Group group = groupService.GetGroupByType(groupType);
+            LoanApplicationResult loanApplicationResult = new LoanApplicationResult
+            {
+                Country = country
+            };
 
-            if(group.Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
+            if (group.Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
             {
                 loanApplicationResult.IsAccepted = false;
                 loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
