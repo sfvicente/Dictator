@@ -26,7 +26,7 @@ namespace Dictator.ConsoleInterface.Start
 
             if (highscore > 0)
             {
-                ConsoleEx.WriteAt(1, 14, $"You can always try for {highscore++} !");
+                ConsoleEx.WriteAt(1, 14, $"You can always try for {highscore + 1} !");
             }
             else
             {
