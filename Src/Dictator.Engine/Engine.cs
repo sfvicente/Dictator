@@ -735,6 +735,10 @@ namespace Dictator.Core
             return policeStrength > governmentService.MonthlyMinimalPopularityAndStrength;
         }
 
+        /// <summary>
+        ///     Determines if it is too early in the game to ask for foreign help.
+        /// </summary>
+        /// <returns><c>true</c> if it is too early in the game to receive a loan; otherwise, <c>false</c>.</returns>
         private bool IsTooEarlyForLoan()
         {
             Random random = new Random();
