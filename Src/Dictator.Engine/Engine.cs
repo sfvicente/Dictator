@@ -788,7 +788,7 @@ namespace Dictator.Core
         ///     Calculates the strength of Leftoto in a scenario of war.
         /// </summary>
         /// <returns>The total strength of Leftoto.</returns>
-        public int CalculateLeftotoStrength()
+        private int CalculateLeftotoStrength()
         {
             int totalStrength = 0;
             Group[] groups = groupService.GetGroups();
