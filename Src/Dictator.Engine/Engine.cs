@@ -373,6 +373,10 @@ namespace Dictator.Core
             accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
         }
 
+        /// <summary>
+        ///     Marks a presidential decision option as used.
+        /// </summary>
+        /// <param name="text">The text of the presidential decision which will be marked as used.</param>
         public void MarkDecisionAsUsed(string text)
         {
             decisionService.MarkDecisionAsUsed(text);
