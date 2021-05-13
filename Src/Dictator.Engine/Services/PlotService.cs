@@ -6,31 +6,31 @@ namespace Dictator.Core.Services
 {
     public class PlotService : IPlotService
     {
-        private readonly IGroupService groupStats;
-        private readonly IGovernmentService governmentStats;
+        private readonly IGroupService groupService;
+        private readonly IGovernmentService governmentService;
 
         public PlotService(IGroupService groupStats, IGovernmentService governmentStats)
         {
-            this.groupStats = groupStats;
-            this.governmentStats = governmentStats;
+            this.groupService = groupStats;
+            this.governmentService = governmentStats;
         }
 
         public void Plot()
         {
             // Do not trigger assatinations or revolutions after failed revolution
-            if (governmentStats.Month < governmentStats.PlotBonus)
+            if (governmentService.Month < governmentService.PlotBonus)
             {
                 return;
             }
 
             // Do not trigger assassinations or revolutions in the first 2 months of government
-            if (governmentStats.Month > 2)
+            if (governmentService.Month > 2)
             {
-                groupStats.ResetStatusAndAllies();
+                groupService.ResetStatusAndAllies();
 
-                Group[] groups = groupStats.GetGroups();
-                int monthlyMinimalPopularityAndStrength = governmentStats.MonthlyMinimalPopularityAndStrength;
-                int monthlyRevolutionStrength = governmentStats.MonthlyRevolutionStrength;
+                Group[] groups = groupService.GetGroups();
+                int monthlyMinimalPopularityAndStrength = governmentService.MonthlyMinimalPopularityAndStrength;
+                int monthlyRevolutionStrength = governmentService.MonthlyRevolutionStrength;
 
                 // Perform internal plot logic
                 ExecutePlot(groups, monthlyMinimalPopularityAndStrength, monthlyRevolutionStrength);
