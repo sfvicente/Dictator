@@ -40,8 +40,6 @@ namespace Dictator.Core.Services
                 TotalScore = totalScore
             };
 
-            // TODO: save history?
-
             return score;
         }
 
