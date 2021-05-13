@@ -7,12 +7,12 @@ namespace Dictator.Core.Services
     public class RevolutionService : IRevolutionService
     {
         private readonly IRevolution revolution;
-        private readonly IGroupService groupStats;
+        private readonly IGroupService groupService;
 
         public RevolutionService(IRevolution revolution, IGroupService groupStats)
         {
             this.revolution = revolution;
-            this.groupStats = groupStats;
+            this.groupService = groupStats;
         }
 
         public void SetRevolutionaryGroup(Group revolutionaryGroup)
@@ -30,10 +30,10 @@ namespace Dictator.Core.Services
             Group revolutionaries = revolution.RevolutionaryGroup;
             Group revolutionaryAllies = revolutionaries.Ally;
 
-            groupStats.SetStrength(revolutionaries.Type, 0);
-            groupStats.SetPopularity(revolutionaries.Type, 0);
-            groupStats.SetStrength(revolutionaryAllies.Type, 0);
-            groupStats.SetPopularity(revolutionaryAllies.Type, 0);
+            groupService.SetStrength(revolutionaries.Type, 0);
+            groupService.SetPopularity(revolutionaries.Type, 0);
+            groupService.SetStrength(revolutionaryAllies.Type, 0);
+            groupService.SetPopularity(revolutionaryAllies.Type, 0);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Dictator.Core.Services
         {
             if(revolution.PlayerAlly != null)
             {
-                groupStats.SetPopularity(revolution.PlayerAlly.Type, 9);
+                groupService.SetPopularity(revolution.PlayerAlly.Type, 9);
             }
         }
     }
