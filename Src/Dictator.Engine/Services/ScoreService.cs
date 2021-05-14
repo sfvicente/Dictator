@@ -6,26 +6,26 @@ namespace Dictator.Core.Services
 {
     public class ScoreService : IScoreService
     {
-        private readonly IGroupService groupStats;
-        private readonly IGovernmentService governmentStats;
+        private readonly IGroupService groupService;
+        private readonly IGovernmentService governmentService;
         private readonly IAccountService accountService;
 
-        public ScoreService(IGroupService groupStats, IGovernmentService governmentStats, IAccountService accountService)
+        public ScoreService(IGroupService groupService, IGovernmentService governmentService, IAccountService accountService)
         {
-            this.groupStats = groupStats;
-            this.governmentStats = governmentStats;
+            this.groupService = groupService;
+            this.governmentService = governmentService;
             this.accountService = accountService;
         }
 
         public Score GetCurrentScore()
         {
-            int totalPopularity = groupStats.GetTotalPopularity();
-            int monthsInOffice = governmentStats.Month;
+            int totalPopularity = groupService.GetTotalPopularity();
+            int monthsInOffice = governmentService.Month;
             int pointsForMonthsInOffice = monthsInOffice * 3;
             int moneyGrabbed = accountService.GetSwissBankAccountBalance();
             int pointsForMoneyGrabbing = moneyGrabbed / 10;
-            int highestScore = governmentStats.LastScore;
-            int pointsForStayingAlive = governmentStats.IsPlayerAlive ? 10 : 0;
+            int highestScore = governmentService.LastScore;
+            int pointsForStayingAlive = governmentService.IsPlayerAlive ? 10 : 0;
             int totalScore = totalPopularity + pointsForMonthsInOffice + pointsForMoneyGrabbing + pointsForStayingAlive;
 
             Score score = new Score()
@@ -50,13 +50,13 @@ namespace Dictator.Core.Services
 
             if(score.TotalScore > highestScore)
             {
-                governmentStats.LastScore = score.TotalScore;                
+                governmentService.LastScore = score.TotalScore;                
             }
         }
 
         public int GetCurrentHighscore()
         {
-            int highestScore = governmentStats.LastScore;
+            int highestScore = governmentService.LastScore;
 
             return highestScore;
         }
