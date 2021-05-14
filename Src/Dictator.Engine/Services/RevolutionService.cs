@@ -8,11 +8,13 @@ namespace Dictator.Core.Services
     {
         private readonly IRevolution revolution;
         private readonly IGroupService groupService;
+        private readonly IGovernmentService governmentService;
 
-        public RevolutionService(IRevolution revolution, IGroupService groupStats)
+        public RevolutionService(IRevolution revolution, IGroupService groupStats, IGovernmentService governmentService)
         {
             this.revolution = revolution;
             this.groupService = groupStats;
+            this.governmentService = governmentService;
         }
 
         public void SetRevolutionaryGroup(Group revolutionaryGroup)
@@ -23,6 +25,22 @@ namespace Dictator.Core.Services
         public IRevolution GetRevolutionState()
         {
             return revolution;
+        }
+
+        public Dictionary<int, Group> FindPossibleAllies()
+        {
+            Group[] groups = groupService.GetGroups();
+            Dictionary<int, Group> possibleAllies = new Dictionary<int, Group>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                if (groups[i].Popularity > governmentService.MonthlyMinimalPopularityAndStrength)
+                {
+                    possibleAllies.Add(i, groups[i]);
+                }
+            }
+
+            return possibleAllies;
         }
 
         public void PunishRevolutionaries()

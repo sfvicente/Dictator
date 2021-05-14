@@ -525,7 +525,7 @@ namespace Dictator.Core
 
         public void InitialiseRevolution()
         {
-            Dictionary<int, Group> possibleAllies = FindPossibleAllies();
+            Dictionary<int, Group> possibleAllies = revolutionService.FindPossibleAllies();
 
             // TODO: Determine the player combined strength
 
@@ -720,22 +720,6 @@ namespace Dictator.Core
             int policePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
             return policePopularity > governmentService.MonthlyMinimalPopularityAndStrength;
-        }
-
-        private Dictionary<int, Group> FindPossibleAllies()
-        {
-            Group[] groups = groupService.GetGroups();
-            Dictionary<int, Group> possibleAllies = new Dictionary<int, Group>();
-
-            for (int i = 0; i < 6; i++)
-            {
-                if (groups[i].Popularity > governmentService.MonthlyMinimalPopularityAndStrength)
-                {
-                    possibleAllies.Add(i, groups[i]);
-                }
-            }
-
-            return possibleAllies;
         }
 
         private bool HasPoliceEnoughStrength()

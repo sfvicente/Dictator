@@ -6,6 +6,7 @@ namespace Dictator.Core.Services
 {
     public interface IRevolutionService
     {
+        public Dictionary<int, Group> FindPossibleAllies();
         public void SetRevolutionaryGroup(Group revolutionaryGroup);
         public void PunishRevolutionaries();
         public void BoostAllyPopularity();
