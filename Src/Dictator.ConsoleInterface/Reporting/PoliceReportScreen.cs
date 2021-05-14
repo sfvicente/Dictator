@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dictator.ConsoleInterface.PoliceReport
+namespace Dictator.ConsoleInterface.Reporting
 {
     public class PoliceReportScreen : IPoliceReportScreen
     {
@@ -18,7 +18,7 @@ namespace Dictator.ConsoleInterface.PoliceReport
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
-        public void Show(Core.PoliceReport policeReport)
+        public void Show(PoliceReport policeReport)
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;

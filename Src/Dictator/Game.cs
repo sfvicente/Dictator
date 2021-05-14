@@ -102,7 +102,7 @@ namespace Dictator.ConsoleInterface
 
         private void DisplayPoliceReportScreen()
         {
-            Core.PoliceReport policeReport = engine.GetPoliceReport();
+            PoliceReport policeReport = engine.GetPoliceReport();
 
             userInterface.DisplayPoliceReportScreen(policeReport);
         }

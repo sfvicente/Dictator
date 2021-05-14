@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.ConsoleInterface.PoliceReport
+namespace Dictator.ConsoleInterface.Reporting
 {
     public class PoliceReportRequestDialog : IPoliceReportRequestDialog
     {

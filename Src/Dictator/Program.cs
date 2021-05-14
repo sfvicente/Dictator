@@ -7,7 +7,7 @@ using Dictator.ConsoleInterface.End;
 using Dictator.ConsoleInterface.Escape;
 using Dictator.ConsoleInterface.Month;
 using Dictator.ConsoleInterface.News;
-using Dictator.ConsoleInterface.PoliceReport;
+using Dictator.ConsoleInterface.Reporting;
 using Dictator.ConsoleInterface.PresidentialDecision;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Start;

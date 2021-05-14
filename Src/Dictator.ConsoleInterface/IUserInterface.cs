@@ -11,7 +11,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayTitleScreen();
         public void DisplayAccountScreen(Account account);
         public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest);
-        public void DisplayPoliceReportScreen(Core.PoliceReport policeReport);
+        public void DisplayPoliceReportScreen(PoliceReport policeReport);
         public void DisplayAudienceScreen(Core.Audience audience);
         public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience);
         public DialogResult DisplayAdviceRequestDialog();
