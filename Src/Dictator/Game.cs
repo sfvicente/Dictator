@@ -493,7 +493,7 @@ namespace Dictator.ConsoleInterface
         {
             userInterface.DisplayEscapeToLeftotoScreen();
 
-            if (engine.DoesGuerrilaCatchPlayerEscaping())
+            if (engine.DoesGuerrillaCatchPlayerEscaping())
             {
                 userInterface.DisplayGuerillasCelebratingScreen();
                 // TODO: kill player?

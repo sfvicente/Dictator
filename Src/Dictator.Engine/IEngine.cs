@@ -52,7 +52,7 @@ namespace Dictator.Core
         public bool HasPlayerPurchasedHelicopter();
         public bool IsPlayerAbleToEscapeByHelicopter();
         public bool IsPlayerAbleToEscapeAfterLosingWar();
-        public bool DoesGuerrilaCatchPlayerEscaping();
+        public bool DoesGuerrillaCatchPlayerEscaping();
         public void KillPlayer();
         public int GetHighscore();
         public Score GetCurrentScore();
