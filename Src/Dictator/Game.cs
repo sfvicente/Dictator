@@ -125,6 +125,10 @@ namespace Dictator.ConsoleInterface
             DisplayAccountDetails();
         }
 
+        /// <summary>
+        ///     Determines if the player has chosen to accept advice.
+        /// </summary>
+        /// <returns><c>true</c> if the player accepted advice; otherwise, <c>false</c>.</returns>
         private bool DoesPlayerAcceptAdvice()
         {
             DialogResult dialogResult = userInterface.DisplayAdviceRequestDialog();
