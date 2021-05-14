@@ -64,6 +64,9 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Displays the welcome screen.
+        /// </summary>
         private void DisplayWelcomeScreen()
         {
             int highscore = engine.GetHighscore();
