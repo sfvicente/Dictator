@@ -209,7 +209,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayWarThreatScreen() => warThreatScreen.Show();
 
-        public void DisplayWarScreen() => warScreen.Show();
+        public void DisplayWarScreen(WarStats warStats) => warScreen.Show(warStats);
 
         public void DisplayLeftotoInvadesScreen(WarStats warStats) => leftotoInvadesScreen.Show(warStats);
 

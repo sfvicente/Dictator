@@ -194,10 +194,9 @@ namespace Dictator.ConsoleInterface
             {
                 if (engine.ShouldWarHappen())
                 {
-                    userInterface.DisplayWarScreen();
-
                     WarStats warStats = engine.BeginInvasion();
 
+                    userInterface.DisplayWarScreen(warStats);                 
                     userInterface.DisplayLeftotoInvadesScreen(warStats);
 
                     bool hasWarBeenWon = engine.ExecuteWar(warStats);

@@ -34,7 +34,7 @@ namespace Dictator.ConsoleInterface
         public DialogResult DisplayRevolutionCrushedDialog();
         public void DisplayRevolutionOverthrownScreen();
         public void DisplayWarThreatScreen();
-        public void DisplayWarScreen();
+        public void DisplayWarScreen(WarStats warStats);
         public void DisplayLeftotoInvadesScreen(WarStats warStats);
         public void DisplayWarLostScreen();
         public void DisplayWarWonScreen();
