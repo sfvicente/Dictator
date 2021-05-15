@@ -18,19 +18,19 @@ namespace Dictator.Core.Services
         public void Plot()
         {
             // Do not trigger assatinations or revolutions after failed revolution
-            if (governmentService.Month < governmentService.PlotBonus)
+            if (governmentService.GetMonth() < governmentService.GetPlotBonus())
             {
                 return;
             }
 
             // Do not trigger assassinations or revolutions in the first 2 months of government
-            if (governmentService.Month > 2)
+            if (governmentService.GetMonth() > 2)
             {
                 groupService.ResetStatusAndAllies();
 
                 Group[] groups = groupService.GetGroups();
-                int monthlyMinimalPopularityAndStrength = governmentService.MonthlyMinimalPopularityAndStrength;
-                int monthlyRevolutionStrength = governmentService.MonthlyRevolutionStrength;
+                int monthlyMinimalPopularityAndStrength = governmentService.GetMonthlyMinimalPopularityAndStrength();
+                int monthlyRevolutionStrength = governmentService.GetMonthlyRevolutionStrength();
 
                 // Perform internal plot logic
                 ExecutePlot(groups, monthlyMinimalPopularityAndStrength, monthlyRevolutionStrength);

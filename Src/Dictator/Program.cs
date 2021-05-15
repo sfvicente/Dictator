@@ -93,6 +93,7 @@ namespace Dictator
             .AddScoped<IPressAnyKeyWithYesControl, PressAnyKeyWithYesControl>()
             // Models
             .AddScoped<IAccount, Account>()
+            .AddScoped<IGovernment, Government>()
             .AddScoped<IGovernmentService, GovernmentService>()
             .AddScoped<IGroupService, GroupService>()
             .AddScoped<IDecisionService, DecisionService>()

@@ -34,7 +34,7 @@ namespace Dictator.Core.Services
 
             for (int i = 0; i < 6; i++)
             {
-                if (groups[i].Popularity > governmentService.MonthlyMinimalPopularityAndStrength)
+                if (groups[i].Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
                 {
                     possibleAllies.Add(i, groups[i]);
                 }

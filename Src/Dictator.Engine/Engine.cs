@@ -89,10 +89,10 @@ namespace Dictator.Core
         {
             PoliceReport policeReport = new PoliceReport
             {
-                Month = governmentService.Month,
+                Month = governmentService.GetMonth(),
                 Groups = groupService.GetGroups().AsReadOnly(),
-                PlayerStrength = governmentService.PlayerStrength,
-                MonthlyRevolutionStrength = governmentService.MonthlyRevolutionStrength
+                PlayerStrength = governmentService.GetPlayerStrength(),
+                MonthlyRevolutionStrength = governmentService.GetMonthlyRevolutionStrength()
             };
 
             return policeReport;
@@ -116,7 +116,7 @@ namespace Dictator.Core
 
         public int GetMonth()
         {
-            return governmentService.Month;
+            return governmentService.GetMonth();
         }
 
         public bool IsGovernmentBankrupt()
@@ -158,14 +158,14 @@ namespace Dictator.Core
         {
             Random random = new Random();
 
-            governmentService.MonthlyMinimalPopularityAndStrength = random.Next(2, 5);
+            governmentService.SetMonthlyMinimalPopularityAndStrength(random.Next(2, 5));
         }
 
         public void SetMonthlyRevolutionStrength()
         {
             Random random = new Random();
 
-            governmentService.MonthlyRevolutionStrength = random.Next(10, 13);
+            governmentService.SetMonthlyRevolutionStrength(random.Next(10, 13));
         }
 
         public void Plot()
@@ -341,7 +341,7 @@ namespace Dictator.Core
 
             Group group = groupService.GetGroupByType(groupType);
 
-            if (group.Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
+            if (group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 loanApplicationResult.IsAccepted = false;
                 loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
@@ -411,8 +411,8 @@ namespace Dictator.Core
         {
             Group leftotans = groupService.GetGroupByType(GroupType.Leftotans);
 
-            if(leftotans.Popularity > governmentService.MonthlyMinimalPopularityAndStrength ||
-                leftotans.Strength < governmentService.MonthlyMinimalPopularityAndStrength)
+            if(leftotans.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength() ||
+                leftotans.Strength < governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 return false;
             }
@@ -559,7 +559,7 @@ namespace Dictator.Core
         public void ApplyRevolutionCrushedEffects()
         {
             revolutionService.BoostAllyPopularity();
-            governmentService.PlotBonus = governmentService.Month + 2;  // Prevent revolutions for the next two months
+            governmentService.SetPlotBonus(governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
             groupService.ResetStatusAndAllies();
             // TODO: reset player's ally and revolution properties?
 
@@ -579,7 +579,7 @@ namespace Dictator.Core
         /// <returns></returns>
         public bool HasPlayerPurchasedHelicopter()
         {
-            return governmentService.HasHelicopter;
+            return governmentService.HasPlayerPurchasedHelicopter();
         }
 
         /// <summary>
@@ -671,7 +671,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if the player is not popular enough with the secret police; otherwise, <c>false</c>.</returns>
         private bool DoesPoliceHatePlayer()
         {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
+            if (groupService.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 return true;
             }
@@ -681,7 +681,7 @@ namespace Dictator.Core
 
         private bool IsPoliceUnableToProtectPlayer()
         {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Strength <= governmentService.MonthlyMinimalPopularityAndStrength)
+            if (groupService.GetGroupByType(GroupType.SecretPolice).Strength <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 return true;
             }
@@ -723,14 +723,14 @@ namespace Dictator.Core
         {
             int secretPolicePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
-            return secretPolicePopularity > governmentService.MonthlyMinimalPopularityAndStrength;
+            return secretPolicePopularity > governmentService.GetMonthlyMinimalPopularityAndStrength();
         }
 
         private bool HasPoliceEnoughStrength()
         {
             int policeStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
-            return policeStrength > governmentService.MonthlyMinimalPopularityAndStrength;
+            return policeStrength > governmentService.GetMonthlyMinimalPopularityAndStrength();
         }
 
         /// <summary>
@@ -742,7 +742,7 @@ namespace Dictator.Core
             Random random = new Random();
             int minimumRandomMonthRequirement = random.Next(0, 5) + 3;
 
-            if(governmentService.Month <= minimumRandomMonthRequirement)
+            if(governmentService.GetMonth() <= minimumRandomMonthRequirement)
             {
                 return false;
             }
@@ -762,7 +762,7 @@ namespace Dictator.Core
             // Sum the strength of the army, peasants and landowners if they have minimal popularity
             for (int i = 0; i < 3; i++)
             {
-                if (groups[i].Popularity > governmentService.MonthlyMinimalPopularityAndStrength)
+                if (groups[i].Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
                 {
                     totalStrength += groups[i].Strength;
                 }
@@ -771,13 +771,13 @@ namespace Dictator.Core
             Group secretPoliceGroup = groupService.GetGroupByType(GroupType.SecretPolice);
 
             // Add the strength of the secret police strength if they have minimal popularity
-            if (secretPoliceGroup.Popularity > governmentService.MonthlyMinimalPopularityAndStrength)
+            if (secretPoliceGroup.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 totalStrength += secretPoliceGroup.Strength;
             }
                 
             // Add the strength of the player to the total
-            totalStrength += governmentService.PlayerStrength;
+            totalStrength += governmentService.GetPlayerStrength();
 
             return totalStrength;
         }
@@ -794,7 +794,7 @@ namespace Dictator.Core
             // Add the strength of all groups except Russians and Americans that are equal or below the minimal popularity
             for(int i = 0; i < 6; i++)
             {
-                if (groups[i].Popularity <= governmentService.MonthlyMinimalPopularityAndStrength)
+                if (groups[i].Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
                 {
                     totalStrength += groups[i].Strength;
                 }

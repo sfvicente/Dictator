@@ -6,20 +6,23 @@ namespace Dictator.Core.Services
 {
     public interface IGovernmentService
     {
-        public bool IsPlayerAlive { get; }
-        public bool HasHelicopter { get; }
-        public int PlayerStrength { get; }
-        public int Month { get; }
-        public int PlotBonus { get; set; }
-        public int MonthlyRevolutionStrength { get; set; }
-        public int MonthlyMinimalPopularityAndStrength { get; set; }
-        public int LastScore { get; set; }
-
         public void Initialise();
         public void AdvanceMonth();
+        public int GetMonth();
         public void IncreasePlayerStrength(int amount);
         public void DecreasePlayerStrength();
         public void KillPlayer();
-        void PurchaseHelicopter();
+        public bool IsPlayerAlive();
+        public void PurchaseHelicopter();
+        public bool HasPlayerPurchasedHelicopter();
+        public int GetLastScore();
+        public void SetHighScore(int totalScore);
+        public int GetPlayerStrength();
+        public int GetMonthlyRevolutionStrength();
+        public int GetPlotBonus();
+        public void SetMonthlyRevolutionStrength(int monthlyRevolutionStrength);
+        public int GetMonthlyMinimalPopularityAndStrength();
+        public void SetMonthlyMinimalPopularityAndStrength(int monthlyMinimalPopularityAndStrength);
+        public void SetPlotBonus(int plotBonus);
     }
 }

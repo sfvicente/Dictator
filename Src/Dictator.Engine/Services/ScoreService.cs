@@ -20,12 +20,12 @@ namespace Dictator.Core.Services
         public Score GetCurrentScore()
         {
             int totalPopularity = groupService.GetTotalPopularity();
-            int monthsInOffice = governmentService.Month;
+            int monthsInOffice = governmentService.GetMonth();
             int pointsForMonthsInOffice = monthsInOffice * 3;
             int moneyGrabbed = accountService.GetSwissBankAccountBalance();
             int pointsForMoneyGrabbing = moneyGrabbed / 10;
-            int highestScore = governmentService.LastScore;
-            int pointsForStayingAlive = governmentService.IsPlayerAlive ? 10 : 0;
+            int highestScore = governmentService.GetLastScore();
+            int pointsForStayingAlive = governmentService.IsPlayerAlive() ? 10 : 0;
             int totalScore = totalPopularity + pointsForMonthsInOffice + pointsForMoneyGrabbing + pointsForStayingAlive;
 
             Score score = new Score()
@@ -50,13 +50,13 @@ namespace Dictator.Core.Services
 
             if(score.TotalScore > highestScore)
             {
-                governmentService.LastScore = score.TotalScore;                
+                governmentService.SetHighScore(score.TotalScore);
             }
         }
 
         public int GetCurrentHighscore()
         {
-            int highestScore = governmentService.LastScore;
+            int highestScore = governmentService.GetLastScore();
 
             return highestScore;
         }
