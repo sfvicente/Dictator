@@ -16,7 +16,7 @@ namespace Dictator.ConsoleInterface.Common
 
         public DialogResult Show()
         {
-            ConsoleEx.WriteAt(11, 21, " \"Y\"= KEY ", ConsoleColor.White, ConsoleColor.Black); // TODO: the label needs to be flashing
+            ConsoleEx.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black); // TODO: the label needs to be flashing
             keyPanel.Show();
 
             ConsoleKey keyPressed = Console.ReadKey(true).Key;
