@@ -319,6 +319,8 @@ namespace Dictator.Core
             {
                 loanApplicationResult.IsAccepted = false;
                 loanApplicationResult.RefusalType = LoanApplicationRefusalType.TooEarly;
+
+                return loanApplicationResult;
             }
 
             // TODO: Check if loans have been used
@@ -744,10 +746,10 @@ namespace Dictator.Core
 
             if(governmentService.GetMonth() <= minimumRandomMonthRequirement)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         /// <summary>
