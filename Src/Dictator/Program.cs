@@ -94,14 +94,14 @@ namespace Dictator
             // Models
             .AddScoped<IAccount, Account>()
             .AddScoped<IGovernment, Government>()
+            .AddScoped<IRevolution, Revolution>()
+            // Services
+            .AddScoped<IAccountService, AccountService>()
             .AddScoped<IGovernmentService, GovernmentService>()
             .AddScoped<IGroupService, GroupService>()
             .AddScoped<IDecisionService, DecisionService>()
             .AddScoped<INewsService, NewsService>()
             .AddScoped<IAudienceService, AudienceService>()
-            .AddScoped<IRevolution, Revolution>()
-            // Services
-            .AddScoped<IAccountService, AccountService>()
             .AddScoped<IPlotService, PlotService>()
             .AddScoped<IScoreService, ScoreService>()
             .AddScoped<IRevolutionService, RevolutionService>()
