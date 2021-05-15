@@ -94,9 +94,9 @@ namespace Dictator.Core.Services
             return government.MonthlyMinimalPopularityAndStrength;
         }
 
-        public void SetMonthlyRevolutionStrength(int monthlyMinimalPopularityAndStrength)
+        public void SetMonthlyRevolutionStrength(int monthlyRevolutionStrength)
         {
-            government.MonthlyMinimalPopularityAndStrength = monthlyMinimalPopularityAndStrength;
+            government.MonthlyRevolutionStrength = monthlyRevolutionStrength;
         }
 
         public int GetPlotBonus()
