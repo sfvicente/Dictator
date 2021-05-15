@@ -76,7 +76,7 @@ namespace Dictator.Core
             PoliceReportRequest policeReportRequest = new PoliceReportRequest
             {
                 HasEnoughBalance = GetTreasuryBalance() > 0,
-                HasEnoughPopularityWithPolice = HasEnoughPopularityWithPolice(),
+                IsPlayerPopularWithSecretPolice = IsPlayerPopularWithSecretPolice(),
                 HasPoliceEnoughStrength = HasPoliceEnoughStrength(),
                 PolicePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice),
                 PoliceStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice)
@@ -715,11 +715,15 @@ namespace Dictator.Core
             governmentService.DecreasePlayerStrength();
         }
 
-        private bool HasEnoughPopularityWithPolice()
+        /// <summary>
+        ///     Determines if the player is popular with the secret police.
+        /// </summary>
+        /// <returns><c>true</c> if the player is popular with the secret police; otherwise, <c>false</c>.</returns>
+        private bool IsPlayerPopularWithSecretPolice()
         {
-            int policePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice);
+            int secretPolicePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
-            return policePopularity > governmentService.MonthlyMinimalPopularityAndStrength;
+            return secretPolicePopularity > governmentService.MonthlyMinimalPopularityAndStrength;
         }
 
         private bool HasPoliceEnoughStrength()

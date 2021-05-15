@@ -29,7 +29,7 @@ namespace Dictator.ConsoleInterface.Reporting
 
             DialogResult dialogResult;
             
-            if (policeReportRequest.HasEnoughBalance && policeReportRequest.HasEnoughPopularityWithPolice && policeReportRequest.HasPoliceEnoughStrength)
+            if (policeReportRequest.HasEnoughBalance && policeReportRequest.IsPlayerPopularWithSecretPolice && policeReportRequest.HasPoliceEnoughStrength)
             {
                 ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
                 dialogResult = pressAnyKeyWithYesControl.Show();
@@ -40,7 +40,7 @@ namespace Dictator.ConsoleInterface.Reporting
 
                 int screenRow = 12;
 
-                if (!policeReportRequest.HasEnoughPopularityWithPolice)
+                if (!policeReportRequest.IsPlayerPopularWithSecretPolice)
                 {
                     ConsoleEx.WriteAt(1, screenRow++, $"  Your POPULARITY with us is {policeReportRequest.PolicePopularity}  ");
                 }

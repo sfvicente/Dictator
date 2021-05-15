@@ -15,9 +15,9 @@ namespace Dictator.Core
         public bool HasEnoughBalance { get; set; }
 
         /// <summary>
-        ///     Gets or sets a value that indicates whether the player has enough popularity with the police to display a report.
+        ///     Gets or sets a value that indicates whether the player is popular with the secret police.
         /// </summary>
-        public bool HasEnoughPopularityWithPolice { get; set; }
+        public bool IsPlayerPopularWithSecretPolice { get; set; }
 
         /// <summary>
         ///     Gets or sets a value that indicates whether the police has enough strength to display a report.
