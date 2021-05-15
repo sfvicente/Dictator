@@ -24,7 +24,7 @@ of the player's dictatorship.
 <img src="https://github.com/sfvicente/Dictator/blob/main/Images/dictator6.png?raw=true" width="350" /> 
 </p>
 <center><sup>Screenshots from the original game</sup></center>
-e
+
 ## Objective
 The objective of the game is to stay alive and in power as long as you can, while transferring as much state money and development
 aid as possible to the player's private *Swiss* bank account.
@@ -47,7 +47,7 @@ All the major functionality is implemented except for a small part in the revolu
 been built as a console application, so some graphics, design and effects (such as flashing buttons and titles) are missing
 or different from the original.
 
-Currently, I'm documenting the code, fixing small issues and finishing the missing revolution logic.
+Currently, I'm documenting the code, fixing small issues, adding tests and finishing the missing revolution logic.
 
 ## Future Development
 It should be easy to port it to an environment which can be used to simulate the _ZX Spectrum_ graphics (such as _JavaScript_ or _Blazor_
