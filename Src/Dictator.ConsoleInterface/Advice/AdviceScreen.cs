@@ -33,7 +33,7 @@ namespace Dictator.ConsoleInterface.Advice
             pressAnyKeyControl.Show();
         }
 
-        public void DisplayPopularityChanges(string groupPopularityChanges)
+        private void DisplayPopularityChanges(string groupPopularityChanges)
         {
             int line = 6;
 
@@ -50,7 +50,7 @@ namespace Dictator.ConsoleInterface.Advice
             }
         }
 
-        public void DisplayGroupStrengthChanges(string groupStrengthChanges)
+        private void DisplayGroupStrengthChanges(string groupStrengthChanges)
         {
             int line = Console.CursorTop + 3;
 
@@ -67,7 +67,7 @@ namespace Dictator.ConsoleInterface.Advice
             }
         }
 
-        public string GetFormattedChange(int change)
+        private string GetFormattedChange(int change)
         {
             if(change > 0)
             {
