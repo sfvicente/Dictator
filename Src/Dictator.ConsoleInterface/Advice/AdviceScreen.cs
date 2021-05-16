@@ -10,12 +10,12 @@ namespace Dictator.ConsoleInterface.Advice
 {
     public class AdviceScreen : IAdviceScreen
     {
-        private readonly IGroupService groupStats;
+        private readonly IGroupService groupService;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public AdviceScreen(IGroupService groupStats, IPressAnyKeyControl pressAnyKeyControl)
+        public AdviceScreen(IGroupService groupService, IPressAnyKeyControl pressAnyKeyControl)
         {
-            this.groupStats = groupStats;
+            this.groupService = groupService;
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
@@ -43,7 +43,7 @@ namespace Dictator.ConsoleInterface.Advice
                 {
                     int popularityChange = groupPopularityChanges[i] - 'M';
                     
-                    ConsoleEx.WriteAt(1, line, $"  {groupStats.GetGroupNameByIndex(i)}", ConsoleColor.Black);
+                    ConsoleEx.WriteAt(1, line, $"  {groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                     ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
                     line++;
                 }
@@ -60,7 +60,7 @@ namespace Dictator.ConsoleInterface.Advice
                 {
                     int strengthChange = groupStrengthChanges[i] - 'M';
 
-                    ConsoleEx.WriteAt(1, line, $"  {groupStats.GetGroupNameByIndex(i)}", ConsoleColor.Black);
+                    ConsoleEx.WriteAt(1, line, $"  {groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                     ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(strengthChange)}", ConsoleColor.Black);
                     line++;
                 }
