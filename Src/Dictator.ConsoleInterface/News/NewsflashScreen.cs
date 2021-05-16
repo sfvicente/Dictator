@@ -1,4 +1,4 @@
-﻿using Dictator.Common.Extensions;
+﻿using Dictator.Common;
 using Dictator.Core;
 using Dictator.Core.Services;
 using System;

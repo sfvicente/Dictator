@@ -1,4 +1,4 @@
-﻿using Dictator.Common.Extensions;
+﻿using Dictator.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Start

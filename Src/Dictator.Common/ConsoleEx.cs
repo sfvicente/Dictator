@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dictator.Common.Extensions
+namespace Dictator.Common
 {
     public static class ConsoleEx
     {

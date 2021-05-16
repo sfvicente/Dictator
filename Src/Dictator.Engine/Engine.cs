@@ -1,4 +1,5 @@
-﻿using Dictator.Common.Extensions;
+﻿using Dictator.Common;
+using Dictator.Common.Extensions;
 using Dictator.Core.Services;
 using System;
 using System.Collections.Generic;
