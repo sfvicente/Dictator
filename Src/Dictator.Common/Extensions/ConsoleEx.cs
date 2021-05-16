@@ -75,7 +75,7 @@ namespace Dictator.Common.Extensions
 
         public static void WriteCenteredAt(int top, string text)
         {
-            int left = ScreenCols - text.Length / 2;
+            int left = (ScreenCols - text.Length) / 2;
 
             WriteAt(left, top, text);
         }
