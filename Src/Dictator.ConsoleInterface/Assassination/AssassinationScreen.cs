@@ -11,18 +11,14 @@ namespace Dictator.ConsoleInterface.Assassination
     public class AssassinationScreen : IAssassinationScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
-        private readonly IGroupService groupStats;
 
-        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl, IGroupService groupStats)
+        public AssassinationScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
-            this.groupStats = groupStats;
         }
 
-        public void Show()
+        public void Show(string groupName)
         {
-            GroupType assassinGroupType = groupStats.AssassinGroupType;
-            string groupName = groupStats.GetGroupByType(assassinGroupType).Name;
             int startPosition = (32 - groupName.Length) / 2;
 
             ConsoleEx.Clear();

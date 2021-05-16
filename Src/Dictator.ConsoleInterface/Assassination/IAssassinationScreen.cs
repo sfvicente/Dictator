@@ -6,6 +6,6 @@ namespace Dictator.ConsoleInterface.Assassination
 {
     public interface IAssassinationScreen
     {
-        public void Show();
+        public void Show(string groupName);
     }
 }

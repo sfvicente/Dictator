@@ -193,7 +193,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account) => transferToSwissBankAccountScreen.Show(swissBankAccountTransfer, account);
 
-        public void DisplayAssassinationAttempt() => assassinationScreen.Show();
+        public void DisplayAssassinationAttempt(string groupName) => assassinationScreen.Show(groupName);
 
         public void DisplayAssassinationFailedScreen() => assassinationFailedScreen.Show();
 

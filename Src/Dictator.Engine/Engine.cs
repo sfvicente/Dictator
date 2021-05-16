@@ -405,6 +405,18 @@ namespace Dictator.Core
         }
 
         /// <summary>
+        ///     Retrieves the name of the group responsible for the assassination attempt.
+        /// </summary>
+        /// <returns>The name of the assassination group.</returns>
+        public string GetAssassinationGroupName()
+        {
+            GroupType assassinGroupType = groupService.AssassinGroupType;
+            string groupName = groupService.GetGroupByType(assassinGroupType).Name;
+
+            return groupName;
+        }
+
+        /// <summary>
         ///     Determines if there is conflict between the republic of Ritimba and Leftoto. A conflict does not exist if the player is popular
         ///     with the leftotans or leftotans are weak.
         /// </summary>

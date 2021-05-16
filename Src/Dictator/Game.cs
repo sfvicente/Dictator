@@ -174,7 +174,9 @@ namespace Dictator.ConsoleInterface
         {
             if (engine.ShouldAssassinationAttemptHappen())
             {
-                userInterface.DisplayAssassinationAttempt();
+                string groupName = engine.GetAssassinationGroupName();
+
+                userInterface.DisplayAssassinationAttempt(groupName);
 
                 if (engine.IsAssassinationSuccessful())
                 {

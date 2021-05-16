@@ -26,7 +26,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayLoanApplicationScreen();
         public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult);
         public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
-        public void DisplayAssassinationAttempt();
+        public void DisplayAssassinationAttempt(string groupName);
         public void DisplayAssassinationFailedScreen();
         public void DisplayAssassinationSuccededScreen();
         public void DisplayRevolutionScreen();

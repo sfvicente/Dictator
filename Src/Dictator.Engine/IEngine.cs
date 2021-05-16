@@ -37,6 +37,7 @@ namespace Dictator.Core
         public bool DoesUnusedNewsExist();
         public News GetRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
+        public string GetAssassinationGroupName();
         public bool IsAssassinationSuccessful();
         public bool DoesConflictExist();
         public bool ShouldWarHappen();
@@ -57,5 +58,6 @@ namespace Dictator.Core
         public int GetHighscore();
         public Score GetCurrentScore();
         public void SaveHighScore();
+
     }
 }
