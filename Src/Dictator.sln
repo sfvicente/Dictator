@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.ConsoleInterface",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator", "Dictator\Dictator.csproj", "{AA675D0E-3CA0-4FE2-9CE0-DCA12E0D501A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Core", "Dictator.Engine\Dictator.Core.csproj", "{B0C6CF28-AA53-481F-B892-22CC4C750058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.Core", "Dictator.Engine\Dictator.Core.csproj", "{B0C6CF28-AA53-481F-B892-22CC4C750058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Common", "Dictator.Common\Dictator.Common.csproj", "{2729AD69-9C20-4AAE-8EF6-423B6F08B724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.Common", "Dictator.Common\Dictator.Common.csproj", "{2729AD69-9C20-4AAE-8EF6-423B6F08B724}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Tests", "Dictator.Tests\Dictator.Tests.csproj", "{68203B7D-4FAE-4031-AE84-169CEC3402C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2729AD69-9C20-4AAE-8EF6-423B6F08B724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2729AD69-9C20-4AAE-8EF6-423B6F08B724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2729AD69-9C20-4AAE-8EF6-423B6F08B724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
