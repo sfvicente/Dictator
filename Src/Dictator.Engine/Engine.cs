@@ -538,13 +538,9 @@ namespace Dictator.Core
             return false;
         }
 
-        public void InitialiseRevolution()
+        public Dictionary<int, Group> FindPossibleAlliesForPlayer()
         {
-            Dictionary<int, Group> possibleAllies = revolutionService.FindPossibleAllies();
-
-            // TODO: Determine the player combined strength
-
-            // TODO: Determine the current revolutionary combined strength
+            return revolutionService.FindPossibleAllies();
         }
 
         /// <summary>

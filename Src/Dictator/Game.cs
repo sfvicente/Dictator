@@ -421,7 +421,7 @@ namespace Dictator.ConsoleInterface
             else
             {
                 // TODO: process the revolution
-                engine.InitialiseRevolution();
+                Dictionary<int, Group> possibleAllies = engine.FindPossibleAlliesForPlayer();
 
                 // TODO: pass required data and display the ask for help screen
                 //userInterface.DisplayRevolutionAskForHelpScreen();

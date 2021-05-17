@@ -45,7 +45,7 @@ namespace Dictator.Core
         public WarStats BeginInvasion();
         public bool ExecuteWar(WarStats warStats);
         public bool TryTriggerRevoltGroup();
-        public void InitialiseRevolution();
+        public Dictionary<int, Group> FindPossibleAlliesForPlayer();
         public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
