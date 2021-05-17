@@ -9,10 +9,10 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private readonly IGovernmentService governmentService;
 
-        public PlotService(IGroupService groupStats, IGovernmentService governmentStats)
+        public PlotService(IGroupService groupService, IGovernmentService governmentService)
         {
-            this.groupService = groupStats;
-            this.governmentService = governmentStats;
+            this.groupService = groupService;
+            this.governmentService = governmentService;
         }
 
         public void Plot()
