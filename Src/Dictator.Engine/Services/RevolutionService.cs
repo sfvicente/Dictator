@@ -10,10 +10,10 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private readonly IGovernmentService governmentService;
 
-        public RevolutionService(IRevolution revolution, IGroupService groupStats, IGovernmentService governmentService)
+        public RevolutionService(IRevolution revolution, IGroupService groupService, IGovernmentService governmentService)
         {
             this.revolution = revolution;
-            this.groupService = groupStats;
+            this.groupService = groupService;
             this.governmentService = governmentService;
         }
 
