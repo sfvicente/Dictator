@@ -83,6 +83,9 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayMonthScreen(currentMonth);
         }
 
+        /// <summary>
+        ///     Handles the payment of the monthly costs and the check for bankruptcy.
+        /// </summary>
         private void ProcessTreasuryCosts()
         {
             engine.PayMonthlyCosts();
