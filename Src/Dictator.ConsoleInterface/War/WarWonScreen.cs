@@ -17,6 +17,7 @@ namespace Dictator.ConsoleInterface.War
 
         public void Show()
         {
+            ConsoleEx.Clear(ConsoleColor.Gray);
             ConsoleEx.WriteAt(1, 11, "        LEFTOTANS ROUTED        ");
             pressAnyKeyControl.Show();
         }
