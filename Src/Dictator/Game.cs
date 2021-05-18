@@ -508,6 +508,9 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Processes the end of the current game by displaying the screen with the final score and possibly saving the high-score.
+        /// </summary>
         private void ProcessEnd()
         {
             Score score = engine.GetCurrentScore();
