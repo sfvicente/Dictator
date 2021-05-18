@@ -23,7 +23,7 @@ namespace Dictator.ConsoleInterface.War
             ConsoleEx.WriteAt(1, 12, $"     Ritimban Strength is {warStats.RitimbanStrength}    ", ConsoleColor.Red, ConsoleColor.Gray);
             ConsoleEx.WriteAt(1, 14, $"     Leftotan Strength is {warStats.LeftotanStrength}    ", ConsoleColor.Red, ConsoleColor.Gray);
             ConsoleEx.WriteAt(6, 18, "A SHORT DECISIVE WAR", ConsoleColor.White, ConsoleColor.Black);
-            Console.ReadKey(true);
+            pressAnyKeyControl.Show();
         }
     }
 }
