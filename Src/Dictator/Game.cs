@@ -195,6 +195,8 @@ namespace Dictator.ConsoleInterface
 
         private bool TryProcessConflict()
         {
+            bool isGameOver = false;
+
             if (engine.DoesConflictExist())
             {
                 if (engine.ShouldWarHappen())
@@ -212,9 +214,8 @@ namespace Dictator.ConsoleInterface
                     else
                     {
                         ProcessWarLostScenario();
+                        isGameOver = true;
                     }
-
-                    return true;
                 }
                 else
                 {
@@ -223,7 +224,7 @@ namespace Dictator.ConsoleInterface
                 }
             }
 
-            return false;
+            return isGameOver;
         }
 
         /// <summary>
