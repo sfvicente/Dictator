@@ -49,7 +49,6 @@ namespace Dictator.ConsoleInterface
         private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
-        private readonly IWarScreen warScreen;
         private readonly IWarLeftotoInvadesScreen leftotoInvadesScreen;
         private readonly IWarLostScreen warLostScreen;
         private readonly IWarWonScreen warWonScreen;
@@ -92,7 +91,6 @@ namespace Dictator.ConsoleInterface
             IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
-            IWarScreen warScreen,
             IWarLeftotoInvadesScreen leftotoInvadesScreen,
             IWarLostScreen warLostScreen,
             IWarWonScreen warWonScreen,
@@ -134,7 +132,6 @@ namespace Dictator.ConsoleInterface
             this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
-            this.warScreen = warScreen;
             this.leftotoInvadesScreen = leftotoInvadesScreen;
             this.warLostScreen = warLostScreen;
             this.warWonScreen = warWonScreen;
@@ -213,8 +210,6 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionOverthrownScreen() => revolutionOverthrownScreen.Show();
 
         public void DisplayWarThreatScreen() => warThreatScreen.Show();
-
-        public void DisplayWarScreen(WarStats warStats) => warScreen.Show(warStats);
 
         public void DisplayLeftotoInvadesScreen(WarStats warStats) => leftotoInvadesScreen.Show(warStats);
 
