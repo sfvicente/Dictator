@@ -9,6 +9,7 @@ namespace Dictator.Common
         private const int ScreenRows = 24;
         private const int ScreenCols = 32;
         private const int ScreenColPadding = 24;
+        private const string EmptyLine = "                                ";
 
         public static void Write(string text, ConsoleColor foregroundColor)
         {
@@ -30,7 +31,7 @@ namespace Dictator.Common
 
         public static void WriteEmptyLineAt(int top)
         {
-            WriteAt(1, top, "                                ");
+            WriteAt(1, top, EmptyLine);
         }
 
         public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
@@ -38,7 +39,7 @@ namespace Dictator.Common
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
 
             Console.BackgroundColor = backgroundColor;
-            WriteAt(1, top, "                                ");
+            WriteAt(1, top, EmptyLine);
             Console.BackgroundColor = previousBackgroundColor;
         }
 
