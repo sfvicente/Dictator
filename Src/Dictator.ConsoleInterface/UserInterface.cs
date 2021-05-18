@@ -45,6 +45,7 @@ namespace Dictator.ConsoleInterface
         private readonly IAssassinationFailedScreen assassinationFailedScreen;
         private readonly IRevolutionScreen revolutionScreen;
         private readonly IRevolutionStartedScreen revolutionStartedScreen;
+        private readonly IRevolutionAskForHelpDialog revolutionAskForHelpDialog;
         private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
@@ -87,6 +88,7 @@ namespace Dictator.ConsoleInterface
             IAssassinationFailedScreen assassinationFailedScreen,
             IRevolutionScreen revolutionScreen,
             IRevolutionStartedScreen revolutionStartedScreen,
+            IRevolutionAskForHelpDialog revolutionAskForHelpDialog,
             IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
@@ -128,6 +130,7 @@ namespace Dictator.ConsoleInterface
             this.assassinationFailedScreen = assassinationFailedScreen;
             this.revolutionScreen = revolutionScreen;
             this.revolutionStartedScreen = revolutionStartedScreen;
+            this.revolutionAskForHelpDialog = revolutionAskForHelpDialog;
             this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
@@ -202,6 +205,8 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionScreen() => revolutionScreen.Show();
 
         public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
+
+        public void DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(possibleAllies);
 
         public DialogResult DisplayRevolutionCrushedDialog() => revolutionCrushedDialog.Show();
 

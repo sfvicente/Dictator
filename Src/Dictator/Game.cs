@@ -422,9 +422,8 @@ namespace Dictator.ConsoleInterface
             {
                 // TODO: process the revolution
                 Dictionary<int, Group> possibleAllies = engine.FindPossibleAlliesForPlayer();
-
-                // TODO: pass required data and display the ask for help screen
-                //userInterface.DisplayRevolutionAskForHelpScreen();
+                                
+                userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
 
                 Core.Revolution revolution = new Core.Revolution();
 

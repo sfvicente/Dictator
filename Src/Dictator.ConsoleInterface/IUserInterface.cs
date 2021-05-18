@@ -1,5 +1,6 @@
 ﻿using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
+using System.Collections.Generic;
 
 namespace Dictator.ConsoleInterface
 {
@@ -31,6 +32,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayAssassinationSuccededScreen();
         public void DisplayRevolutionScreen();
         public void DisplayRevolutionStartedScreen();
+        public void DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies);
         public DialogResult DisplayRevolutionCrushedDialog();
         public void DisplayRevolutionOverthrownScreen();
         public void DisplayWarThreatScreen();
