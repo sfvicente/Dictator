@@ -17,6 +17,10 @@ namespace Dictator.Core.Services
             this.accountService = accountService;
         }
 
+        /// <summary>
+        ///     Retrieves the score for the player based on the current game state.
+        /// </summary>
+        /// <returns>The current score.</returns>
         public Score GetCurrentScore()
         {
             int totalPopularity = groupService.GetTotalPopularity();
@@ -43,6 +47,9 @@ namespace Dictator.Core.Services
             return score;
         }
 
+        /// <summary>
+        ///     Records the current score as the new high-score if it is greater than the previous score.
+        /// </summary>
         public void SaveHighScore()
         {
             Score score = GetCurrentScore();
@@ -54,6 +61,10 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Retrieves the current highest score.
+        /// </summary>
+        /// <returns></returns>
         public int GetCurrentHighscore()
         {
             int highestScore = governmentService.GetLastScore();
