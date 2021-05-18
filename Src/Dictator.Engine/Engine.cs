@@ -180,15 +180,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if a random news event should happen in the current month; otherwise, <c>false</c>.</returns>
         public bool ShouldNewsHappen()
         {
-            Random random = new Random();
-            int number = random.Next(0, 2);
-
-            if (number == 0)
-            {
-                return true;
-            }
-
-            return false;
+            return newsService.ShouldNewsHappen();
         }
 
         public bool DoesUnusedNewsExist()

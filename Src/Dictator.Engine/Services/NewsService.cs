@@ -34,6 +34,23 @@ namespace Dictator.Core.Services
             return unusedNews;
         }
 
+        /// <summary>
+        ///     Determines if a random news event should happen in the current month.
+        /// </summary>
+        /// <returns><c>true</c> if a random news event should happen in the current month; otherwise, <c>false</c>.</returns>
+        public bool ShouldNewsHappen()
+        {
+            Random random = new Random();
+            int number = random.Next(0, 2);
+
+            if (number == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public void MarkNewsAsUsed(string text)
         {
             News item = news.Where(x => x.Text == text).Single();
