@@ -17,20 +17,16 @@ namespace Dictator.ConsoleInterface.Revolution
 
             ConsoleEx.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
 
-            int line = 12;
-
             for (int i = 1; i < 7; i++)
             {
                 if(possibleAllies.ContainsKey(i))
                 {
-                    ConsoleEx.WriteAt(line, 6, $"{i} {possibleAllies.GetValueOrDefault(i)}");
+                    ConsoleEx.WriteAt(6, 14 + i, $"{i} {possibleAllies[i]}");
                 }
                 else
                 {
-                    ConsoleEx.WriteEmptyLineAt(line);
+                    ConsoleEx.WriteEmptyLineAt(14 + i);
                 }
-
-                line++;
             }
 
             // TODO: detect number pressed
