@@ -425,8 +425,15 @@ namespace Dictator.ConsoleInterface
             {
                 // TODO: process the revolution
                 Dictionary<int, Group> possibleAllies = engine.FindPossibleAlliesForPlayer();
-                                
-                userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
+
+                if (possibleAllies.Count > 0)
+                {
+                    userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
+                }
+                else
+                {
+                    userInterface.DisplayRevolutionNoAlliesScreen();
+                }
 
                 Core.Revolution revolution = new Core.Revolution();
 
