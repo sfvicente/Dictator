@@ -21,7 +21,7 @@ namespace Dictator.ConsoleInterface.Revolution
             {
                 if(possibleAllies.ContainsKey(i))
                 {
-                    ConsoleEx.WriteAt(6, 14 + i, $"{i} {possibleAllies[i]}");
+                    ConsoleEx.WriteAt(6, 14 + i, $"{i} {possibleAllies[i].Name}");
                 }
                 else
                 {
