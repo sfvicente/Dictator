@@ -46,6 +46,7 @@ namespace Dictator.ConsoleInterface
         private readonly IRevolutionScreen revolutionScreen;
         private readonly IRevolutionStartedScreen revolutionStartedScreen;
         private readonly IRevolutionAskForHelpDialog revolutionAskForHelpDialog;
+        private readonly IRevolutionNoAlliesScreen revolutionNoAlliesScreen;
         private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
@@ -88,6 +89,7 @@ namespace Dictator.ConsoleInterface
             IRevolutionScreen revolutionScreen,
             IRevolutionStartedScreen revolutionStartedScreen,
             IRevolutionAskForHelpDialog revolutionAskForHelpDialog,
+            IRevolutionNoAlliesScreen revolutionNoAlliesScreen,
             IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
@@ -129,6 +131,7 @@ namespace Dictator.ConsoleInterface
             this.revolutionScreen = revolutionScreen;
             this.revolutionStartedScreen = revolutionStartedScreen;
             this.revolutionAskForHelpDialog = revolutionAskForHelpDialog;
+            this.revolutionNoAlliesScreen = revolutionNoAlliesScreen;
             this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
@@ -204,6 +207,8 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
 
         public void DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(possibleAllies);
+
+        public void DisplayRevolutionNoAlliesScreen() => revolutionNoAlliesScreen.Show();
 
         public DialogResult DisplayRevolutionCrushedDialog() => revolutionCrushedDialog.Show();
 
