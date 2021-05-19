@@ -17,6 +17,7 @@ namespace Dictator.ConsoleInterface.Revolution
 
         public void Show()
         {
+            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, "      You're ON YOUR OWN !      ");
             pressAnyKeyControl.Show();
         }
