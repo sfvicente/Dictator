@@ -411,6 +411,10 @@ namespace Dictator.ConsoleInterface
             return shouldRevolutionHappen;
         }
 
+        /// <summary>
+        ///     Initiates the revolution and attempts to overthrown the government.
+        /// </summary>
+        /// <returns><c>true</c> if the revolution succeeded and the government has been overthrown; otherwise, <c>false</c>.</returns>
         private bool TryProcessGovernmentOverthrown()
         {
             userInterface.DisplayRevolutionScreen();
