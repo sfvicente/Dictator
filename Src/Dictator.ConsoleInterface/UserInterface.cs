@@ -206,7 +206,7 @@ namespace Dictator.ConsoleInterface
 
         public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
 
-        public void DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(possibleAllies);
+        public int DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(possibleAllies);
 
         public void DisplayRevolutionNoAlliesScreen() => revolutionNoAlliesScreen.Show();
 

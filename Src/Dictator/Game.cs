@@ -428,7 +428,11 @@ namespace Dictator.ConsoleInterface
 
                 if (possibleAllies.Count > 0)
                 {
-                    userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
+                    int selectedAllyGroupId = userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
+
+                    // TODO: check if ally accepts
+
+                    // TODO: set as ally of player if they do
                 }
                 else
                 {
