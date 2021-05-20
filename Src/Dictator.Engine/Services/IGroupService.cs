@@ -15,7 +15,7 @@ namespace Dictator.Core.Services
         public Group GetGroupByType(GroupType groupType);
         public string GetGroupNameByIndex(int index);
         public void SetPopularity(GroupType groupType, int popularity);
-        public void IncreasePopularity(GroupType groupType);
+        public void IncreasePopularity(GroupType groupType, int amount);
         public void DecreasePopularity(GroupType groupType);
         public void DecreasePopularity(GroupType groupType, int amount);
         public int GetTotalPopularity();

@@ -67,13 +67,27 @@ namespace Dictator.Core.Services
             groups[index].Popularity = GetBoundedAttribute(popularity);
         }
 
-        public void IncreasePopularity(GroupType groupType)
+        /// <summary>
+        ///     Increases the popularity of a group by a specified amount.
+        /// </summary>
+        /// <param name="groupType">The group type which have the increase in popularity.</param>
+        /// <param name="amount">The amount by which the popularity will be increased.</param>
+        public void IncreasePopularity(GroupType groupType, int amount)
         {
+            if(amount < 1)
+            {
+                throw new ArgumentException($"'{nameof(amount)}' must be greater than zero.");
+            }
+
             int index = (int)groupType;
 
-            if (groups[index].Popularity < MaxPopularityAndStrength)
+            if (groups[index].Popularity + amount < MaxPopularityAndStrength)
             {
-                groups[index].Popularity++;
+                groups[index].Popularity += amount;
+            }
+            else
+            {
+                groups[index].Popularity = MaxPopularityAndStrength;
             }
         }
 
