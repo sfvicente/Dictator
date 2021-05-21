@@ -404,6 +404,10 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Attempts to create a revolution scenario by setting one of the groups as a revolutionary element.
+        /// </summary>
+        /// <returns><c>true</c> if a revolution is triggered; otherwise, <c>false</c>.</returns>
         private bool TryTriggerRevolution()
         {
             bool shouldRevolutionHappen = engine.TryTriggerRevoltGroup();
