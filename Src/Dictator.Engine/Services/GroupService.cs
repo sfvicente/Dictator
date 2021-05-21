@@ -128,13 +128,6 @@ namespace Dictator.Core.Services
             groups[index].Strength = GetBoundedAttribute(strength);
         }
 
-        public void IncreaseStrength(GroupType groupType)
-        {
-            int index = (int)groupType;
-
-            groups[index].Strength++;
-        }
-
         public void DecreaseStrength(GroupType groupType)
         {
             int index = (int)groupType;
