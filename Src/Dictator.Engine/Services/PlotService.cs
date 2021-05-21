@@ -17,7 +17,7 @@ namespace Dictator.Core.Services
 
         public void Plot()
         {
-            // Do not trigger assatinations or revolutions after failed revolution
+            // Do not trigger assassinations or revolutions after failed revolution
             if (governmentService.GetMonth() < governmentService.GetPlotBonus())
             {
                 return;
