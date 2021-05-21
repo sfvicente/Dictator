@@ -25,6 +25,14 @@ namespace Dictator.Core.Services
         public bool DoesMainPopulationHatePlayer();
         public void ApplyPopularityChange(string groupPopularityChanges);
         public void ApplyStrengthChange(string groupStrengthChanges);
+
+        /// <summary>
+        ///     Determines if an assassination attempt should be performed by one of the following groups: army, 
+        ///     peasants, landowners and guerrilas.
+        /// </summary>
+        /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
+        public bool ShouldAssassinationAttemptHappen();
+
         public void ResetStatusAndAllies();
     }
 }

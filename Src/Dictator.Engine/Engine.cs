@@ -381,20 +381,10 @@ namespace Dictator.Core
         ///     Determines if an assassination attempt should be performed by one of the following groups: army, 
         ///     peasants, landowners and guerrilas.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
         public bool ShouldAssassinationAttemptHappen()
         {
-            Random random = new Random();
-            int number = random.Next(0, 3);
-            Group[] groups = groupService.GetGroups();  // Select a random group between the army, peasants, landowners and guerrilas
-
-            if (groups[number].Status == GroupStatus.Assassination)
-            {
-                groupService.SetAssassinByGroupType(groups[number].Type);
-                return true;
-            }
-
-            return false;
+            return groupService.ShouldAssassinationAttemptHappen();
         }
 
         /// <summary>
