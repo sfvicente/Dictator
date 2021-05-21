@@ -13,9 +13,6 @@ namespace Dictator.ConsoleInterface.Revolution
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, "           REVOLUTION           ");
-
-            // TODO: add groups and allies
-
             ConsoleEx.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
 
             for (int i = 1; i < 7; i++)
