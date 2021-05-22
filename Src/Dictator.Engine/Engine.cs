@@ -635,18 +635,22 @@ namespace Dictator.Core
             governmentService.KillPlayer();
         }
 
+        /// <summary>
+        ///     Retrieves the current highest score of the game.
+        /// </summary>
+        /// <returns>The high-score value.</returns>
         public int GetHighscore()
         {
-            var score = scoreService.GetCurrentHighscore();
-
-            return score;
+            return scoreService.GetCurrentHighscore();
         }
 
+        /// <summary>
+        ///     Retrieves the score of the current game state.
+        /// </summary>
+        /// <returns>The score value.</returns>
         public Score GetCurrentScore()
         {
-            var score = scoreService.GetCurrentScore();
-
-            return score;
+            return scoreService.GetCurrentScore();
         }
 
         public void SaveHighScore()
