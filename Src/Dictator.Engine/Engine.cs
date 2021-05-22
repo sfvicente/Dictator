@@ -20,6 +20,7 @@ namespace Dictator.Core
         private readonly INewsService newsService;
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
+        private readonly IEscapeService escapeService;
 
         public Engine(
             IAccountService accountService,
@@ -30,7 +31,8 @@ namespace Dictator.Core
             IAudienceService audienceService,
             INewsService newsService,
             IRevolutionService revolutionService,
-            IScoreService scoreService)
+            IScoreService scoreService,
+            IEscapeService escapeService)
         {
             this.accountService = accountService;
             this.governmentService = governmentService;
@@ -41,6 +43,7 @@ namespace Dictator.Core
             this.newsService = newsService;
             this.revolutionService = revolutionService;
             this.scoreService = scoreService;
+            this.escapeService = escapeService;
         }
 
         public void Initialise()
@@ -600,19 +603,10 @@ namespace Dictator.Core
         /// <summary>
         ///     Determines if the player is able to escape after the war is lost. There is a 2/3 chances that the player is able to escape.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if manages to escape after losing the war; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAbleToEscapeAfterLosingWar()
         {
-            Random random = new Random();
-            int number = random.Next(0, 3);
-
-            // The player has a 2 in 3 chances that he manages to escape
-            if (number < 2)
-            {
-                return true;
-            }
-
-            return false;
+            return escapeService.IsPlayerAbleToEscapeAfterLosingWar();
         }
 
         /// <summary>

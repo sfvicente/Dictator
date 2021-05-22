@@ -6,5 +6,6 @@ namespace Dictator.Core.Services
 {
     public interface IEscapeService
     {
+        public bool IsPlayerAbleToEscapeAfterLosingWar();
     }
 }
