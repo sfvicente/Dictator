@@ -103,6 +103,7 @@ namespace Dictator
             .AddScoped<IPlotService, PlotService>()
             .AddScoped<IScoreService, ScoreService>()
             .AddScoped<IRevolutionService, RevolutionService>()
+            .AddScoped<IEscapeService, EscapeService>()
         );
     }
 }
