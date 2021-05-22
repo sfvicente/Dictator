@@ -336,6 +336,8 @@ namespace Dictator.Core
 
             Group group = groupService.GetGroupByType(groupType);
 
+            loanApplicationResult.GroupName = group.Name;
+
             if (group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 loanApplicationResult.IsAccepted = false;
