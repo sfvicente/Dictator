@@ -104,6 +104,7 @@ namespace Dictator
             .AddScoped<IScoreService, ScoreService>()
             .AddScoped<IRevolutionService, RevolutionService>()
             .AddScoped<IEscapeService, EscapeService>()
+            .AddScoped<ILoanService, LoanService>()
         );
     }
 }
