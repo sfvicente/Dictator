@@ -63,6 +63,8 @@ namespace Dictator.Core.Services
             var rand = new Random();
             var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
 
+            randomUnusedAudience.HasBeenUsed = true;
+
             return randomUnusedAudience;
         }
 
