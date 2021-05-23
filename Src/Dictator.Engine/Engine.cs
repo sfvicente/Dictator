@@ -21,6 +21,7 @@ namespace Dictator.Core
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
         private readonly IEscapeService escapeService;
+        private readonly ILoanService loanService;
 
         public Engine(
             IAccountService accountService,
@@ -32,7 +33,8 @@ namespace Dictator.Core
             INewsService newsService,
             IRevolutionService revolutionService,
             IScoreService scoreService,
-            IEscapeService escapeService)
+            IEscapeService escapeService,
+            ILoanService loanService)
         {
             this.accountService = accountService;
             this.governmentService = governmentService;
@@ -44,6 +46,7 @@ namespace Dictator.Core
             this.revolutionService = revolutionService;
             this.scoreService = scoreService;
             this.escapeService = escapeService;
+            this.loanService = loanService;
         }
 
         public void Initialise()
@@ -306,55 +309,7 @@ namespace Dictator.Core
         /// <returns></returns>
         public LoanApplicationResult AskForLoan(Country country)
         {
-            LoanApplicationResult loanApplicationResult = new LoanApplicationResult
-            {
-                Country = country
-            };
-
-            if (IsTooEarlyForLoan())
-            {
-                loanApplicationResult.IsAccepted = false;
-                loanApplicationResult.RefusalType = LoanApplicationRefusalType.TooEarly;
-
-                return loanApplicationResult;
-            }
-
-            // TODO: Check if loans have been used
-
-            GroupType groupType;
-
-            switch(country)
-            {
-                case Country.America:
-                    groupType = GroupType.Americans;
-                    break;
-
-                case Country.Russia:
-                    groupType = GroupType.Russians;
-                    break;
-
-                default:
-                    throw new InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
-            }
-
-            Group group = groupService.GetGroupByType(groupType);
-
-            loanApplicationResult.GroupName = group.Name;
-
-            if (group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                loanApplicationResult.IsAccepted = false;
-                loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
-            }
-            else
-            {
-                loanApplicationResult.IsAccepted = true;
-                loanApplicationResult.RefusalType = LoanApplicationRefusalType.None;
-                loanApplicationResult.Amount = CalculateLoanAmount(group);
-                accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
-            }
-
-            return loanApplicationResult;
+            return loanService.AskForLoan(country);
         }
 
         /// <summary>
@@ -683,20 +638,6 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Calculates the amount of a loan based on the popularity of a group and a random component.
-        /// </summary>
-        /// <param name="group">The group from which the popularity will be used as a component to calculate the amount.</param>
-        /// <returns>The calculated amount of the loan.</returns>
-        private int CalculateLoanAmount(Group group)
-        {
-            Random random = new Random();
-            int randomAdditionalAmount = random.Next(0, 200);
-            int amount = group.Popularity * 30 + randomAdditionalAmount;
-
-            return amount;
-        }
-
-        /// <summary>
         /// Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
         /// of the Player and the Secret Police.
         /// </summary>
@@ -724,23 +665,6 @@ namespace Dictator.Core
             int policeStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
             return policeStrength > governmentService.GetMonthlyMinimalPopularityAndStrength();
-        }
-
-        /// <summary>
-        ///     Determines if it is too early in the game to ask for foreign help.
-        /// </summary>
-        /// <returns><c>true</c> if it is too early in the game to receive a loan; otherwise, <c>false</c>.</returns>
-        private bool IsTooEarlyForLoan()
-        {
-            Random random = new Random();
-            int minimumRandomMonthRequirement = random.Next(0, 5) + 3;
-
-            if(governmentService.GetMonth() <= minimumRandomMonthRequirement)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         /// <summary>
