@@ -44,7 +44,18 @@ namespace Dictator.Core.Services
             };
         }
 
-        public IEnumerable<Audience> GetUnusedAudiences()
+        public Audience SelectRandomUnusedAudienceRequest()
+        {
+            IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
+            var rand = new Random();
+            var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+
+            randomUnusedAudience.HasBeenUsed = true;
+
+            return randomUnusedAudience;
+        }
+
+        private IEnumerable<Audience> GetUnusedAudiences()
         {
             IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
 
@@ -55,17 +66,6 @@ namespace Dictator.Core.Services
             }
 
             return unusedAudiences;
-        }
-
-        public Audience SelectRandomUnusedAudienceRequest()
-        {
-            IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
-            var rand = new Random();
-            var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
-
-            randomUnusedAudience.HasBeenUsed = true;
-
-            return randomUnusedAudience;
         }
 
         private void ResetAllToUnused()
