@@ -230,9 +230,7 @@ namespace Dictator.Core
 
         public Audience SelectRandomUnusedAudienceRequest()
         {
-            Audience audience = audienceService.SelectRandomUnusedAudienceRequest();
-
-            return audience;
+            return audienceService.SelectRandomUnusedAudienceRequest();
         }
 
         /// <summary>
