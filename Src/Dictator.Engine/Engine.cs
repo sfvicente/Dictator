@@ -477,6 +477,23 @@ namespace Dictator.Core
         }
 
         /// <summary>
+        ///     Determines if a group accepts to be an ally of the player during a revolution.
+        /// </summary>
+        /// <param name="groupId">The id of the group to accept or refuse an alliance.</param>
+        /// <returns><c>true</c> if the group accepts to be an ally; otherwise, <c>false</c>.</returns>
+        public bool DoesGroupAcceptAllianceInRevolution(int groupId)
+        {
+            Group group = groupService.GetGroups()[groupId - 1];
+
+            if(group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         ///     Determines if a revolution has succeeded in overthrowing the player.
         /// </summary>
         /// <param name="playerStrength">The player's strength.</param>

@@ -46,6 +46,7 @@ namespace Dictator.Core
         public bool ExecuteWar(WarStats warStats);
         public bool TryTriggerRevoltGroup();
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
+        public bool DoesGroupAcceptAllianceInRevolution(int groupId);
         public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
@@ -64,6 +65,5 @@ namespace Dictator.Core
         public int GetHighscore();
         public Score GetCurrentScore();
         public void SaveHighScore();
-
     }
 }
