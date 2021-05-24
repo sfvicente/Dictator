@@ -290,6 +290,9 @@ namespace Dictator.Core
             return decisions[optionNumber - 1];
         }
 
+        /// <summary>
+        ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
+        /// </summary>
         public void IncreaseBodyguard()
         {
             governmentService.IncreasePlayerStrength(2);
