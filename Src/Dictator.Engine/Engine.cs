@@ -236,22 +236,17 @@ namespace Dictator.Core
         /// <summary>
         ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
         /// </summary>
-        public void AcceptAudienceRequest(Core.Audience audience)
+        public void AcceptAudienceRequest(Audience audience)
         {
-            groupService.ApplyPopularityChange(audience.GroupPopularityChanges);
-            groupService.ApplyStrengthChange(audience.GroupStrengthChanges);
-            accountService.ApplyTreasuryChanges(audience.Cost, audience.MonthlyCost);
+            audienceService.AcceptAudienceRequest(audience);
         }
 
         /// <summary>
         ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
         /// </summary>
-        public void RefuseAudienceRequest(Core.Audience audience)
+        public void RefuseAudienceRequest(Audience audience)
         {
-            char requesterPopularityChange = audience.GroupPopularityChanges[(int)audience.Requester];
-
-            // Decrease the player's popularity with the petitioners
-            groupService.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
+            audienceService.RefuseAudienceRequest(audience);
         }
 
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)

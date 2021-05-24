@@ -7,11 +7,15 @@ namespace Dictator.Core.Services
 {
     public class AudienceService : IAudienceService
     {
+        private readonly IAccountService accountService;
+        private readonly IGroupService groupService;
         private Audience[] audiences;
 
-        public AudienceService()
+        public AudienceService(IAccountService accountService, IGroupService groupService)
         {
             Initialise();
+            this.accountService = accountService;
+            this.groupService = groupService;
         }
 
         public void Initialise()
@@ -53,6 +57,27 @@ namespace Dictator.Core.Services
             randomUnusedAudience.HasBeenUsed = true;
 
             return randomUnusedAudience;
+        }
+
+        /// <summary>
+        ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
+        /// </summary>
+        public void AcceptAudienceRequest(Audience audience)
+        {
+            groupService.ApplyPopularityChange(audience.GroupPopularityChanges);
+            groupService.ApplyStrengthChange(audience.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(audience.Cost, audience.MonthlyCost);
+        }
+
+        /// <summary>
+        ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
+        /// </summary>
+        public void RefuseAudienceRequest(Audience audience)
+        {
+            char requesterPopularityChange = audience.GroupPopularityChanges[(int)audience.Requester];
+
+            // Decrease the player's popularity with the petitioners
+            groupService.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
         }
 
         private IEnumerable<Audience> GetUnusedAudiences()

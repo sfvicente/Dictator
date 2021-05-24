@@ -8,5 +8,7 @@ namespace Dictator.Core.Services
     {
         public void Initialise();
         public Audience SelectRandomUnusedAudienceRequest();
+        public void AcceptAudienceRequest(Audience audience);
+        public void RefuseAudienceRequest(Audience audience);
     }
 }
