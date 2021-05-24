@@ -25,8 +25,6 @@ namespace Dictator.ConsoleInterface.End
             ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - {score.MonthsInOffice * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-
-            // TODO: count alive score
             ConsoleEx.WriteAt(1, 10, $" For staying alive - {score.PointsForStayingAlive}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
             ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING", ConsoleColor.Green, ConsoleColor.White);
