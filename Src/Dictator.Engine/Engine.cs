@@ -22,6 +22,7 @@ namespace Dictator.Core
         private readonly IScoreService scoreService;
         private readonly IEscapeService escapeService;
         private readonly ILoanService loanService;
+        private readonly IWarService warService;
 
         public Engine(
             IAccountService accountService,
@@ -34,7 +35,8 @@ namespace Dictator.Core
             IRevolutionService revolutionService,
             IScoreService scoreService,
             IEscapeService escapeService,
-            ILoanService loanService)
+            ILoanService loanService,
+            IWarService warService)
         {
             this.accountService = accountService;
             this.governmentService = governmentService;
@@ -47,6 +49,7 @@ namespace Dictator.Core
             this.scoreService = scoreService;
             this.escapeService = escapeService;
             this.loanService = loanService;
+            this.warService = warService;
         }
 
         public void Initialise()
@@ -379,15 +382,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if war should happen; otherwise, <c>false</c>.</returns>
         public bool ShouldWarHappen()
         {
-            Random random = new Random();
-            int number = random.Next(0, 3);
-
-            if(number == 0)
-            {
-                return true;
-            }
-
-            return false;
+            return warService.ShouldWarHappen();
         }
 
         /// <summary>
