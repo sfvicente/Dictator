@@ -36,7 +36,7 @@ namespace Dictator.Core.Services
             {
                 if (groups[i].Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
                 {
-                    possibleAllies.Add(i, groups[i]);
+                    possibleAllies.Add(i + 1, groups[i]);
                 }
             }
 
