@@ -520,6 +520,9 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Handles the escape of the player to Leftoto and the interaction with the guerrillas.
+        /// </summary>
         private void EscapeToLeftoto()
         {
             userInterface.DisplayEscapeToLeftotoScreen();
