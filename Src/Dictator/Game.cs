@@ -431,7 +431,6 @@ namespace Dictator.ConsoleInterface
             }
             else
             {
-                // TODO: process the revolution
                 Dictionary<int, Group> possibleAllies = engine.FindPossibleAlliesForPlayer();
 
                 if (possibleAllies.Count > 0)
