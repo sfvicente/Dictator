@@ -51,13 +51,6 @@ namespace Dictator.Core.Services
             return false;
         }
 
-        public void MarkNewsAsUsed(string text)
-        {
-            News item = news.Where(x => x.Text == text).Single();
-
-            item.HasBeenUsed = true;
-        }
-
         public News SelectRandomUnusedNews()
         {
             News[] unusedNews = GetUnusedNews();
