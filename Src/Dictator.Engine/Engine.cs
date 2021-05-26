@@ -206,17 +206,7 @@ namespace Dictator.Core
 
         public News GetRandomUnusedNews()
         {
-            News[] unusedNews = newsService.GetUnusedNews();
-
-            if (unusedNews.Any())
-            {
-                var rand = new Random();
-                var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
-
-                return randomUnusedNews;
-            }
-
-            throw new InvalidOperationException("There are unused news items in the collection.");
+            return newsService.GetRandomUnusedNews();
         }
 
         public void ApplyNewsEffects(News news)

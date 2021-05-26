@@ -57,5 +57,20 @@ namespace Dictator.Core.Services
 
             item.HasBeenUsed = true;
         }
+
+        public News GetRandomUnusedNews()
+        {
+            News[] unusedNews = GetUnusedNews();
+
+            if (unusedNews.Any())
+            {
+                var rand = new Random();
+                var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
+
+                return randomUnusedNews;
+            }
+
+            throw new InvalidOperationException("There are unused news items in the collection.");
+        }
     }
 }
