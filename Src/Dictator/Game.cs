@@ -360,6 +360,11 @@ namespace Dictator.ConsoleInterface
             return hasDecisionBeenCompleted;
         }
 
+        /// <summary>
+        ///     Determines if the player confirms the execution of the presidential decision that has been selected.
+        /// </summary>
+        /// <param name="decision">The presidential decision to confirm.</param>
+        /// <returns><c>true</c> if the player confirms the execution of the selected decision; otherwise, <c>false</c>.</returns>
         private bool DoesPlayerConfirmDecision(Decision decision)
         {
             DialogResult dialogResult = userInterface.DisplayPresidentialDecisionActionDialog(decision);
