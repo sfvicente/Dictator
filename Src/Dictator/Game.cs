@@ -399,7 +399,7 @@ namespace Dictator.ConsoleInterface
             {
                 if (engine.DoesUnusedNewsExist())
                 {
-                    Core.News unusedRandomNews = engine.GetRandomUnusedNews();
+                    Core.News unusedRandomNews = engine.SelectRandomUnusedNews();
 
                     userInterface.DisplayNewsScreen(unusedRandomNews.Text);
                     engine.ApplyNewsEffects(unusedRandomNews);

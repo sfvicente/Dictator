@@ -58,7 +58,7 @@ namespace Dictator.Core.Services
             item.HasBeenUsed = true;
         }
 
-        public News GetRandomUnusedNews()
+        public News SelectRandomUnusedNews()
         {
             News[] unusedNews = GetUnusedNews();
 
@@ -66,6 +66,8 @@ namespace Dictator.Core.Services
             {
                 var rand = new Random();
                 var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
+
+                randomUnusedNews.HasBeenUsed = true;
 
                 return randomUnusedNews;
             }

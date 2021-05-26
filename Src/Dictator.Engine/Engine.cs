@@ -204,9 +204,9 @@ namespace Dictator.Core
             return false;
         }
 
-        public News GetRandomUnusedNews()
+        public News SelectRandomUnusedNews()
         {
-            return newsService.GetRandomUnusedNews();
+            return newsService.SelectRandomUnusedNews();
         }
 
         public void ApplyNewsEffects(News news)

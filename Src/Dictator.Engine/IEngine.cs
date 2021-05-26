@@ -35,7 +35,7 @@ namespace Dictator.Core
         public void ApplyDecisionEffects(Decision decision);
         public void MarkDecisionAsUsed(string text);
         public bool DoesUnusedNewsExist();
-        public News GetRandomUnusedNews();
+        public News SelectRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public string GetAssassinationGroupName();
         public bool IsAssassinationSuccessful();
