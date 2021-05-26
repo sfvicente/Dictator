@@ -34,6 +34,7 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionStartedScreen();
         public int DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies);
         public void DisplayRevolutionNoAlliesScreen();
+        public void DisplayRevolutionAllyLowPopularityScreen();
         public DialogResult DisplayRevolutionCrushedDialog();
         public void DisplayRevolutionOverthrownScreen();
         public void DisplayWarThreatScreen();

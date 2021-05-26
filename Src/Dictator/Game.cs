@@ -443,7 +443,7 @@ namespace Dictator.ConsoleInterface
                     }
                     else
                     {
-                        // Display RevolutionAllyLowPopularityScreen
+                        userInterface.DisplayRevolutionAllyLowPopularityScreen();
                     }
                 }
                 else

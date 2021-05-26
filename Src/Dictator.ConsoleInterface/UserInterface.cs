@@ -47,6 +47,7 @@ namespace Dictator.ConsoleInterface
         private readonly IRevolutionStartedScreen revolutionStartedScreen;
         private readonly IRevolutionAskForHelpDialog revolutionAskForHelpDialog;
         private readonly IRevolutionNoAlliesScreen revolutionNoAlliesScreen;
+        private readonly IRevolutionAllyLowPopularityScreen revolutionAllyLowPopularityScreen;
         private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
         private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
         private readonly IWarThreatScreen warThreatScreen;
@@ -90,6 +91,7 @@ namespace Dictator.ConsoleInterface
             IRevolutionStartedScreen revolutionStartedScreen,
             IRevolutionAskForHelpDialog revolutionAskForHelpDialog,
             IRevolutionNoAlliesScreen revolutionNoAlliesScreen,
+            IRevolutionAllyLowPopularityScreen revolutionAllyLowPopularityScreen,
             IRevolutionCrushedDialog revolutionCrushedDialog,
             IRevolutionOverthrownScreen revolutionOverthrownScreen,
             IWarThreatScreen warThreatScreen,
@@ -132,6 +134,7 @@ namespace Dictator.ConsoleInterface
             this.revolutionStartedScreen = revolutionStartedScreen;
             this.revolutionAskForHelpDialog = revolutionAskForHelpDialog;
             this.revolutionNoAlliesScreen = revolutionNoAlliesScreen;
+            this.revolutionAllyLowPopularityScreen = revolutionAllyLowPopularityScreen;
             this.revolutionCrushedDialog = revolutionCrushedDialog;
             this.revolutionOverthrownScreen = revolutionOverthrownScreen;
             this.warThreatScreen = warThreatScreen;
@@ -207,6 +210,8 @@ namespace Dictator.ConsoleInterface
         public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
 
         public int DisplayRevolutionAskForHelpDialog(Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(possibleAllies);
+
+        public void DisplayRevolutionAllyLowPopularityScreen() => revolutionAllyLowPopularityScreen.Show();
 
         public void DisplayRevolutionNoAlliesScreen() => revolutionNoAlliesScreen.Show();
 
