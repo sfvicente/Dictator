@@ -9,8 +9,12 @@ namespace Dictator.Core.Services
         public void Initialise();
         public void AdvanceMonth();
         public int GetMonth();
-        public void IncreasePlayerStrength(int amount);
         public void DecreasePlayerStrength();
+
+        /// <summary>
+        ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
+        /// </summary>
+        public void IncreaseBodyguard();
 
         /// <summary>
         ///     Marks the player as dead.

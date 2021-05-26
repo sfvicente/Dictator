@@ -288,7 +288,7 @@ namespace Dictator.Core
         /// </summary>
         public void IncreaseBodyguard()
         {
-            governmentService.IncreasePlayerStrength(2);
+            governmentService.IncreaseBodyguard();
         }
 
         /// <summary>

@@ -41,9 +41,12 @@ namespace Dictator.Core.Services
             return government.PlayerStrength;
         }
 
-        public void IncreasePlayerStrength(int amount)
+        /// <summary>
+        ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
+        /// </summary>
+        public void IncreaseBodyguard()
         {
-            government.PlayerStrength += amount;
+            government.PlayerStrength += 2;
         }
 
         public void DecreasePlayerStrength()
