@@ -11,7 +11,12 @@ namespace Dictator.Core.Services
         public int GetMonth();
         public void IncreasePlayerStrength(int amount);
         public void DecreasePlayerStrength();
+
+        /// <summary>
+        ///     Marks the player as dead.
+        /// </summary>
         public void KillPlayer();
+
         public bool IsPlayerAlive();
         public void PurchaseHelicopter();
         public bool HasPlayerPurchasedHelicopter();

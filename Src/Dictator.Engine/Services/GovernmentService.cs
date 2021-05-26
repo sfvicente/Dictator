@@ -74,6 +74,9 @@ namespace Dictator.Core.Services
             government.LastScore = highScore;
         }
 
+        /// <summary>
+        ///     Marks the player as dead.
+        /// </summary>
         public void KillPlayer()
         {
             government.IsPlayerAlive = false;

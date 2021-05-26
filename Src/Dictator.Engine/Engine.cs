@@ -583,6 +583,9 @@ namespace Dictator.Core
             return false;
         }
 
+        /// <summary>
+        ///     Marks the player as dead.
+        /// </summary>
         public void KillPlayer()
         {
             governmentService.KillPlayer();

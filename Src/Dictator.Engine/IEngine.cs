@@ -61,7 +61,12 @@ namespace Dictator.Core
         public bool IsPlayerAbleToEscapeAfterLosingWar();
 
         public bool DoesGuerrillaCatchPlayerEscaping();
+
+        /// <summary>
+        ///     Marks the player as dead.
+        /// </summary>
         public void KillPlayer();
+
         public int GetHighscore();
         public Score GetCurrentScore();
         public void SaveHighScore();
