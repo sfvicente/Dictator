@@ -8,9 +8,13 @@ namespace Dictator.Core.Services
     public class DecisionService : IDecisionService
     {
         private Decision[] decisions;
+        private readonly IAccountService accountService;
+        private readonly IGroupService groupService;
 
-        public DecisionService()
+        public DecisionService(IAccountService accountService, IGroupService groupService)
         {
+            this.accountService = accountService;
+            this.groupService = groupService;
             Initialise();
         }
 
@@ -55,6 +59,22 @@ namespace Dictator.Core.Services
             Decision item = decisions.Where(x => x.Text == text).Single();
 
             item.HasBeenUsed = true;
+        }
+
+        /// <summary>
+        ///     Applies the effects of a decision on the groups popularity and strength with the costs of treasury.
+        /// </summary>
+        /// <param name="decision">The decision whose effects will be apply.</param>
+        public void ApplyDecisionEffects(Decision decision)
+        {
+            if (decision == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            groupService.ApplyPopularityChange(decision.GroupPopularityChanges);
+            groupService.ApplyStrengthChange(decision.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
         }
     }
 }

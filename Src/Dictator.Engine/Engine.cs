@@ -304,17 +304,10 @@ namespace Dictator.Core
         /// <summary>
         ///     Applies the effects of a decision on the groups popularity and strength with the costs of treasury.
         /// </summary>
-        /// <param name="decision"></param>
+        /// <param name="decision">The decision whose effects will be apply.</param>
         public void ApplyDecisionEffects(Decision decision)
         {
-            if (decision == null)
-            {
-                throw new ArgumentNullException();
-            }
-
-            groupService.ApplyPopularityChange(decision.GroupPopularityChanges);
-            groupService.ApplyStrengthChange(decision.GroupStrengthChanges);
-            accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
+            decisionService.ApplyDecisionEffects(decision);
         }
 
         /// <summary>
