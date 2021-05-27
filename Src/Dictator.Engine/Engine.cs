@@ -466,14 +466,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if the group accepts to be an ally; otherwise, <c>false</c>.</returns>
         public bool DoesGroupAcceptAllianceInRevolution(int groupId)
         {
-            Group group = groupService.GetGroups()[groupId - 1];
-
-            if(group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                return false;
-            }
-
-            return true;
+            return revolutionService.DoesGroupAcceptAllianceInRevolution(groupId);
         }
 
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
