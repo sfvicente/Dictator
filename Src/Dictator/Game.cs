@@ -444,7 +444,7 @@ namespace Dictator.ConsoleInterface
 
                     if(engine.DoesGroupAcceptAllianceInRevolution(selectedAllyGroupId))
                     {
-                        // TODO: set as ally of player if they do
+                        engine.SetPlayerAllyForRevolution(selectedAllyGroupId);
                     }
                     else
                     {

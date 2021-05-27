@@ -10,6 +10,14 @@ namespace Dictator.Core.Services
 
         public void Initialise();
         public Group[] GetGroups();
+
+        /// <summary>
+        ///     Retrieves a specific group by searching for the group id.
+        /// </summary>
+        /// <param name="groupId">The id of the group to search for.</param>
+        /// <returns>The group whose id matches the criteria.</returns>
+        public Group GetGroupById(int groupId);
+
         public int GetPopularityByGroupType(GroupType groupType);
         public int GetStrengthByGroupType(GroupType groupType);
         public Group GetGroupByType(GroupType groupType);

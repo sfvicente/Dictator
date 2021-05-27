@@ -60,6 +60,21 @@ namespace Dictator.Core.Services
             return (Group[])groups.Clone();
         }
 
+        /// <summary>
+        ///     Retrieves a specific group by searching for the group id.
+        /// </summary>
+        /// <param name="groupId">The id of the group to search for.</param>
+        /// <returns>The group whose id matches the criteria.</returns>
+        public Group GetGroupById(int groupId)
+        {
+            if(groupId < 1 || groupId > groups.Length)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            return groups[groupId - 1];
+        }
+
         public void SetPopularity(GroupType groupType, int popularity)
         {
             int index = (int)groupType;

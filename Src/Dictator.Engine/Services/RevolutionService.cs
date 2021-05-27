@@ -43,6 +43,13 @@ namespace Dictator.Core.Services
             return possibleAllies;
         }
 
+        public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
+        {
+            Group group = groupService.GetGroupById(selectedAllyGroupId);
+
+            revolution.PlayerAlly = group;
+        }
+
         /// <summary>
         ///     Punishes the groups that have taken part in a revolution that has been offset by the player. It
         ///     sets the revolutionaries strength and popularity to zero.

@@ -54,6 +54,7 @@ namespace Dictator.Core
         public bool TryTriggerRevoltGroup();
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
         public bool DoesGroupAcceptAllianceInRevolution(int groupId);
+        public void SetPlayerAllyForRevolution(int selectedAllyGroupId);
         public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();

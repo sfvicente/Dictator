@@ -476,6 +476,11 @@ namespace Dictator.Core
             return true;
         }
 
+        public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
+        {
+            revolutionService.SetPlayerAllyForRevolution(selectedAllyGroupId);
+        }
+
         /// <summary>
         ///     Determines if a revolution has succeeded in overthrowing the player.
         /// </summary>
