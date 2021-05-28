@@ -486,11 +486,7 @@ namespace Dictator.Core
 
         public void ApplyRevolutionCrushedEffects()
         {
-            revolutionService.BoostAllyPopularity();
-            governmentService.SetPlotBonus(governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
-            groupService.ResetStatusAndAllies();
-            // TODO: reset player's ally and revolution properties?
-
+            revolutionService.ApplyRevolutionCrushedEffects();
         }
 
         /// <summary>
