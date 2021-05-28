@@ -106,23 +106,17 @@ namespace Dictator.Core.Services
             }
         }
 
-        public void DecreasePopularity(GroupType groupType)
-        {
-            int index = (int)groupType;
-
-            if (groups[index].Popularity > MinPopularityAndStrength)
-            {
-                groups[index].Popularity--;
-            }
-        }
-
         public void DecreasePopularity(GroupType groupType, int amount)
         {
             int index = (int)groupType;
 
-            if (groups[index].Popularity > 0)
+            if (groups[index].Popularity - amount > MinPopularityAndStrength)
             {
                 groups[index].Popularity -= amount;
+            }
+            else
+            {
+                groups[index].Popularity = MinPopularityAndStrength;
             }
         }
 

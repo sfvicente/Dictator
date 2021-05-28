@@ -617,8 +617,8 @@ namespace Dictator.Core
         /// </summary>
         public void ApplyBankruptcyEffects()
         {
-            groupService.DecreasePopularity(GroupType.Army);
-            groupService.DecreasePopularity(GroupType.SecretPolice);
+            groupService.DecreasePopularity(GroupType.Army, 1);
+            groupService.DecreasePopularity(GroupType.SecretPolice, 1);
             groupService.DecreaseStrength(GroupType.SecretPolice);
             governmentService.DecreasePlayerStrength();
         }
