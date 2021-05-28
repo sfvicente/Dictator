@@ -10,8 +10,10 @@ namespace Dictator.Tests
         }
 
         [Test]
-        public void Test1()
+        public void DecreasePopularityDoesNotLowerPopularityBelowZero()
         {
+            // TODO: Implement
+
             Assert.Pass();
         }
     }
