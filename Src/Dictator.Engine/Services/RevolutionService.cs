@@ -50,6 +50,10 @@ namespace Dictator.Core.Services
             return false;
         }
 
+        /// <summary>
+        ///     Finds the groups that can be possible allies of a player in a revolution.
+        /// </summary>
+        /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
         public Dictionary<int, Group> FindPossibleAllies()
         {
             Group[] groups = groupService.GetGroups();

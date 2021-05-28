@@ -12,6 +12,10 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
         public bool TryTriggerRevoltGroup();
 
+        /// <summary>
+        ///     Finds the groups that can be possible allies of a player in a revolution.
+        /// </summary>
+        /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
         public Dictionary<int, Group> FindPossibleAllies();
         
         /// <summary>
