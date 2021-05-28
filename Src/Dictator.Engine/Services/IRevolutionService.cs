@@ -6,6 +6,12 @@ namespace Dictator.Core.Services
 {
     public interface IRevolutionService
     {
+        /// <summary>
+        ///     Attempts to assign a revolt group in a scenario of revolution.
+        /// </summary>
+        /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
+        public bool TryTriggerRevoltGroup();
+
         public Dictionary<int, Group> FindPossibleAllies();
         
         /// <summary>

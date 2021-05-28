@@ -437,21 +437,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
         public bool TryTriggerRevoltGroup()
         {
-            Random random = new Random();
-
-            for (int guess = 0; guess < 3; guess++)     // Perform 3 tries to guess the revolt group
-            {
-                int number = random.Next(0, 3);
-                Group[] groups = groupService.GetGroups();
-
-                if (groups[number].Status == GroupStatus.Revolution)
-                {
-                    revolutionService.SetRevolutionaryGroup(groups[number]);  // As the group has been triggered, set the group as the current revolutionary
-                    return true;
-                }
-            }
-
-            return false;
+            return revolutionService.TryTriggerRevoltGroup();
         }
 
         public Dictionary<int, Group> FindPossibleAlliesForPlayer()
