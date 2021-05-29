@@ -374,10 +374,7 @@ namespace Dictator.Core
         /// </summary>
         public void ApplyThreatOfWarEffects()
         {
-            groupService.IncreasePopularity(GroupType.Army, 1);
-            groupService.IncreasePopularity(GroupType.Peasants, 1);
-            groupService.IncreasePopularity(GroupType.Landowners, 1);
-            groupService.DecreasePopularity(GroupType.SecretPolice, 1);
+            warService.ApplyThreatOfWarEffects();
         }
 
         /// <summary>

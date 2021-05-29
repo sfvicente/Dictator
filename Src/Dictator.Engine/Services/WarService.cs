@@ -6,6 +6,12 @@ namespace Dictator.Core.Services
 {
     public class WarService : IWarService
     {
+        private readonly IGroupService groupService;
+
+        public WarService(IGroupService groupService)
+        {
+            this.groupService = groupService;
+        }
 
         /// <summary>
         ///     Determines if a war between the Ritimba republic and Leftoto should happen. There is a 1/3 probability that war should happen.
@@ -22,6 +28,18 @@ namespace Dictator.Core.Services
             }
 
             return false;
+        }
+
+        /// <summary>
+        ///     Applies the effects of a threat of war with leftoto, which results in an increase of the player's popularity amongst the army,
+        ///     peasants, landowners and secret police.
+        /// </summary>
+        public void ApplyThreatOfWarEffects()
+        {
+            groupService.IncreasePopularity(GroupType.Army, 1);
+            groupService.IncreasePopularity(GroupType.Peasants, 1);
+            groupService.IncreasePopularity(GroupType.Landowners, 1);
+            groupService.DecreasePopularity(GroupType.SecretPolice, 1);
         }
     }
 }
