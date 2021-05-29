@@ -55,7 +55,7 @@ namespace Dictator.Core
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
         public bool DoesGroupAcceptAllianceInRevolution(int groupId);
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId);
-        public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
+        public bool DoesRevolutionSucceed();
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
         public void PurchasedHelicopter();

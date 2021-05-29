@@ -456,11 +456,9 @@ namespace Dictator.ConsoleInterface
                     userInterface.DisplayRevolutionNoAlliesScreen();
                 }
 
-                Core.Revolution revolution = new Core.Revolution();
-
                 userInterface.DisplayRevolutionStartedScreen();
 
-                bool doesRevolutionSucceed = engine.DoesRevolutionSucceed(revolution.PlayerStrength, revolution.RevolutionStrength);
+                bool doesRevolutionSucceed = engine.DoesRevolutionSucceed();
 
                 if (doesRevolutionSucceed)
                 {

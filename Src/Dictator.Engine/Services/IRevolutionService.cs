@@ -31,10 +31,8 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Determines if a revolution has succeeded in overthrowing the player.
         /// </summary>
-        /// <param name="playerStrength">The player's strength.</param>
-        /// <param name="revolutionStrength">The revolution's strength.</param>
         /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
-        public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength);
+        public bool DoesRevolutionSucceed();
 
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
