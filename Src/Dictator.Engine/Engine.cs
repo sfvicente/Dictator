@@ -468,15 +468,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
         public bool DoesRevolutionSucceed(int playerStrength, int revolutionStrength)
         {
-            Random random = new Random();
-            int number = random.Next(0, 3);
-
-            if (revolutionStrength > playerStrength + number - 1)
-            {
-                return true;
-            }
-
-            return false;
+            return revolutionService.DoesRevolutionSucceed(playerStrength, revolutionStrength);
         }
 
         public void PunishRevolutionaries()
