@@ -10,6 +10,14 @@ namespace Dictator.Tests
         }
 
         [Test]
+        public void IncreasePopularityDoesNotExceedMaximumAllowed()
+        {
+            // TODO: Implement
+
+            Assert.Pass();
+        }
+
+        [Test]
         public void DecreasePopularityDoesNotLowerPopularityBelowZero()
         {
             // TODO: Implement
