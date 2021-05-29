@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Dictator.Tests
 {
-    public class Tests
+    public class EngineTests
     {
         [SetUp]
         public void Setup()
