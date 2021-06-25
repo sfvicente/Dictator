@@ -68,6 +68,10 @@ namespace Dictator.Core
         /// <returns><c>true</c> if manages to escape after losing the war; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAbleToEscapeAfterLosingWar();
 
+        /// <summary>
+        ///     Checks if the player is captured by the guerrillas when attempting to escape through leftoto.
+        /// </summary>
+        /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
         public bool DoesGuerrillaCatchPlayerEscaping();
 
         /// <summary>
