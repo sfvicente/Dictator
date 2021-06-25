@@ -525,7 +525,7 @@ namespace Dictator.Core
         /// <summary>
         ///     Checks if the player is captured by the guerrillas when attempting to escape through leftoto.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
         public bool DoesGuerrillaCatchPlayerEscaping()
         {
             int guerrilasStrength = groupService.GetGroupByType(GroupType.Guerillas).Strength;
