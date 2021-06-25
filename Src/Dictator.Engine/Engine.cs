@@ -602,8 +602,8 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        /// Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
-        /// of the Player and the Secret Police.
+        ///     Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
+        ///     of the Player and the Secret Police.
         /// </summary>
         public void ApplyBankruptcyEffects()
         {
