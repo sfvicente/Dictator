@@ -569,6 +569,9 @@ namespace Dictator.Core
             return scoreService.GetCurrentScore();
         }
 
+        /// <summary>
+        ///     Stores the score of the current game state as the highest score.
+        /// </summary>
         public void SaveHighScore()
         {
             scoreService.SaveHighScore();
