@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Dictator.Core.Services
@@ -52,7 +53,7 @@ namespace Dictator.Core.Services
                     break;
 
                 default:
-                    throw new System.ComponentModel.InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
+                    throw new InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
             }
 
             Group group = groupService.GetGroupByType(groupType);
