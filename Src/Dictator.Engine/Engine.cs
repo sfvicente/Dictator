@@ -534,7 +534,7 @@ namespace Dictator.Core
             Random random = new Random();
             int number = random.Next(0, upperLimit);
 
-            // There is a chance on 1 in 2..5 depending on the guerrilas strength
+            // There is a chance of 1 in 2..5 that player is captured, which depends on the guerrilas strength
             if (number == 0)
             {
                 return true;
