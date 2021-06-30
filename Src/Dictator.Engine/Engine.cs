@@ -467,7 +467,8 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Punishes the groups responsible for starting a revolution, after the player has crushed the revolution.
+        ///     Punishes the groups that have taken part in a revolution that has been offset by the player. It
+        ///     sets the revolutionaries strength and popularity to zero.
         /// </summary>
         public void PunishRevolutionaries()
         {

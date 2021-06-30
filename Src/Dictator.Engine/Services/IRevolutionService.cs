@@ -34,7 +34,12 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
         public bool DoesRevolutionSucceed();
 
+        /// <summary>
+        ///     Punishes the groups that have taken part in a revolution that has been offset by the player. It
+        ///     sets the revolutionaries strength and popularity to zero.
+        /// </summary>
         public void PunishRevolutionaries();
+
         public void ApplyRevolutionCrushedEffects();
     }
 }
