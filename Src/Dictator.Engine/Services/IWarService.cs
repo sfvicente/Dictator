@@ -23,5 +23,11 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <returns>The total strength of Ritimba in a scenario of war.</returns>
         public int CalculateRitimbaStrength();
+
+        /// <summary>
+        ///     Calculates the strength of Leftoto in a scenario of war.
+        /// </summary>
+        /// <returns>The total strength of Leftoto.</returns>
+        public int CalculateLeftotoStrength();
     }
 }

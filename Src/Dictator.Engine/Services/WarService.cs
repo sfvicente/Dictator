@@ -75,5 +75,26 @@ namespace Dictator.Core.Services
 
             return totalStrength;
         }
+
+        /// <summary>
+        ///     Calculates the strength of Leftoto in a scenario of war.
+        /// </summary>
+        /// <returns>The total strength of Leftoto.</returns>
+        public int CalculateLeftotoStrength()
+        {
+            int totalStrength = 0;
+            Group[] groups = groupService.GetGroups();
+
+            // Add the strength of all groups except Russians and Americans that are equal or below the minimal popularity
+            for (int i = 0; i < 6; i++)
+            {
+                if (groups[i].Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+                {
+                    totalStrength += groups[i].Strength;
+                }
+            }
+
+            return totalStrength;
+        }
     }
 }
