@@ -466,6 +466,9 @@ namespace Dictator.Core
             return revolutionService.DoesRevolutionSucceed();
         }
 
+        /// <summary>
+        ///     Punishes the groups responsible for starting a revolution, after the player has crushed the revolution.
+        /// </summary>
         public void PunishRevolutionaries()
         {
             revolutionService.PunishRevolutionaries();
