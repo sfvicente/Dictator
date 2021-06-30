@@ -618,30 +618,7 @@ namespace Dictator.Core
         /// <returns>The total strength of Ritimba in a scenario of war.</returns>
         private int CalculateRitimbaStrength()
         {
-            int totalStrength = 0;
-            Group[] groups = groupService.GetGroups();
-
-            // Sum the strength of the army, peasants and landowners if they have minimal popularity
-            for (int i = 0; i < 3; i++)
-            {
-                if (groups[i].Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
-                {
-                    totalStrength += groups[i].Strength;
-                }
-            }
-
-            Group secretPoliceGroup = groupService.GetGroupByType(GroupType.SecretPolice);
-
-            // Add the strength of the secret police strength if they have minimal popularity
-            if (secretPoliceGroup.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                totalStrength += secretPoliceGroup.Strength;
-            }
-                
-            // Add the strength of the player to the total
-            totalStrength += governmentService.GetPlayerStrength();
-
-            return totalStrength;
+            return warService.CalculateRitimbaStrength();
         }
 
         /// <summary>

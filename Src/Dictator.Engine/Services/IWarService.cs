@@ -17,5 +17,11 @@ namespace Dictator.Core.Services
         ///     peasants, landowners and secret police.
         /// </summary>
         public void ApplyThreatOfWarEffects();
+
+        /// <summary>
+        ///     Calculates the strength of the Ritimba republic in a scenario of war.
+        /// </summary>
+        /// <returns>The total strength of Ritimba in a scenario of war.</returns>
+        public int CalculateRitimbaStrength();
     }
 }
