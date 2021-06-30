@@ -13,5 +13,11 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <returns></returns>
         public bool IsPlayerAbleToEscapeByHelicopter();
+
+        /// <summary>
+        ///     Checks if the player is captured by the guerrillas when attempting to escape through leftoto.
+        /// </summary>
+        /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
+        public bool DoesGuerrillaCatchPlayerEscaping();
     }
 }

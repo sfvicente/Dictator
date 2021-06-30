@@ -517,19 +517,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
         public bool DoesGuerrillaCatchPlayerEscaping()
         {
-            int guerrilasStrength = groupService.GetGroupByType(GroupType.Guerillas).Strength;
-            int upperLimit = (guerrilasStrength / 3) + 2;
-
-            Random random = new Random();
-            int number = random.Next(0, upperLimit);
-
-            // There is a chance of 1 in 2..5 that player is captured, which depends on the guerrilas strength
-            if (number == 0)
-            {
-                return true;
-            }
-
-            return false;
+            return escapeService.DoesGuerrillaCatchPlayerEscaping();
         }
 
         /// <summary>
