@@ -36,5 +36,12 @@ namespace Dictator.Core.Services
         /// <param name="warStats">The stats required for the war to calculate who wins.</param>
         /// <returns><c>true</c> if Ritimba wins the war; otherwise, <c>false</c>.</returns>
         public bool ExecuteWar(WarStats warStats);
+
+        /// <summary>
+        ///     Determines if there is conflict between the republic of Ritimba and Leftoto. A conflict does not exist if the player is popular
+        ///     with the leftotans or leftotans are weak.
+        /// </summary>
+        /// <returns></returns>
+        public bool DoesConflictExist();
     }
 }

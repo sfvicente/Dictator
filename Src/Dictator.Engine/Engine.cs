@@ -348,15 +348,7 @@ namespace Dictator.Core
         /// <returns></returns>
         public bool DoesConflictExist()
         {
-            Group leftotans = groupService.GetGroupByType(GroupType.Leftotans);
-
-            if(leftotans.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength() ||
-                leftotans.Strength < governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                return false;
-            }
-
-            return true;
+            return warService.DoesConflictExist();
         }
 
         /// <summary>
