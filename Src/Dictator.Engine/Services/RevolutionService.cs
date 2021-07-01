@@ -87,6 +87,10 @@ namespace Dictator.Core.Services
             return true;
         }
 
+        /// <summary>
+        ///     Sets the specified group as the ally of the player in a scenario of a revolution.
+        /// </summary>
+        /// <param name="selectedAllyGroupId">The id of the group to set as the ally of the player.</param>
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
         {
             Group group = groupService.GetGroupById(selectedAllyGroupId);
