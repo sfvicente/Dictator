@@ -416,16 +416,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if Ritimba wins the war; otherwise, <c>false</c>.</returns>
         public bool ExecuteWar(WarStats warStats)
         {
-            Random random = new Random();
-            int number = random.Next(0, 3);
-            int modifiedLeftotanStrength = warStats.LeftotanStrength + number - 1;
-
-            if (warStats.RitimbanStrength > modifiedLeftotanStrength)
-            {
-                return true;
-            }
-
-            return false;
+            return warService.ExecuteWar(warStats);
         }
 
         /// <summary>
