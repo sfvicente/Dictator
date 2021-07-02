@@ -21,6 +21,7 @@ namespace Dictator.Core
         private readonly IRevolutionService revolutionService;
         private readonly IScoreService scoreService;
         private readonly IEscapeService escapeService;
+        private readonly IAssassinationService assassinationService;
         private readonly ILoanService loanService;
         private readonly IWarService warService;
 
@@ -35,6 +36,7 @@ namespace Dictator.Core
             IRevolutionService revolutionService,
             IScoreService scoreService,
             IEscapeService escapeService,
+            IAssassinationService assassinationService,
             ILoanService loanService,
             IWarService warService)
         {
@@ -48,6 +50,7 @@ namespace Dictator.Core
             this.revolutionService = revolutionService;
             this.scoreService = scoreService;
             this.escapeService = escapeService;
+            this.assassinationService = assassinationService;
             this.loanService = loanService;
             this.warService = warService;
         }
@@ -375,19 +378,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
         public bool IsAssassinationSuccessful()
         {
-            Random random = new Random();
-            int number = random.Next(0, 2);
-
-            if (groupService.DoesMainPopulationHatePlayer() ||
-                DoesPoliceHatePlayer() ||
-                IsPoliceUnableToProtectPlayer() ||
-                number == 0) // Player is just unlucky
-
-            {
-                return true;
-            }
-
-            return false;
+            return assassinationService.IsAssassinationSuccessful();
         }
 
         public WarStats BeginInvasion()
@@ -543,30 +534,6 @@ namespace Dictator.Core
         public void SaveHighScore()
         {
             scoreService.SaveHighScore();
-        }
-
-        /// <summary>
-        ///     Determines if the popularity with the secret police is less or equal to the minimum required monthly popularity.
-        /// </summary>
-        /// <returns><c>true</c> if the player is not popular enough with the secret police; otherwise, <c>false</c>.</returns>
-        private bool DoesPoliceHatePlayer()
-        {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool IsPoliceUnableToProtectPlayer()
-        {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Strength <= governmentService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                return true;
-            }
-
-            return false;
         }
 
         /// <summary>
