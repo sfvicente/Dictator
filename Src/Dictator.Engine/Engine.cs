@@ -385,13 +385,7 @@ namespace Dictator.Core
         /// <returns>The war statistics which are composed of the strength of each country.</returns>
         public WarStats BeginInvasion()
         {
-            var warStats = new WarStats
-            {
-                RitimbanStrength = CalculateRitimbaStrength(),
-                LeftotanStrength = CalculateLeftotoStrength()
-            };
-
-            return warStats;
+            return warService.BeginInvasion();
         }
 
         /// <summary>

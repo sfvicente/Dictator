@@ -133,5 +133,21 @@ namespace Dictator.Core.Services
 
             return true;
         }
+
+        /// <summary>
+        ///     Initiates an invasion of the Ritimba Republic by Leftoto, which calculates teh strength of both countries in a
+        ///     scenario of war.
+        /// </summary>
+        /// <returns>The war statistics which are composed of the strength of each country.</returns>
+        public WarStats BeginInvasion()
+        {
+            var warStats = new WarStats
+            {
+                RitimbanStrength = CalculateRitimbaStrength(),
+                LeftotanStrength = CalculateLeftotoStrength()
+            };
+
+            return warStats;
+        }
     }
 }
