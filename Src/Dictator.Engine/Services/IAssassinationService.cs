@@ -11,5 +11,11 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
         public bool IsAssassinationSuccessful();
+
+        /// <summary>
+        ///     Retrieves the name of the group responsible for the assassination attempt.
+        /// </summary>
+        /// <returns>The name of the assassination group.</returns>
+        public string GetAssassinationGroupName();
     }
 }

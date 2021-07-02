@@ -338,10 +338,7 @@ namespace Dictator.Core
         /// <returns>The name of the assassination group.</returns>
         public string GetAssassinationGroupName()
         {
-            GroupType assassinGroupType = groupService.AssassinGroupType;
-            string groupName = groupService.GetGroupByType(assassinGroupType).Name;
-
-            return groupName;
+            return assassinationService.GetAssassinationGroupName();
         }
 
         /// <summary>
@@ -381,6 +378,11 @@ namespace Dictator.Core
             return assassinationService.IsAssassinationSuccessful();
         }
 
+        /// <summary>
+        ///     Initiates an invasion of the Ritimba Republic by Leftoto, which calculates teh strength of both countries in a
+        ///     scenario of war.
+        /// </summary>
+        /// <returns>The war statistics which are composed of the strength of each country.</returns>
         public WarStats BeginInvasion()
         {
             var warStats = new WarStats

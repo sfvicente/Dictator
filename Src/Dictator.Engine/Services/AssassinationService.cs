@@ -37,6 +37,18 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
+        ///     Retrieves the name of the group responsible for the assassination attempt.
+        /// </summary>
+        /// <returns>The name of the assassination group.</returns>
+        public string GetAssassinationGroupName()
+        {
+            GroupType assassinGroupType = groupService.AssassinGroupType;
+            string groupName = groupService.GetGroupByType(assassinGroupType).Name;
+
+            return groupName;
+        }
+
+        /// <summary>
         ///     Determines if the popularity with the secret police is less or equal to the minimum required monthly popularity.
         /// </summary>
         /// <returns><c>true</c> if the player is not popular enough with the secret police; otherwise, <c>false</c>.</returns>
