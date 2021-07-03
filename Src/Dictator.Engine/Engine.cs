@@ -264,9 +264,7 @@ namespace Dictator.Core
 
         public Decision[] GetDecisionsByType(DecisionType decisionType)
         {
-            Decision[] decisions = decisionService.GetDecisionsByType(decisionType);
-
-            return decisions;
+            return decisionService.GetDecisionsByType(decisionType);
         }
 
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
