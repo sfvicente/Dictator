@@ -54,6 +54,23 @@ namespace Dictator.Core.Services
             return decisionCopy.Where(x => x.Type == decisionType).ToArray();
         }
 
+        public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
+        {
+            if (optionNumber < 0)
+            {
+                throw new ArgumentException(nameof(optionNumber));
+            }
+
+            Decision[] decisions = GetDecisionsByType(decisionType);
+
+            if (optionNumber > decisions.Length)
+            {
+                throw new ArgumentException(nameof(optionNumber));
+            }
+
+            return decisions[optionNumber - 1];
+        }
+
         public void MarkDecisionAsUsed(string text)
         {
             Decision item = decisions.Where(x => x.Text == text).Single();

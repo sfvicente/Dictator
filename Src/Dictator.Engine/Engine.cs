@@ -271,19 +271,7 @@ namespace Dictator.Core
 
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
         {
-            if (optionNumber < 0)
-            {
-                throw new ArgumentException(nameof(optionNumber));
-            }
-
-            Decision[] decisions = decisionService.GetDecisionsByType(decisionType);
-
-            if (optionNumber > decisions.Length)
-            {
-                throw new ArgumentException(nameof(optionNumber));
-            }
-
-            return decisions[optionNumber - 1];
+            return decisionService.GetDecisionByTypeAndIndex(decisionType, optionNumber);
         }
 
         /// <summary>

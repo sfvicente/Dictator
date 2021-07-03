@@ -8,6 +8,7 @@ namespace Dictator.Core.Services
     {
         public void Initialise();
         public Decision[] GetDecisionsByType(DecisionType decisionType);
+        public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber);
         public void MarkDecisionAsUsed(string text);
 
         /// <summary>
