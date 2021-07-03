@@ -561,23 +561,5 @@ namespace Dictator.Core
 
             return policeStrength > governmentService.GetMonthlyMinimalPopularityAndStrength();
         }
-
-        /// <summary>
-        ///     Calculates the strength of the Ritimba republic in a scenario of war.
-        /// </summary>
-        /// <returns>The total strength of Ritimba in a scenario of war.</returns>
-        private int CalculateRitimbaStrength()
-        {
-            return warService.CalculateRitimbaStrength();
-        }
-
-        /// <summary>
-        ///     Calculates the strength of Leftoto in a scenario of war.
-        /// </summary>
-        /// <returns>The total strength of Leftoto.</returns>
-        private int CalculateLeftotoStrength()
-        {
-            return warService.CalculateLeftotoStrength();
-        }
     }
 }
