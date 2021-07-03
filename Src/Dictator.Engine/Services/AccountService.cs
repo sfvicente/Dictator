@@ -39,6 +39,17 @@ namespace Dictator.Core.Services
             return account.MonthlyCosts;
         }
 
+        /// <summary>
+        ///     Takes the required funds from treasury to pay for the monthly expenses.
+        /// </summary>
+        public void PayMonthlyCosts()
+        {
+            if (GetTreasuryBalance() > 0)
+            {
+                ChangeTreasuryBalance(-GetMonthlyCosts());
+            }
+        }
+
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
             account.TreasuryBalance += 10 * cost;

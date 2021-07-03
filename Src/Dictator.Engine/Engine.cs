@@ -121,10 +121,7 @@ namespace Dictator.Core
         /// </summary>
         public void PayMonthlyCosts()
         {
-            if(accountService.GetTreasuryBalance() > 0)
-            {
-                accountService.ChangeTreasuryBalance(-accountService.GetMonthlyCosts());
-            }
+            accountService.PayMonthlyCosts();
         }
 
         public int GetMonth()
