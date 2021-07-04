@@ -224,19 +224,7 @@ namespace Dictator.Core
 
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
         {
-            Decision[] decisions = decisionService.GetDecisionsByType(decisionType);
-
-            if (optionNumber > decisions.Length)
-            {
-                return false;
-            }
-
-            if (decisions[optionNumber - 1].HasBeenUsed)
-            {
-                return false;
-            }
-
-            return true;
+            return decisionService.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionNumber);
         }
 
         public Decision[] GetDecisionsByType(DecisionType decisionType)

@@ -71,6 +71,23 @@ namespace Dictator.Core.Services
             return decisions[optionNumber - 1];
         }
 
+        public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
+        {
+            Decision[] decisions = GetDecisionsByType(decisionType);
+
+            if (optionNumber > decisions.Length)
+            {
+                return false;
+            }
+
+            if (decisions[optionNumber - 1].HasBeenUsed)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public void MarkDecisionAsUsed(string text)
         {
             Decision item = decisions.Where(x => x.Text == text).Single();
