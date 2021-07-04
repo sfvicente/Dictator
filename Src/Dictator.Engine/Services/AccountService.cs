@@ -95,6 +95,10 @@ namespace Dictator.Core.Services
             account.SwissBankAccountBalance += amount;
         }
 
+        /// <summary>
+        ///     Steals half of the current treasury funds to the players private Swiss bank account.
+        /// </summary>
+        /// <returns>The details of the bank transfer consisting of the previous treasury balance and the amount stolen.</returns>
         public SwissBankAccountTransfer TransferToSwissBankAccount()
         {
             int treasuryPreviousBalance = GetTreasuryBalance();

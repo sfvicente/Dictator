@@ -15,7 +15,13 @@ namespace Dictator.Core
         public int GetMonth();
         public void AdvanceMonth();
         public void PayMonthlyCosts();
+
+        /// <summary>
+        ///     Steals half of the current treasury funds to the players private Swiss bank account.
+        /// </summary>
+        /// <returns>The details of the bank transfer consisting of the previous treasury balance and the amount stolen.</returns>
         public SwissBankAccountTransfer TransferToSwissBankAccount();
+
         public bool IsGovernmentBankrupt();
         public void PayFromTreasury(int amount);
         public void SetMonthlyMinimalPopularityAndStrength();
