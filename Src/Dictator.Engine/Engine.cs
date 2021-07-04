@@ -141,27 +141,7 @@ namespace Dictator.Core
 
         public SwissBankAccountTransfer TransferToSwissBankAccount()
         {
-            int treasuryPreviousBalance = accountService.GetTreasuryBalance();
-            int amountStolen = treasuryPreviousBalance / 2;
-
-            if(amountStolen > 0)
-            {
-                if(!accountService.HasSwissBankAccount())
-                {
-                    accountService.OpenSwissBankAccount();
-                }
-
-                accountService.ChangeTreasuryBalance(-amountStolen);
-                accountService.DepositToSwissBankAccount(amountStolen);
-            }
-
-            var swissBankAccountTransfer = new SwissBankAccountTransfer()
-            {
-                AmountStolen = amountStolen,
-                TreasuryPreviousBalance = treasuryPreviousBalance
-            };
-
-            return swissBankAccountTransfer;
+            return accountService.TransferToSwissBankAccount();
         }
 
         public void SetMonthlyMinimalPopularityAndStrength()

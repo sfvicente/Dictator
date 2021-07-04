@@ -94,5 +94,30 @@ namespace Dictator.Core.Services
         {
             account.SwissBankAccountBalance += amount;
         }
+
+        public SwissBankAccountTransfer TransferToSwissBankAccount()
+        {
+            int treasuryPreviousBalance = GetTreasuryBalance();
+            int amountStolen = treasuryPreviousBalance / 2;
+
+            if (amountStolen > 0)
+            {
+                if (!HasSwissBankAccount())
+                {
+                    OpenSwissBankAccount();
+                }
+
+                ChangeTreasuryBalance(-amountStolen);
+                DepositToSwissBankAccount(amountStolen);
+            }
+
+            var swissBankAccountTransfer = new SwissBankAccountTransfer()
+            {
+                AmountStolen = amountStolen,
+                TreasuryPreviousBalance = treasuryPreviousBalance
+            };
+
+            return swissBankAccountTransfer;
+        }
     }
 }

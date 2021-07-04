@@ -69,5 +69,7 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <param name="amount"></param>
         public void DepositToSwissBankAccount(int amount);
+
+        public SwissBankAccountTransfer TransferToSwissBankAccount();
     }
 }
