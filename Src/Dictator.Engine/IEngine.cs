@@ -22,6 +22,10 @@ namespace Dictator.Core
         /// <returns>The details of the bank transfer consisting of the previous treasury balance and the amount stolen.</returns>
         public SwissBankAccountTransfer TransferToSwissBankAccount();
 
+        /// <summary>
+        ///     Determines if the government is bankrupt, which means that the treasury contains no funds.
+        /// </summary>
+        /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
         public bool IsGovernmentBankrupt();
         public void PayFromTreasury(int amount);
         public void SetMonthlyMinimalPopularityAndStrength();
