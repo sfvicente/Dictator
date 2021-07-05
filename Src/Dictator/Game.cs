@@ -50,7 +50,11 @@ namespace Dictator.ConsoleInterface
                     ProcessPoliceReport();
                     HandlePresidentialDecision();
                     ProcessPoliceReport();
-                    TryTriggerNews();
+                    
+                    if(TryTriggerNews())
+                    {
+                        ExecuteRandomNewsflash();
+                    }
 
                     if (TryTriggerRevolution())
                     {
@@ -393,20 +397,31 @@ namespace Dictator.ConsoleInterface
         /// <summary>
         ///     Attempts to trigger a random unused newsflash.
         /// </summary>
-        private void TryTriggerNews()
+        /// <returns><c>true</c> if the news should happen; otherwise, <c>false</c>.</returns>
+        private bool TryTriggerNews()
         {
             if (engine.ShouldNewsHappen())
             {
                 if (engine.DoesUnusedNewsExist())
                 {
-                    Core.News unusedRandomNews = engine.SelectRandomUnusedNews();
-
-                    userInterface.DisplayNewsScreen(unusedRandomNews.Text);
-                    engine.ApplyNewsEffects(unusedRandomNews);
-                    engine.Plot();
-                    ProcessPoliceReport();
+                    return true;
                 }
             }
+
+            return false;
+        }
+
+        /// <summary>
+        ///     Executes a random unused newsflash.
+        /// </summary>
+        private void ExecuteRandomNewsflash()
+        {
+            Core.News unusedRandomNews = engine.SelectRandomUnusedNews();
+
+            userInterface.DisplayNewsScreen(unusedRandomNews.Text);
+            engine.ApplyNewsEffects(unusedRandomNews);
+            engine.Plot();
+            ProcessPoliceReport();
         }
 
         /// <summary>
