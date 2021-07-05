@@ -24,6 +24,12 @@ namespace Dictator.Core.Services
         public int GetTreasuryBalance();
 
         /// <summary>
+        ///     Determines if the government is bankrupt, which means that the treasury contains no funds.
+        /// </summary>
+        /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
+        public bool IsGovernmentBankrupt();
+
+        /// <summary>
         ///     Retrives the current monthly costs for the treasury.
         /// </summary>
         /// <returns></returns>

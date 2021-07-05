@@ -34,6 +34,15 @@ namespace Dictator.Core.Services
             return account.TreasuryBalance;
         }
 
+        /// <summary>
+        ///     Determines if the government is bankrupt, which means that the treasury contains no funds.
+        /// </summary>
+        /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
+        public bool IsGovernmentBankrupt()
+        {
+            return GetTreasuryBalance() <= 0;
+        }
+
         public int GetMonthlyCosts()
         {
             return account.MonthlyCosts;

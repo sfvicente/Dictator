@@ -135,7 +135,7 @@ namespace Dictator.Core
         /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
         public bool IsGovernmentBankrupt()
         {
-            return accountService.GetTreasuryBalance() <= 0;
+            return accountService.IsGovernmentBankrupt();
         }
 
         public void PayFromTreasury(int amount)
