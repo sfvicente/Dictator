@@ -26,7 +26,12 @@ namespace Dictator.Core.Services
         /// </summary>
         public void KillPlayer();
 
+        /// <summary>
+        ///     Determines if the player is currently alive.
+        /// </summary>
+        /// <returns><c>true</c> if the player is alive in the current game; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAlive();
+
         public void PurchaseHelicopter();
         public bool HasPlayerPurchasedHelicopter();
         public int GetLastScore();

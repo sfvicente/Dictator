@@ -88,6 +88,10 @@ namespace Dictator.Core.Services
             government.IsPlayerAlive = false;
         }
 
+        /// <summary>
+        ///     Determines if the player is currently alive.
+        /// </summary>
+        /// <returns><c>true</c> if the player is alive in the current game; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAlive()
         {
             return government.IsPlayerAlive;
