@@ -140,7 +140,7 @@ namespace Dictator.Core
 
         public void PayFromTreasury(int amount)
         {
-            accountService.ChangeTreasuryBalance(-amount);
+            accountService.PayFromTreasury(amount);
         }
 
         /// <summary>

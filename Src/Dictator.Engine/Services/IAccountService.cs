@@ -40,6 +40,8 @@ namespace Dictator.Core.Services
         /// </summary>
         public void PayMonthlyCosts();
 
+        public void PayFromTreasury(int amount);
+
         /// <summary>
         ///     Modifies both the current treasury balance and monthly costs.
         /// </summary>

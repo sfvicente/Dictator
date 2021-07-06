@@ -59,6 +59,11 @@ namespace Dictator.Core.Services
             }
         }
 
+        public void PayFromTreasury(int amount)
+        {
+            ChangeTreasuryBalance(-amount);
+        }
+
         public void ApplyTreasuryChanges(int cost, int monthlyCost)
         {
             account.TreasuryBalance += 10 * cost;
