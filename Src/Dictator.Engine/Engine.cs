@@ -182,14 +182,7 @@ namespace Dictator.Core
 
         public bool DoesUnusedNewsExist()
         {
-            News[] unusedNews = newsService.GetUnusedNews();
-
-            if (unusedNews.Any())
-            {
-                return true;
-            }
-
-            return false;
+            return newsService.DoesUnusedNewsExist();
         }
 
         public News SelectRandomUnusedNews()
