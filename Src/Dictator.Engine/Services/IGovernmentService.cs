@@ -7,7 +7,12 @@ namespace Dictator.Core.Services
     public interface IGovernmentService
     {
         public void Initialise();
+
+        /// <summary>
+        ///     Advances the month number of the current game.
+        /// </summary>
         public void AdvanceMonth();
+
         public int GetMonth();
         public void DecreasePlayerStrength();
 

@@ -111,6 +111,9 @@ namespace Dictator.Core
             return policeReport;
         }
 
+        /// <summary>
+        ///     Advances the month number of the current game.
+        /// </summary>
         public void AdvanceMonth()
         {
             governmentService.AdvanceMonth();
