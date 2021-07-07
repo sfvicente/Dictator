@@ -39,6 +39,11 @@ namespace Dictator.Core
         public void ApplyBankruptcyEffects();
         public Audience SelectRandomUnusedAudienceRequest();
         public void Plot();
+
+        /// <summary>
+        ///     Determines if a random news event should happen in the current month.
+        /// </summary>
+        /// <returns><c>true</c> if a random news event should happen in the current month; otherwise, <c>false</c>.</returns>
         public bool ShouldNewsHappen();
 
         /// <summary>
