@@ -12,7 +12,13 @@ namespace Dictator.Core
         public int GetTreasuryBalance();
         public PoliceReportRequest RequestPoliceReport();
         public PoliceReport GetPoliceReport();
+
+        /// <summary>
+        ///     Retrieves the month number of the current game.
+        /// </summary>
+        /// <returns>The current month number.</returns>
         public int GetMonth();
+
         public void AdvanceMonth();
         public void PayMonthlyCosts();
 

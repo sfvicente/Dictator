@@ -26,6 +26,10 @@ namespace Dictator.Core.Services
             government.MonthlyMinimalPopularityAndStrength = 0;
         }
 
+        /// <summary>
+        ///     Retrieves the month number of the current game.
+        /// </summary>
+        /// <returns>The current month number.</returns>
         public int GetMonth()
         {
             return government.Month;

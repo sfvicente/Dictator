@@ -13,7 +13,12 @@ namespace Dictator.Core.Services
         /// </summary>
         public void AdvanceMonth();
 
+        /// <summary>
+        ///     Retrieves the month number of the current game.
+        /// </summary>
+        /// <returns>The current month number.</returns>
         public int GetMonth();
+
         public void DecreasePlayerStrength();
 
         /// <summary>

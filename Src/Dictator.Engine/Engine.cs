@@ -127,6 +127,10 @@ namespace Dictator.Core
             accountService.PayMonthlyCosts();
         }
 
+        /// <summary>
+        ///     Retrieves the month number of the current game.
+        /// </summary>
+        /// <returns>The current month number.</returns>
         public int GetMonth()
         {
             return governmentService.GetMonth();
