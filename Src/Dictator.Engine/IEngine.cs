@@ -40,7 +40,13 @@ namespace Dictator.Core
         public Audience SelectRandomUnusedAudienceRequest();
         public void Plot();
         public bool ShouldNewsHappen();
+
+        /// <summary>
+        ///     Applies the effects of a specific news event on the groups and treasury-
+        /// </summary>
+        /// <param name="news">The news whose effect will be applied.</param>
         public void ApplyNewsEffects(News news);
+
         public void AcceptAudienceRequest(Audience audience);
         public void RefuseAudienceRequest(Audience audience);
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
