@@ -32,7 +32,11 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the player is alive in the current game; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAlive();
 
+        /// <summary>
+        ///     Purchases an helicopter to have another route to escape in case of a war or revolution event.
+        /// </summary>
         public void PurchaseHelicopter();
+
         public bool HasPlayerPurchasedHelicopter();
         public int GetLastScore();
         public void SetHighScore(int totalScore);

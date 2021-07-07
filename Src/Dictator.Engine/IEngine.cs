@@ -68,7 +68,12 @@ namespace Dictator.Core
         public bool DoesRevolutionSucceed();
         public void PunishRevolutionaries();
         public void ApplyRevolutionCrushedEffects();
+
+        /// <summary>
+        ///     Purchases an helicopter to have another route to escape in case of a war or revolution event.
+        /// </summary>
         public void PurchasedHelicopter();
+
         public bool HasPlayerPurchasedHelicopter();
         public bool IsPlayerAbleToEscapeByHelicopter();
 

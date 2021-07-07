@@ -60,6 +60,9 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Purchases an helicopter to have another route to escape in case of a war or revolution event.
+        /// </summary>
         public void PurchaseHelicopter()
         {
             government.HasHelicopter = true;
