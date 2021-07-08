@@ -187,6 +187,10 @@ namespace Dictator.Core
             return newsService.ShouldNewsHappen();
         }
 
+        /// <summary>
+        ///     Determines if at least one news event exists that hasn't been used in the current game.
+        /// </summary>
+        /// <returns><c>true</c> if an unused news event exists; otherwise, <c>false</c>.</returns>
         public bool DoesUnusedNewsExist()
         {
             return newsService.DoesUnusedNewsExist();
