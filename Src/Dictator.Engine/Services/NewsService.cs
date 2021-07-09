@@ -55,6 +55,10 @@ namespace Dictator.Core.Services
             return false;
         }
 
+        /// <summary>
+        ///     Selects a random news event that hasn't been used in the current game.
+        /// </summary>
+        /// <returns>A random unused news event.</returns>
         public News SelectRandomUnusedNews()
         {
             News[] unusedNews = GetUnusedNews();

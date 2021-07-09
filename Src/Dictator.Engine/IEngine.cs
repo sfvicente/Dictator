@@ -53,6 +53,12 @@ namespace Dictator.Core
         public bool DoesUnusedNewsExist();
 
         /// <summary>
+        ///     Selects a random news event that hasn't been used in the current game.
+        /// </summary>
+        /// <returns>A random unused news event.</returns>
+        public News SelectRandomUnusedNews();
+
+        /// <summary>
         ///     Applies the effects of a specific news event on the groups and treasury-
         /// </summary>
         /// <param name="news">The news whose effect will be applied.</param>
@@ -74,7 +80,6 @@ namespace Dictator.Core
 
         public void ApplyDecisionEffects(Decision decision);
         public void MarkDecisionAsUsed(string text);
-        public News SelectRandomUnusedNews();
         public bool ShouldAssassinationAttemptHappen();
         public string GetAssassinationGroupName();
         public bool IsAssassinationSuccessful();

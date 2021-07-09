@@ -16,6 +16,10 @@
         /// <returns><c>true</c> if an unused news event exists; otherwise, <c>false</c>.</returns>
         public bool DoesUnusedNewsExist();
 
+        /// <summary>
+        ///     Selects a random news event that hasn't been used in the current game.
+        /// </summary>
+        /// <returns>A random unused news event.</returns>
         public News SelectRandomUnusedNews();
     }
 }
