@@ -3,7 +3,6 @@
     public interface INewsService
     {
         public void Initialise();
-        public News[] GetUnusedNews();
 
         /// <summary>
         ///     Determines if a random news event should happen in the current month.

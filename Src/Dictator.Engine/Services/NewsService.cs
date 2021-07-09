@@ -22,13 +22,6 @@ namespace Dictator.Core.Services
             };
         }
 
-        public News[] GetUnusedNews()
-        {
-            News[] unusedNews = news.Where(x => !x.HasBeenUsed).ToArray();
-
-            return unusedNews;
-        }
-
         /// <summary>
         ///     Determines if a random news event should happen in the current month.
         /// </summary>
@@ -77,6 +70,13 @@ namespace Dictator.Core.Services
             }
 
             throw new InvalidOperationException("There are unused news items in the collection.");
+        }
+
+        private News[] GetUnusedNews()
+        {
+            News[] unusedNews = news.Where(x => !x.HasBeenUsed).ToArray();
+
+            return unusedNews;
         }
     }
 }
