@@ -522,6 +522,10 @@ namespace Dictator.Core
             return secretPolicePopularity > governmentService.GetMonthlyMinimalPopularityAndStrength();
         }
 
+        /// <summary>
+        ///     Determines if the level of the police police strength is greater than the minimal requirement for the current month.
+        /// </summary>
+        /// <returns><c>true</c> if police has enough; otherwise, <c>false</c>.</returns>
         private bool HasPoliceEnoughStrength()
         {
             int policeStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice);
