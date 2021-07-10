@@ -14,6 +14,7 @@ namespace Dictator.Core
         private readonly IAccountService accountService;
         private readonly IGovernmentService governmentService;
         private readonly IGroupService groupService;
+        private readonly IReportService reportService;
         private readonly IPlotService plotService;
         private readonly IDecisionService decisionService;
         private readonly IAudienceService audienceService;
@@ -29,6 +30,7 @@ namespace Dictator.Core
             IAccountService accountService,
             IGovernmentService governmentService,
             IGroupService groupService,
+            IReportService reportService,
             IPlotService plotService,
             IDecisionService decisionService,
             IAudienceService audienceService,
@@ -43,6 +45,7 @@ namespace Dictator.Core
             this.accountService = accountService;
             this.governmentService = governmentService;
             this.groupService = groupService;
+            this.reportService = reportService;
             this.plotService = plotService;
             this.decisionService = decisionService;
             this.audienceService = audienceService;
@@ -75,40 +78,14 @@ namespace Dictator.Core
             groupService.SetStrength(groupType, strength);
         }
 
-        /// <summary>
-        ///     Gets the current treasury balance.
-        /// </summary>
-        /// <returns>The amount of dollars currently in the treasury.</returns>
-        public int GetTreasuryBalance()
-        {
-            return accountService.GetTreasuryBalance();
-        }
-
         public PoliceReportRequest RequestPoliceReport()
         {
-            PoliceReportRequest policeReportRequest = new PoliceReportRequest
-            {
-                HasEnoughBalance = GetTreasuryBalance() > 0,
-                IsPlayerPopularWithSecretPolice = IsPlayerPopularWithSecretPolice(),
-                HasPoliceEnoughStrength = HasPoliceEnoughStrength(),
-                PolicePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice),
-                PoliceStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice)
-            };
-
-            return policeReportRequest;
+            return reportService.RequestPoliceReport();
         }
 
         public PoliceReport GetPoliceReport()
         {
-            PoliceReport policeReport = new PoliceReport
-            {
-                Month = governmentService.GetMonth(),
-                Groups = groupService.GetGroups().AsReadOnly(),
-                PlayerStrength = governmentService.GetPlayerStrength(),
-                MonthlyRevolutionStrength = governmentService.GetMonthlyRevolutionStrength()
-            };
-
-            return policeReport;
+            return reportService.GetPoliceReport();
         }
 
         /// <summary>
@@ -513,28 +490,6 @@ namespace Dictator.Core
             groupService.DecreasePopularity(GroupType.SecretPolice, 1);
             groupService.DecreaseStrength(GroupType.SecretPolice);
             governmentService.DecreasePlayerStrength();
-        }
-
-        /// <summary>
-        ///     Determines if the player is popular with the secret police.
-        /// </summary>
-        /// <returns><c>true</c> if the player is popular with the secret police; otherwise, <c>false</c>.</returns>
-        private bool IsPlayerPopularWithSecretPolice()
-        {
-            int secretPolicePopularity = groupService.GetPopularityByGroupType(GroupType.SecretPolice);
-
-            return secretPolicePopularity > governmentService.GetMonthlyMinimalPopularityAndStrength();
-        }
-
-        /// <summary>
-        ///     Determines if the level of the police police strength is greater than the minimal requirement for the current month.
-        /// </summary>
-        /// <returns><c>true</c> if police has enough; otherwise, <c>false</c>.</returns>
-        private bool HasPoliceEnoughStrength()
-        {
-            int policeStrength = groupService.GetStrengthByGroupType(GroupType.SecretPolice);
-
-            return policeStrength > governmentService.GetMonthlyMinimalPopularityAndStrength();
         }
     }
 }
