@@ -107,6 +107,7 @@ namespace Dictator
             .AddScoped<ILoanService, LoanService>()
             .AddScoped<IAssassinationService, AssassinationService>()
             .AddScoped<IWarService, WarService>()
+            .AddScoped<IReportService, ReportService>()
         );
     }
 }
