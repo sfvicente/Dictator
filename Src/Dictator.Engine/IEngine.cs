@@ -69,6 +69,10 @@ namespace Dictator.Core
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
         public Decision[] GetDecisionsByType(DecisionType decisionType);
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
+
+        /// <summary>
+        ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
+        /// </summary>
         public void IncreaseBodyguard();
 
         /// <summary>
