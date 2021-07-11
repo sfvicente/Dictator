@@ -106,6 +106,9 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Displays the account details screen.
+        /// </summary>
         private void DisplayAccountDetails()
         {
             Account account = engine.GetAccount();
