@@ -397,6 +397,10 @@ namespace Dictator.Core
             revolutionService.PunishRevolutionaries();
         }
 
+        /// <summary>
+        ///     Applies the effects that result of a player crushing a revolution. It boosts ally popularity, prevents revolutions
+        ///     for the next two months and resets all group status and allies from previous plots.
+        /// </summary>
         public void ApplyRevolutionCrushedEffects()
         {
             revolutionService.ApplyRevolutionCrushedEffects();
