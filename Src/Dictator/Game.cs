@@ -78,6 +78,9 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayWelcomeScreen(highscore);
         }
 
+        /// <summary>
+        ///     Advances the current month and displays it on the month screen.
+        /// </summary>
         private void AdvanceAndDisplayCurrentMonth()
         {
             engine.AdvanceMonth();
