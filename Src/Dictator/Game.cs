@@ -116,6 +116,9 @@ namespace Dictator.ConsoleInterface
             userInterface.DisplayAccountScreen(account);
         }
 
+        /// <summary>
+        ///     Displays the police report screen.
+        /// </summary>
         private void DisplayPoliceReportScreen()
         {
             PoliceReport policeReport = engine.GetPoliceReport();
