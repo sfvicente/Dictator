@@ -246,7 +246,6 @@ namespace Dictator.ConsoleInterface
         /// <summary>
         ///     Processes the scenario when the player wins the war.
         /// </summary>
-
         private void ProcessWarWonScenario()
         {
             userInterface.DisplayWarWonScreen();
