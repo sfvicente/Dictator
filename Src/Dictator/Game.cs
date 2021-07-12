@@ -209,6 +209,10 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        /// <summary>
+        ///     Tries to process a conflit, determining if exists and if it might lead to a war scenario.
+        /// </summary>
+        /// <returns><c>true</c> if a conflict is processed that leads to the end of the current game; otherwise, <c>false</c>.</returns>
         private bool TryProcessConflict()
         {
             bool isGameOver = false;
