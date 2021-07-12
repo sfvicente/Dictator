@@ -186,6 +186,10 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Tries to process an assassination attempt, determining if it should happen and then if it is successful.
+        /// </summary>
+        /// <returns><c>true</c> if an assassination is processed and successful that leads to the end of the current game; otherwise, <c>false</c>.</returns>
         private bool TryProcessAssassinationAttempt()
         {
             if (engine.ShouldAssassinationAttemptHappen())
