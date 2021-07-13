@@ -22,6 +22,9 @@ namespace Dictator.ConsoleInterface
             this.userInterface = userInterface;
         }
 
+        /// <summary>
+        ///     Starts a game cycle which initialises the interface and processes the game flow.
+        /// </summary>
         public void Start()
         {
             userInterface.Initialise();
