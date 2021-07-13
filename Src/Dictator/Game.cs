@@ -11,6 +11,11 @@ namespace Dictator.ConsoleInterface
         private readonly IEngine engine;
         private readonly IUserInterface userInterface;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Game"/> class from an <see cref="IEngine"/> and a <see cref="IUserInterface"/> components.
+        /// </summary>
+        /// <param name="engine">The engine component responsible for the coordination of business calls to the services.</param>
+        /// <param name="userInterface">The user interface component responsible for displaying the screens.</param>
         public Game(IEngine engine, IUserInterface userInterface)
         {
             this.engine = engine;
