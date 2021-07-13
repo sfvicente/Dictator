@@ -160,6 +160,11 @@ namespace Dictator.ConsoleInterface
             return false;
         }
 
+        /// <summary>
+        ///     Asks the player to make a decision on a request made by one of the groups. The player
+        ///     can either accept or refuse the request.
+        /// </summary>
+        /// <param name="audience">The audience that the player will be asked to make a decision on.</param>
         private void AskForAudienceDecision(Core.Audience audience)
         {
             DialogResult dialogResult = userInterface.DisplayAudienceDecisionDialog(audience);
@@ -174,6 +179,9 @@ namespace Dictator.ConsoleInterface
             }
         }
 
+        /// <summary>
+        ///     Asks the player if the police report should be displayed and if the user accepts, displays it.
+        /// </summary>
         private void ProcessPoliceReport()
         {
             PoliceReportRequest policeReportRequest = engine.RequestPoliceReport();
