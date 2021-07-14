@@ -53,7 +53,7 @@ namespace Dictator.Core.Services
         public void SaveHighScore()
         {
             Score score = GetCurrentScore();
-            int highestScore = GetCurrentHighscore();
+            int highestScore = GetCurrentHighScore();
 
             if(score.TotalScore > highestScore)
             {
@@ -65,7 +65,7 @@ namespace Dictator.Core.Services
         ///     Retrieves the currently highest achieved saved score.
         /// </summary>
         /// <returns>The current high score.</returns>
-        public int GetCurrentHighscore()
+        public int GetCurrentHighScore()
         {
             int highestScore = governmentService.GetLastScore();
 

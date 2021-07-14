@@ -133,7 +133,7 @@ namespace Dictator.Core
         ///     Retrieves the currently highest achieved saved score.
         /// </summary>
         /// <returns>The current high score.</returns>
-        public int GetHighscore();
+        public int GetHighScore();
 
         public Score GetCurrentScore();
 
