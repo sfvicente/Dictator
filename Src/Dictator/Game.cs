@@ -62,6 +62,8 @@ namespace Dictator.ConsoleInterface
                     if(TryTriggerNews())
                     {
                         ExecuteRandomNewsflash();
+                        engine.Plot();
+                        ProcessPoliceReport();
                     }
 
                     if (TryTriggerRevolution())
@@ -452,8 +454,6 @@ namespace Dictator.ConsoleInterface
 
             userInterface.DisplayNewsScreen(unusedRandomNews.Text);
             engine.ApplyNewsEffects(unusedRandomNews);
-            engine.Plot();
-            ProcessPoliceReport();
         }
 
         /// <summary>
