@@ -83,7 +83,7 @@ namespace Dictator.ConsoleInterface
         /// </summary>
         private void DisplayWelcomeScreen()
         {
-            int highscore = engine.GetHighscore();
+            int highscore = engine.GetHighScore();
 
             userInterface.DisplayWelcomeScreen(highscore);
         }
