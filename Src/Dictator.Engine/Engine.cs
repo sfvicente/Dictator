@@ -459,9 +459,9 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Retrieves the current highest score of the game.
+        ///     Retrieves the currently highest achieved saved score.
         /// </summary>
-        /// <returns>The high-score value.</returns>
+        /// <returns>The current high score.</returns>
         public int GetHighscore()
         {
             return scoreService.GetCurrentHighscore();

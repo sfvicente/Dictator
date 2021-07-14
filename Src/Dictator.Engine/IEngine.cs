@@ -129,7 +129,12 @@ namespace Dictator.Core
         /// </summary>
         public void KillPlayer();
 
+        /// <summary>
+        ///     Retrieves the currently highest achieved saved score.
+        /// </summary>
+        /// <returns>The current high score.</returns>
         public int GetHighscore();
+
         public Score GetCurrentScore();
 
         /// <summary>

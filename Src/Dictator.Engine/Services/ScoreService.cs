@@ -62,9 +62,9 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
-        ///     Retrieves the current highest score.
+        ///     Retrieves the currently highest achieved saved score.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The current high score.</returns>
         public int GetCurrentHighscore()
         {
             int highestScore = governmentService.GetLastScore();

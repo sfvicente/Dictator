@@ -7,6 +7,11 @@ namespace Dictator.Core.Services
     public interface IScoreService
     {
         public Score GetCurrentScore();
+
+        /// <summary>
+        ///     Retrieves the currently highest achieved saved score.
+        /// </summary>
+        /// <returns>The current high score.</returns>
         public int GetCurrentHighscore();
 
         /// <summary>
