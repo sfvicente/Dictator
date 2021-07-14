@@ -44,7 +44,7 @@ namespace Dictator.ConsoleInterface
                     engine.SetMonthlyRevolutionStrength();
                     AdvanceAndDisplayCurrentMonth();
                     engine.Plot();
-                    ProcessTreasuryCosts();
+                    ProcessTreasuryMonthlyCosts();
                     HandleAudienceRequest();
                     engine.Plot();
 
@@ -101,7 +101,7 @@ namespace Dictator.ConsoleInterface
         /// <summary>
         ///     Handles the payment of the monthly costs and the check for bankruptcy.
         /// </summary>
-        private void ProcessTreasuryCosts()
+        private void ProcessTreasuryMonthlyCosts()
         {
             engine.PayMonthlyCosts();
 
