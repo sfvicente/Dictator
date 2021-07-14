@@ -477,7 +477,7 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Stores the score of the current game state as the highest score.
+        ///     Records the current score as the new high score if it is greater than the previous score.
         /// </summary>
         public void SaveHighScore()
         {

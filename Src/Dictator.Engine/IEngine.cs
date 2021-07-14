@@ -131,6 +131,10 @@ namespace Dictator.Core
 
         public int GetHighscore();
         public Score GetCurrentScore();
+
+        /// <summary>
+        ///     Records the current score as the new high score if it is greater than the previous score.
+        /// </summary>
         public void SaveHighScore();
     }
 }

@@ -8,6 +8,10 @@ namespace Dictator.Core.Services
     {
         public Score GetCurrentScore();
         public int GetCurrentHighscore();
+
+        /// <summary>
+        ///     Records the current score as the new high score if it is greater than the previous score.
+        /// </summary>
         public void SaveHighScore();
     }
 }
