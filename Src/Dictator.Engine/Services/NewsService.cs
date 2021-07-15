@@ -7,7 +7,15 @@ namespace Dictator.Core.Services
 {
     public class NewsService : INewsService
     {
+        private readonly IGroupService groupService;
+        private readonly IAccountService accountService;
         private News[] news;
+
+        public NewsService(IGroupService groupService, IAccountService accountService)
+        {
+            this.groupService = groupService;
+            this.accountService = accountService;
+        }
 
         public void Initialise()
         {
@@ -74,6 +82,22 @@ namespace Dictator.Core.Services
             }
 
             throw new InvalidOperationException("There are unused news items in the collection.");
+        }
+
+        /// <summary>
+        ///     Applies the effects of a specific news event on the groups and treasury-
+        /// </summary>
+        /// <param name="news">The news whose effect will be applied.</param>
+        public void ApplyNewsEffects(News news)
+        {
+            if (news == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            groupService.ApplyPopularityChange(news.GroupPopularityChanges);
+            groupService.ApplyStrengthChange(news.GroupStrengthChanges);
+            accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
         }
 
         private News[] GetUnusedNews()

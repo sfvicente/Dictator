@@ -188,14 +188,7 @@ namespace Dictator.Core
         /// <param name="news">The news whose effect will be applied.</param>
         public void ApplyNewsEffects(News news)
         {
-            if(news == null)
-            {
-                throw new ArgumentNullException();
-            }
-
-            groupService.ApplyPopularityChange(news.GroupPopularityChanges);
-            groupService.ApplyStrengthChange(news.GroupStrengthChanges);
-            accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
+            newsService.ApplyNewsEffects(news);
         }
 
         public Audience SelectRandomUnusedAudienceRequest()

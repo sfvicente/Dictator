@@ -21,5 +21,11 @@
         /// </summary>
         /// <returns>A random unused news event.</returns>
         public News SelectRandomUnusedNews();
+
+        /// <summary>
+        ///     Applies the effects of a specific news event on the groups and treasury-
+        /// </summary>
+        /// <param name="news">The news whose effect will be applied.</param>
+        public void ApplyNewsEffects(News news);
     }
 }
