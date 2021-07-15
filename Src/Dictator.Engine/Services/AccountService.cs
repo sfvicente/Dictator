@@ -5,10 +5,14 @@ namespace Dictator.Core.Services
     public class AccountService: IAccountService
     {
         private readonly IAccount account;
+        private readonly IGroupService groupService;
+        private readonly IGovernmentService governmentService;
 
-        public AccountService(IAccount account)
+        public AccountService(IAccount account, IGroupService groupService, IGovernmentService governmentService)
         {
             this.account = account;
+            this.groupService = groupService;
+            this.governmentService = governmentService;
             Initialise();
         }
 
@@ -136,6 +140,18 @@ namespace Dictator.Core.Services
             };
 
             return swissBankAccountTransfer;
+        }
+
+        /// <summary>
+        ///     Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
+        ///     of the Player and the Secret Police.
+        /// </summary>
+        public void ApplyBankruptcyEffects()
+        {
+            groupService.DecreasePopularity(GroupType.Army, 1);
+            groupService.DecreasePopularity(GroupType.SecretPolice, 1);
+            groupService.DecreaseStrength(GroupType.SecretPolice);
+            governmentService.DecreasePlayerStrength();
         }
     }
 }

@@ -83,5 +83,11 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <returns>The details of the bank transfer consisting of the previous treasury balance and the amount stolen.</returns>
         public SwissBankAccountTransfer TransferToSwissBankAccount();
+
+        /// <summary>
+        ///     Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
+        ///     of the Player and the Secret Police.
+        /// </summary>
+        public void ApplyBankruptcyEffects();
     }
 }
