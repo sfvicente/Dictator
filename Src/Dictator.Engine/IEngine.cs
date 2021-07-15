@@ -65,7 +65,15 @@ namespace Dictator.Core
 
         public void AcceptAudienceRequest(Audience audience);
         public void RefuseAudienceRequest(Audience audience);
+
+        /// <summary>
+        ///     Determines if a presidential option exists and is available for selection.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <param name="optionNumber">The option number within the type group of the decision.</param>
+        /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
+        
         public Decision[] GetDecisionsByType(DecisionType decisionType);
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
 

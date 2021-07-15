@@ -71,6 +71,12 @@ namespace Dictator.Core.Services
             return decisions[optionNumber - 1];
         }
 
+        /// <summary>
+        ///     Determines if a presidential option exists and is available for selection.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <param name="optionNumber">The option number within the type group of the decision.</param>
+        /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
         {
             Decision[] decisions = GetDecisionsByType(decisionType);
