@@ -94,6 +94,10 @@ namespace Dictator.Core.Services
             return true;
         }
 
+        /// <summary>
+        ///     Marks a presidential decision option as used.
+        /// </summary>
+        /// <param name="text">The text of the presidential decision which will be marked as used.</param>
         public void MarkDecisionAsUsed(string text)
         {
             Decision item = decisions.Where(x => x.Text == text).Single();

@@ -90,7 +90,13 @@ namespace Dictator.Core
         public LoanApplicationResult AskForLoan(Country country);
 
         public void ApplyDecisionEffects(Decision decision);
+
+        /// <summary>
+        ///     Marks a presidential decision option as used.
+        /// </summary>
+        /// <param name="text">The text of the presidential decision which will be marked as used.</param>
         public void MarkDecisionAsUsed(string text);
+
         public bool ShouldAssassinationAttemptHappen();
         public string GetAssassinationGroupName();
         public bool IsAssassinationSuccessful();

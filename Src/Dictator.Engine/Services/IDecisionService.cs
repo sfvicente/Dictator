@@ -18,6 +18,10 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
 
+        /// <summary>
+        ///     Marks a presidential decision option as used.
+        /// </summary>
+        /// <param name="text">The text of the presidential decision which will be marked as used.</param>
         public void MarkDecisionAsUsed(string text);
 
         /// <summary>
