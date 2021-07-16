@@ -97,7 +97,13 @@ namespace Dictator.Core
         /// <param name="text">The text of the presidential decision which will be marked as used.</param>
         public void MarkDecisionAsUsed(string text);
 
+        /// <summary>
+        ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
+        ///     peasants, landowners and guerrilas.
+        /// </summary>
+        /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
         public bool ShouldAssassinationAttemptHappen();
+
         public string GetAssassinationGroupName();
         public bool IsAssassinationSuccessful();
         public bool DoesConflictExist();

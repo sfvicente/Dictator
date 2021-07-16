@@ -270,7 +270,7 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Determines if an assassination attempt should be performed by one of the following groups: army, 
+        ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
         ///     peasants, landowners and guerrilas.
         /// </summary>
         /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
