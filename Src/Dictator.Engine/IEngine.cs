@@ -35,7 +35,13 @@ namespace Dictator.Core
         public void PayFromTreasury(int amount);
         public void SetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyRevolutionStrength();
+
+        /// <summary>
+        ///     Applies the bankruptcy state effects which consists of a decrease in popularity with the Army and Secret Police and also decrease the strength
+        ///     of the Player and the Secret Police.
+        /// </summary>
         public void ApplyBankruptcyEffects();
+
         public Audience SelectRandomUnusedAudienceRequest();
         public void Plot();
 
