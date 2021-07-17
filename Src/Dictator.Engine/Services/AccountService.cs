@@ -79,14 +79,6 @@ namespace Dictator.Core.Services
             }
         }
 
-        /// <summary>
-        ///     Opens a Swiss bank account to allow for transfers to me made from treasury.
-        /// </summary>
-        public void OpenSwissBankAccount()
-        {
-            account.HasSwissBankAccount = true;
-        }
-
         public void TransferToSwissBankAccount(int amount)
         {
             account.SwissBankAccountBalance += amount;
@@ -156,5 +148,14 @@ namespace Dictator.Core.Services
             groupService.DecreaseStrength(GroupType.SecretPolice);
             governmentService.DecreasePlayerStrength();
         }
+
+        /// <summary>
+        ///     Opens a Swiss bank account to allow for transfers to me made from treasury.
+        /// </summary>
+        private void OpenSwissBankAccount()
+        {
+            account.HasSwissBankAccount = true;
+        }
+
     }
 }

@@ -62,11 +62,6 @@ namespace Dictator.Core.Services
         public bool HasSwissBankAccount();
 
         /// <summary>
-        ///     Opens a Swiss bank account to allow for transfers to me made from treasury.
-        /// </summary>
-        public void OpenSwissBankAccount();
-
-        /// <summary>
         ///     Gets the current balance in the Swiss bank account.
         /// </summary>
         /// <returns></returns>
