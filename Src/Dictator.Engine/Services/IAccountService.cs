@@ -58,7 +58,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Gets the current balance in the Swiss bank account.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The amount of dollars currently in the Swiss bank account.</returns>
         public int GetSwissBankAccountBalance();
 
         /// <summary>
