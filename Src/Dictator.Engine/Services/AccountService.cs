@@ -79,6 +79,9 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Opens a Swiss bank account to allow for transfers to me made from treasury.
+        /// </summary>
         public void OpenSwissBankAccount()
         {
             account.HasSwissBankAccount = true;
