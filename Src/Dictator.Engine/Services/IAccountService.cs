@@ -56,12 +56,6 @@ namespace Dictator.Core.Services
         public void ChangeTreasuryBalance(int amount);
 
         /// <summary>
-        ///     Determines if a Swiss account has been opened.
-        /// </summary>
-        /// <returns></returns>
-        public bool HasSwissBankAccount();
-
-        /// <summary>
         ///     Gets the current balance in the Swiss bank account.
         /// </summary>
         /// <returns></returns>

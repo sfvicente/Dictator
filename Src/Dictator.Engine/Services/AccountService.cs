@@ -89,11 +89,6 @@ namespace Dictator.Core.Services
             account.TreasuryBalance += amount;
         }
 
-        public bool HasSwissBankAccount()
-        {
-            return account.HasSwissBankAccount;
-        }
-
         public int GetSwissBankAccountBalance()
         {
             return account.SwissBankAccountBalance;
@@ -155,6 +150,15 @@ namespace Dictator.Core.Services
         private void OpenSwissBankAccount()
         {
             account.HasSwissBankAccount = true;
+        }
+
+        /// <summary>
+        ///     Determines if a Swiss account has been opened.
+        /// </summary>
+        /// <returns></returns>
+        private bool HasSwissBankAccount()
+        {
+            return account.HasSwissBankAccount;
         }
 
     }
