@@ -126,10 +126,10 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
-        ///     Sets the value of the strength of a specific group.
+        ///     Sets the level of strength for a specific group.
         /// </summary>
-        /// <param name="groupType"></param>
-        /// <param name="strength"></param>
+        /// <param name="groupType">The type of the group to set the strength.</param>
+        /// <param name="strength">The strength level which will be set.</param>
         public void SetStrength(GroupType groupType, int strength)
         {
             int index = (int)groupType;

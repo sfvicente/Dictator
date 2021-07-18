@@ -8,7 +8,14 @@ namespace Dictator.Core
     {
         public void Initialise();
         public Account GetAccount();
+
+        /// <summary>
+        ///     Sets the level of strength for a specific group.
+        /// </summary>
+        /// <param name="groupType">The type of the group to set the strength.</param>
+        /// <param name="strength">The strength level which will be set.</param>
         public void SetGroupStrength(GroupType groupType, int strength);
+
         public PoliceReportRequest RequestPoliceReport();
         public PoliceReport GetPoliceReport();
 

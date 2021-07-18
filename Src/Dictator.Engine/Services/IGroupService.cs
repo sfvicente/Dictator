@@ -26,7 +26,14 @@ namespace Dictator.Core.Services
         public void IncreasePopularity(GroupType groupType, int amount);
         public void DecreasePopularity(GroupType groupType, int amount);
         public int GetTotalPopularity();
+
+        /// <summary>
+        ///     Sets the level of strength for a specific group.
+        /// </summary>
+        /// <param name="groupType">The type of the group to set the strength.</param>
+        /// <param name="strength">The strength level which will be set.</param>
         public void SetStrength(GroupType groupType, int strength);
+
         public void DecreaseStrength(GroupType groupType);
         public void SetAssassinByGroupType(GroupType groupType);
         public bool DoesMainPopulationHatePlayer();
