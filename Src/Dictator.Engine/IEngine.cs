@@ -45,6 +45,10 @@ namespace Dictator.Core
         public bool IsGovernmentBankrupt();
         public void PayFromTreasury(int amount);
         public void SetMonthlyMinimalPopularityAndStrength();
+
+        /// <summary>
+        ///     Sets the level of strength of a possible revolution for the current turn.
+        /// </summary>
         public void SetMonthlyRevolutionStrength();        
 
         /// <summary>

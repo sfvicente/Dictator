@@ -146,6 +146,9 @@ namespace Dictator.Core
             governmentService.SetMonthlyMinimalPopularityAndStrength();
         }
 
+        /// <summary>
+        ///     Sets the level of strength of a possible revolution for the current turn.
+        /// </summary>
         public void SetMonthlyRevolutionStrength()
         {
             Random random = new Random();
