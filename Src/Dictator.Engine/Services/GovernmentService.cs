@@ -122,16 +122,20 @@ namespace Dictator.Core.Services
             government.MonthlyRevolutionStrength = monthlyRevolutionStrength;
         }
 
-        public int GetPlotBonus()
-        {
-            return government.PlotBonus;
-        }
-
         public void SetMonthlyMinimalPopularityAndStrength()
         {
             Random random = new Random();
 
             government.MonthlyMinimalPopularityAndStrength = random.Next(2, 5);
+        }
+
+        /// <summary>
+        ///     Retrieves the current plot bonus for the game.
+        /// </summary>
+        /// <returns>The plot bonus number.</returns>
+        public int GetPlotBonus()
+        {
+            return government.PlotBonus;
         }
 
         public void SetPlotBonus(int plotBonus)

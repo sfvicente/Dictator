@@ -47,7 +47,6 @@ namespace Dictator.Core.Services
         public void SetHighScore(int totalScore);
         public int GetPlayerStrength();
         public int GetMonthlyRevolutionStrength();
-        public int GetPlotBonus();
 
         /// <summary>
         ///     Sets the level of strength of a possible revolution for the current turn.
@@ -56,6 +55,13 @@ namespace Dictator.Core.Services
 
         public int GetMonthlyMinimalPopularityAndStrength();
         public void SetMonthlyMinimalPopularityAndStrength();
+
+        /// <summary>
+        ///     Retrieves the current plot bonus for the game.
+        /// </summary>
+        /// <returns>The plot bonus number.</returns>
+        public int GetPlotBonus();
+
         public void SetPlotBonus(int plotBonus);
     }
 }
