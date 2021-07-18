@@ -143,9 +143,7 @@ namespace Dictator.Core
 
         public void SetMonthlyMinimalPopularityAndStrength()
         {
-            Random random = new Random();
-
-            governmentService.SetMonthlyMinimalPopularityAndStrength(random.Next(2, 5));
+            governmentService.SetMonthlyMinimalPopularityAndStrength();
         }
 
         public void SetMonthlyRevolutionStrength()

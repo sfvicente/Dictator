@@ -50,7 +50,7 @@ namespace Dictator.Core.Services
         public int GetPlotBonus();
         public void SetMonthlyRevolutionStrength(int monthlyRevolutionStrength);
         public int GetMonthlyMinimalPopularityAndStrength();
-        public void SetMonthlyMinimalPopularityAndStrength(int monthlyMinimalPopularityAndStrength);
+        public void SetMonthlyMinimalPopularityAndStrength();
         public void SetPlotBonus(int plotBonus);
     }
 }

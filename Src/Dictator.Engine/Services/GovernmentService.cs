@@ -124,9 +124,11 @@ namespace Dictator.Core.Services
             return government.PlotBonus;
         }
 
-        public void SetMonthlyMinimalPopularityAndStrength(int monthlyMinimalPopularityAndStrength)
+        public void SetMonthlyMinimalPopularityAndStrength()
         {
-            government.MonthlyMinimalPopularityAndStrength = monthlyMinimalPopularityAndStrength;
+            Random random = new Random();
+
+            government.MonthlyMinimalPopularityAndStrength = random.Next(2, 5);
         }
 
         public void SetPlotBonus(int plotBonus)
