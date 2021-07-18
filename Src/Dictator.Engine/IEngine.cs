@@ -26,6 +26,10 @@ namespace Dictator.Core
         public int GetMonth();
 
         public void AdvanceMonth();
+
+        /// <summary>
+        ///     Takes the required funds from treasury to pay for the monthly expenses.
+        /// </summary>
         public void PayMonthlyCosts();
 
         /// <summary>
