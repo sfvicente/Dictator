@@ -44,6 +44,12 @@ namespace Dictator.Core
         /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
         public bool IsGovernmentBankrupt();
         public void PayFromTreasury(int amount);
+
+        /// <summary>
+        ///     Sets the minimal monthly level requirement for popularity and strength which is used for a diverse
+        ///     number of game logic when interacting with groups, such as requesting external financial aid or 
+        ///     finding allies in a revolution.
+        /// </summary>
         public void SetMonthlyMinimalPopularityAndStrength();
 
         /// <summary>

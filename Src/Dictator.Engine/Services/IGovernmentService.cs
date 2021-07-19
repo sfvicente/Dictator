@@ -54,6 +54,12 @@ namespace Dictator.Core.Services
         public void SetMonthlyRevolutionStrength();
 
         public int GetMonthlyMinimalPopularityAndStrength();
+
+        /// <summary>
+        ///     Sets the minimal monthly level requirement for popularity and strength which is used for a diverse
+        ///     number of game logic when interacting with groups, such as requesting external financial aid or 
+        ///     finding allies in a revolution.
+        /// </summary>
         public void SetMonthlyMinimalPopularityAndStrength();
 
         /// <summary>
