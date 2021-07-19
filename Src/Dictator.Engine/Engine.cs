@@ -151,9 +151,7 @@ namespace Dictator.Core
         /// </summary>
         public void SetMonthlyRevolutionStrength()
         {
-            Random random = new Random();
-
-            governmentService.SetMonthlyRevolutionStrength(random.Next(10, 13));
+            governmentService.SetMonthlyRevolutionStrength();
         }
 
         public void Plot()
