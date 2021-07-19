@@ -48,6 +48,11 @@ namespace Dictator.Core.Services
             };
         }
 
+        /// <summary>
+        ///     Retrieves an unused audience request from the list of audience requests and
+        ///     marks it as used.
+        /// </summary>
+        /// <returns>An unused audience request.</returns>
         public Audience SelectRandomUnusedAudienceRequest()
         {
             IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();

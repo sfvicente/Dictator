@@ -200,6 +200,11 @@ namespace Dictator.Core
             newsService.ApplyNewsEffects(news);
         }
 
+        /// <summary>
+        ///     Retrieves an unused audience request from the list of audience requests and
+        ///     marks it as used.
+        /// </summary>
+        /// <returns>An unused audience request.</returns>
         public Audience SelectRandomUnusedAudienceRequest()
         {
             return audienceService.SelectRandomUnusedAudienceRequest();
