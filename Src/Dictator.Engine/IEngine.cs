@@ -128,6 +128,10 @@ namespace Dictator.Core
         /// <returns>The loan application result that includes if the loan has been approved or refused.</returns>
         public LoanApplicationResult AskForLoan(Country country);
 
+        /// <summary>
+        ///     Applies the effects of a decision on the groups popularity and strength with the costs of treasury.
+        /// </summary>
+        /// <param name="decision">The decision whose effects will be apply.</param>
         public void ApplyDecisionEffects(Decision decision);
 
         /// <summary>
