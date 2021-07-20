@@ -7,7 +7,14 @@ namespace Dictator.Core.Services
     public interface IDecisionService
     {
         public void Initialise();
+
+        /// <summary>
+        ///     Retrieves all the decisions of a specific type.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <returns>An array of decisions of the specified type.</returns>
         public Decision[] GetDecisionsByType(DecisionType decisionType);
+
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber);
 
         /// <summary>

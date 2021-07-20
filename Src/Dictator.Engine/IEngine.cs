@@ -106,8 +106,14 @@ namespace Dictator.Core
         /// <param name="optionNumber">The option number within the type group of the decision.</param>
         /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
         public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
-        
+
+        /// <summary>
+        ///     Retrieves all the decisions of a specific type.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <returns>An array of decisions of the specified type.</returns>
         public Decision[] GetDecisionsByType(DecisionType decisionType);
+
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionSelected);
 
         /// <summary>

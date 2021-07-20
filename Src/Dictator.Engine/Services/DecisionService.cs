@@ -47,6 +47,11 @@ namespace Dictator.Core.Services
             };
         }
 
+        /// <summary>
+        ///     Retrieves all the decisions of a specific type.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <returns>An array of decisions of the specified type.</returns>
         public Decision[] GetDecisionsByType(DecisionType decisionType)
         {
             Decision[] decisionCopy = (Decision[])decisions.Clone();

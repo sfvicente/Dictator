@@ -237,6 +237,11 @@ namespace Dictator.Core
             return decisionService.DoesPresidentialOptionExistAndIsAvailable(decisionType, optionNumber);
         }
 
+        /// <summary>
+        ///     Retrieves all the decisions of a specific type.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <returns>An array of decisions of the specified type.</returns>
         public Decision[] GetDecisionsByType(DecisionType decisionType)
         {
             return decisionService.GetDecisionsByType(decisionType);
