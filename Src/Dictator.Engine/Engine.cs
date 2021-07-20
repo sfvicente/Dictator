@@ -311,7 +311,7 @@ namespace Dictator.Core
         ///     Determines if there is conflict between the republic of Ritimba and Leftoto. A conflict does not exist if the player is popular
         ///     with the leftotans or leftotans are weak.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if a conflict exist with Leftoto; otherwise, <c>false</c>.</returns>
         public bool DoesConflictExist()
         {
             return warService.DoesConflictExist();
