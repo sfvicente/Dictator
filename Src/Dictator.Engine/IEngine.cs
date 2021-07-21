@@ -171,8 +171,13 @@ namespace Dictator.Core
         /// </summary>
         /// <returns><c>true</c> if war should happen; otherwise, <c>false</c>.</returns>
         public bool ShouldWarHappen();
-        
+
+        /// <summary>
+        ///     Applies the effects of a threat of war with leftoto, which results in an increase of the player's popularity amongst the army,
+        ///     peasants, landowners and secret police.
+        /// </summary>
         public void ApplyThreatOfWarEffects();
+
         public WarStats BeginInvasion();
         public bool ExecuteWar(WarStats warStats);
         public bool TryTriggerRevoltGroup();
