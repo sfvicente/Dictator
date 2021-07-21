@@ -148,6 +148,11 @@ namespace Dictator.Core
         public bool ShouldAssassinationAttemptHappen();
 
         public string GetAssassinationGroupName();
+
+        /// <summary>
+        ///     Determines if an assassination attempt on the player is successful.
+        /// </summary>
+        /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
         public bool IsAssassinationSuccessful();
 
         /// <summary>
