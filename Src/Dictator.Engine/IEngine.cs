@@ -147,6 +147,10 @@ namespace Dictator.Core
         /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
         public bool ShouldAssassinationAttemptHappen();
 
+        /// <summary>
+        ///     Retrieves the name of the group responsible for the assassination attempt.
+        /// </summary>
+        /// <returns>The name of the assassination group.</returns>
         public string GetAssassinationGroupName();
 
         /// <summary>
