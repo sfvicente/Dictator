@@ -247,6 +247,12 @@ namespace Dictator.Core
             return decisionService.GetDecisionsByType(decisionType);
         }
 
+        /// <summary>
+        ///     Retrieves a decisions with the specified type and index.
+        /// </summary>
+        /// <param name="decisionType">The type of decision.</param>
+        /// <param name="optionSelected">The position of the decision within the group of decisions with the specified type.</param>
+        /// <returns>The position that matches the specified type and at the specific position.</returns>
         public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
         {
             return decisionService.GetDecisionByTypeAndIndex(decisionType, optionNumber);
