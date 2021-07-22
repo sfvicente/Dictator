@@ -199,6 +199,11 @@ namespace Dictator.Core
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
         public bool DoesGroupAcceptAllianceInRevolution(int groupId);
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId);
+
+        /// <summary>
+        ///     Determines if a revolution has succeeded in overthrowing the player.
+        /// </summary>
+        /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
         public bool DoesRevolutionSucceed();
 
         /// <summary>
