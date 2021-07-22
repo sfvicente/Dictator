@@ -78,6 +78,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
         /// </summary>
+        /// <param name="audience">The audience to be accepted.</param>
         public void RefuseAudienceRequest(Audience audience)
         {
             char requesterPopularityChange = audience.GroupPopularityChanges[(int)audience.Requester];

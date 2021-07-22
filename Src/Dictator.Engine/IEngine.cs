@@ -102,6 +102,10 @@ namespace Dictator.Core
         /// <param name="audience">The audience to be accepted.</param>
         public void AcceptAudienceRequest(Audience audience);
 
+        /// <summary>
+        ///     Refuses the audience request, resulting in a decrease of popularity with the petitioners.
+        /// </summary>
+        /// <param name="audience">The audience to be accepted.</param>
         public void RefuseAudienceRequest(Audience audience);
 
         /// <summary>
