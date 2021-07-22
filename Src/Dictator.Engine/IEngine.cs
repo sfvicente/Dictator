@@ -96,7 +96,12 @@ namespace Dictator.Core
         /// <param name="news">The news whose effect will be applied.</param>
         public void ApplyNewsEffects(News news);
 
+        /// <summary>
+        ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
+        /// </summary>
+        /// <param name="audience">The audience to be accepted.</param>
         public void AcceptAudienceRequest(Audience audience);
+
         public void RefuseAudienceRequest(Audience audience);
 
         /// <summary>

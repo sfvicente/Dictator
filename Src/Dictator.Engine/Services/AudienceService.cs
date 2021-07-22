@@ -67,6 +67,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
         /// </summary>
+        /// <param name="audience">The audience to be accepted.</param>
         public void AcceptAudienceRequest(Audience audience)
         {
             groupService.ApplyPopularityChange(audience.GroupPopularityChanges);
