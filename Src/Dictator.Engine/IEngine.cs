@@ -200,6 +200,11 @@ namespace Dictator.Core
         public bool DoesGroupAcceptAllianceInRevolution(int groupId);
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId);
         public bool DoesRevolutionSucceed();
+
+        /// <summary>
+        ///     Punishes the groups that have taken part in a revolution that has been offset by the player. It
+        ///     sets the revolutionaries strength and popularity to zero.
+        /// </summary>
         public void PunishRevolutionaries();
 
         /// <summary>
