@@ -34,6 +34,9 @@ namespace Dictator.Core
         /// <returns>The current month number.</returns>
         public int GetMonth();
 
+        /// <summary>
+        ///     Advances the month number of the current game.
+        /// </summary>
         public void AdvanceMonth();
 
         /// <summary>
