@@ -6,6 +6,10 @@ namespace Dictator.Core.Services
 {
     public interface IReportService
     {
+        /// <summary>
+        ///     Retrieves a request for a detailed account or statement from police on the state of the groups and government.
+        /// </summary>
+        /// <returns>A police report request with information on the popularity and strength requirements.</returns>
         public PoliceReportRequest RequestPoliceReport();
 
         /// <summary>
