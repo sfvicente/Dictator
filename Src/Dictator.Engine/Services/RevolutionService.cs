@@ -17,11 +17,6 @@ namespace Dictator.Core.Services
             this.governmentService = governmentService;
         }
 
-        public void SetRevolutionaryGroup(Group revolutionaryGroup)
-        {
-            revolution.RevolutionaryGroup = revolutionaryGroup;
-        }
-
         /// <summary>
         ///     Attempts to assign a revolt group in a scenario of revolution.
         /// </summary>
@@ -37,7 +32,7 @@ namespace Dictator.Core.Services
 
                 if (groups[number].Status == GroupStatus.Revolution)
                 {
-                    SetRevolutionaryGroup(groups[number]);  // As the group has been triggered, set the group as the current revolutionary
+                    revolution.RevolutionaryGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
                     return true;
                 }
             }

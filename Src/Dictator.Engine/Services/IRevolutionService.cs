@@ -31,8 +31,6 @@ namespace Dictator.Core.Services
         /// <param name="selectedAllyGroupId">The id of the group to set as the ally of the player.</param>
         public void SetPlayerAllyForRevolution(int selectedAllyGroupId);
 
-        public void SetRevolutionaryGroup(Group revolutionaryGroup);
-
         /// <summary>
         ///     Determines if a revolution has succeeded in overthrowing the player.
         /// </summary>
