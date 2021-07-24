@@ -22,11 +22,6 @@ namespace Dictator.Core.Services
             revolution.RevolutionaryGroup = revolutionaryGroup;
         }
 
-        public IRevolution GetRevolutionState()
-        {
-            return revolution;
-        }
-
         /// <summary>
         ///     Attempts to assign a revolt group in a scenario of revolution.
         /// </summary>
@@ -104,7 +99,6 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
         public bool DoesRevolutionSucceed()
         {
-            IRevolution revolution = GetRevolutionState();
             Random random = new Random();
             int number = random.Next(0, 3);
 
