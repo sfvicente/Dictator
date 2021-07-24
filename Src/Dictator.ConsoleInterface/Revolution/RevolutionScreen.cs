@@ -15,6 +15,9 @@ namespace Dictator.ConsoleInterface.Revolution
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Red);
