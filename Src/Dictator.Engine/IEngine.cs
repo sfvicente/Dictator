@@ -6,6 +6,9 @@ namespace Dictator.Core
 {
     public interface IEngine
     {
+        /// <summary>
+        ///     Initializes the game engine by initializing all of the required service components.
+        /// </summary>
         public void Initialise();
 
         /// <summary>

@@ -58,6 +58,9 @@ namespace Dictator.Core
             this.warService = warService;
         }
 
+        /// <summary>
+        ///     Initializes the game engine by initializing all of the required service components.
+        /// </summary>
         public void Initialise()
         {
             accountService.Initialise();
