@@ -27,6 +27,11 @@ namespace Dictator.Core.Services
             account.HasSwissBankAccount = false;
         }
 
+        /// <summary>
+        ///     Retrieves the current account aggregated properties.
+        /// </summary>
+        /// <returns>The account information including Swiss bank account information, treasury balance
+        /// and monthly costs</returns>
         public Account GetAccount()
         {
             return (Account)account;

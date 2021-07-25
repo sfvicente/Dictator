@@ -14,7 +14,8 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Retrieves the current account aggregated properties.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The account information including Swiss bank account information, treasury balance
+        /// and monthly costs</returns>
         public Account GetAccount();
 
         /// <summary>
