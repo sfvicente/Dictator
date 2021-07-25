@@ -55,6 +55,11 @@ namespace Dictator.Core
         /// </summary>
         /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
         public bool IsGovernmentBankrupt();
+
+        /// <summary>
+        ///     Removes the specified amount of funds from the treasury.
+        /// </summary>
+        /// <param name="amount">The amount to spend from the treasury.</param>
         public void PayFromTreasury(int amount);
 
         /// <summary>

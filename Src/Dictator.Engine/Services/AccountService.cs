@@ -63,6 +63,10 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Removes the specified amount of funds from the treasury.
+        /// </summary>
+        /// <param name="amount">The amount to spend from the treasury.</param>
         public void PayFromTreasury(int amount)
         {
             ChangeTreasuryBalance(-amount);
