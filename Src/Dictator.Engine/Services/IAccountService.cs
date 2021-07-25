@@ -56,7 +56,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Modifies the treasure current balance.
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="amount">The amount to add or remove from the treasury.</param>
         public void ChangeTreasuryBalance(int amount);
 
         /// <summary>

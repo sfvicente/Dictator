@@ -88,6 +88,10 @@ namespace Dictator.Core.Services
             account.SwissBankAccountBalance += amount;
         }
 
+        /// <summary>
+        ///     Modifies the treasure current balance.
+        /// </summary>
+        /// <param name="amount">The amount to add or remove from the treasury.</param>
         public void ChangeTreasuryBalance(int amount)
         {
             account.TreasuryBalance += amount;
