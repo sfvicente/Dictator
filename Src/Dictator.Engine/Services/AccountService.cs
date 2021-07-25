@@ -16,6 +16,9 @@ namespace Dictator.Core.Services
             Initialise();
         }
 
+        /// <summary>
+        ///     Initialises the account data.
+        /// </summary>
         public void Initialise()
         {
             account.TreasuryBalance = 1000;
