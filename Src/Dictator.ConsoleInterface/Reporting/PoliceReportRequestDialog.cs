@@ -52,7 +52,7 @@ namespace Dictator.ConsoleInterface.Reporting
 
                 if (!policeReportRequest.HasEnoughBalance)
                 {
-                    ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT    ");
+                    ConsoleEx.WriteAt(1, screenRow++, "    You can't AFFORD a REPORT   ");
                 }
 
                 dialogResult = DialogResult.No;
