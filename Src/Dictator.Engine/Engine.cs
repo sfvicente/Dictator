@@ -1,11 +1,5 @@
-﻿using Dictator.Common;
-using Dictator.Common.Extensions;
-using Dictator.Core.Services;
-using System;
+﻿using Dictator.Core.Services;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace Dictator.Core
 {
