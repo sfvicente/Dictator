@@ -273,6 +273,10 @@ namespace Dictator.Core
         /// <returns>The current high score.</returns>
         public int GetHighScore();
 
+        /// <summary>
+        ///     Retrieves the score of the current game state.
+        /// </summary>
+        /// <returns>The score value.</returns>
         public Score GetCurrentScore();
 
         /// <summary>
