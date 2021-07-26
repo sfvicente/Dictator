@@ -11,7 +11,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Determines if the player is able to escape by helicopter. There is a 1/4 chances that the helicopter won't start.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if the player is able to escape by helicopter; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAbleToEscapeByHelicopter();
 
         /// <summary>
