@@ -1,11 +1,8 @@
 ﻿using Dictator.Common;
 using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
-using Dictator.Core.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Dictator.ConsoleInterface.Reporting
 {
