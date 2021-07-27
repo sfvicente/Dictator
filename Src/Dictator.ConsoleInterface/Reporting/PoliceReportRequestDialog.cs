@@ -24,14 +24,15 @@ namespace Dictator.ConsoleInterface.Reporting
         public DialogResult Show(PoliceReportRequest policeReportRequest)
         {
             ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 1, "################################");
-            ConsoleEx.WriteAt(1, 3, "     SECRET POLICE REPORT ?     ");
+            ConsoleEx.WriteAt(1, 1, "                                ", ConsoleColor.Yellow, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 2, "                                ", ConsoleColor.Yellow, ConsoleColor.White);
+            ConsoleEx.WriteAt(1, 7, "     SECRET POLICE REPORT ?     ");
 
             DialogResult dialogResult;
             
             if (policeReportRequest.HasEnoughBalance && policeReportRequest.IsPlayerPopularWithSecretPolice && policeReportRequest.HasPoliceEnoughStrength)
             {
-                ConsoleEx.WriteAt(1, 12, "         ( costs $1000 )        ");
+                ConsoleEx.WriteAt(1, 13, "         ( costs $1000 )        ");
                 dialogResult = pressAnyKeyWithYesControl.Show();
             }
             else
