@@ -24,8 +24,8 @@ namespace Dictator.ConsoleInterface.Reporting
         public DialogResult Show(PoliceReportRequest policeReportRequest)
         {
             ConsoleEx.Clear(ConsoleColor.Black, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 1, "                                ", ConsoleColor.Yellow, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 2, "                                ", ConsoleColor.Yellow, ConsoleColor.White);
+            ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Yellow);
+            ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Yellow);
             ConsoleEx.WriteAt(1, 7, "     SECRET POLICE REPORT ?     ");
 
             DialogResult dialogResult;
