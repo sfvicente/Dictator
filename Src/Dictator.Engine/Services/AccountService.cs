@@ -55,6 +55,10 @@ namespace Dictator.Core.Services
             return GetTreasuryBalance() <= 0;
         }
 
+        /// <summary>
+        ///     Retrieves the current monthly costs for the treasury.
+        /// </summary>
+        /// <returns>The amount in dollars of the treasurey monthly costs.</returns>
         public int GetMonthlyCosts()
         {
             return account.MonthlyCosts;

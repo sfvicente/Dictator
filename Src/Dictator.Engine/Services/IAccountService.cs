@@ -31,9 +31,9 @@ namespace Dictator.Core.Services
         public bool IsGovernmentBankrupt();
 
         /// <summary>
-        ///     Retrives the current monthly costs for the treasury.
+        ///     Retrieves the current monthly costs for the treasury.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The amount in dollars of the treasurey monthly costs.</returns>
         public int GetMonthlyCosts();
 
         /// <summary>
