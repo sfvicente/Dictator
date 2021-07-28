@@ -42,7 +42,12 @@ namespace Dictator.Core.Services
         /// </summary>
         public void PurchaseHelicopter();
 
+        /// <summary>
+        ///     Determines if the player has purchased an helicopter for a possible escape.
+        /// </summary>
+        /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
         public bool HasPlayerPurchasedHelicopter();
+
         public int GetLastScore();
         public void SetHighScore(int totalScore);
         public int GetPlayerStrength();

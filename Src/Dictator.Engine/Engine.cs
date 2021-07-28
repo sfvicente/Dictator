@@ -454,9 +454,9 @@ namespace Dictator.Core
         }
 
         /// <summary>
-        ///     Determines if the player has purchased an helicopter.
+        ///     Determines if the player has purchased an helicopter for a possible escape.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
         public bool HasPlayerPurchasedHelicopter()
         {
             return governmentService.HasPlayerPurchasedHelicopter();
