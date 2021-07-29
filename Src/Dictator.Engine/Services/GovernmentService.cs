@@ -43,6 +43,10 @@ namespace Dictator.Core.Services
             government.Month++;
         }
 
+        /// <summary>
+        ///     Retrieves the current strength of the player. The player strength is always greater or equal to zero.
+        /// </summary>
+        /// <returns>A number representing the player's strength.</returns>
         public int GetPlayerStrength()
         {
             return government.PlayerStrength;
