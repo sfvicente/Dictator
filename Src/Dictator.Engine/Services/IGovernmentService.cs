@@ -79,6 +79,10 @@
         /// <returns>The plot bonus number.</returns>
         public int GetPlotBonus();
 
+        /// <summary>
+        ///     Sets the current plot bonus for the game.
+        /// </summary>
+        /// <param name="plotBonus">The plot bonus number.</param>
         public void SetPlotBonus(int plotBonus);
     }
 }

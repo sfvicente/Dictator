@@ -155,6 +155,10 @@ namespace Dictator.Core.Services
             return government.PlotBonus;
         }
 
+        /// <summary>
+        ///     Sets the current plot bonus for the game.
+        /// </summary>
+        /// <param name="plotBonus">The plot bonus number.</param>
         public void SetPlotBonus(int plotBonus)
         {
             government.PlotBonus = plotBonus;
