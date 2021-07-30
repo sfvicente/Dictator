@@ -15,6 +15,10 @@
         /// <returns>The current month number.</returns>
         public int GetMonth();
 
+        /// <summary>
+        ///     Decreases the player strength level by one. If the strength attribute is zero, no action is taken as
+        ///     strength can't be negative.
+        /// </summary>
         public void DecreasePlayerStrength();
 
         /// <summary>
