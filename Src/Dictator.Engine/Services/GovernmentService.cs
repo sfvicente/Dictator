@@ -161,6 +161,11 @@ namespace Dictator.Core.Services
         /// <param name="plotBonus">The plot bonus number.</param>
         public void SetPlotBonus(int plotBonus)
         {
+            if(plotBonus < 0)
+            {
+                throw new ArgumentException($"Argument '{nameof(plotBonus)}' must be greater or equal to zero: {plotBonus}");
+            }
+
             government.PlotBonus = plotBonus;
         }
     }
