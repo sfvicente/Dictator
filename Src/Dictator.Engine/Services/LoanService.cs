@@ -36,7 +36,13 @@ namespace Dictator.Core.Services
                 return loanApplicationResult;
             }
 
-            // TODO: Check if loans have been used
+            if(HasLoanBeenGrantedPreviously(country))
+            {
+                loanApplicationResult.IsAccepted = false;
+                loanApplicationResult.RefusalType = LoanApplicationRefusalType.AlreadyUsed;
+
+                return loanApplicationResult;
+            }
 
             GroupType groupType;
 
@@ -87,6 +93,17 @@ namespace Dictator.Core.Services
             {
                 return true;
             }
+
+            return false;
+        }
+
+        /// <summary>
+        ///     Determines if a loan has already been requested and granted by the specified country.
+        /// </summary>
+        /// <returns><c>true</c> if the loan has been granted before; otherwise, <c>false</c>.</returns>
+        private bool HasLoanBeenGrantedPreviously(Country country)
+        {
+            // TODO: Check if loans have been used
 
             return false;
         }
