@@ -142,6 +142,8 @@ namespace Dictator.Core.Services
                 DepositToSwissBankAccount(amountStolen);
             }
 
+            // TODO: confirm logic when amount can't be transfer, for example when treasury is bankrupt
+
             var swissBankAccountTransfer = new SwissBankAccountTransfer()
             {
                 AmountStolen = amountStolen,
