@@ -6,6 +6,10 @@ namespace Dictator.Core.Services
 {
     public interface IEscapeService
     {
+        /// <summary>
+        ///     Determines if the player is able to escape after the war is lost. There is a 2/3 chances that the player is able to escape.
+        /// </summary>
+        /// <returns><c>true</c> if manages to escape after losing the war; otherwise, <c>false</c>.</returns>
         public bool IsPlayerAbleToEscapeAfterLosingWar();
 
         /// <summary>
