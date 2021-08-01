@@ -95,11 +95,6 @@ namespace Dictator.Core.Services
             }
         }
 
-        public void TransferToSwissBankAccount(int amount)
-        {
-            account.SwissBankAccountBalance += amount;
-        }
-
         /// <summary>
         ///     Modifies the treasure current balance.
         /// </summary>
