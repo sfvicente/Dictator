@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core
 {
     public class Group
     {
