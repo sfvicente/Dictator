@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core
 {
     /// <summary>
     ///     Represents a request for a detailed account or statement from police on the state of the groups and government.
