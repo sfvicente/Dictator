@@ -87,6 +87,10 @@ namespace Dictator.Core.Services
             groupService.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
         }
 
+        /// <summary>
+        ///    Retrieves all the audiences that have not been used yet.
+        /// </summary>
+        /// <returns>A collection of unused audiences.</returns>
         private IEnumerable<Audience> GetUnusedAudiences()
         {
             IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
