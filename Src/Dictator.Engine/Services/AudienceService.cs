@@ -93,14 +93,17 @@ namespace Dictator.Core.Services
 
             if (!unusedAudiences.Any())
             {
-                ResetAllToUnused();
+                SetAllAudiencesAsUnused();
                 unusedAudiences = ((Audience[])audiences.Clone()).AsEnumerable();
             }
 
             return unusedAudiences;
         }
 
-        private void ResetAllToUnused()
+        /// <summary>
+        ///     Sets all audiences as unused.
+        /// </summary>
+        private void SetAllAudiencesAsUnused()
         {
             foreach (var audience in audiences)
             {
