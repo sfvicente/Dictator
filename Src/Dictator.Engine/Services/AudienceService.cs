@@ -17,6 +17,9 @@ namespace Dictator.Core.Services
             this.groupService = groupService;
         }
 
+        /// <summary>
+        ///     Initialises the audience data.
+        /// </summary>
         public void Initialise()
         {
             audiences = new Audience[] {

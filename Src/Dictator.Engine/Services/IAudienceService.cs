@@ -2,6 +2,9 @@
 {
     public interface IAudienceService
     {
+        /// <summary>
+        ///     Initialises the audience data.
+        /// </summary>
         public void Initialise();
 
         /// <summary>
