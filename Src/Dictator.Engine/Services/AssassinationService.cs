@@ -62,6 +62,10 @@ namespace Dictator.Core.Services
             return false;
         }
 
+        /// <summary>
+        ///     Determines if the police strength is less or equal than the minimum required monthly strength.
+        /// </summary>
+        /// <returns><c>true</c> if the police is not strong enough to protect the player; otherwise, <c>false</c>.</returns>
         private bool IsPoliceUnableToProtectPlayer()
         {
             if (groupService.GetGroupByType(GroupType.SecretPolice).Strength <= governmentService.GetMonthlyMinimalPopularityAndStrength())
