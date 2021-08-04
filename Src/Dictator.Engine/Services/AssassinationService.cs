@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dictator.Core.Services
 {
@@ -54,7 +52,9 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the player is not popular enough with the secret police; otherwise, <c>false</c>.</returns>
         private bool DoesPoliceHatePlayer()
         {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+            Group police = groupService.GetGroupByType(GroupType.SecretPolice);
+
+            if (police.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 return true;
             }
@@ -68,7 +68,9 @@ namespace Dictator.Core.Services
         /// <returns><c>true</c> if the police is not strong enough to protect the player; otherwise, <c>false</c>.</returns>
         private bool IsPoliceUnableToProtectPlayer()
         {
-            if (groupService.GetGroupByType(GroupType.SecretPolice).Strength <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+            Group police = groupService.GetGroupByType(GroupType.SecretPolice);
+
+            if (police.Strength <= governmentService.GetMonthlyMinimalPopularityAndStrength())
             {
                 return true;
             }
