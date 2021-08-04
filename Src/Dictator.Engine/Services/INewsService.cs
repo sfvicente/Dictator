@@ -2,6 +2,9 @@
 {
     public interface INewsService
     {
+        /// <summary>
+        ///     Initializes the news data.
+        /// </summary>
         public void Initialise();
 
         /// <summary>

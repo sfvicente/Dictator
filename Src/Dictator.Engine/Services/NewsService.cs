@@ -17,6 +17,9 @@ namespace Dictator.Core.Services
             this.accountService = accountService;
         }
 
+        /// <summary>
+        ///     Initializes the news data.
+        /// </summary>
         public void Initialise()
         {
             news = new News[]
