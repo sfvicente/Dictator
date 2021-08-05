@@ -15,6 +15,9 @@ namespace Dictator.ConsoleInterface.War
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
         public void Show()
         {
             ConsoleEx.Clear(ConsoleColor.Gray);

@@ -16,6 +16,10 @@ namespace Dictator.ConsoleInterface.War
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="warStats">The attributes of a scenario of war between the Ritimba republic and Leftoto.</param>
         public void Show(WarStats warStats)
         {
             ConsoleEx.Clear(ConsoleColor.Red);
