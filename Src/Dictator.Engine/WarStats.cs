@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents the attributes of a scenario of war between the Ritimba republic and Leftoto.
+    /// </summary>
     public class WarStats
     {
         /// <summary>
