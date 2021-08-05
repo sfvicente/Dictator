@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Dictator.Core.Services
+﻿namespace Dictator.Core.Services
 {
     public class AccountService: IAccountService
     {
