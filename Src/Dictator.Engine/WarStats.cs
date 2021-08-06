@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core
 {
     /// <summary>
     ///     Represents the attributes of a scenario of war between the Ritimba republic and Leftoto.
