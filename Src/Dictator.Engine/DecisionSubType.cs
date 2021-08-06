@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Dictator.Core
 {
+    /// <summary>
+    ///     Specifies the sub-type of a presidential decision.
+    /// </summary>
     public enum DecisionSubType
     {
         None = 0,
