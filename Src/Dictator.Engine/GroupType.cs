@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Dictator.Core
 {
+    /// <summary>
+    ///     Specifies the type of a group.
+    /// </summary>
     public enum GroupType
     {
         Army = 0,
