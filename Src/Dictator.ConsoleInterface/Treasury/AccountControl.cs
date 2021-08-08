@@ -8,6 +8,10 @@ namespace Dictator.ConsoleInterface.Treasury
 {
     public class AccountControl : IAccountControl
     {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="account">The account information regarding the treasury, monthly costs and Swiss account.</param>
         public void Show(Account account)
         {
             string balanceWording = (account.TreasuryBalance > 0) ? "holds" : "OWES";
