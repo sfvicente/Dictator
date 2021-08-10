@@ -63,6 +63,11 @@ namespace Dictator.Common
             WriteAt(left, top, text);
         }
 
+        /// <summary>
+        ///     Sets the position of the cursor in the console screen.
+        /// </summary>
+        /// <param name="left">The column position of the cursor. Columns are numbered from left to right starting at 0.</param>
+        /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
         public static void SetCursorPosition(int left, int top)
         {
             Console.SetCursorPosition(ScreenColPadding + left - 1, top - 1);
