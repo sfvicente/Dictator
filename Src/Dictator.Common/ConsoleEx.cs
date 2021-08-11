@@ -121,6 +121,10 @@ namespace Dictator.Common
             }
         }
 
+        /// <summary>
+        ///     Clears the console buffer and corresponding console window of display information with the specified background color.
+        /// </summary>
+        /// <param name="backgroundColor">The background color to clear the screen.</param>
         public static void Clear(ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
