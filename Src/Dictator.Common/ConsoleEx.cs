@@ -36,6 +36,11 @@ namespace Dictator.Common
             WriteAt(1, top, EmptyLine);
         }
 
+        /// <summary>
+        ///     Writes an empty line of text at a specific row and with a specific background color.
+        /// </summary>
+        /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
+        /// <param name="backgroundColor">The background color of the line.</param>
         public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
