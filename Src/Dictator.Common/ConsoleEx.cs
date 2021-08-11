@@ -88,6 +88,9 @@ namespace Dictator.Common
             WriteAt(left, top, text);
         }
 
+        /// <summary>
+        ///     Clears the screen.
+        /// </summary>
         public static void Clear()
         {
             for (int row = 1; row <= ScreenRows; row++)
