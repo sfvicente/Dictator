@@ -78,6 +78,12 @@ namespace Dictator.Common
             Console.SetCursorPosition(ScreenColPadding + left - 1, top - 1);
         }
 
+        /// <summary>
+        ///     Writes the text representation of the specified value or values to the screen at the specified position.
+        /// </summary>
+        /// <param name="left">The column position of the cursor. Columns are numbered from left to right starting at 0.</param>
+        /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
+        /// <param name="text">The text to be written to the screen.</param>
         public static void WriteAt(int left, int top, string text)
         {
             // Validate parameters
