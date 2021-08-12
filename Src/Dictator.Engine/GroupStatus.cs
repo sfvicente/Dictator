@@ -2,6 +2,9 @@
 
 namespace Dictator.Core
 {
+    /// <summary>
+    ///     Specifies the status of a group.
+    /// </summary>
     public enum GroupStatus
     {
         Default = 0,
