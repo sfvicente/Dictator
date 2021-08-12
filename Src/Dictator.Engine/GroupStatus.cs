@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core
 {
     /// <summary>
     ///     Specifies the status of a group.
