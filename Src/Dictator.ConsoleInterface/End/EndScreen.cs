@@ -14,6 +14,10 @@ namespace Dictator.ConsoleInterface.End
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="score">The game score to display on the screen.</param>
         public void Show(Score score)
         {
             // TODO: scores values need to be aligned to the right
