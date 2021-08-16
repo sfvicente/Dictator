@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dictator.ConsoleInterface.Assassination
+﻿namespace Dictator.ConsoleInterface.Assassination
 {
     public interface IAssassinationFailedScreen
     {
