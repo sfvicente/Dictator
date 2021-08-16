@@ -3,6 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace Dictator.Common.Extensions
 {
+    /// <summary>
+    ///     Provides extension methods for the <see cref="T[]" /> type.
+    /// </summary>
     public static class ArrayExtensions
     {
         public static bool IsEmpty<T>(this T[] array)
