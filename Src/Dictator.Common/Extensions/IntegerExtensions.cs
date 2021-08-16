@@ -2,6 +2,9 @@
 
 namespace Dictator.Common.Extensions
 {
+    /// <summary>
+    ///     Provides extension methods for the <see cref="int" /> type.
+    /// </summary>
     public static class IntegerExtensions
     {
         /// <summary>
