@@ -7,6 +7,9 @@ namespace Dictator.ConsoleInterface.Common
 {
     public class KeyPanel : IKeyPanel
     {
+        /// <summary>
+        ///     Displays the panel.
+        /// </summary>
         public void Show()
         {
             ConsoleEx.WriteAt(1, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
