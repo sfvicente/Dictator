@@ -11,6 +11,9 @@ namespace Dictator.ConsoleInterface.Common
             this.keyPanel = keyPanel;
         }
 
+        /// <summary>
+        ///     Displays the control.
+        /// </summary>
         public void Show()
         {
             keyPanel.Show();

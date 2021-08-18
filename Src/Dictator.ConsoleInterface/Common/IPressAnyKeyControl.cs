@@ -2,6 +2,9 @@
 {
     public interface IPressAnyKeyControl
     {
+        /// <summary>
+        ///     Displays the control.
+        /// </summary>
         public void Show();
     }
 }
