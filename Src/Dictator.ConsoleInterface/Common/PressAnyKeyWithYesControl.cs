@@ -12,6 +12,10 @@ namespace Dictator.ConsoleInterface.Common
             this.keyPanel = keyPanel;
         }
 
+        /// <summary>
+        ///     Displays the control.
+        /// </summary>
+        /// <returns>The option selected after the control has been presented.</returns>
         public DialogResult Show()
         {
             ConsoleEx.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
