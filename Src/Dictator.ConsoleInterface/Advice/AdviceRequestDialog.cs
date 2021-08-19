@@ -13,6 +13,10 @@ namespace Dictator.ConsoleInterface.Advice
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <returns>The option selected after the dialog has been presented.</returns>
         public DialogResult Show()
         {
             ConsoleEx.Clear(ConsoleColor.Green);
