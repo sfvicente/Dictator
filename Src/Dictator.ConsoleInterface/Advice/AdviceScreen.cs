@@ -17,6 +17,10 @@ namespace Dictator.ConsoleInterface.Advice
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="gameAction">The game action to be displayed on the screen.</param>
         public void Show(GameAction gameAction)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
