@@ -15,7 +15,12 @@ namespace Dictator.ConsoleInterface.Audience
         {
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
-
+        
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <param name="audience">The audience information to display on the screen.</param>
+        /// <returns>The option selected after the dialog has been presented.</returns>
         public DialogResult Show(Core.Audience audience)
         {
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
