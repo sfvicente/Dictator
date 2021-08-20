@@ -8,4 +8,4 @@
         America = 1,
         Russia = 2
     }
-}n
+}
