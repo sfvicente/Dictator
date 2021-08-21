@@ -21,7 +21,7 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        public LoanApplicationResult AskForLoan(Country country)
+        public LoanApplicationResult AskForLoan(LenderCountry country)
         {
             LoanApplicationResult loanApplicationResult = new LoanApplicationResult
             {
@@ -48,11 +48,11 @@ namespace Dictator.Core.Services
 
             switch (country)
             {
-                case Country.America:
+                case LenderCountry.America:
                     groupType = GroupType.Americans;
                     break;
 
-                case Country.Russia:
+                case LenderCountry.Russia:
                     groupType = GroupType.Russians;
                     break;
 
@@ -101,7 +101,7 @@ namespace Dictator.Core.Services
         ///     Determines if a loan has already been requested and granted by the specified country.
         /// </summary>
         /// <returns><c>true</c> if the loan has been granted before; otherwise, <c>false</c>.</returns>
-        private bool HasLoanBeenGrantedPreviously(Country country)
+        private bool HasLoanBeenGrantedPreviously(LenderCountry country)
         {
             // TODO: Check if loans have been used
 

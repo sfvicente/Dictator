@@ -22,11 +22,11 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             }
             else
             {
-                if (loanApplicationResult.Country == Country.America)
+                if (loanApplicationResult.Country == LenderCountry.America)
                 {
                     ConsoleEx.WriteAt(1, 12, "            \"nuts !\"            ");
                 }
-                else if(loanApplicationResult.Country == Country.Russia)
+                else if(loanApplicationResult.Country == LenderCountry.Russia)
                 {
                     ConsoleEx.WriteAt(1, 12, "             NIET !             ");
                 }

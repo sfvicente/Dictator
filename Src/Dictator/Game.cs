@@ -357,12 +357,12 @@ namespace Dictator.ConsoleInterface
             }
             else if (decision.DecisionSubType == DecisionSubType.AskForAmericanLoan)
             {
-                AskForLoan(Country.America);
+                AskForLoan(LenderCountry.America);
                 hasDecisionBeenCompleted = true;
             }
             else if (decision.DecisionSubType == DecisionSubType.AskForRussianLoan)
             {
-                AskForLoan(Country.Russia);
+                AskForLoan(LenderCountry.Russia);
                 hasDecisionBeenCompleted = true;
             }
             else
@@ -417,7 +417,7 @@ namespace Dictator.ConsoleInterface
         ///     Requests a loan to a foreign country.
         /// </summary>
         /// <param name="country">The country to whom the request is performed.</param>
-        private void AskForLoan(Country country)
+        private void AskForLoan(LenderCountry country)
         {
             userInterface.DisplayLoanApplicationScreen();
 

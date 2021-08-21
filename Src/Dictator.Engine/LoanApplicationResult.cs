@@ -23,7 +23,7 @@
         /// <summary>
         ///     Gets or sets the country to which the loan application is made to. 
         /// </summary>
-        public Country Country { get; set; }
+        public LenderCountry Country { get; set; }
 
         /// <summary>
         ///     Gets or sets the name of the group that the loan application is made to. 

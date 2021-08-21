@@ -3,7 +3,7 @@
     /// <summary>
     ///     Specifies the country of the lender of the foreign aid.
     /// </summary>
-    public enum Country
+    public enum LenderCountry
     {
         America = 1,
         Russia = 2
