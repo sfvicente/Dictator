@@ -219,7 +219,13 @@ namespace Dictator.Core
 
         public WarStats BeginInvasion();
         public bool ExecuteWar(WarStats warStats);
+
+        /// <summary>
+        ///     Attempts to assign a revolt group in a scenario of revolution.
+        /// </summary>
+        /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
         public bool TryTriggerRevoltGroup();
+
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
 
         /// <summary>
