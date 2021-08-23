@@ -218,6 +218,12 @@ namespace Dictator.Core
         public void ApplyThreatOfWarEffects();
 
         public WarStats BeginInvasion();
+
+        /// <summary>
+        ///     Executes and calculates the outcome for the war scenario between the Ritimba and Leftoto.
+        /// </summary>
+        /// <param name="warStats">The stats required for the war to calculate who wins.</param>
+        /// <returns><c>true</c> if Ritimba wins the war; otherwise, <c>false</c>.</returns>
         public bool ExecuteWar(WarStats warStats);
 
         /// <summary>
