@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents a revolution which sets the player and a possible ally against other groups.
+    /// </summary>
     public interface IRevolution
     {
         /// <summary>
