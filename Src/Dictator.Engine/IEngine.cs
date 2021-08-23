@@ -217,6 +217,11 @@ namespace Dictator.Core
         /// </summary>
         public void ApplyThreatOfWarEffects();
 
+        /// <summary>
+        ///     Initiates an invasion of the Ritimba Republic by Leftoto, which calculates teh strength of both countries in a
+        ///     scenario of war.
+        /// </summary>
+        /// <returns>The war statistics which are composed of the strength of each country.</returns>
         public WarStats BeginInvasion();
 
         /// <summary>
