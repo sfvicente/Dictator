@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Aggregates all elements requires to provide a score to a specific game.
+    /// </summary>
     public class Score
     {
         /// <summary>
