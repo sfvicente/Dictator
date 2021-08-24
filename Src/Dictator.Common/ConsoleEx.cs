@@ -117,6 +117,10 @@ namespace Dictator.Common
             }
         }
 
+        /// <summary>
+        ///     Clears the screen with a specific character.
+        /// </summary>
+        /// <param name="character">The character to be written to the entire screen.</param>
         public static void Clear(char character)
         {
             for (int row = 1; row <= ScreenRows; row++)
