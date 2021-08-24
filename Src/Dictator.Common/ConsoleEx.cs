@@ -15,6 +15,12 @@ namespace Dictator.Common
             Console.Write(text);
         }
 
+        /// <summary>
+        ///     Writes the specified text to the console with a foreground and background color.
+        /// </summary>
+        /// <param name="text">The text to be written to the screen.</param>
+        /// <param name="backgroundColor">The background color of the text.</param>
+        /// <param name="foregroundColor">The foreground color of the text.</param>
         public static void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
