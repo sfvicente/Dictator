@@ -170,6 +170,12 @@ namespace Dictator.Common
             Clear();
         }
 
+        /// <summary>
+        ///     Clears the console buffer and corresponding console window of display information with the specified character, foreground and background color.
+        /// </summary>
+        /// <param name="character">The caracter to print at all the positions on screen.</param>
+        /// <param name="backgroundColor">The background color to clear the screen.</param>
+        /// <param name="foregroundColor">The foreground color to be set after clearing the screen.</param>
         public static void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {
             Console.BackgroundColor = backgroundColor;
