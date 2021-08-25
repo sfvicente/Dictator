@@ -56,6 +56,14 @@ namespace Dictator.Common
             Console.BackgroundColor = previousBackgroundColor;
         }
 
+        /// <summary>
+        ///     Writes the specified text to the console at the specified position and with a foreground and background colors.
+        /// </summary>
+        /// <param name="left">The column position of the cursor. Columns are numbered from left to right starting at 0.</param>
+        /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
+        /// <param name="text">The text to be written to the screen.</param>
+        /// <param name="backgroundColor">The background color of the text.</param>
+        /// <param name="foregroundColor">The foreground color of the text.</param>
         public static void WriteAt(int left, int top, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
         {
             ConsoleColor previousBackgroundColor = Console.BackgroundColor;
