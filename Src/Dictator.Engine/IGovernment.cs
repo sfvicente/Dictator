@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents the state of the government of the Ritimba republic.
+    /// </summary>
     public interface IGovernment
     {
         /// <summary>
