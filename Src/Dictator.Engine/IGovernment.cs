@@ -6,12 +6,12 @@
     public interface IGovernment
     {
         /// <summary>
-        ///     Gets a value indicating whether the player is currently alive.
+        ///     Gets or sets a value indicating whether the player is currently alive.
         /// </summary>
         public bool IsPlayerAlive { get; set; }
 
         /// <summary>
-        ///     Gets a value indicating whether the player has acquired an helicopter.
+        ///     Gets or sets a value indicating whether the player has acquired an helicopter.
         /// </summary>
         public bool HasHelicopter { get; set; }
 
