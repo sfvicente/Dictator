@@ -19,7 +19,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Asks for foreign aid in the form of a loan to either America or Russia.
         /// </summary>
-        /// <param name="country"></param>
+        /// <param name="country">The country of the lender to which the loan will be requested.</param>
         /// <returns></returns>
         public LoanApplicationResult AskForLoan(LenderCountry country)
         {
@@ -100,6 +100,7 @@ namespace Dictator.Core.Services
         /// <summary>
         ///     Determines if a loan has already been requested and granted by the specified country.
         /// </summary>
+        /// <param name="country">The country of the lender to which the loan will be requested.</param>
         /// <returns><c>true</c> if the loan has been granted before; otherwise, <c>false</c>.</returns>
         private bool HasLoanBeenGrantedPreviously(LenderCountry country)
         {
