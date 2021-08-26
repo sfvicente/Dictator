@@ -20,7 +20,7 @@ namespace Dictator.Core.Services
         ///     Asks for foreign aid in the form of a loan to either America or Russia.
         /// </summary>
         /// <param name="country">The country of the lender to which the loan will be requested.</param>
-        /// <returns></returns>
+        /// <returns>The loan application result that includes if the loan has been approved or refused.</returns>
         public LoanApplicationResult AskForLoan(LenderCountry country)
         {
             LoanApplicationResult loanApplicationResult = new LoanApplicationResult
