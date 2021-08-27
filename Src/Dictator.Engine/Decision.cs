@@ -1,5 +1,9 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents a decision selected by the player with the corresponding effects on the treasury and
+    ///     the groups popularity and strength.
+    /// </summary>
     public class Decision: GameAction
     {
         public DecisionType Type { get; set; }
