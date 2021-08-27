@@ -13,7 +13,7 @@ namespace Dictator.ConsoleInterface.Start
             Console.ReadKey(true);
         }
 
-        public void PrintBackground()
+        private void PrintBackground()
         {
             for (int i = 1; i < 25; i++)
             {
@@ -24,7 +24,7 @@ namespace Dictator.ConsoleInterface.Start
             }
         }
 
-        public void PrintContent()
+        private void PrintContent()
         {
             ConsoleEx.WriteAt(1, 4, "Press any key to become DICTATOR", ConsoleColor.Gray, ConsoleColor.Black);
             ConsoleEx.WriteAt(13, 6, " of the ", ConsoleColor.Gray, ConsoleColor.Black);
