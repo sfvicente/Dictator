@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents a petition by one of the groups that request the player to perform an action.
+    /// </summary>
     public class Audience : GameAction
     {
         public GroupType Requester { get; set; }
