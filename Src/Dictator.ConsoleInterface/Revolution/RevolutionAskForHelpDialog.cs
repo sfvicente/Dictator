@@ -7,17 +7,12 @@ namespace Dictator.ConsoleInterface.Revolution
 {
     public class RevolutionAskForHelpDialog : IRevolutionAskForHelpDialog
     {
-        public int Show(Dictionary<int, Group> possibleAllies)
+        public int Show(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies)
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-
-            int revolutionaryStrength = 0;
-            string revolutionaryGroupName = "revolutionaryGroupName";
-            string revolutionaryGroupAllyName = "revolutionaryGroupAllyName";
-
-            ConsoleEx.WriteCenteredAt(5, $"{revolutionaryGroupName} have joined with");
-            ConsoleEx.WriteCenteredAt(6, $"{revolutionaryGroupAllyName}");
-            ConsoleEx.WriteAt(1, 7, $"  Their combined STRENGTH is {revolutionaryStrength} ");
+            ConsoleEx.WriteCenteredAt(5, $"{revolutionary.RevolutionaryGroupName} have joined with");
+            ConsoleEx.WriteCenteredAt(6, $"{revolutionary.RevolutionaryGroupAllyName}");
+            ConsoleEx.WriteAt(1, 7, $"  Their combined STRENGTH is {revolutionary.CombinedStrength} ");
             ConsoleEx.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
 
             for (int i = 1; i < 7; i++)

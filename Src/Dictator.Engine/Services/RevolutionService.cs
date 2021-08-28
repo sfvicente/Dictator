@@ -40,6 +40,29 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
+        ///     Get the revolutionary group and ally that initiated the revolution.
+        /// </summary>
+        /// <returns>The revolutionary group, their ally and combined strength.</returns>
+        public Revolutionary GetRevolutionary()
+        {
+            Revolutionary revolutionary = new Revolutionary();
+            Group revolutionaryGroup = revolution.RevolutionaryGroup;
+
+            if(revolutionaryGroup != null)
+            {
+                revolutionary.RevolutionaryGroupName = revolutionaryGroup.Name;
+
+                if (revolutionaryGroup.Ally != null)
+                {
+                    revolutionary.RevolutionaryGroupAllyName = revolutionaryGroup.Ally.Name;
+                    revolutionary.CombinedStrength = revolutionaryGroup.Strength + revolutionaryGroup.Ally.Strength;
+                }
+            }
+
+            return revolutionary;
+        }
+
+        /// <summary>
         ///     Finds the groups that can be possible allies of a player in a revolution.
         /// </summary>
         /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>

@@ -11,6 +11,12 @@ namespace Dictator.Core.Services
         public bool TryTriggerRevoltGroup();
 
         /// <summary>
+        ///     Get the revolutionary group and ally that initiated the revolution.
+        /// </summary>
+        /// <returns>The revolutionary group, their ally and combined strength.</returns>
+        public Revolutionary GetRevolutionary();
+
+        /// <summary>
         ///     Finds the groups that can be possible allies of a player in a revolution.
         /// </summary>
         /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>

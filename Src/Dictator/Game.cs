@@ -485,9 +485,8 @@ namespace Dictator.ConsoleInterface
 
                 if (possibleAllies.Count > 0)
                 {
-                    // TODO: retrieve revolutionary information
-
-                    int selectedAllyGroupId = userInterface.DisplayRevolutionAskForHelpDialog(possibleAllies);
+                    Revolutionary revolutionary = engine.GetRevolutionary();
+                    int selectedAllyGroupId = userInterface.DisplayRevolutionAskForHelpDialog(revolutionary, possibleAllies);
 
                     if(engine.DoesGroupAcceptAllianceInRevolution(selectedAllyGroupId))
                     {

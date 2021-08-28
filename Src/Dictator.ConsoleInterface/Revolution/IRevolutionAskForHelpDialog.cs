@@ -5,6 +5,6 @@ namespace Dictator.ConsoleInterface.Revolution
 {
     public interface IRevolutionAskForHelpDialog
     {
-        int Show(Dictionary<int, Group> possibleAllies);
+        int Show(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies);
     }
 }

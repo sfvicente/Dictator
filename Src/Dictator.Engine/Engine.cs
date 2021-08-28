@@ -394,6 +394,11 @@ namespace Dictator.Core
             return revolutionService.TryTriggerRevoltGroup();
         }
 
+        public Revolutionary GetRevolutionary()
+        {
+            return revolutionService.GetRevolutionary();
+        }
+
         public Dictionary<int, Group> FindPossibleAlliesForPlayer()
         {
             return revolutionService.FindPossibleAllies();
