@@ -10,7 +10,14 @@ namespace Dictator.ConsoleInterface.Revolution
         public int Show(Dictionary<int, Group> possibleAllies)
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 12, "           REVOLUTION           ");
+
+            int revolutionaryStrength = 0;
+            string revolutionaryGroupName = "revolutionaryGroupName";
+            string revolutionaryGroupAllyName = "revolutionaryGroupAllyName";
+
+            ConsoleEx.WriteCenteredAt(5, $"{revolutionaryGroupName} have joined with");
+            ConsoleEx.WriteCenteredAt(6, $"{revolutionaryGroupAllyName}");
+            ConsoleEx.WriteAt(1, 7, $"  Their combined STRENGTH is {revolutionaryStrength} ");
             ConsoleEx.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
 
             for (int i = 1; i < 7; i++)
