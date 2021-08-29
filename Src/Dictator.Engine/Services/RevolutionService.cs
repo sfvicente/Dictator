@@ -40,7 +40,7 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
-        ///     Get the revolutionary group and ally that initiated the revolution.
+        ///     Gets the revolutionary group and ally that initiated the revolution.
         /// </summary>
         /// <returns>The revolutionary group, their ally and combined strength.</returns>
         public Revolutionary GetRevolutionary()
