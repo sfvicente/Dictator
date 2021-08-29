@@ -394,6 +394,10 @@ namespace Dictator.Core
             return revolutionService.TryTriggerRevoltGroup();
         }
 
+        /// <summary>
+        ///     Gets the revolutionary group and ally that initiated the revolution.
+        /// </summary>
+        /// <returns>The revolutionary group, their ally and combined strength.</returns>
         public Revolutionary GetRevolutionary()
         {
             return revolutionService.GetRevolutionary();

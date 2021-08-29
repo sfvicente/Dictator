@@ -237,6 +237,10 @@ namespace Dictator.Core
         /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
         public bool TryTriggerRevoltGroup();
 
+        /// <summary>
+        ///     Gets the revolutionary group and ally that initiated the revolution.
+        /// </summary>
+        /// <returns>The revolutionary group, their ally and combined strength.</returns>
         public Revolutionary GetRevolutionary();
 
         public Dictionary<int, Group> FindPossibleAlliesForPlayer();
