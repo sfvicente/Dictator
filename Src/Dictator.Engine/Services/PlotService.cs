@@ -11,6 +11,10 @@
             this.governmentService = governmentService;
         }
 
+        /// <summary>
+        ///     Checks for the required conditions and changes que appropriate group status
+        ///     to the revolution and assassination modes.
+        /// </summary>
         public void Plot()
         {
             // Do not trigger assassinations or revolutions after failed revolution
