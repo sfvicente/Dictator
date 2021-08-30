@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the player escape from Ritimba.
+    /// </summary>
+
     public class EscapeService : IEscapeService
     {
         private readonly IGroupService groupService;
