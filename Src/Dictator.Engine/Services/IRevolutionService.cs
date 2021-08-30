@@ -2,6 +2,9 @@
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the execution of the revolution mechanic in the game.
+    /// </summary>
     public interface IRevolutionService
     {
         /// <summary>

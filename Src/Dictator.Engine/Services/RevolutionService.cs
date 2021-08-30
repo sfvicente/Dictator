@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the execution of the revolution mechanic in the game.
+    /// </summary>
     public class RevolutionService : IRevolutionService
     {
         private readonly IRevolution revolution;
