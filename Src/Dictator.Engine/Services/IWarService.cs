@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the execution of the war mechanic in the game.
+    /// </summary>
     public interface IWarService
     {
         /// <summary>
