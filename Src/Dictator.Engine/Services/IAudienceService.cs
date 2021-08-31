@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the petitions from the army, peasants and landowners.
+    /// </summary>
     public interface IAudienceService
     {
         /// <summary>

@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the petitions from the army, peasants and landowners.
+    /// </summary>
     public class AudienceService : IAudienceService
     {
         private readonly IAccountService accountService;
