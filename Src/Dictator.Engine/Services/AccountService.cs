@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the treasury and associated costs and the Swiss bank account.
+    /// </summary>
     public class AccountService: IAccountService
     {
         private readonly IAccount account;
