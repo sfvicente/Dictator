@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the player assassination mechanic.
+    /// </summary>
     public interface IAssassinationService
     {
         /// <summary>
