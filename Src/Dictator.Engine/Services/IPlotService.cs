@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to changes in status of groups to initiate assassinations or revolutions.
+    /// </summary>
     public interface IPlotService
     {
         /// <summary>
