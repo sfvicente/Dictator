@@ -32,6 +32,11 @@ namespace Dictator
             game.Start();
         }
 
+        /// <summary>
+        ///     Creates a new instance of the host builder with all the required services added to the contaier.
+        /// </summary>
+        /// <param name="args">The command line arguments.</param>
+        /// <returns>The initialized <see cref="IHostBuilder"/>.</returns>
         static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args).ConfigureServices((_, services) => services
             // Main
