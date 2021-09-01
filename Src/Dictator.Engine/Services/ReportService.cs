@@ -2,6 +2,9 @@
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to reporting within the game.
+    /// </summary>
     public class ReportService : IReportService
     {
         private readonly IAccountService accountService;
