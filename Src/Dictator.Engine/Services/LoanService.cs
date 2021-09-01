@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the request for financial aids.
+    /// </summary>
     public class LoanService : ILoanService
     {
         private readonly IGovernmentService governmentService;

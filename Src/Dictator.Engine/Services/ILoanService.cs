@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the request for financial aids.
+    /// </summary>
     public interface ILoanService
     {
         /// <summary>
