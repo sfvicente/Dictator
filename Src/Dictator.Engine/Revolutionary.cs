@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents a group element responsible for starting a revolution.
+    /// </summary>
     public class Revolutionary
     {
         /// <summary>
