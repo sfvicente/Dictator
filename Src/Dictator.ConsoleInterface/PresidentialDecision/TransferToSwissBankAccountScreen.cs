@@ -17,6 +17,11 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
+        /// <param name="account">The current treasury and costs information.</param>
         public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
