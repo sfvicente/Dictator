@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the presidential decision mechanic.
+    /// </summary>
     public class DecisionService : IDecisionService
     {
         private Decision[] decisions;
