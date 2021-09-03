@@ -14,6 +14,10 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
 
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <returns>The type of presidential decision that has been selected.</returns>
         public DecisionType Show()
         {
             ConsoleEx.Clear('*', ConsoleColor.Red, ConsoleColor.Yellow);
