@@ -2,6 +2,10 @@
 
 namespace Dictator.ConsoleInterface.Escape
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when the choice to escape a war or revolution is presented
+    ///     to the player.
+    /// </summary>
     public interface IEscapeAttemptDialog
     {
         /// <summary>
