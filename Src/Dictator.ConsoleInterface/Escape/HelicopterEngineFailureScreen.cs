@@ -4,6 +4,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.Escape
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when the player attempts escape but the helicopter
+    ///     engine fails.
+    /// </summary>
     public class HelicopterEngineFailureScreen : IHelicopterEngineFailureScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
