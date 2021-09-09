@@ -5,6 +5,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.End
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when an instance of a game ends. It displays
+    ///     the partial score components and final game score.
+    /// </summary>
     public class EndScreen : IEndScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
