@@ -7,6 +7,10 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Audience
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when an audience is requested to the player
+    ///     by one of the groups.
+    /// </summary>
     public class AudienceScreen : IAudienceScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
