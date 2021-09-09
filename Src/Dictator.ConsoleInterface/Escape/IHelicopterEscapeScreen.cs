@@ -1,10 +1,11 @@
 ﻿namespace Dictator.ConsoleInterface.Escape
 {
-    /// <summary>
-    ///     Displays the screen.
-    /// </summary>
+
     public interface IHelicopterEscapeScreen
     {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
         public void Show();
     }
 }
