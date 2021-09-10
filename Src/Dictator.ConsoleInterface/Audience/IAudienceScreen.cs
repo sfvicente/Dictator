@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dictator.ConsoleInterface.Audience
+﻿namespace Dictator.ConsoleInterface.Audience
 {
     /// <summary>
     ///     Represents the screen that is displayed when an audience is requested to the player
