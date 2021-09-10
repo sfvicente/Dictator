@@ -2,6 +2,11 @@
 
 namespace Dictator.ConsoleInterface.Audience
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player needs to decide on
+    ///     the decision of the petition by one of the groups. It includes the treasury
+    ///     costs involved.
+    /// </summary>
     public interface IAudienceDecisionDialog
     {
         /// <summary>
