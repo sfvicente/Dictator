@@ -17,6 +17,10 @@ namespace Dictator.ConsoleInterface.Audience
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="audience">The audience information to display on the screen.</param>
         public void Show(Core.Audience audience)
         {
             ConsoleEx.Clear();
