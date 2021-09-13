@@ -3,6 +3,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.Month
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a new month starts, which
+    ///     marks a new game turn.
+    /// </summary>
     public class MonthScreen : IMonthScreen
     {
         /// <summary>
