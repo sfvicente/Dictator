@@ -13,6 +13,10 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="loanApplicationResult">The load application result to be displayed on screen.</param>
         public void Show(LoanApplicationResult loanApplicationResult)
         {
             if(loanApplicationResult.IsAccepted)
