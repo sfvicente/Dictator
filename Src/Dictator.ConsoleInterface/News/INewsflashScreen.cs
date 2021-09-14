@@ -1,5 +1,8 @@
 ﻿namespace Dictator.ConsoleInterface.News
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a random newsflash happens.
+    /// </summary>
     public interface INewsflashScreen
     {
         /// <summary>
