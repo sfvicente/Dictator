@@ -4,6 +4,10 @@ using Dictator.Core;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when the result of an application 
+    ///     for monetary foreign aid that a player is determined.
+    /// </summary>
     public class LoanApplicationResultScreen : ILoanApplicationResultScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
