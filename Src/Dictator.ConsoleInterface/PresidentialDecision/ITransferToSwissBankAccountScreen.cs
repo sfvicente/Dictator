@@ -2,6 +2,10 @@
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when the player transfers funds from the treasury 
+    ///     to the Swiss bank account.
+    /// </summary>
     public interface ITransferToSwissBankAccountScreen
     {
         /// <summary>
