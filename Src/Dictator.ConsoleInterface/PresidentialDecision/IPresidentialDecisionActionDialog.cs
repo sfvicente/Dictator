@@ -3,6 +3,10 @@ using Dictator.Core;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player needs to make a decision to accept or refuse
+    ///     the presidential option that has been selected.
+    /// </summary>
     public interface IPresidentialDecisionActionDialog
     {
         /// <summary>

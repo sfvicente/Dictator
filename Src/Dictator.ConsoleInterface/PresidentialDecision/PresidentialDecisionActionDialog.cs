@@ -5,6 +5,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player needs to make a decision to accept or refuse
+    ///     the presidential option that has been selected.
+    /// </summary>
     public class PresidentialDecisionActionDialog : IPresidentialDecisionActionDialog
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
