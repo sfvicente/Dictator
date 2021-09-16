@@ -14,6 +14,11 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
 
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <param name="decision">The decision to be displayed to the player for acceptance or refusal.</param>
+        /// <returns>The option selected after the dialog has been presented.</returns>
         public DialogResult Show(Decision decision)
         {
             ConsoleEx.Clear(ConsoleColor.DarkYellow);
