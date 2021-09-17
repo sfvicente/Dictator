@@ -61,18 +61,7 @@ namespace Dictator.ConsoleInterface.Reporting
                 Console.ForegroundColor = ConsoleColor.Black;
                 ConsoleEx.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
 
-                if (groups[i].Status == GroupStatus.Assassination)
-                {
-                    ConsoleEx.Write("A", ConsoleColor.White, ConsoleColor.Black);
-                }
-                else if (groups[i].Status == GroupStatus.Revolution)
-                {
-                    ConsoleEx.Write("R", ConsoleColor.White, ConsoleColor.Black);
-                }
-                else
-                {
-                    ConsoleEx.Write(" ", ConsoleColor.Black, ConsoleColor.Black);
-                }
+                DisplayGroupStatus(groups[i]);
 
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.White;
@@ -84,6 +73,22 @@ namespace Dictator.ConsoleInterface.Reporting
 
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+
+        private void DisplayGroupStatus(Group group)
+        {
+            if (group.Status == GroupStatus.Assassination)
+            {
+                ConsoleEx.Write("A", ConsoleColor.White, ConsoleColor.Black);
+            }
+            else if (group.Status == GroupStatus.Revolution)
+            {
+                ConsoleEx.Write("R", ConsoleColor.White, ConsoleColor.Black);
+            }
+            else
+            {
+                ConsoleEx.Write(" ", ConsoleColor.Black, ConsoleColor.Black);
             }
         }
 
