@@ -5,6 +5,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.Reporting
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player is asked if a police report should be displayed
+    ///     for a specific cost.
+    /// </summary>
     public class PoliceReportRequestDialog : IPoliceReportRequestDialog
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
