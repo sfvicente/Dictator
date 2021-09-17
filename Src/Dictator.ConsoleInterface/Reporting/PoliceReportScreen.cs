@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace Dictator.ConsoleInterface.Reporting
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when the player is shown the police report.
+    /// </summary>
     public class PoliceReportScreen : IPoliceReportScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
