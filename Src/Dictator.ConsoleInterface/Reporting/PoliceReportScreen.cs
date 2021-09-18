@@ -24,7 +24,7 @@ namespace Dictator.ConsoleInterface.Reporting
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleEx.Clear();
             DisplayHeaders(policeReport.Month);
-            DisplayGroups(policeReport.Groups.ToArray());
+            DisplayGroupStats(policeReport.Groups.ToArray());
             DisplayGovernmentStats(policeReport.PlayerStrength, policeReport.MonthlyRevolutionStrength);
             pressAnyKeyControl.Show();
         }
@@ -38,7 +38,7 @@ namespace Dictator.ConsoleInterface.Reporting
             ConsoleEx.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
         }
 
-        private void DisplayGroups(Group[] groups)
+        private void DisplayGroupStats(Group[] groups)
         {
             for (int i = 0; i < groups.Length; i++)
             {
