@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Dictator.ConsoleInterface.Start
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a game starts.
+    /// </summary>
     public class IntroScreen : IIntroScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
