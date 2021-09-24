@@ -4,6 +4,9 @@ using System;
 
 namespace Dictator.ConsoleInterface.Revolution
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a revolution has been triggered.
+    /// </summary>
     public class RevolutionScreen : IRevolutionScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
