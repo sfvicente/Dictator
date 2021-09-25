@@ -8,6 +8,9 @@ namespace Dictator.ConsoleInterface.Start
     /// </summary>
     public class TitleScreen : ITitleScreen
     {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
         public void Show()
         {
             ConsoleEx.Clear();

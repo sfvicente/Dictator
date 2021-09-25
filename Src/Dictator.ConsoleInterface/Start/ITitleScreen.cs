@@ -5,6 +5,9 @@
     /// </summary>
     public interface ITitleScreen
     {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
         public void Show();
     }
 }
