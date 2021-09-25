@@ -3,6 +3,9 @@ using System;
 
 namespace Dictator.ConsoleInterface.Start
 {
+    /// <summary>
+    ///     Represents the screen that is displayed with the title of the game.
+    /// </summary>
     public class TitleScreen : ITitleScreen
     {
         public void Show()
