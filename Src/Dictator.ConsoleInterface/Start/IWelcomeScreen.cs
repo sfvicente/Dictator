@@ -1,5 +1,8 @@
 ﻿namespace Dictator.ConsoleInterface.Start
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when welcoming the player to the game.
+    /// </summary>
     public interface IWelcomeScreen
     {
         /// <summary>
