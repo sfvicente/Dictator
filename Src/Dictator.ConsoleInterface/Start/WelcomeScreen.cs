@@ -13,6 +13,10 @@ namespace Dictator.ConsoleInterface.Start
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="highscore">The game's current highest score.</param>
         public void Show(int highscore)
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
