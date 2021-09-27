@@ -2,6 +2,10 @@
 
 namespace Dictator.ConsoleInterface.Treasury
 {
+    /// <summary>
+    ///     Represents the control that displays the current balances of both the treasury and Swiss bank account, and
+    ///     also displays the monthly costs.
+    /// </summary>
     public interface IAccountControl
     {
         /// <summary>
