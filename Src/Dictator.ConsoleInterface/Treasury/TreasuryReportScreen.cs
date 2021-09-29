@@ -5,6 +5,9 @@ using System;
 
 namespace Dictator.ConsoleInterface.Treasury
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a report of the treasury is required.
+    /// </summary>
     public class TreasuryReportScreen : ITreasuryReportScreen
     {
         private readonly IAccountControl accountControl;
