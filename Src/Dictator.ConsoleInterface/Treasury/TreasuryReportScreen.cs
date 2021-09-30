@@ -19,6 +19,10 @@ namespace Dictator.ConsoleInterface.Treasury
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
 
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="account">The account information regarding the treasury, monthly costs and Swiss account.</param>
         public void Show(Account account)
         {
             ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Green);
