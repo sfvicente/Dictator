@@ -4,6 +4,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.War
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a player loses the war, which results
+    ///     in a Leftotan victory.
+    /// </summary>
     public class WarLostScreen : IWarLostScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
