@@ -2,6 +2,10 @@
 
 namespace Dictator.ConsoleInterface.Advice
 {
+    /// <summary>
+    ///     Represents the dialog that is displayed when a player is requested to select if they want to
+    ///     to be given advice on the impacts of a game action on the groups.
+    /// </summary>
     public interface IAdviceRequestDialog
     {
         /// <summary>
