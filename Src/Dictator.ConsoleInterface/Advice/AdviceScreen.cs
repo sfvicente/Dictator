@@ -6,6 +6,10 @@ using System;
 
 namespace Dictator.ConsoleInterface.Advice
 {
+    /// <summary>
+    ///     Represents the screen that is displayed when a player is given advice on the impacts of
+    ///     a game action on the groups.
+    /// </summary>
     public class AdviceScreen : IAdviceScreen
     {
         private readonly IGroupService groupService;
