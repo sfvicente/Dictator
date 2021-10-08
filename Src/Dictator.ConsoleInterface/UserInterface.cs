@@ -15,7 +15,6 @@ using Dictator.ConsoleInterface.War;
 using Dictator.Core;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Dictator.ConsoleInterface
 {
