@@ -15,6 +15,11 @@ namespace Dictator.ConsoleInterface.Advice
         private readonly IGroupService groupService;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="AdviceScreen"/> class from an <see cref="IGroupService"/> and a <see cref="IPressAnyKeyControl"/> components.
+        /// </summary>
+        /// <param name="groupService">The service that provides functionality related to the groups.</param>
+        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public AdviceScreen(IGroupService groupService, IPressAnyKeyControl pressAnyKeyControl)
         {
             this.groupService = groupService;
