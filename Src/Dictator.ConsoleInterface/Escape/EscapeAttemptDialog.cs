@@ -12,6 +12,11 @@ namespace Dictator.ConsoleInterface.Escape
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="EscapeAttemptDialog"/> class from a <see cref="IPressAnyKeyWithYesControl"/>
+        ///     component.
+        /// </summary>
+        /// <param name="pressAnyKeyWithYesControl">The control that is displayed when the user is required to press a key.</param>
         public EscapeAttemptDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
