@@ -13,6 +13,11 @@ namespace Dictator.ConsoleInterface.Audience
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="AudienceDecisionDialog"/> class from a <see cref="IPressAnyKeyControl"/>
+        ///     component.
+        /// </summary>
+        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public AudienceDecisionDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         {
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
