@@ -11,6 +11,11 @@ namespace Dictator.ConsoleInterface.Escape
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="HelicopterEscapeScreen"/> class from a <see cref="IPressAnyKeyControl"/>
+        ///     component.
+        /// </summary>
+        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public HelicopterEscapeScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
