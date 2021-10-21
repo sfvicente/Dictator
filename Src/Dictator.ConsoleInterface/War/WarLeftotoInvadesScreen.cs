@@ -13,6 +13,11 @@ namespace Dictator.ConsoleInterface.War
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="WarLeftotoInvadesScreen"/> class from a <see cref="IPressAnyKeyControl"/>
+        ///     component.
+        /// </summary>
+        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public WarLeftotoInvadesScreen(IPressAnyKeyControl pressAnyKeyControl)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
