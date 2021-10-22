@@ -13,6 +13,13 @@ namespace Dictator.ConsoleInterface.Treasury
         private readonly IAccountControl accountControl;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="TreasuryReportScreen"/> class from an <see cref="IAccountControl"/> and
+        ///     a <see cref="IPressAnyKeyControl"/> components.
+        /// </summary>
+        /// <param name="accountControl">The control that displays the current balances of both the treasury and Swiss bank account, and
+        ///     also displays the monthly costs.</param>
+        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public TreasuryReportScreen(IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
         {
             this.accountControl = accountControl;
