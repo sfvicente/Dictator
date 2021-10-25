@@ -57,6 +57,9 @@
         /// <returns>A number representing the player's strength.</returns>
         public int GetPlayerStrength();
 
+        /// <summary>
+        ///     Gets the level of strength of a possible revolution for the current turn.
+        /// </summary>
         public int GetMonthlyRevolutionStrength();
 
         /// <summary>

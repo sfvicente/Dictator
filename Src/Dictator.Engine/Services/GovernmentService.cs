@@ -114,6 +114,9 @@ namespace Dictator.Core.Services
             return government.IsPlayerAlive;
         }
 
+        /// <summary>
+        ///     Gets the level of strength of a possible revolution for the current turn.
+        /// </summary>
         public int GetMonthlyRevolutionStrength()
         {
             return government.MonthlyRevolutionStrength;
