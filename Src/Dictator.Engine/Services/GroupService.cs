@@ -126,6 +126,10 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Gets the sum of all the current popularities of each individual group.
+        /// </summary>
+        /// <returns>The total popularity count resulting of the sum of each popularity of the individual groups.</returns>
         public int GetTotalPopularity()
         {
             return groups.Sum(x => x.Popularity);
