@@ -107,6 +107,11 @@ namespace Dictator.Core.Services
             }
         }
 
+        /// <summary>
+        ///     Decreases the popularity of a group by a specified amount.
+        /// </summary>
+        /// <param name="groupType">The group type which have the decrease in popularity.</param>
+        /// <param name="amount">The amount by which the popularity will be decreased.</param>
         public void DecreasePopularity(GroupType groupType, int amount)
         {
             int index = (int)groupType;
