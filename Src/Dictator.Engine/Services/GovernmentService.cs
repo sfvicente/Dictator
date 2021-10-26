@@ -121,7 +121,12 @@ namespace Dictator.Core.Services
         {
             return government.MonthlyRevolutionStrength;
         }
-        
+
+        /// <summary>
+        ///     Gets the minimal monthly level requirement for popularity and strength which is used for a diverse
+        ///     number of game logic when interacting with groups, such as requesting external financial aid or 
+        ///     finding allies in a revolution.
+        /// </summary>
         public int GetMonthlyMinimalPopularityAndStrength()
         {
             return government.MonthlyMinimalPopularityAndStrength;
