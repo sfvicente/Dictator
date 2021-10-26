@@ -123,16 +123,6 @@ namespace Dictator.Core.Services
         }
 
         /// <summary>
-        ///     Gets the minimal monthly level requirement for popularity and strength which is used for a diverse
-        ///     number of game logic when interacting with groups, such as requesting external financial aid or 
-        ///     finding allies in a revolution.
-        /// </summary>
-        public int GetMonthlyMinimalPopularityAndStrength()
-        {
-            return government.MonthlyMinimalPopularityAndStrength;
-        }
-
-        /// <summary>
         ///     Sets the level of strength of a possible revolution for the current turn.
         /// </summary>
         public void SetMonthlyRevolutionStrength()
@@ -140,6 +130,16 @@ namespace Dictator.Core.Services
             Random random = new Random();
 
             government.MonthlyRevolutionStrength = random.Next(10, 13);
+        }
+
+        /// <summary>
+        ///     Gets the minimal monthly level requirement for popularity and strength which is used for a diverse
+        ///     number of game logic when interacting with groups, such as requesting external financial aid or 
+        ///     finding allies in a revolution.
+        /// </summary>
+        public int GetMonthlyMinimalPopularityAndStrength()
+        {
+            return government.MonthlyMinimalPopularityAndStrength;
         }
 
         /// <summary>
