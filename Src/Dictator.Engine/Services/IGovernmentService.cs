@@ -5,15 +5,21 @@
         public void Initialise();
 
         /// <summary>
+        ///     Retrieves the month number of the current game.
+        /// </summary>
+        /// <returns>The current month number.</returns>
+        public int GetMonth();
+
+        /// <summary>
         ///     Advances the month number of the current game.
         /// </summary>
         public void AdvanceMonth();
 
         /// <summary>
-        ///     Retrieves the month number of the current game.
+        ///     Retrieves the current strength of the player. The player strength is always greater or equal to zero.
         /// </summary>
-        /// <returns>The current month number.</returns>
-        public int GetMonth();
+        /// <returns>A number representing the player's strength.</returns>
+        public int GetPlayerStrength();
 
         /// <summary>
         ///     Decreases the player strength level by one. If the strength attribute is zero, no action is taken as
@@ -50,12 +56,6 @@
 
         public int GetLastScore();
         public void SetHighScore(int totalScore);
-
-        /// <summary>
-        ///     Retrieves the current strength of the player. The player strength is always greater or equal to zero.
-        /// </summary>
-        /// <returns>A number representing the player's strength.</returns>
-        public int GetPlayerStrength();
 
         /// <summary>
         ///     Gets the level of strength of a possible revolution for the current turn.
