@@ -96,6 +96,10 @@ namespace Dictator.Core.Services
             return government.LastScore;
         }
 
+        /// <summary>
+        ///     Sets the specified score as the current highest score.
+        /// </summary>
+        /// <param name="highScore">The score to be set as the highest score.</param>
         public void SetHighScore(int highScore)
         {
             government.LastScore = highScore;
