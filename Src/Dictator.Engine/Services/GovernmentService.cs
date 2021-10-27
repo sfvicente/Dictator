@@ -87,6 +87,10 @@ namespace Dictator.Core.Services
             return government.HasHelicopter;
         }
 
+        /// <summary>
+        ///     Gets the score of the last played game before the current one.
+        /// </summary>
+        /// <returns>The score of the last played game.</returns>
         public int GetLastScore()
         {
             return government.LastScore;
