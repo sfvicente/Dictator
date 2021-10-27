@@ -54,6 +54,10 @@
         /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
         public bool HasPlayerPurchasedHelicopter();
 
+        /// <summary>
+        ///     Gets the score of the last played game before the current one.
+        /// </summary>
+        /// <returns>The score of the last played game.</returns>
         public int GetLastScore();
 
         /// <summary>
