@@ -1,5 +1,8 @@
 ﻿namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the groups or factions that exist within the game context.
+    /// </summary>
     public interface IGroupService
     {
         public GroupType AssassinGroupType { get; }
