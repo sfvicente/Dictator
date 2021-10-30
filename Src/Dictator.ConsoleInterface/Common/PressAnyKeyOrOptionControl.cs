@@ -10,6 +10,11 @@ namespace Dictator.ConsoleInterface.Common
     {
         private readonly IKeyPanel keyPanel;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="PressAnyKeyOrOptionControl"/> class from a <see cref="IKeyPanel"/>
+        ///     component.
+        /// </summary>
+        /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
         public PressAnyKeyOrOptionControl(IKeyPanel keyPanel)
         {
             this.keyPanel = keyPanel;
