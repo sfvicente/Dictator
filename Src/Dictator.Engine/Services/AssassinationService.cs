@@ -10,6 +10,12 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private readonly IGovernmentService governmentService;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="AssassinationService"/> class from a <see cref="IGroupService"/> and
+        ///     a <see cref="IGovernmentService"/> components.
+        /// </summary>
+        /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
+        /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
         public AssassinationService(IGroupService groupService, IGovernmentService governmentService)
         {
             this.groupService = groupService;
