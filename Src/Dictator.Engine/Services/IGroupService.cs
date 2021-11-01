@@ -19,6 +19,7 @@
 
         public int GetPopularityByGroupType(GroupType groupType);
         public int GetStrengthByGroupType(GroupType groupType);
+        public GroupType GetGroupTypeByCountry(LenderCountry country);
         public Group GetGroupByType(GroupType groupType);
         public string GetGroupNameByIndex(int index);
         public void SetPopularity(GroupType groupType, int popularity);
@@ -38,7 +39,7 @@
         public bool DoesMainPopulationHatePlayer();
         public void ApplyPopularityChange(string groupPopularityChanges);
         public void ApplyStrengthChange(string groupStrengthChanges);
-
+        
         /// <summary>
         ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
         ///     peasants, landowners and guerrilas.

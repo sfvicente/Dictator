@@ -39,7 +39,7 @@ namespace Dictator.Core.Services
                 return loanApplicationResult;
             }
 
-            if(HasLoanBeenGrantedPreviously(country))
+            if (HasLoanBeenGrantedPreviously(country))
             {
                 loanApplicationResult.IsAccepted = false;
                 loanApplicationResult.RefusalType = LoanApplicationRefusalType.AlreadyUsed;
@@ -47,22 +47,7 @@ namespace Dictator.Core.Services
                 return loanApplicationResult;
             }
 
-            GroupType groupType;
-
-            switch (country)
-            {
-                case LenderCountry.America:
-                    groupType = GroupType.Americans;
-                    break;
-
-                case LenderCountry.Russia:
-                    groupType = GroupType.Russians;
-                    break;
-
-                default:
-                    throw new InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
-            }
-
+            GroupType groupType = groupService.GetGroupTypeByCountry(country);
             Group group = groupService.GetGroupByType(groupType);
 
             loanApplicationResult.GroupName = group.Name;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Dictator.Core.Services
@@ -39,6 +40,27 @@ namespace Dictator.Core.Services
         public int GetStrengthByGroupType(GroupType groupType)
         {
             return groups[(int)groupType].Strength;
+        }
+
+        public GroupType GetGroupTypeByCountry(LenderCountry country)
+        {
+            GroupType groupType;
+
+            switch (country)
+            {
+                case LenderCountry.America:
+                    groupType = GroupType.Americans;
+                    break;
+
+                case LenderCountry.Russia:
+                    groupType = GroupType.Russians;
+                    break;
+
+                default:
+                    throw new InvalidEnumArgumentException(nameof(country), (int)country, country.GetType());
+            }
+
+            return groupType;
         }
 
         public Group GetGroupByType(GroupType groupType)
