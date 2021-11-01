@@ -2,6 +2,9 @@
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to the government settings and operations.
+    /// </summary>
     public class GovernmentService : IGovernmentService
     {
         private readonly IGovernment government;
