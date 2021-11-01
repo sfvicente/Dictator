@@ -13,7 +13,7 @@ namespace Dictator.Core.Services
         ///     Initializes a new instance of the <see cref="EscapeService"/> class from a <see cref="IGroupService"/>
         ///     component.
         /// </summary>
-        /// <param name="groupService">The service used to provides functionality related to the groups or factions.</param>
+        /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
         public EscapeService(IGroupService groupService)
         {
             this.groupService = groupService;
