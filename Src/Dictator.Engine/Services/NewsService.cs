@@ -14,7 +14,7 @@ namespace Dictator.Core.Services
         ///     a <see cref="IAccountService"/> components.
         /// </summary>
         /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-        /// <param name="governmentService">The service used to provide functionality related to the treasury and associated
+        /// <param name="IAccountService">The service used to provide functionality related to the treasury and associated
         /// costs and the Swiss bank account.</param>
         public NewsService(IGroupService groupService, IAccountService accountService)
         {
