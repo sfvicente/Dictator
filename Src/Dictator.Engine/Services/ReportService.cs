@@ -11,6 +11,14 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private readonly IGovernmentService governmentService;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="ReportService"/> class from a <see cref="IAccountService"/>,
+        ///     a <see cref="IGroupService"/> and a <see cref="IGovernmentService"/> components.
+        /// </summary>
+        /// <param name="accountService">The service used to provide functionality related to the treasury and associated costs and
+        /// the Swiss bank account.</param>
+        /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
+        /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
         public ReportService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
         {
             this.accountService = accountService;
