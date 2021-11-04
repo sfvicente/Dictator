@@ -11,7 +11,7 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private readonly IAccountService accountService;
 
-        public LoanService(IGovernmentService governmentService, IGroupService groupService, IAccountService accountService)
+        public LoanService(IAccountService accountService, IGovernmentService governmentService, IGroupService groupService)
         {
             this.governmentService = governmentService;
             this.groupService = groupService;
