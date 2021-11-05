@@ -6,7 +6,7 @@
         private readonly IGovernmentService governmentService;
         private readonly IAccountService accountService;
 
-        public ScoreService(IGroupService groupService, IGovernmentService governmentService, IAccountService accountService)
+        public ScoreService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
         {
             this.groupService = groupService;
             this.governmentService = governmentService;
