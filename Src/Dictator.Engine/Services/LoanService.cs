@@ -17,9 +17,9 @@ namespace Dictator.Core.Services
         /// </summary>
         /// <param name="accountService">The service used to provide functionality related to the treasury and associated costs and
         /// the Swiss bank account.</param>
-        /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
         /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-        public LoanService(IAccountService accountService, IGovernmentService governmentService, IGroupService groupService)
+        /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
+        public LoanService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
         {
             this.governmentService = governmentService;
             this.groupService = groupService;
