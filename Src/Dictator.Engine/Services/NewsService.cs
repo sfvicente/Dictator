@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace Dictator.Core.Services
 {
+    /// <summary>
+    ///     Provides functionality related to news events that happen at random and impact groups
+    ///     and treasury.
+    /// </summary>
     public class NewsService : INewsService
     {
         private readonly IGroupService groupService;
