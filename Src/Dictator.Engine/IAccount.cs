@@ -1,5 +1,9 @@
 ﻿namespace Dictator.Core
 {
+    /// <summary>
+    ///     Represents the account information including Swiss bank account information, treasury balance
+    ///     and monthly costs.
+    /// </summary>
     public interface IAccount
     {
         /// <summary>
