@@ -13,6 +13,13 @@ namespace Dictator.Core.Services
         private readonly IGroupService groupService;
         private Audience[] audiences;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="AudienceService"/> class from a <see cref="IAccountService"/> and
+        ///     a <see cref="IGroupService"/> components.
+        /// </summary>
+        /// <param name="accountService">The service used to provide functionality related to the treasury and associated
+        /// costs and the Swiss bank account.</param>
+        /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
         public AudienceService(IAccountService accountService, IGroupService groupService)
         {
             Initialise();
