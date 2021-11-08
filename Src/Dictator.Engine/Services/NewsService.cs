@@ -14,8 +14,8 @@ namespace Dictator.Core.Services
         private News[] news;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="NewsService"/> class from a <see cref="IGroupService"/> and
-        ///     a <see cref="IAccountService"/> components.
+        ///     Initializes a new instance of the <see cref="NewsService"/> class from a <see cref="IAccountService"/> and
+        ///     a <see cref="IGroupService"/> components.
         /// </summary>
         /// <param name="accountService">The service used to provide functionality related to the treasury and associated
         /// costs and the Swiss bank account.</param>
