@@ -10,10 +10,8 @@ namespace Dictator.Core.Services
     public class GroupService : IGroupService
     {
         private Group[] groups;
-
-        public const int MaxPopularityAndStrength = 9;
-        public const int MinPopularityAndStrength = 0;
-
+        private const int MaxPopularityAndStrength = 9;
+        private const int MinPopularityAndStrength = 0;
         private GroupType assassinGroupType;
         public GroupType AssassinGroupType { get { return assassinGroupType; } }
 
