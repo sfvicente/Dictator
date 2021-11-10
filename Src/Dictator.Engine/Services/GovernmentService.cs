@@ -9,6 +9,12 @@ namespace Dictator.Core.Services
     {
         private readonly IGovernment government;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="GovernmentService"/> class from a <see cref="IGovernment"/>
+        ///     component.
+        /// </summary>
+        /// <param name="groupService">The component used to represents the state of the government of the Ritimba 
+        /// republic.</param>
         public GovernmentService(IGovernment government)
         {
             this.government = government;
