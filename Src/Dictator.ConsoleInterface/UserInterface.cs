@@ -18,6 +18,9 @@ using System.Collections.Generic;
 
 namespace Dictator.ConsoleInterface
 {
+    /// <summary>
+    ///     Manages user interface display and interactions, such as screens and dialogs.
+    /// </summary>
     public class UserInterface : IUserInterface
     {
         private readonly IIntroScreen introScreen;
