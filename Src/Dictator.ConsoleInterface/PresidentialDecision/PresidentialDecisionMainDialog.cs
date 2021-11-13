@@ -13,6 +13,12 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     {
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="PresidentialDecisionMainDialog"/> class from a 
+        ///     <see cref="pressAnyKeyOrOptionControl"/> component.
+        /// </summary>
+        /// <param name="pressAnyKeyWithYesControl">The control that is displayed when the user is required to press a key
+        /// or select an option.</param>
         public PresidentialDecisionMainDialog(IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         {
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
