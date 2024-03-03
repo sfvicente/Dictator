@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Dictator.Core.Services;
+﻿namespace Dictator.Core.Services;
 
 /// <summary>
 ///     Provides functionality related to the request for financial aids.
@@ -20,23 +18,21 @@ public interface ILoanService
 /// </summary>
 public class LoanService : ILoanService
 {
-    private readonly IGovernmentService governmentService;
-    private readonly IGroupService groupService;
-    private readonly IAccountService accountService;
+    private readonly IGovernmentService _governmentService;
+    private readonly IGroupService _groupService;
+    private readonly IRandomService _randomService;
+    private readonly IAccountService _accountService;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="LoanService"/> class from a <see cref="IAccountService"/>,
-    ///     a <see cref="IGroupService"/> and a <see cref="IGovernmentService"/> components.
-    /// </summary>
-    /// <param name="accountService">The service used to provide functionality related to the treasury and associated costs and
-    /// the Swiss bank account.</param>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public LoanService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
+    public LoanService(
+        IRandomService randomService,
+        IAccountService accountService,
+        IGroupService groupService,
+        IGovernmentService governmentService)
     {
-        this.governmentService = governmentService;
-        this.groupService = groupService;
-        this.accountService = accountService;
+        _governmentService = governmentService;
+        _groupService = groupService;
+        _randomService = randomService;
+        _accountService = accountService;
     }
 
     /// <summary>
@@ -46,7 +42,7 @@ public class LoanService : ILoanService
     /// <returns>The loan application result that includes if the loan has been approved or refused.</returns>
     public LoanApplicationResult AskForLoan(LenderCountry country)
     {
-        LoanApplicationResult loanApplicationResult = new LoanApplicationResult
+        LoanApplicationResult loanApplicationResult = new()
         {
             Country = country
         };
@@ -67,12 +63,12 @@ public class LoanService : ILoanService
             return loanApplicationResult;
         }
 
-        GroupType groupType = groupService.GetGroupTypeByCountry(country);
-        Group group = groupService.GetGroupByType(groupType);
+        GroupType groupType = _groupService.GetGroupTypeByCountry(country);
+        Group group = _groupService.GetGroupByType(groupType);
 
         loanApplicationResult.GroupName = group.Name;
 
-        if (group.Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+        if (group.Popularity <= _governmentService.GetMonthlyMinimalPopularityAndStrength())
         {
             loanApplicationResult.IsAccepted = false;
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
@@ -82,7 +78,7 @@ public class LoanService : ILoanService
             loanApplicationResult.IsAccepted = true;
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.None;
             loanApplicationResult.Amount = CalculateLoanAmount(group);
-            accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
+            _accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
         }
 
         return loanApplicationResult;
@@ -94,10 +90,9 @@ public class LoanService : ILoanService
     /// <returns><c>true</c> if it is too early in the game to receive a loan; otherwise, <c>false</c>.</returns>
     private bool IsTooEarlyForLoan()
     {
-        Random random = new Random();
-        int minimumRandomMonthRequirement = random.Next(0, 5) + 3;
+        int minimumRandomMonthRequirement = _randomService.Next(0, 5) + 3;      
 
-        if (governmentService.GetMonth() <= minimumRandomMonthRequirement)
+        if (_governmentService.GetMonth() <= minimumRandomMonthRequirement)
         {
             return true;
         }
@@ -124,8 +119,7 @@ public class LoanService : ILoanService
     /// <returns>The calculated amount of the loan.</returns>
     private int CalculateLoanAmount(Group group)
     {
-        Random random = new Random();
-        int randomAdditionalAmount = random.Next(0, 200);
+        int randomAdditionalAmount = _randomService.Next(0, 200);
         int amount = group.Popularity * 30 + randomAdditionalAmount;
 
         return amount;
