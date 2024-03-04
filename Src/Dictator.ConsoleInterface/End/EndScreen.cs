@@ -3,46 +3,37 @@ using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 using System;
 
-namespace Dictator.ConsoleInterface.End
+namespace Dictator.ConsoleInterface.End;
+
+public interface IEndScreen
 {
-    /// <summary>
-    ///     Represents the screen that is displayed when an instance of a game ends. It displays
-    ///     the partial score components and final game score.
-    /// </summary>
-    public class EndScreen : IEndScreen
+    public void Show(Score score);
+}
+
+public class EndScreen : IEndScreen
+{
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
+
+    public EndScreen(IPressAnyKeyControl pressAnyKeyControl)
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="EndScreen"/> class from a <see cref="IPressAnyKeyControl"/>
-        ///     component.
-        /// </summary>
-        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public EndScreen(IPressAnyKeyControl pressAnyKeyControl)
-        {
-            this.pressAnyKeyControl = pressAnyKeyControl;
-        }
+    public void Show(Score score)
+    {
+        // TODO: scores values need to be aligned to the right
 
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        /// <param name="score">The game score to display on the screen.</param>
-        public void Show(Score score)
-        {
-            // TODO: scores values need to be aligned to the right
-
-            ConsoleEx.Clear(ConsoleColor.DarkYellow);
-            ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - {score.MonthsInOffice * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 10, $" For staying alive - {score.PointsForStayingAlive}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING", ConsoleColor.Green, ConsoleColor.White);
-            ConsoleEx.WriteAt(6, 13, $"(${score.MoneyGrabbed}.000,000 /00,000) - {score.PointsForMoneyGrabbing}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 16, $" Your TOTAL is ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.Write($"{score.TotalScore}", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is {score.HighestScore} ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            pressAnyKeyControl.Show();
-        }
+        ConsoleEx.Clear(ConsoleColor.DarkYellow);
+        ConsoleEx.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - {score.MonthsInOffice * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 10, $" For staying alive - {score.PointsForStayingAlive}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(6, 12, $"MONEYGRABBING", ConsoleColor.Green, ConsoleColor.White);
+        ConsoleEx.WriteAt(6, 13, $"(${score.MoneyGrabbed}.000,000 /00,000) - {score.PointsForMoneyGrabbing}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 16, $" Your TOTAL is ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.Write($"{score.TotalScore}", ConsoleColor.Yellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 18, $"[ Highest Score so far is {score.HighestScore} ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _pressAnyKeyControl.Show();
     }
 }

@@ -2,37 +2,33 @@
 using Dictator.ConsoleInterface.Common;
 using System;
 
-namespace Dictator.ConsoleInterface.Advice
+namespace Dictator.ConsoleInterface.Advice;
+
+public interface IAdviceRequestDialog
 {
-    /// <summary>
-    ///     Represents the dialog that is displayed when a player is requested to select if they want to
-    ///     to be given advice on the impacts of a game action on the groups.
-    /// </summary>
-    public class AdviceRequestDialog : IAdviceRequestDialog
+    DialogResult Show();
+}
+
+public class AdviceRequestDialog : IAdviceRequestDialog
+{
+    private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
+
+    public AdviceRequestDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
     {
-        private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
+        _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+    }
 
-        public AdviceRequestDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+    public DialogResult Show()
+    {
+        ConsoleEx.Clear(ConsoleColor.Green);
+        
+        for(int row = 2; row < 21; row++)
         {
-            this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+            ConsoleEx.WriteAt(11, row, "?", ConsoleColor.Black, ConsoleColor.White);
+            ConsoleEx.WriteAt(12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
+            ConsoleEx.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
         }
 
-        /// <summary>
-        ///     Displays the dialog.
-        /// </summary>
-        /// <returns>The option selected after the dialog has been presented.</returns>
-        public DialogResult Show()
-        {
-            ConsoleEx.Clear(ConsoleColor.Green);
-            
-            for(int row = 2; row < 21; row++)
-            {
-                ConsoleEx.WriteAt(11, row, "?", ConsoleColor.Black, ConsoleColor.White);
-                ConsoleEx.WriteAt(12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
-                ConsoleEx.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
-            }
-
-            return pressAnyKeyWithYesControl.Show();
-        }
+        return _pressAnyKeyWithYesControl.Show();
     }
 }
