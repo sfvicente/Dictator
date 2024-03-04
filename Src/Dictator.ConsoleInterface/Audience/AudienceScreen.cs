@@ -2,49 +2,40 @@
 using Dictator.ConsoleInterface.Common;
 using System;
 
-namespace Dictator.ConsoleInterface.Audience
+namespace Dictator.ConsoleInterface.Audience;
+
+public interface IAudienceScreen
 {
-    /// <summary>
-    ///     Represents the screen that is displayed when an audience is requested to the player
-    ///     by one of the groups.
-    /// </summary>
-    public class AudienceScreen : IAudienceScreen
+    public void Show(Core.Audience audience);
+}
+
+public class AudienceScreen : IAudienceScreen
+{
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
+
+    public AudienceScreen(IPressAnyKeyControl pressAnyKeyControl)
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
+    }
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="AudienceScreen"/> class from a <see cref="IPressAnyKeyControl"/>
-        ///     component.
-        /// </summary>
-        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public AudienceScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public void Show(Core.Audience audience)
+    {
+        ConsoleEx.Clear();
+        ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
+        ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
+        ConsoleEx.WriteEmptyLineAt(3, ConsoleColor.Green);
+        ConsoleEx.WriteEmptyLineAt(4, ConsoleColor.Green);
+        ConsoleEx.WriteAt(11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
+        ConsoleEx.WriteEmptyLineAt(5, ConsoleColor.Green);
+     
+        for(int row = 6; row < 22; row++)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
         }
 
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        /// <param name="audience">The audience information to display on the screen.</param>
-        public void Show(Core.Audience audience)
-        {
-            ConsoleEx.Clear();
-            ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);
-            ConsoleEx.WriteEmptyLineAt(2, ConsoleColor.Green);
-            ConsoleEx.WriteEmptyLineAt(3, ConsoleColor.Green);
-            ConsoleEx.WriteEmptyLineAt(4, ConsoleColor.Green);
-            ConsoleEx.WriteAt(11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
-            ConsoleEx.WriteEmptyLineAt(5, ConsoleColor.Green);
-         
-            for(int row = 6; row < 22; row++)
-            {
-                ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
-            }
-
-            ConsoleEx.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 17, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
-            pressAnyKeyControl.Show();
-        }
+        ConsoleEx.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        ConsoleEx.WriteAt(1, 17, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
+        _pressAnyKeyControl.Show();
     }
 }
