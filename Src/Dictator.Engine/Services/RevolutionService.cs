@@ -63,6 +63,7 @@ public interface IRevolutionService
 /// </summary>
 public class RevolutionService : IRevolutionService
 {
+    private readonly IRandomService _randomService;
     private readonly IRevolution revolution;
     private readonly IGroupService groupService;
     private readonly IGovernmentService governmentService;
@@ -74,8 +75,13 @@ public class RevolutionService : IRevolutionService
     /// <param name="revolution">The component used to setup a revolution which sets the player and a possible ally against other groups.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public RevolutionService(IRevolution revolution, IGroupService groupService, IGovernmentService governmentService)
+    public RevolutionService(
+        IRandomService randomService,
+        IRevolution revolution,
+        IGroupService groupService,
+        IGovernmentService governmentService)
     {
+        _randomService = randomService;
         this.revolution = revolution;
         this.groupService = groupService;
         this.governmentService = governmentService;
@@ -87,11 +93,9 @@ public class RevolutionService : IRevolutionService
     /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
     public bool TryTriggerRevoltGroup()
     {
-        Random random = new Random();
-
         for (int guess = 0; guess < 3; guess++)     // Perform 3 tries to guess the revolt group
         {
-            int number = random.Next(0, 3);
+            int number = _randomService.Next(3);
             Group[] groups = groupService.GetGroups();
 
             if (groups[number].Status == GroupStatus.Revolution)
@@ -181,8 +185,7 @@ public class RevolutionService : IRevolutionService
     /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
     public bool DoesRevolutionSucceed()
     {
-        Random random = new Random();
-        int number = random.Next(0, 3);
+        int number = _randomService.Next(3);
 
         if (revolution.RevolutionStrength > revolution.PlayerStrength + number - 1)
         {

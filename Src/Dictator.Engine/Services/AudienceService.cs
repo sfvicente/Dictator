@@ -39,20 +39,18 @@ public interface IAudienceService
 /// </summary>
 public class AudienceService : IAudienceService
 {
+    private readonly IRandomService _randomService;
     private readonly IAccountService accountService;
     private readonly IGroupService groupService;
     private Audience[] audiences;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="AudienceService"/> class from a <see cref="IAccountService"/> and
-    ///     a <see cref="IGroupService"/> components.
-    /// </summary>
-    /// <param name="accountService">The service used to provide functionality related to the treasury and associated
-    /// costs and the Swiss bank account.</param>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    public AudienceService(IAccountService accountService, IGroupService groupService)
+    public AudienceService(
+        IRandomService randomService,
+        IAccountService accountService,
+        IGroupService groupService)
     {
         Initialise();
+        _randomService = randomService;
         this.accountService = accountService;
         this.groupService = groupService;
     }
@@ -98,8 +96,7 @@ public class AudienceService : IAudienceService
     public Audience SelectRandomUnusedAudienceRequest()
     {
         IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
-        var rand = new Random();
-        var randomUnusedAudience = unusedAudiences.ElementAt(rand.Next(unusedAudiences.Count()));
+        var randomUnusedAudience = unusedAudiences.ElementAt(_randomService.Next(unusedAudiences.Count()));
 
         randomUnusedAudience.HasBeenUsed = true;
 

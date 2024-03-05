@@ -41,20 +41,18 @@ public interface INewsService
 /// </summary>
 public class NewsService : INewsService
 {
+    private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
     private readonly IAccountService accountService;
     private News[] news;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="NewsService"/> class from a <see cref="IAccountService"/> and
-    ///     a <see cref="IGroupService"/> components.
-    /// </summary>
-    /// <param name="accountService">The service used to provide functionality related to the treasury and associated
-    /// costs and the Swiss bank account.</param>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    public NewsService(IAccountService accountService, IGroupService groupService)
+    public NewsService(
+        IRandomService randomService,
+        IAccountService accountService,
+        IGroupService groupService)
     {
         this.groupService = groupService;
+        _randomService = randomService;
         this.accountService = accountService;
     }
 
@@ -80,8 +78,7 @@ public class NewsService : INewsService
     /// <returns><c>true</c> if a random news event should happen in the current month; otherwise, <c>false</c>.</returns>
     public bool ShouldNewsHappen()
     {
-        Random random = new Random();
-        int number = random.Next(0, 2);
+        int number = _randomService.Next(2);
 
         if (number == 0)
         {
@@ -117,8 +114,7 @@ public class NewsService : INewsService
 
         if (unusedNews.Any())
         {
-            var rand = new Random();
-            var randomUnusedNews = unusedNews.ElementAt(rand.Next(unusedNews.Count()));
+            var randomUnusedNews = unusedNews.ElementAt(_randomService.Next(unusedNews.Count()));
 
             randomUnusedNews.HasBeenUsed = true;
 

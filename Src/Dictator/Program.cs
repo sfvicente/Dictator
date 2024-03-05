@@ -111,5 +111,6 @@ class Program
         .AddScoped<IAssassinationService, AssassinationService>()
         .AddScoped<IWarService, WarService>()
         .AddScoped<IReportService, ReportService>()
+        .AddScoped<IRandomService, RandomService>()
     );
 }

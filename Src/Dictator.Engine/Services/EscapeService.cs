@@ -31,15 +31,14 @@ public interface IEscapeService
 /// </summary>
 public class EscapeService : IEscapeService
 {
+    private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="EscapeService"/> class from a <see cref="IGroupService"/>
-    ///     component.
-    /// </summary>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    public EscapeService(IGroupService groupService)
+    public EscapeService(
+        IRandomService randomService,
+        IGroupService groupService)
     {
+        _randomService = randomService;
         this.groupService = groupService;
     }
 
@@ -49,8 +48,7 @@ public class EscapeService : IEscapeService
     /// <returns><c>true</c> if manages to escape after losing the war; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAbleToEscapeAfterLosingWar()
     {
-        Random random = new Random();
-        int number = random.Next(0, 3);
+        int number = _randomService.Next(3);
 
         // The player has a 2 in 3 chances that he manages to escape
         if (number < 2)
@@ -67,8 +65,7 @@ public class EscapeService : IEscapeService
     /// <returns><c>true</c> if the player is able to escape by helicopter; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAbleToEscapeByHelicopter()
     {
-        Random random = new Random();
-        int number = random.Next(0, 4);
+        int number = _randomService.Next(4);
 
         // The player has a 1 in 4 chances that the helicopter won't start
         if (number != 0)
@@ -89,9 +86,7 @@ public class EscapeService : IEscapeService
     {
         int guerrilasStrength = groupService.GetGroupByType(GroupType.Guerillas).Strength;
         int upperLimit = (guerrilasStrength / 3) + 2;
-
-        Random random = new Random();
-        int number = random.Next(0, upperLimit);
+        int number = _randomService.Next(0, upperLimit);
 
         // There is a chance of 1 in 2..5 that player is captured, which depends on the guerrilas strength
         if (number == 0)

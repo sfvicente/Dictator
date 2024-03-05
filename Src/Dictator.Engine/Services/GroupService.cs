@@ -62,8 +62,14 @@ public class GroupService : IGroupService
     private Group[] groups;
     private const int MaxPopularityAndStrength = 9;
     private const int MinPopularityAndStrength = 0;
+    private readonly IRandomService _randomService;
     private GroupType assassinGroupType;
     public GroupType AssassinGroupType { get { return assassinGroupType; } }
+
+    public GroupService(IRandomService randomService)
+    {
+        _randomService = randomService;
+    }
 
     public void Initialise()
     {
@@ -301,8 +307,7 @@ public class GroupService : IGroupService
     /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
     public bool ShouldAssassinationAttemptHappen()
     {
-        Random random = new Random();
-        int number = random.Next(0, 3);
+        int number = _randomService.Next(3);
 
         // Select a random group between the army, peasants, landowners and guerrilas
         if (groups[number].Status == GroupStatus.Assassination)

@@ -113,6 +113,7 @@ public interface IGovernmentService
 /// </summary>
 public class GovernmentService : IGovernmentService
 {
+    private readonly IRandomService _randomService;
     private readonly IGovernment government;
 
     /// <summary>
@@ -121,8 +122,11 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     /// <param name="groupService">The component used to represents the state of the government of the Ritimba 
     /// republic.</param>
-    public GovernmentService(IGovernment government)
+    public GovernmentService(
+        IRandomService randomService,
+        IGovernment government)
     {
+        _randomService = randomService;
         this.government = government;
         government.LastScore = 0;
         Initialise();
@@ -250,9 +254,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void SetMonthlyRevolutionStrength()
     {
-        Random random = new Random();
-
-        government.MonthlyRevolutionStrength = random.Next(10, 13);
+        government.MonthlyRevolutionStrength = _randomService.Next(10, 13);
     }
 
     /// <summary>
@@ -272,9 +274,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void SetMonthlyMinimalPopularityAndStrength()
     {
-        Random random = new Random();
-
-        government.MonthlyMinimalPopularityAndStrength = random.Next(2, 5);
+        government.MonthlyMinimalPopularityAndStrength = _randomService.Next(2, 5);
     }
 
     /// <summary>

@@ -58,6 +58,7 @@ public interface IWarService
 /// </summary>
 public class WarService : IWarService
 {
+    private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
     private readonly IGovernmentService governmentService;
 
@@ -67,8 +68,12 @@ public class WarService : IWarService
     /// </summary>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public WarService(IGroupService groupService, IGovernmentService governmentService)
+    public WarService(
+        IRandomService randomService,
+        IGroupService groupService,
+        IGovernmentService governmentService)
     {
+        _randomService = randomService;
         this.groupService = groupService;
         this.governmentService = governmentService;
     }
@@ -79,8 +84,7 @@ public class WarService : IWarService
     /// <returns><c>true</c> if war should happen; otherwise, <c>false</c>.</returns>
     public bool ShouldWarHappen()
     {
-        Random random = new Random();
-        int number = random.Next(0, 3);
+        int number = _randomService.Next(3);
 
         if (number == 0)
         {
@@ -162,8 +166,7 @@ public class WarService : IWarService
     /// <returns><c>true</c> if Ritimba wins the war; otherwise, <c>false</c>.</returns>
     public bool ExecuteWar(WarStats warStats)
     {
-        Random random = new Random();
-        int number = random.Next(0, 3);
+        int number = _randomService.Next(3);
         int modifiedLeftotanStrength = warStats.LeftotanStrength + number - 1;
 
         if (warStats.RitimbanStrength > modifiedLeftotanStrength)
