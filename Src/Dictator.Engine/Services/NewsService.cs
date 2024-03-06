@@ -130,10 +130,7 @@ public class NewsService : INewsService
     /// <param name="news">The news whose effect will be applied.</param>
     public void ApplyNewsEffects(News news)
     {
-        if (news == null)
-        {
-            throw new ArgumentNullException();
-        }
+        ArgumentNullException.ThrowIfNull(news);
 
         groupService.ApplyPopularityChange(news.GroupPopularityChanges);
         groupService.ApplyStrengthChange(news.GroupStrengthChanges);

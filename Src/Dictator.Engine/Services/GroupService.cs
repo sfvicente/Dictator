@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Dictator.Core.Services;
 
@@ -124,10 +125,8 @@ public class GroupService : IGroupService
 
     public string GetGroupNameByIndex(int index)
     {
-        if (index < 0 || index > groups.Length)
-        {
-            throw new ArgumentOutOfRangeException();
-        }
+        ArgumentOutOfRangeException.ThrowIfLessThan(index, 0);
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(index, groups.Length);
 
         return groups[index].Name;
     }
@@ -144,10 +143,8 @@ public class GroupService : IGroupService
     /// <returns>The group whose id matches the criteria.</returns>
     public Group GetGroupById(int groupId)
     {
-        if(groupId < 1 || groupId > groups.Length)
-        {
-            throw new ArgumentOutOfRangeException();
-        }
+        ArgumentOutOfRangeException.ThrowIfLessThan(groupId, 1);
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(groupId, groups.Length);
 
         return groups[groupId - 1];
     }
@@ -166,10 +163,7 @@ public class GroupService : IGroupService
     /// <param name="amount">The amount by which the popularity will be increased.</param>
     public void IncreasePopularity(GroupType groupType, int amount)
     {
-        if(amount < 1)
-        {
-            throw new ArgumentException($"'{nameof(amount)}' must be greater than zero.");
-        }
+        ArgumentOutOfRangeException.ThrowIfLessThan(amount, 1);
 
         int index = (int)groupType;
 

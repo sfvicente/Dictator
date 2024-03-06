@@ -173,10 +173,7 @@ public class DecisionService : IDecisionService
     /// <param name="decision">The decision whose effects will be apply.</param>
     public void ApplyDecisionEffects(Decision decision)
     {
-        if (decision == null)
-        {
-            throw new ArgumentNullException();
-        }
+        ArgumentNullException.ThrowIfNull(decision);
 
         groupService.ApplyPopularityChange(decision.GroupPopularityChanges);
         groupService.ApplyStrengthChange(decision.GroupStrengthChanges);
