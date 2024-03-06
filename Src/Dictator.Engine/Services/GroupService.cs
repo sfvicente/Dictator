@@ -74,8 +74,7 @@ public class GroupService : IGroupService
 
     public void Initialise()
     {
-        groups = new Group[]
-        {
+        groups = [
             new Group(GroupType.Army, 7, 6, "The ARMY", "   ARMY   "),
             new Group(GroupType.Peasants, 7, 6, "The PEASANTS", " PEASANTS "),
             new Group(GroupType.Landowners, 7, 6, "The LANDOWNERS", "LANDOWNERS"),
@@ -84,7 +83,7 @@ public class GroupService : IGroupService
             new Group(GroupType.SecretPolice, 7, 6, "The SECRET POLICE", " S.POLICE "),
             new Group(GroupType.Russians, 7, 0, "The RUSSIANS", " RUSSIANS "),
             new Group(GroupType.Americans, 7, 0, "The AMERICANS", "AMERICANS "),
-        };
+        ];
     }
 
     public int GetPopularityByGroupType(GroupType groupType)

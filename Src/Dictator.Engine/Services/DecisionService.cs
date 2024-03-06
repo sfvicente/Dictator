@@ -71,7 +71,7 @@ public class DecisionService : IDecisionService
 
     public void Initialise()
     {
-        decisions = new Decision[] {
+        decisions = [
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, 0, 0, "QLLMMLMM", "NMMLML", "MAKE ARMY CHIEF \"VICE-PRESIDENT\""),
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, -1/*L*/, -4/*I*/, "LQNMOMNM", "MMMLMM", "SET UP FREE CLINICS for WORKERS "),
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, 0, 0, "LKQMMLLM", "LLOMML", "GIVE LANDOWNERS REGIONAL POWERS "),
@@ -95,7 +95,7 @@ public class DecisionService : IDecisionService
             new Decision(DecisionType.StrengthenAGroup, DecisionSubType.None, -5/*H*/, 0, "PMMMJMLM", "RMMKKL", "BUY HEAVY ARTILLERY for THE ARMY"),
             new Decision(DecisionType.StrengthenAGroup, DecisionSubType.None,0, 0, "MPLMMLMM", "MRLPML", "ALLOW PEASANTS FREE MOVEMENT    "),
             new Decision(DecisionType.StrengthenAGroup, DecisionSubType.None,0, 0, "LLPMMLMM", "LLRLML", "ALLOW LANDOWNERS PRIVATE MILITIA")
-        };
+        ];
     }
 
     /// <summary>
@@ -120,7 +120,7 @@ public class DecisionService : IDecisionService
     {
         if (optionNumber < 0)
         {
-            throw new ArgumentException(nameof(optionNumber));
+            throw new ArgumentOutOfRangeException(nameof(optionNumber));
         }
 
         Decision[] decisions = GetDecisionsByType(decisionType);
