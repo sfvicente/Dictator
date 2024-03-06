@@ -118,17 +118,11 @@ public class DecisionService : IDecisionService
     /// <returns>The position that matches the specified type and at the specific position.</returns>
     public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
     {
-        if (optionNumber < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(optionNumber));
-        }
+        ArgumentOutOfRangeException.ThrowIfNegative(optionNumber);
 
         Decision[] decisions = GetDecisionsByType(decisionType);
 
-        if (optionNumber > decisions.Length)
-        {
-            throw new ArgumentException(nameof(optionNumber));
-        }
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(optionNumber, decisions.Length);
 
         return decisions[optionNumber - 1];
     }
