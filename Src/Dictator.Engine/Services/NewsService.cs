@@ -96,7 +96,7 @@ public class NewsService : INewsService
     {
         News[] unusedNews = GetUnusedNews();
 
-        if (unusedNews.Any())
+        if (unusedNews.Length != 0)
         {
             return true;
         }
@@ -112,9 +112,9 @@ public class NewsService : INewsService
     {
         News[] unusedNews = GetUnusedNews();
 
-        if (unusedNews.Any())
+        if (unusedNews.Length != 0)
         {
-            var randomUnusedNews = unusedNews.ElementAt(_randomService.Next(unusedNews.Count()));
+            var randomUnusedNews = unusedNews.ElementAt(_randomService.Next(unusedNews.Length));
 
             randomUnusedNews.HasBeenUsed = true;
 
