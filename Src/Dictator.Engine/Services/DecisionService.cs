@@ -41,6 +41,7 @@ public class DecisionService : IDecisionService
     /// <returns>The position that matches the specified type and at the specific position.</returns>
     public Decision GetDecisionByTypeAndIndex(Decision[] decisions, DecisionType decisionType, int optionNumber)
     {
+        ArgumentNullException.ThrowIfNull(decisions);
         ArgumentOutOfRangeException.ThrowIfNegative(optionNumber);
 
         Decision[] filteredDecisions = GetDecisionsByType(decisions, decisionType);
@@ -58,6 +59,9 @@ public class DecisionService : IDecisionService
     /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
     public bool DoesPresidentialOptionExistAndIsAvailable(Decision[] decisions, DecisionType decisionType, int optionNumber)
     {
+        ArgumentNullException.ThrowIfNull(decisions);
+        ArgumentOutOfRangeException.ThrowIfNegative(optionNumber);
+
         Decision[] filteredDecisions = GetDecisionsByType(decisions, decisionType);
 
         if (optionNumber > filteredDecisions.Length)
@@ -79,6 +83,8 @@ public class DecisionService : IDecisionService
     /// <param name="text">The text of the presidential decision which will be marked as used.</param>
     public void MarkDecisionAsUsed(Decision[] decisions, string text)
     {
+        ArgumentNullException.ThrowIfNull(decisions);
+
         Decision item = decisions.Where(x => x.Text == text).Single();
 
         item.HasBeenUsed = true;
