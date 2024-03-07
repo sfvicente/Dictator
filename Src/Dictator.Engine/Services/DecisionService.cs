@@ -3,75 +3,32 @@ using System.Linq;
 
 namespace Dictator.Core.Services;
 
-/// <summary>
-///     Provides functionality related to the presidential decision mechanic.
-/// </summary>
 public interface IDecisionService
 {
     public void Initialise();
-
-    /// <summary>
-    ///     Retrieves all the decisions of a specific type.
-    /// </summary>
-    /// <param name="decisionType">The type of decision.</param>
-    /// <returns>An array of decisions of the specified type.</returns>
     public Decision[] GetDecisionsByType(DecisionType decisionType);
-
-    /// <summary>
-    ///     Retrieves a decisions with the specified type and index.
-    /// </summary>
-    /// <param name="decisionType">The type of decision.</param>
-    /// <param name="optionSelected">The position of the decision within the group of decisions with the specified type.</param>
-    /// <returns>The position that matches the specified type and at the specific position.</returns>
     public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber);
-
-    /// <summary>
-    ///     Determines if a presidential option exists and is available for selection.
-    /// </summary>
-    /// <param name="decisionType">The type of decision.</param>
-    /// <param name="optionNumber">The option number within the type group of the decision.</param>
-    /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
     public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
-
-    /// <summary>
-    ///     Marks a presidential decision option as used.
-    /// </summary>
-    /// <param name="text">The text of the presidential decision which will be marked as used.</param>
     public void MarkDecisionAsUsed(string text);
-
-    /// <summary>
-    ///     Applies the effects of a decision on the groups popularity and strength with the costs of treasury.
-    /// </summary>
-    /// <param name="decision">The decision whose effects will be apply.</param>
     void ApplyDecisionEffects(Decision decision);
 }
 
-/// <summary>
-///     Provides functionality related to the presidential decision mechanic.
-/// </summary>
 public class DecisionService : IDecisionService
 {
-    private Decision[] decisions;
-    private readonly IAccountService accountService;
-    private readonly IGroupService groupService;
+    private Decision[] _decisions;
+    private readonly IAccountService _accountService;
+    private readonly IGroupService _groupService;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="DecisionService"/> class from a <see cref="IAccountService"/> and
-    ///     a <see cref="IGroupService"/> components.
-    /// </summary>
-    /// <param name="accountService">The service used to provide functionality related to the treasury and associated
-    /// costs and the Swiss bank account.</param>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     public DecisionService(IAccountService accountService, IGroupService groupService)
     {
-        this.accountService = accountService;
-        this.groupService = groupService;
+        _accountService = accountService;
+        _groupService = groupService;
         Initialise();
     }
 
     public void Initialise()
     {
-        decisions = [
+        _decisions = [
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, 0, 0, "QLLMMLMM", "NMMLML", "MAKE ARMY CHIEF \"VICE-PRESIDENT\""),
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, -1/*L*/, -4/*I*/, "LQNMOMNM", "MMMLMM", "SET UP FREE CLINICS for WORKERS "),
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, 0, 0, "LKQMMLLM", "LLOMML", "GIVE LANDOWNERS REGIONAL POWERS "),
@@ -105,7 +62,7 @@ public class DecisionService : IDecisionService
     /// <returns>An array of decisions of the specified type.</returns>
     public Decision[] GetDecisionsByType(DecisionType decisionType)
     {
-        Decision[] decisionCopy = (Decision[])decisions.Clone();
+        Decision[] decisionCopy = (Decision[])_decisions.Clone();
 
         return decisionCopy.Where(x => x.Type == decisionType).ToArray();
     }
@@ -156,7 +113,7 @@ public class DecisionService : IDecisionService
     /// <param name="text">The text of the presidential decision which will be marked as used.</param>
     public void MarkDecisionAsUsed(string text)
     {
-        Decision item = decisions.Where(x => x.Text == text).Single();
+        Decision item = _decisions.Where(x => x.Text == text).Single();
 
         item.HasBeenUsed = true;
     }
@@ -169,8 +126,8 @@ public class DecisionService : IDecisionService
     {
         ArgumentNullException.ThrowIfNull(decision);
 
-        groupService.ApplyPopularityChange(decision.GroupPopularityChanges);
-        groupService.ApplyStrengthChange(decision.GroupStrengthChanges);
-        accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
+        _groupService.ApplyPopularityChange(decision.GroupPopularityChanges);
+        _groupService.ApplyStrengthChange(decision.GroupStrengthChanges);
+        _accountService.ApplyTreasuryChanges(decision.Cost, decision.MonthlyCost);
     }
 }
