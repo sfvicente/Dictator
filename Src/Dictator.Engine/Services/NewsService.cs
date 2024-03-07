@@ -5,10 +5,9 @@ namespace Dictator.Core.Services;
 
 public interface INewsService
 {
-    public void Initialise();
     public bool ShouldNewsHappen();
-    public bool DoesUnusedNewsExist();
-    public News SelectRandomUnusedNews();
+    public bool DoesUnusedNewsExist(News[] news);
+    public News SelectRandomUnusedNews(News[] news);
     public void ApplyNewsEffects(News news);
 }
 
@@ -17,7 +16,6 @@ public class NewsService : INewsService
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
     private readonly IAccountService _accountService;
-    private News[] _news;
 
     public NewsService(
         IRandomService randomService,
@@ -27,18 +25,6 @@ public class NewsService : INewsService
         _groupService = groupService;
         _randomService = randomService;
         _accountService = accountService;
-    }
-
-    public void Initialise()
-    {
-        _news = [
-            new News(0, 0, "MMMMMIMM", "MMMQMI", " PRESIDENT LOSES S.POLICE FILES "),
-            new News(0, 0, "MMMMMMMM", "LMMVMM", " CUBANS ARM and TRAIN GUERILLAS "),
-            new News(0, 0, "MMMMMMMM", "IMMOMN", "ACCIDENT. ARMY BARRACKS BLOWS UP"),
-            new News(0, 0, "MMMMMMMM", "MMJMKM", "   BANANA PRICES FALL by 98%    "),
-            new News(0, 0, "MMMMMMMM", "MMOMIM", "  MAJOR EARTHQUAKE in LEFTOTO   "),
-            new News(0, 0, "MMMMMMMM", "MILKMM", "A PLAGUE SWEEPS through PEASANTS"),
-        ];
     }
 
     public bool ShouldNewsHappen()
@@ -53,9 +39,9 @@ public class NewsService : INewsService
         return false;
     }
 
-    public bool DoesUnusedNewsExist()
+    public bool DoesUnusedNewsExist(News[] news)
     {
-        News[] unusedNews = GetUnusedNews();
+        News[] unusedNews = GetUnusedNews(news);
 
         if (unusedNews.Length != 0)
         {
@@ -65,9 +51,9 @@ public class NewsService : INewsService
         return false;
     }
 
-    public News SelectRandomUnusedNews()
+    public News SelectRandomUnusedNews(News[] news)
     {
-        News[] unusedNews = GetUnusedNews();
+        News[] unusedNews = GetUnusedNews(news);
 
         if (unusedNews.Length != 0)
         {
@@ -90,9 +76,9 @@ public class NewsService : INewsService
         _accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
     }
 
-    private News[] GetUnusedNews()
+    private News[] GetUnusedNews(News[] news)
     {
-        News[] unusedNews = _news.Where(x => !x.HasBeenUsed).ToArray();
+        News[] unusedNews = news.Where(x => !x.HasBeenUsed).ToArray();
 
         return unusedNews;
     }

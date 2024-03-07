@@ -20,6 +20,8 @@ namespace Dictator.Core
         private readonly ILoanService loanService;
         private readonly IWarService warService;
 
+        private News[] _news;
+
         public Engine(
             IAccountService accountService,
             IGovernmentService governmentService,
@@ -62,7 +64,19 @@ namespace Dictator.Core
             groupService.Initialise();
             audienceService.Initialise();
             decisionService.Initialise();
-            newsService.Initialise();
+            LoadNewsData();
+        }
+
+        public void LoadNewsData()
+        {
+            _news = [
+                new News(0, 0, "MMMMMIMM", "MMMQMI", " PRESIDENT LOSES S.POLICE FILES "),
+                new News(0, 0, "MMMMMMMM", "LMMVMM", " CUBANS ARM and TRAIN GUERILLAS "),
+                new News(0, 0, "MMMMMMMM", "IMMOMN", "ACCIDENT. ARMY BARRACKS BLOWS UP"),
+                new News(0, 0, "MMMMMMMM", "MMJMKM", "   BANANA PRICES FALL by 98%    "),
+                new News(0, 0, "MMMMMMMM", "MMOMIM", "  MAJOR EARTHQUAKE in LEFTOTO   "),
+                new News(0, 0, "MMMMMMMM", "MILKMM", "A PLAGUE SWEEPS through PEASANTS"),
+            ];
         }
 
         /// <summary>
@@ -182,7 +196,7 @@ namespace Dictator.Core
         {
             if (newsService.ShouldNewsHappen())
             {
-                if (newsService.DoesUnusedNewsExist())
+                if (newsService.DoesUnusedNewsExist(_news))
                 {
                     return true;
                 }
@@ -197,7 +211,7 @@ namespace Dictator.Core
         /// <returns>A random unused news event.</returns>
         public News SelectRandomUnusedNews()
         {
-            return newsService.SelectRandomUnusedNews();
+            return newsService.SelectRandomUnusedNews(_news);
         }
 
         /// <summary>
