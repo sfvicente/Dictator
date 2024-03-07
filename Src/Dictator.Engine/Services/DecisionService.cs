@@ -30,9 +30,7 @@ public class DecisionService : IDecisionService
     /// <returns>An array of decisions of the specified type.</returns>
     public Decision[] GetDecisionsByType(Decision[] decisions, DecisionType decisionType)
     {
-        Decision[] decisionCopy = (Decision[])decisions.Clone();
-
-        return decisionCopy.Where(x => x.Type == decisionType).ToArray();
+        return decisions.Where(x => x.Type == decisionType).ToArray();
     }
 
     /// <summary>
