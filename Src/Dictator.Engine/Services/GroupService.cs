@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace Dictator.Core.Services;
 
@@ -15,13 +14,7 @@ public interface IGroupService
     public void Initialise();
     public Group[] GetGroups();
 
-    /// <summary>
-    ///     Retrieves a specific group by searching for the group id.
-    /// </summary>
-    /// <param name="groupId">The id of the group to search for.</param>
-    /// <returns>The group whose id matches the criteria.</returns>
     public Group GetGroupById(int groupId);
-
     public int GetPopularityByGroupType(GroupType groupType);
     public int GetStrengthByGroupType(GroupType groupType);
     public GroupType GetGroupTypeByCountry(LenderCountry country);
@@ -31,14 +24,7 @@ public interface IGroupService
     public void IncreasePopularity(GroupType groupType, int amount);
     public void DecreasePopularity(GroupType groupType, int amount);
     public int GetTotalPopularity();
-
-    /// <summary>
-    ///     Sets the level of strength for a specific group.
-    /// </summary>
-    /// <param name="groupType">The type of the group to set the strength.</param>
-    /// <param name="strength">The strength level which will be set.</param>
     public void SetStrength(GroupType groupType, int strength);
-
     public void DecreaseStrength(GroupType groupType);
     public void SetAssassinByGroupType(GroupType groupType);
     public bool DoesMainPopulationHatePlayer();
@@ -60,12 +46,12 @@ public interface IGroupService
 /// </summary>
 public class GroupService : IGroupService
 {
-    private Group[] groups;
+    private Group[] _groups;
     private const int MaxPopularityAndStrength = 9;
     private const int MinPopularityAndStrength = 0;
     private readonly IRandomService _randomService;
-    private GroupType assassinGroupType;
-    public GroupType AssassinGroupType { get { return assassinGroupType; } }
+    private GroupType _assassinGroupType;
+    public GroupType AssassinGroupType { get { return _assassinGroupType; } }
 
     public GroupService(IRandomService randomService)
     {
@@ -74,7 +60,7 @@ public class GroupService : IGroupService
 
     public void Initialise()
     {
-        groups = [
+        _groups = [
             new Group(GroupType.Army, 7, 6, "The ARMY", "   ARMY   "),
             new Group(GroupType.Peasants, 7, 6, "The PEASANTS", " PEASANTS "),
             new Group(GroupType.Landowners, 7, 6, "The LANDOWNERS", "LANDOWNERS"),
@@ -88,12 +74,12 @@ public class GroupService : IGroupService
 
     public int GetPopularityByGroupType(GroupType groupType)
     {
-        return groups[(int)groupType].Popularity;
+        return _groups[(int)groupType].Popularity;
     }
 
     public int GetStrengthByGroupType(GroupType groupType)
     {
-        return groups[(int)groupType].Strength;
+        return _groups[(int)groupType].Strength;
     }
 
     public GroupType GetGroupTypeByCountry(LenderCountry country)
@@ -119,60 +105,50 @@ public class GroupService : IGroupService
 
     public Group GetGroupByType(GroupType groupType)
     {
-        return groups[(int)groupType];
+        return _groups[(int)groupType];
     }
 
     public string GetGroupNameByIndex(int index)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(index, 0);
-        ArgumentOutOfRangeException.ThrowIfGreaterThan(index, groups.Length);
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _groups.Length);
 
-        return groups[index].Name;
+        return _groups[index].Name;
     }
 
     public Group[] GetGroups()
     {
-        return (Group[])groups.Clone();
+        return (Group[])_groups.Clone();
     }
 
-    /// <summary>
-    ///     Retrieves a specific group by searching for the group id.
-    /// </summary>
-    /// <param name="groupId">The id of the group to search for.</param>
-    /// <returns>The group whose id matches the criteria.</returns>
     public Group GetGroupById(int groupId)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(groupId, 1);
-        ArgumentOutOfRangeException.ThrowIfGreaterThan(groupId, groups.Length);
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(groupId, _groups.Length);
 
-        return groups[groupId - 1];
+        return _groups[groupId - 1];
     }
 
     public void SetPopularity(GroupType groupType, int popularity)
     {
         int index = (int)groupType;
 
-        groups[index].Popularity = GetBoundedAttribute(popularity);
+        _groups[index].Popularity = Math.Clamp(popularity, MinPopularityAndStrength, MaxPopularityAndStrength);
     }
 
-    /// <summary>
-    ///     Increases the popularity of a group by a specified amount.
-    /// </summary>
-    /// <param name="groupType">The group type which have the increase in popularity.</param>
-    /// <param name="amount">The amount by which the popularity will be increased.</param>
     public void IncreasePopularity(GroupType groupType, int amount)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(amount, 1);
 
         int index = (int)groupType;
 
-        if (groups[index].Popularity + amount < MaxPopularityAndStrength)
+        if (_groups[index].Popularity + amount < MaxPopularityAndStrength)
         {
-            groups[index].Popularity += amount;
+            _groups[index].Popularity += amount;
         }
         else
         {
-            groups[index].Popularity = MaxPopularityAndStrength;
+            _groups[index].Popularity = MaxPopularityAndStrength;
         }
     }
 
@@ -185,13 +161,13 @@ public class GroupService : IGroupService
     {
         int index = (int)groupType;
 
-        if (groups[index].Popularity - amount > MinPopularityAndStrength)
+        if (_groups[index].Popularity - amount > MinPopularityAndStrength)
         {
-            groups[index].Popularity -= amount;
+            _groups[index].Popularity -= amount;
         }
         else
         {
-            groups[index].Popularity = MinPopularityAndStrength;
+            _groups[index].Popularity = MinPopularityAndStrength;
         }
     }
 
@@ -201,34 +177,29 @@ public class GroupService : IGroupService
     /// <returns>The total popularity count resulting of the sum of each popularity of the individual groups.</returns>
     public int GetTotalPopularity()
     {
-        return groups.Sum(x => x.Popularity);
+        return _groups.Sum(x => x.Popularity);
     }
 
-    /// <summary>
-    ///     Sets the level of strength for a specific group.
-    /// </summary>
-    /// <param name="groupType">The type of the group to set the strength.</param>
-    /// <param name="strength">The strength level which will be set.</param>
     public void SetStrength(GroupType groupType, int strength)
     {
         int index = (int)groupType;
 
-        groups[index].Strength = GetBoundedAttribute(strength);
+        _groups[index].Strength = Math.Clamp(strength, MinPopularityAndStrength, MaxPopularityAndStrength);
     }
 
     public void DecreaseStrength(GroupType groupType)
     {
         int index = (int)groupType;
 
-        if (groups[index].Strength > MinPopularityAndStrength)
+        if (_groups[index].Strength > MinPopularityAndStrength)
         {
-            groups[index].Strength--;
+            _groups[index].Strength--;
         }
     }
 
     public void SetAssassinByGroupType(GroupType groupType)
     {
-        assassinGroupType = groupType;
+        _assassinGroupType = groupType;
     }
 
     /// <summary>
@@ -238,9 +209,9 @@ public class GroupService : IGroupService
     /// <returns><c>true</c> if the main population of Ritimba hates the player; otherwise, <c>false</c>.</returns>
     public bool DoesMainPopulationHatePlayer()
     {
-        if (groups[(int)GroupType.Army].Status == GroupStatus.Assassination &&
-            groups[(int)GroupType.Peasants].Status == GroupStatus.Assassination &&
-            groups[(int)GroupType.Landowners].Status == GroupStatus.Assassination)
+        if (_groups[(int)GroupType.Army].Status == GroupStatus.Assassination &&
+            _groups[(int)GroupType.Peasants].Status == GroupStatus.Assassination &&
+            _groups[(int)GroupType.Landowners].Status == GroupStatus.Assassination)
         {
             return true;
         }
@@ -254,43 +225,24 @@ public class GroupService : IGroupService
         {
             if (groupPopularityChanges[i] != 'M')
             {
-                int popularity = groups[i].Popularity + groupPopularityChanges[i] - 'M';
+                int popularity = _groups[i].Popularity + groupPopularityChanges[i] - 'M';
 
-                groups[i].Popularity = GetBoundedAttribute(popularity);
+                _groups[i].Popularity = Math.Clamp(popularity, MinPopularityAndStrength, MaxPopularityAndStrength);
             }
         }
     }
 
-    /// <summary>
-    ///     Applies the specified strength changes to all groups except Americans and Russians.
-    /// </summary>
-    /// <param name="groupStrengthChanges"></param>
     public void ApplyStrengthChange(string groupStrengthChanges)
     {
         for (int i = 0; i < 6; i++)
         {
             if (groupStrengthChanges[i] != 'M')
             {
-                int strength = groups[i].Strength + groupStrengthChanges[i] - 'M';
+                int strength = _groups[i].Strength + groupStrengthChanges[i] - 'M';
 
-                groups[i].Strength = GetBoundedAttribute(strength);
+                _groups[i].Strength = Math.Clamp(strength, MinPopularityAndStrength, MaxPopularityAndStrength);
             }
         }
-    }
-
-    private int GetBoundedAttribute(int attributeValue)
-    {
-        if (attributeValue < MinPopularityAndStrength)
-        {
-            return MinPopularityAndStrength;
-        }
-
-        if (attributeValue > MaxPopularityAndStrength)
-        {
-            return MaxPopularityAndStrength;
-        }
-
-        return attributeValue;
     }
 
     /// <summary>
@@ -303,9 +255,9 @@ public class GroupService : IGroupService
         int number = _randomService.Next(3);
 
         // Select a random group between the army, peasants, landowners and guerrilas
-        if (groups[number].Status == GroupStatus.Assassination)
+        if (_groups[number].Status == GroupStatus.Assassination)
         {
-            SetAssassinByGroupType(groups[number].Type);
+            SetAssassinByGroupType(_groups[number].Type);
             return true;
         }
 
@@ -319,8 +271,8 @@ public class GroupService : IGroupService
     {
         for (int i = 0; i < 3; i++)
         {
-            groups[i].Status = GroupStatus.Default;
-            groups[i].Ally = null;
+            _groups[i].Status = GroupStatus.Default;
+            _groups[i].Ally = null;
         }
     }
 }
