@@ -2,119 +2,32 @@
 
 namespace Dictator.Core.Services;
 
-/// <summary>
-///     Provides functionality related to the government settings and operations.
-/// </summary>
 public interface IGovernmentService
 {
     public void Initialise();
-
-    /// <summary>
-    ///     Retrieves the month number of the current game.
-    /// </summary>
-    /// <returns>The current month number.</returns>
     public int GetMonth();
-
-    /// <summary>
-    ///     Advances the month number of the current game.
-    /// </summary>
     public void AdvanceMonth();
-
-    /// <summary>
-    ///     Retrieves the current strength of the player. The player strength is always greater or equal to zero.
-    /// </summary>
-    /// <returns>A number representing the player's strength.</returns>
     public int GetPlayerStrength();
-
-    /// <summary>
-    ///     Decreases the player strength level by one. If the strength attribute is zero, no action is taken as
-    ///     strength can't be negative.
-    /// </summary>
     public void DecreasePlayerStrength();
-
-    /// <summary>
-    ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
-    /// </summary>
     public void IncreaseBodyguard();
-
-    /// <summary>
-    ///     Marks the player as dead.
-    /// </summary>
     public void KillPlayer();
-
-    /// <summary>
-    ///     Determines if the player is currently alive.
-    /// </summary>
-    /// <returns><c>true</c> if the player is alive in the current game; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAlive();
-
-    /// <summary>
-    ///     Purchases an helicopter to have another route to escape in case of a war or revolution event.
-    /// </summary>
     public void PurchaseHelicopter();
-
-    /// <summary>
-    ///     Determines if the player has purchased an helicopter for a possible escape.
-    /// </summary>
-    /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
     public bool HasPlayerPurchasedHelicopter();
-
-    /// <summary>
-    ///     Gets the score of the last played game before the current one.
-    /// </summary>
-    /// <returns>The score of the last played game.</returns>
     public int GetLastScore();
-
-    /// <summary>
-    ///     Sets the specified score as the current highest score.
-    /// </summary>
-    /// <param name="highScore">The score to be set as the highest score.</param>
     public void SetHighScore(int totalScore);
-
-    /// <summary>
-    ///     Gets the level of strength of a possible revolution for the current turn.
-    /// </summary>
     public int GetMonthlyRevolutionStrength();
-
-    /// <summary>
-    ///     Sets the level of strength of a possible revolution for the current turn.
-    /// </summary>
     public void SetMonthlyRevolutionStrength();
-
-    /// <summary>
-    ///     Gets the minimal monthly level requirement for popularity and strength which is used for a diverse
-    ///     number of game logic when interacting with groups, such as requesting external financial aid or 
-    ///     finding allies in a revolution.
-    /// </summary>
     public int GetMonthlyMinimalPopularityAndStrength();
-
-    /// <summary>
-    ///     Sets the minimal monthly level requirement for popularity and strength which is used for a diverse
-    ///     number of game logic when interacting with groups, such as requesting external financial aid or 
-    ///     finding allies in a revolution.
-    /// </summary>
     public void SetMonthlyMinimalPopularityAndStrength();
-
-    /// <summary>
-    ///     Retrieves the current plot bonus for the game.
-    /// </summary>
-    /// <returns>The plot bonus number.</returns>
     public int GetPlotBonus();
-
-    /// <summary>
-    ///     Sets the current plot bonus for the game.
-    /// </summary>
-    /// <param name="plotBonus">The plot bonus number.</param>
     public void SetPlotBonus(int plotBonus);
 }
 
-/// <summary>
-///     Provides functionality related to the government settings and operations.
-/// </summary>
 public class GovernmentService : IGovernmentService
 {
     private readonly IRandomService _randomService;
-    private readonly IGovernment government;
+    private readonly IGovernment _government;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="GovernmentService"/> class from a <see cref="IGovernment"/>
@@ -127,20 +40,20 @@ public class GovernmentService : IGovernmentService
         IGovernment government)
     {
         _randomService = randomService;
-        this.government = government;
+        _government = government;
         government.LastScore = 0;
         Initialise();
     }
 
     public void Initialise()
     {
-        government.IsPlayerAlive = true;
-        government.HasHelicopter = false;
-        government.PlayerStrength = 4;
-        government.Month = 0;
-        government.PlotBonus = 0;
-        government.MonthlyRevolutionStrength = 10;
-        government.MonthlyMinimalPopularityAndStrength = 0;
+        _government.IsPlayerAlive = true;
+        _government.HasHelicopter = false;
+        _government.PlayerStrength = 4;
+        _government.Month = 0;
+        _government.PlotBonus = 0;
+        _government.MonthlyRevolutionStrength = 10;
+        _government.MonthlyMinimalPopularityAndStrength = 0;
     }
 
     /// <summary>
@@ -149,7 +62,7 @@ public class GovernmentService : IGovernmentService
     /// <returns>The current month number.</returns>
     public int GetMonth()
     {
-        return government.Month;
+        return _government.Month;
     }
 
     /// <summary>
@@ -157,7 +70,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void AdvanceMonth()
     {
-        government.Month++;
+        _government.Month++;
     }
 
     /// <summary>
@@ -166,7 +79,7 @@ public class GovernmentService : IGovernmentService
     /// <returns>A number representing the player's strength.</returns>
     public int GetPlayerStrength()
     {
-        return government.PlayerStrength;
+        return _government.PlayerStrength;
     }
 
     /// <summary>
@@ -174,7 +87,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void IncreaseBodyguard()
     {
-        government.PlayerStrength += 2;
+        _government.PlayerStrength += 2;
     }
 
     /// <summary>
@@ -183,9 +96,9 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void DecreasePlayerStrength()
     {
-        if (government.PlayerStrength > 0)
+        if (_government.PlayerStrength > 0)
         {
-            government.PlayerStrength--;
+            _government.PlayerStrength--;
         }
     }
 
@@ -194,7 +107,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void PurchaseHelicopter()
     {
-        government.HasHelicopter = true;
+        _government.HasHelicopter = true;
     }
 
     /// <summary>
@@ -203,7 +116,7 @@ public class GovernmentService : IGovernmentService
     /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
     public bool HasPlayerPurchasedHelicopter()
     {
-        return government.HasHelicopter;
+        return _government.HasHelicopter;
     }
 
     /// <summary>
@@ -212,7 +125,7 @@ public class GovernmentService : IGovernmentService
     /// <returns>The score of the last played game.</returns>
     public int GetLastScore()
     {
-        return government.LastScore;
+        return _government.LastScore;
     }
 
     /// <summary>
@@ -221,7 +134,7 @@ public class GovernmentService : IGovernmentService
     /// <param name="highScore">The score to be set as the highest score.</param>
     public void SetHighScore(int highScore)
     {
-        government.LastScore = highScore;
+        _government.LastScore = highScore;
     }
 
     /// <summary>
@@ -229,7 +142,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void KillPlayer()
     {
-        government.IsPlayerAlive = false;
+        _government.IsPlayerAlive = false;
     }
 
     /// <summary>
@@ -238,7 +151,7 @@ public class GovernmentService : IGovernmentService
     /// <returns><c>true</c> if the player is alive in the current game; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAlive()
     {
-        return government.IsPlayerAlive;
+        return _government.IsPlayerAlive;
     }
 
     /// <summary>
@@ -246,7 +159,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public int GetMonthlyRevolutionStrength()
     {
-        return government.MonthlyRevolutionStrength;
+        return _government.MonthlyRevolutionStrength;
     }
 
     /// <summary>
@@ -254,7 +167,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void SetMonthlyRevolutionStrength()
     {
-        government.MonthlyRevolutionStrength = _randomService.Next(10, 13);
+        _government.MonthlyRevolutionStrength = _randomService.Next(10, 13);
     }
 
     /// <summary>
@@ -264,7 +177,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public int GetMonthlyMinimalPopularityAndStrength()
     {
-        return government.MonthlyMinimalPopularityAndStrength;
+        return _government.MonthlyMinimalPopularityAndStrength;
     }
 
     /// <summary>
@@ -274,7 +187,7 @@ public class GovernmentService : IGovernmentService
     /// </summary>
     public void SetMonthlyMinimalPopularityAndStrength()
     {
-        government.MonthlyMinimalPopularityAndStrength = _randomService.Next(2, 5);
+        _government.MonthlyMinimalPopularityAndStrength = _randomService.Next(2, 5);
     }
 
     /// <summary>
@@ -283,7 +196,7 @@ public class GovernmentService : IGovernmentService
     /// <returns>The plot bonus number.</returns>
     public int GetPlotBonus()
     {
-        return government.PlotBonus;
+        return _government.PlotBonus;
     }
 
     /// <summary>
@@ -292,11 +205,8 @@ public class GovernmentService : IGovernmentService
     /// <param name="plotBonus">The plot bonus number.</param>
     public void SetPlotBonus(int plotBonus)
     {
-        if(plotBonus < 0)
-        {
-            throw new ArgumentException($"Argument '{nameof(plotBonus)}' must be greater or equal to zero: {plotBonus}");
-        }
+        ArgumentOutOfRangeException.ThrowIfNegative(plotBonus);
 
-        government.PlotBonus = plotBonus;
+        _government.PlotBonus = plotBonus;
     }
 }
