@@ -1,35 +1,19 @@
 ﻿namespace Dictator.Core.Services;
 
-/// <summary>
-///     Provides functionality related to changes in status of groups to initiate assassinations or revolutions.
-/// </summary>
 public interface IPlotService
 {
-    /// <summary>
-    ///     Checks for the required conditions and changes que appropriate group status
-    ///     to the revolution and assassination modes.
-    /// </summary>
     public void Plot();
 }
 
-/// <summary>
-///     Provides functionality related to changes in status of groups to initiate assassinations or revolutions.
-/// </summary>
 public class PlotService : IPlotService
 {
-    private readonly IGroupService groupService;
-    private readonly IGovernmentService governmentService;
+    private readonly IGroupService _groupService;
+    private readonly IGovernmentService _governmentService;
 
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="PlotService"/> class from a <see cref="IGroupService"/> and
-    ///     a <see cref="IGovernmentService"/> components.
-    /// </summary>
-    /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
     public PlotService(IGroupService groupService, IGovernmentService governmentService)
     {
-        this.groupService = groupService;
-        this.governmentService = governmentService;
+        _groupService = groupService;
+        _governmentService = governmentService;
     }
 
     /// <summary>
@@ -39,19 +23,19 @@ public class PlotService : IPlotService
     public void Plot()
     {
         // Do not trigger assassinations or revolutions after failed revolution
-        if (governmentService.GetMonth() < governmentService.GetPlotBonus())
+        if (_governmentService.GetMonth() < _governmentService.GetPlotBonus())
         {
             return;
         }
 
         // Do not trigger assassinations or revolutions in the first 2 months of government
-        if (governmentService.GetMonth() > 2)
+        if (_governmentService.GetMonth() > 2)
         {
-            groupService.ResetStatusAndAllies();
+            _groupService.ResetStatusAndAllies();
 
-            Group[] groups = groupService.GetGroups();
-            int monthlyMinimalPopularityAndStrength = governmentService.GetMonthlyMinimalPopularityAndStrength();
-            int monthlyRevolutionStrength = governmentService.GetMonthlyRevolutionStrength();
+            Group[] groups = _groupService.GetGroups();
+            int monthlyMinimalPopularityAndStrength = _governmentService.GetMonthlyMinimalPopularityAndStrength();
+            int monthlyRevolutionStrength = _governmentService.GetMonthlyRevolutionStrength();
 
             // Perform internal plot logic
             ExecutePlot(groups, monthlyMinimalPopularityAndStrength, monthlyRevolutionStrength);
