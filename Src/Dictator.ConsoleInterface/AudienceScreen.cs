@@ -2,7 +2,7 @@
 using Dictator.ConsoleInterface.Common;
 using System;
 
-namespace Dictator.ConsoleInterface.Audience;
+namespace Dictator.ConsoleInterface;
 
 public interface IAudienceScreen
 {
@@ -27,8 +27,8 @@ public class AudienceScreen : IAudienceScreen
         ConsoleEx.WriteEmptyLineAt(4, ConsoleColor.Green);
         ConsoleEx.WriteAt(11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black);
         ConsoleEx.WriteEmptyLineAt(5, ConsoleColor.Green);
-     
-        for(int row = 6; row < 22; row++)
+
+        for (int row = 6; row < 22; row++)
         {
             ConsoleEx.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
         }

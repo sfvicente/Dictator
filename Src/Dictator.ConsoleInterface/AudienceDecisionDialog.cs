@@ -2,7 +2,7 @@
 using Dictator.ConsoleInterface.Common;
 using System;
 
-namespace Dictator.ConsoleInterface.Audience;
+namespace Dictator.ConsoleInterface;
 
 public interface IAudienceDecisionDialog
 {
@@ -17,7 +17,7 @@ public class AudienceDecisionDialog : IAudienceDecisionDialog
     {
         _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
-    
+
     public DialogResult Show(Core.Audience audience)
     {
         ConsoleEx.Clear(ConsoleColor.DarkYellow);
@@ -38,7 +38,7 @@ public class AudienceDecisionDialog : IAudienceDecisionDialog
 
             if (audience.Cost != 0)
             {
-                string addOrTake = (audience.Cost > 0) ? "ADD to" : "TAKE from";
+                string addOrTake = audience.Cost > 0 ? "ADD to" : "TAKE from";
 
                 ConsoleEx.WriteAt(2, 12, $"{addOrTake} the TREASURY ${Math.Abs(audience.Cost)},000", ConsoleColor.Black);
             }
@@ -50,7 +50,7 @@ public class AudienceDecisionDialog : IAudienceDecisionDialog
 
             if (audience.MonthlyCost != 0)
             {
-                string raiseOrLower = (audience.MonthlyCost < 0) ? "RAISE" : "LOWER";
+                string raiseOrLower = audience.MonthlyCost < 0 ? "RAISE" : "LOWER";
 
                 ConsoleEx.WriteAt(2, 16, $"{raiseOrLower} MONTHLY COSTS by ${Math.Abs(audience.MonthlyCost)},000", ConsoleColor.Black);
             }

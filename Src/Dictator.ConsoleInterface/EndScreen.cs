@@ -3,7 +3,7 @@ using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 using System;
 
-namespace Dictator.ConsoleInterface.End;
+namespace Dictator.ConsoleInterface;
 
 public interface IEndScreen
 {

@@ -4,7 +4,7 @@ using Dictator.Core;
 using Dictator.Core.Services;
 using System;
 
-namespace Dictator.ConsoleInterface.Advice;
+namespace Dictator.ConsoleInterface;
 
 public interface IAdviceScreen
 {
@@ -49,7 +49,7 @@ public class AdviceScreen : IAdviceScreen
             if (groupPopularityChanges[i] != 'M')
             {
                 int popularityChange = groupPopularityChanges[i] - 'M';
-                
+
                 ConsoleEx.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                 ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
                 line++;
@@ -76,7 +76,7 @@ public class AdviceScreen : IAdviceScreen
 
     private string GetFormattedChange(int change)
     {
-        if(change > 0)
+        if (change > 0)
         {
             return "+" + change;
         }
