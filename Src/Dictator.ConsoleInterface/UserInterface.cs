@@ -63,48 +63,48 @@ public interface IUserInterface
 
 public class UserInterface : IUserInterface
 {
-    private readonly IIntroScreen introScreen;
-    private readonly IWelcomeScreen welcomeScreen;
-    private readonly ITitleScreen titleScreen;
-    private readonly ITreasuryReportScreen treasuryReportScreen;
-    private readonly IBankruptcyScreen bankruptcyScreen;
-    private readonly IPoliceReportRequestDialog policeReportRequestScreen;
-    private readonly IPoliceReportScreen policeReportScreen;
-    private readonly IAudienceScreen audienceScreen;
-    private readonly IAudienceDecisionDialog audienceDecisionDialog;
-    private readonly IAdviceRequestDialog adviceRequestDialog;
-    private readonly IAdviceScreen adviceScreen;
-    private readonly INewsflashScreen newsflashScreen;
-    private readonly IMonthScreen monthScreen;
-    private readonly IPresidentialDecisionMainDialog presidentialDecisionMainDialog;
-    private readonly IPresidentialDecisionSubDialog presidentialDecisionSubDialog;
-    private readonly IPresidentialDecisionActionDialog presidentialDecisionActionDialog;
-    private readonly ILoanApplicationScreen loanApplicationScreen;
-    private readonly ILoanApplicationResultScreen loanApplicationResultScreen;
-    private readonly ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen;
-    private readonly IAssassinationScreen assassinationScreen;
-    private readonly IAssassinationSuccededScreen assassinationSuccededScreen;
-    private readonly IAssassinationFailedScreen assassinationFailedScreen;
-    private readonly IRevolutionScreen revolutionScreen;
-    private readonly IRevolutionStartedScreen revolutionStartedScreen;
-    private readonly IRevolutionAskForHelpDialog revolutionAskForHelpDialog;
-    private readonly IRevolutionNoAlliesScreen revolutionNoAlliesScreen;
-    private readonly IRevolutionAllyLowPopularityScreen revolutionAllyLowPopularityScreen;
-    private readonly IRevolutionCrushedDialog revolutionCrushedDialog;
-    private readonly IRevolutionOverthrownScreen revolutionOverthrownScreen;
-    private readonly IWarThreatScreen warThreatScreen;
-    private readonly IWarLeftotoInvadesScreen leftotoInvadesScreen;
-    private readonly IWarLostScreen warLostScreen;
-    private readonly IWarWonScreen warWonScreen;
-    private readonly IEscapeAttemptDialog escapeAttemptDialog;
-    private readonly IHelicopterEscapeScreen helicopterEscapeScreen;
-    private readonly IHelicopterWontStartScreen helicopterWontStartScreen;
-    private readonly IEscapeToLeftotoScreen escapeToLeftotoScreen;
-    private readonly IGuerillasCelebratingScreen guerillasCelebratingScreen;
-    private readonly IGuerillasMissedScreen guerillasMissedScreen;
-    private readonly IHelicopterEngineFailureScreen helicopterEngineFailureScreen;
-    private readonly IWarExecutionScreen warExecutionScreen;
-    private readonly IEndScreen endScreen;
+    private readonly IIntroScreen _introScreen;
+    private readonly IWelcomeScreen _welcomeScreen;
+    private readonly ITitleScreen _titleScreen;
+    private readonly ITreasuryReportScreen _treasuryReportScreen;
+    private readonly IBankruptcyScreen _bankruptcyScreen;
+    private readonly IPoliceReportRequestDialog _policeReportRequestScreen;
+    private readonly IPoliceReportScreen _policeReportScreen;
+    private readonly IAudienceScreen _audienceScreen;
+    private readonly IAudienceDecisionDialog _audienceDecisionDialog;
+    private readonly IAdviceRequestDialog _adviceRequestDialog;
+    private readonly IAdviceScreen _adviceScreen;
+    private readonly INewsflashScreen _newsflashScreen;
+    private readonly IMonthScreen _monthScreen;
+    private readonly IPresidentialDecisionMainDialog _presidentialDecisionMainDialog;
+    private readonly IPresidentialDecisionSubDialog _presidentialDecisionSubDialog;
+    private readonly IPresidentialDecisionActionDialog _presidentialDecisionActionDialog;
+    private readonly ILoanApplicationScreen _loanApplicationScreen;
+    private readonly ILoanApplicationResultScreen _loanApplicationResultScreen;
+    private readonly ITransferToSwissBankAccountScreen _transferToSwissBankAccountScreen;
+    private readonly IAssassinationScreen _assassinationScreen;
+    private readonly IAssassinationSuccededScreen _assassinationSuccededScreen;
+    private readonly IAssassinationFailedScreen _assassinationFailedScreen;
+    private readonly IRevolutionScreen _revolutionScreen;
+    private readonly IRevolutionStartedScreen _revolutionStartedScreen;
+    private readonly IRevolutionAskForHelpDialog _revolutionAskForHelpDialog;
+    private readonly IRevolutionNoAlliesScreen _revolutionNoAlliesScreen;
+    private readonly IRevolutionAllyLowPopularityScreen _revolutionAllyLowPopularityScreen;
+    private readonly IRevolutionCrushedDialog _revolutionCrushedDialog;
+    private readonly IRevolutionOverthrownScreen _revolutionOverthrownScreen;
+    private readonly IWarThreatScreen _warThreatScreen;
+    private readonly IWarLeftotoInvadesScreen _leftotoInvadesScreen;
+    private readonly IWarLostScreen _warLostScreen;
+    private readonly IWarWonScreen _warWonScreen;
+    private readonly IEscapeAttemptDialog _escapeAttemptDialog;
+    private readonly IHelicopterEscapeScreen _helicopterEscapeScreen;
+    private readonly IHelicopterWontStartScreen _helicopterWontStartScreen;
+    private readonly IEscapeToLeftotoScreen _escapeToLeftotoScreen;
+    private readonly IGuerillasCelebratingScreen _guerillasCelebratingScreen;
+    private readonly IGuerillasMissedScreen _guerillasMissedScreen;
+    private readonly IHelicopterEngineFailureScreen _helicopterEngineFailureScreen;
+    private readonly IWarExecutionScreen _warExecutionScreen;
+    private readonly IEndScreen _endScreen;
 
     public UserInterface(
         IIntroScreen introScreen,
@@ -150,48 +150,48 @@ public class UserInterface : IUserInterface
         IWarExecutionScreen warExecutionScreen,
         IEndScreen endScreen)
     {
-        this.introScreen = introScreen;
-        this.welcomeScreen = welcomeScreen;
-        this.titleScreen = titleScreen;
-        this.treasuryReportScreen = treasuryReportScreen;
-        this.policeReportRequestScreen = policeReportRequestScreen;
-        this.policeReportScreen = policeReportScreen;
-        this.audienceScreen = audienceScreen;
-        this.audienceDecisionDialog = audienceDecisionDialog;
-        this.adviceRequestDialog = adviceRequestDialog;
-        this.adviceScreen = adviceScreen;
-        this.bankruptcyScreen = bankruptcyScreen;
-        this.newsflashScreen = newsflashScreen;
-        this.monthScreen = monthScreen;
-        this.presidentialDecisionMainDialog = presidentialDecisionMainDialog;
-        this.presidentialDecisionSubDialog = presidentialDecisionSubDialog;
-        this.presidentialDecisionActionDialog = presidentialDecisionActionDialog;
-        this.loanApplicationScreen = loanApplicationScreen;
-        this.loanApplicationResultScreen = loanApplicationResultScreen;
-        this.transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
-        this.assassinationScreen = assassinationScreen;
-        this.assassinationSuccededScreen = assassinationSuccededScreen;
-        this.assassinationFailedScreen = assassinationFailedScreen;
-        this.revolutionScreen = revolutionScreen;
-        this.revolutionStartedScreen = revolutionStartedScreen;
-        this.revolutionAskForHelpDialog = revolutionAskForHelpDialog;
-        this.revolutionNoAlliesScreen = revolutionNoAlliesScreen;
-        this.revolutionAllyLowPopularityScreen = revolutionAllyLowPopularityScreen;
-        this.revolutionCrushedDialog = revolutionCrushedDialog;
-        this.revolutionOverthrownScreen = revolutionOverthrownScreen;
-        this.warThreatScreen = warThreatScreen;
-        this.leftotoInvadesScreen = leftotoInvadesScreen;
-        this.warLostScreen = warLostScreen;
-        this.warWonScreen = warWonScreen;
-        this.escapeAttemptDialog = escapeAttemptDialog;
-        this.helicopterEscapeScreen = helicopterEscapeScreen;
-        this.helicopterWontStartScreen = helicopterWontStartScreen;
-        this.escapeToLeftotoScreen = escapeToLeftotoScreen;
-        this.guerillasCelebratingScreen = guerillasCelebratingScreen;
-        this.guerillasMissedScreen = guerillasMissedScreen;
-        this.helicopterEngineFailureScreen = helicopterEngineFailureScreen;
-        this.warExecutionScreen = warExecutionScreen;
-        this.endScreen = endScreen;
+        _introScreen = introScreen;
+        _welcomeScreen = welcomeScreen;
+        _titleScreen = titleScreen;
+        _treasuryReportScreen = treasuryReportScreen;
+        _policeReportRequestScreen = policeReportRequestScreen;
+        _policeReportScreen = policeReportScreen;
+        _audienceScreen = audienceScreen;
+        _audienceDecisionDialog = audienceDecisionDialog;
+        _adviceRequestDialog = adviceRequestDialog;
+        _adviceScreen = adviceScreen;
+        _bankruptcyScreen = bankruptcyScreen;
+        _newsflashScreen = newsflashScreen;
+        _monthScreen = monthScreen;
+        _presidentialDecisionMainDialog = presidentialDecisionMainDialog;
+        _presidentialDecisionSubDialog = presidentialDecisionSubDialog;
+        _presidentialDecisionActionDialog = presidentialDecisionActionDialog;
+        _loanApplicationScreen = loanApplicationScreen;
+        _loanApplicationResultScreen = loanApplicationResultScreen;
+        _transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
+        _assassinationScreen = assassinationScreen;
+        _assassinationSuccededScreen = assassinationSuccededScreen;
+        _assassinationFailedScreen = assassinationFailedScreen;
+        _revolutionScreen = revolutionScreen;
+        _revolutionStartedScreen = revolutionStartedScreen;
+        _revolutionAskForHelpDialog = revolutionAskForHelpDialog;
+        _revolutionNoAlliesScreen = revolutionNoAlliesScreen;
+        _revolutionAllyLowPopularityScreen = revolutionAllyLowPopularityScreen;
+        _revolutionCrushedDialog = revolutionCrushedDialog;
+        _revolutionOverthrownScreen = revolutionOverthrownScreen;
+        _warThreatScreen = warThreatScreen;
+        _leftotoInvadesScreen = leftotoInvadesScreen;
+        _warLostScreen = warLostScreen;
+        _warWonScreen = warWonScreen;
+        _escapeAttemptDialog = escapeAttemptDialog;
+        _helicopterEscapeScreen = helicopterEscapeScreen;
+        _helicopterWontStartScreen = helicopterWontStartScreen;
+        _escapeToLeftotoScreen = escapeToLeftotoScreen;
+        _guerillasCelebratingScreen = guerillasCelebratingScreen;
+        _guerillasMissedScreen = guerillasMissedScreen;
+        _helicopterEngineFailureScreen = helicopterEngineFailureScreen;
+        _warExecutionScreen = warExecutionScreen;
+        _endScreen = endScreen;
     }
 
     public void Initialise()
@@ -201,89 +201,89 @@ public class UserInterface : IUserInterface
         Console.Clear();
     }
 
-    public void DisplayIntroScreen() => introScreen.Show();
+    public void DisplayIntroScreen() => _introScreen.Show();
 
-    public void DisplayWelcomeScreen(int highscore) => welcomeScreen.Show(highscore);
+    public void DisplayWelcomeScreen(int highscore) => _welcomeScreen.Show(highscore);
 
-    public void DisplayTitleScreen() => titleScreen.Show();
+    public void DisplayTitleScreen() => _titleScreen.Show();
 
-    public void DisplayAccountScreen(Account account) => treasuryReportScreen.Show(account);
+    public void DisplayAccountScreen(Account account) => _treasuryReportScreen.Show(account);
 
-    public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest) => policeReportRequestScreen.Show(policeReportRequest);
+    public DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest) => _policeReportRequestScreen.Show(policeReportRequest);
 
-    public void DisplayPoliceReportScreen(PoliceReport policeReport) => policeReportScreen.Show(policeReport);
+    public void DisplayPoliceReportScreen(PoliceReport policeReport) => _policeReportScreen.Show(policeReport);
 
-    public void DisplayAudienceScreen(Audience audience) => audienceScreen.Show(audience);
+    public void DisplayAudienceScreen(Audience audience) => _audienceScreen.Show(audience);
 
-    public DialogResult DisplayAudienceDecisionDialog(Audience audience) => audienceDecisionDialog.Show(audience);
+    public DialogResult DisplayAudienceDecisionDialog(Audience audience) => _audienceDecisionDialog.Show(audience);
 
-    public DialogResult DisplayAdviceRequestDialog() => adviceRequestDialog.Show();
+    public DialogResult DisplayAdviceRequestDialog() => _adviceRequestDialog.Show();
 
-    public void DisplayAdviceScreen(Audience audience) => adviceScreen.Show(audience);
+    public void DisplayAdviceScreen(Audience audience) => _adviceScreen.Show(audience);
 
-    public void DisplayAdviceScreen(Decision decision) => adviceScreen.Show(decision);
+    public void DisplayAdviceScreen(Decision decision) => _adviceScreen.Show(decision);
 
-    public void DisplayBankuptcyScreen() => bankruptcyScreen.Show();
+    public void DisplayBankuptcyScreen() => _bankruptcyScreen.Show();
 
-    public void DisplayNewsScreen(string headline) => newsflashScreen.Show(headline);
+    public void DisplayNewsScreen(string headline) => _newsflashScreen.Show(headline);
 
-    public void DisplayMonthScreen(int month) => monthScreen.Show(month);
+    public void DisplayMonthScreen(int month) => _monthScreen.Show(month);
 
-    public DecisionType DisplayPresidentialDecisionMainDialog() => presidentialDecisionMainDialog.Show();
+    public DecisionType DisplayPresidentialDecisionMainDialog() => _presidentialDecisionMainDialog.Show();
 
-    public int DisplayPresidentialDecisionSubDialog(Decision[] decisions) => presidentialDecisionSubDialog.Show(decisions);
+    public int DisplayPresidentialDecisionSubDialog(Decision[] decisions) => _presidentialDecisionSubDialog.Show(decisions);
 
-    public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision) => presidentialDecisionActionDialog.Show(decision);
+    public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision) => _presidentialDecisionActionDialog.Show(decision);
 
-    public void DisplayLoanApplicationScreen() => loanApplicationScreen.Show();
+    public void DisplayLoanApplicationScreen() => _loanApplicationScreen.Show();
 
-    public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult) => loanApplicationResultScreen.Show(loanApplicationResult);
+    public void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult) => _loanApplicationResultScreen.Show(loanApplicationResult);
 
-    public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account) => transferToSwissBankAccountScreen.Show(swissBankAccountTransfer, account);
+    public void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account) => _transferToSwissBankAccountScreen.Show(swissBankAccountTransfer, account);
 
-    public void DisplayAssassinationAttempt(string groupName) => assassinationScreen.Show(groupName);
+    public void DisplayAssassinationAttempt(string groupName) => _assassinationScreen.Show(groupName);
 
-    public void DisplayAssassinationFailedScreen() => assassinationFailedScreen.Show();
+    public void DisplayAssassinationFailedScreen() => _assassinationFailedScreen.Show();
 
-    public void DisplayAssassinationSuccededScreen() => assassinationSuccededScreen.Show();
+    public void DisplayAssassinationSuccededScreen() => _assassinationSuccededScreen.Show();
 
-    public void DisplayRevolutionScreen() => revolutionScreen.Show();
+    public void DisplayRevolutionScreen() => _revolutionScreen.Show();
 
-    public void DisplayRevolutionStartedScreen() => revolutionStartedScreen.Show();
+    public void DisplayRevolutionStartedScreen() => _revolutionStartedScreen.Show();
 
-    public int DisplayRevolutionAskForHelpDialog(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies) => revolutionAskForHelpDialog.Show(revolutionary, possibleAllies);
+    public int DisplayRevolutionAskForHelpDialog(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies) => _revolutionAskForHelpDialog.Show(revolutionary, possibleAllies);
 
-    public void DisplayRevolutionAllyLowPopularityScreen() => revolutionAllyLowPopularityScreen.Show();
+    public void DisplayRevolutionAllyLowPopularityScreen() => _revolutionAllyLowPopularityScreen.Show();
 
-    public void DisplayRevolutionNoAlliesScreen() => revolutionNoAlliesScreen.Show();
+    public void DisplayRevolutionNoAlliesScreen() => _revolutionNoAlliesScreen.Show();
 
-    public DialogResult DisplayRevolutionCrushedDialog() => revolutionCrushedDialog.Show();
+    public DialogResult DisplayRevolutionCrushedDialog() => _revolutionCrushedDialog.Show();
 
-    public void DisplayRevolutionOverthrownScreen() => revolutionOverthrownScreen.Show();
+    public void DisplayRevolutionOverthrownScreen() => _revolutionOverthrownScreen.Show();
 
-    public void DisplayWarThreatScreen() => warThreatScreen.Show();
+    public void DisplayWarThreatScreen() => _warThreatScreen.Show();
 
-    public void DisplayLeftotoInvadesScreen(WarStats warStats) => leftotoInvadesScreen.Show(warStats);
+    public void DisplayLeftotoInvadesScreen(WarStats warStats) => _leftotoInvadesScreen.Show(warStats);
 
-    public void DisplayWarLostScreen() => warLostScreen.Show();
+    public void DisplayWarLostScreen() => _warLostScreen.Show();
 
-    public void DisplayWarWonScreen() => warWonScreen.Show();
+    public void DisplayWarWonScreen() => _warWonScreen.Show();
 
-    public DialogResult DisplayEscapeAttemptDialog() => escapeAttemptDialog.Show();
+    public DialogResult DisplayEscapeAttemptDialog() => _escapeAttemptDialog.Show();
 
-    public void DisplayHelicopterEscapeScreen() => helicopterEscapeScreen.Show();
+    public void DisplayHelicopterEscapeScreen() => _helicopterEscapeScreen.Show();
 
-    public void DisplayHelicopterWontStartScreen() => helicopterWontStartScreen.Show();
+    public void DisplayHelicopterWontStartScreen() => _helicopterWontStartScreen.Show();
 
-    public void DisplayEscapeToLeftotoScreen() => escapeToLeftotoScreen.Show();
+    public void DisplayEscapeToLeftotoScreen() => _escapeToLeftotoScreen.Show();
 
-    public void DisplayGuerillasMissedScreen() => guerillasMissedScreen.Show();
+    public void DisplayGuerillasMissedScreen() => _guerillasMissedScreen.Show();
 
-    public void DisplayGuerillasCelebratingScreen() => guerillasCelebratingScreen.Show();
+    public void DisplayGuerillasCelebratingScreen() => _guerillasCelebratingScreen.Show();
 
-    public void DisplayHelicopterEngineFailure() => helicopterEngineFailureScreen.Show();
+    public void DisplayHelicopterEngineFailure() => _helicopterEngineFailureScreen.Show();
 
-    public void DisplayWarExecutionScreen() => warExecutionScreen.Show();
+    public void DisplayWarExecutionScreen() => _warExecutionScreen.Show();
 
-    public void DisplayEndScreen(Score score) => endScreen.Show(score);
+    public void DisplayEndScreen(Score score) => _endScreen.Show(score);
 }
