@@ -1,12 +1,13 @@
 ﻿using Dictator.Common;
 using Dictator.ConsoleInterface.Common;
+using Dictator.Core;
 using System;
 
 namespace Dictator.ConsoleInterface;
 
 public interface IAudienceScreen
 {
-    public void Show(Core.Audience audience);
+    public void Show(Audience audience);
 }
 
 public class AudienceScreen : IAudienceScreen
@@ -18,7 +19,7 @@ public class AudienceScreen : IAudienceScreen
         _pressAnyKeyControl = pressAnyKeyControl;
     }
 
-    public void Show(Core.Audience audience)
+    public void Show(Audience audience)
     {
         ConsoleEx.Clear();
         ConsoleEx.WriteEmptyLineAt(1, ConsoleColor.Green);

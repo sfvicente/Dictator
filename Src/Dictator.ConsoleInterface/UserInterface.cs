@@ -22,10 +22,10 @@ public interface IUserInterface
     void DisplayAccountScreen(Account account);
     DialogResult DisplayPoliceReportRequestDialog(PoliceReportRequest policeReportRequest);
     void DisplayPoliceReportScreen(PoliceReport policeReport);
-    void DisplayAudienceScreen(Core.Audience audience);
-    DialogResult DisplayAudienceDecisionDialog(Core.Audience audience);
+    void DisplayAudienceScreen(Audience audience);
+    DialogResult DisplayAudienceDecisionDialog(Audience audience);
     DialogResult DisplayAdviceRequestDialog();
-    void DisplayAdviceScreen(Core.Audience audience);
+    void DisplayAdviceScreen(Audience audience);
     void DisplayAdviceScreen(Decision decision);
     void DisplayBankuptcyScreen();
     void DisplayNewsScreen(string headline);
@@ -213,13 +213,13 @@ public class UserInterface : IUserInterface
 
     public void DisplayPoliceReportScreen(PoliceReport policeReport) => policeReportScreen.Show(policeReport);
 
-    public void DisplayAudienceScreen(Core.Audience audience) => audienceScreen.Show(audience);
+    public void DisplayAudienceScreen(Audience audience) => audienceScreen.Show(audience);
 
-    public DialogResult DisplayAudienceDecisionDialog(Core.Audience audience) => audienceDecisionDialog.Show(audience);
+    public DialogResult DisplayAudienceDecisionDialog(Audience audience) => audienceDecisionDialog.Show(audience);
 
     public DialogResult DisplayAdviceRequestDialog() => adviceRequestDialog.Show();
 
-    public void DisplayAdviceScreen(Core.Audience audience) => adviceScreen.Show(audience);
+    public void DisplayAdviceScreen(Audience audience) => adviceScreen.Show(audience);
 
     public void DisplayAdviceScreen(Decision decision) => adviceScreen.Show(decision);
 

@@ -139,7 +139,7 @@ public class Game
     /// </summary>
     private void HandleAudienceRequest()
     {
-        Core.Audience audience = _engine.SelectRandomUnusedAudienceRequest();
+        Audience audience = _engine.SelectRandomUnusedAudienceRequest();
 
         _userInterface.DisplayAudienceScreen(audience);
 
@@ -173,7 +173,7 @@ public class Game
     ///     can either accept or refuse the request.
     /// </summary>
     /// <param name="audience">The audience that the player will be asked to make a decision on.</param>
-    private void AskForAudienceDecision(Core.Audience audience)
+    private void AskForAudienceDecision(Audience audience)
     {
         DialogResult dialogResult = _userInterface.DisplayAudienceDecisionDialog(audience);
 
@@ -431,7 +431,7 @@ public class Game
     /// </summary>
     private void ExecuteRandomNewsflash()
     {
-        Core.News unusedRandomNews = _engine.SelectRandomUnusedNews();
+        News unusedRandomNews = _engine.SelectRandomUnusedNews();
 
         _userInterface.DisplayNewsScreen(unusedRandomNews.Text);
         _engine.ApplyNewsEffects(unusedRandomNews);

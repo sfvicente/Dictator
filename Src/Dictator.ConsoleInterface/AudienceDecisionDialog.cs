@@ -1,12 +1,13 @@
 ﻿using Dictator.Common;
 using Dictator.ConsoleInterface.Common;
+using Dictator.Core;
 using System;
 
 namespace Dictator.ConsoleInterface;
 
 public interface IAudienceDecisionDialog
 {
-    DialogResult Show(Core.Audience audience);
+    DialogResult Show(Audience audience);
 }
 
 public class AudienceDecisionDialog : IAudienceDecisionDialog
@@ -18,7 +19,7 @@ public class AudienceDecisionDialog : IAudienceDecisionDialog
         _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
 
-    public DialogResult Show(Core.Audience audience)
+    public DialogResult Show(Audience audience)
     {
         ConsoleEx.Clear(ConsoleColor.DarkYellow);
         ConsoleEx.WriteAt(11, 2, "  DECISION  ", ConsoleColor.Black, ConsoleColor.White);
