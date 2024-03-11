@@ -1,10 +1,5 @@
-﻿using System;
+﻿namespace Dictator.Core.Services;
 
-namespace Dictator.Core.Services;
-
-/// <summary>
-///     Provides functionality related to the player escape from Ritimba.
-/// </summary>
 public interface IEscapeService
 {
     /// <summary>
@@ -26,20 +21,17 @@ public interface IEscapeService
     public bool DoesGuerrillaCatchPlayerEscaping();
 }
 
-/// <summary>
-///     Provides functionality related to the player escape from Ritimba.
-/// </summary>
 public class EscapeService : IEscapeService
 {
     private readonly IRandomService _randomService;
-    private readonly IGroupService groupService;
+    private readonly IGroupService _groupService;
 
     public EscapeService(
         IRandomService randomService,
         IGroupService groupService)
     {
         _randomService = randomService;
-        this.groupService = groupService;
+        _groupService = groupService;
     }
 
     /// <summary>
@@ -74,7 +66,7 @@ public class EscapeService : IEscapeService
             return true;
         }
 
-        // The escape by helicopoter fails as the helicopter won't start
+        // The escape by helicopter fails as the helicopter won't start
         return false;
     }
 
@@ -84,7 +76,7 @@ public class EscapeService : IEscapeService
     /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
     public bool DoesGuerrillaCatchPlayerEscaping()
     {
-        int guerrilasStrength = groupService.GetGroupByType(GroupType.Guerillas).Strength;
+        int guerrilasStrength = _groupService.GetGroupByType(GroupType.Guerillas).Strength;
         int upperLimit = (guerrilasStrength / 3) + 2;
         int number = _randomService.Next(0, upperLimit);
 
