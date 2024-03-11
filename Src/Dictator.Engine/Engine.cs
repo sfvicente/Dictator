@@ -23,6 +23,8 @@ namespace Dictator.Core
         private News[] _news;
         private Decision[] _decisions;
 
+        public GroupType _assassinGroupType;
+
         public Engine(
             IAccountService accountService,
             IGovernmentService governmentService,
@@ -364,7 +366,7 @@ namespace Dictator.Core
         /// <returns>The name of the assassination group.</returns>
         public string GetAssassinationGroupName()
         {
-            return assassinationService.GetAssassinationGroupName();
+            return assassinationService.GetAssassinationGroupName(_assassinGroupType);
         }
 
         /// <summary>

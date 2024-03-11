@@ -12,12 +12,7 @@ public interface IAssassinationService
     /// </summary>
     /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
     public bool IsAssassinationSuccessful();
-
-    /// <summary>
-    ///     Retrieves the name of the group responsible for the assassination attempt.
-    /// </summary>
-    /// <returns>The name of the assassination group.</returns>
-    public string GetAssassinationGroupName();
+    public string GetAssassinationGroupName(GroupType assassinGroupType);
 }
 
 /// <summary>
@@ -59,13 +54,8 @@ public class AssassinationService : IAssassinationService
         return false;
     }
 
-    /// <summary>
-    ///     Retrieves the name of the group responsible for the assassination attempt.
-    /// </summary>
-    /// <returns>The name of the assassination group.</returns>
-    public string GetAssassinationGroupName()
+    public string GetAssassinationGroupName(GroupType assassinGroupType)
     {
-        GroupType assassinGroupType = groupService.AssassinGroupType;
         string groupName = groupService.GetGroupByType(assassinGroupType).Name;
 
         return groupName;

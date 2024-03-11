@@ -9,8 +9,6 @@ namespace Dictator.Core.Services;
 /// </summary>
 public interface IGroupService
 {
-    public GroupType AssassinGroupType { get; }
-
     public void Initialise();
     public Group[] GetGroups();
 
