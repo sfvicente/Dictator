@@ -4,6 +4,14 @@ using System;
 
 namespace Dictator.ConsoleInterface.Escape
 {
+    public interface IGuerillasMissedScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
     /// <summary>
     ///     Represents the screen that is displayed when the player escapes through the mountains to Leftoto
     ///     and isn't caught by the guerillas.

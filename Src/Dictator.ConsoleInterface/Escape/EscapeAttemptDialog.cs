@@ -4,6 +4,15 @@ using System;
 
 namespace Dictator.ConsoleInterface.Escape
 {
+    public interface IEscapeAttemptDialog
+    {
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <returns>The option selected after the dialog has been presented.</returns>
+        DialogResult Show();
+    }
+
     /// <summary>
     ///     Represents the dialog that is displayed when the choice to escape a war or revolution is presented
     ///     to the player.

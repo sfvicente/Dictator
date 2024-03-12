@@ -4,6 +4,14 @@ using System;
 
 namespace Dictator.ConsoleInterface.Escape
 {
+    public interface IEscapeToLeftotoScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
     /// <summary>
     ///     Represents the screen that is displayed when the player attempts the escape
     ///     through the mountains to Leftoto.
