@@ -1,12 +1,11 @@
-﻿namespace Dictator.Core.Models
+﻿namespace Dictator.Core.Models;
+
+/// <summary>
+///     Specifies the status of a group.
+/// </summary>
+public enum GroupStatus
 {
-    /// <summary>
-    ///     Specifies the status of a group.
-    /// </summary>
-    public enum GroupStatus
-    {
-        Default = 0,
-        Assassination = 1,
-        Revolution = 2
-    }
+    Default = 0,
+    Assassination = 1,
+    Revolution = 2
 }
