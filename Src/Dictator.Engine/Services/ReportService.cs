@@ -1,4 +1,5 @@
 ﻿using Dictator.Common.Extensions;
+using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
 

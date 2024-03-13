@@ -1,4 +1,5 @@
 ﻿using Dictator.Core;
+using Dictator.Core.Models;
 using System.Collections.Generic;
 
 namespace Dictator.ConsoleInterface.Revolution

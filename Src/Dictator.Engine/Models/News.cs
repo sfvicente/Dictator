@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents a news event in the game that happens outside of the player control.

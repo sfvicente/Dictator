@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
+using Dictator.Core.Models;
 
 namespace Dictator.ConsoleInterface;
 

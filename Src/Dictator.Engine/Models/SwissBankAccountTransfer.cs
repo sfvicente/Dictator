@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents a bank transfer from the treasury to the Swiss bank account.

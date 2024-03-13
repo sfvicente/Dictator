@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Aggregates all elements requires to provide a score to a specific game.

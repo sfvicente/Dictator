@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents one of the factions or elements of the population of Ritimba or an external party such as another country.

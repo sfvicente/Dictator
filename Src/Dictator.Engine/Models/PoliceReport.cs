@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Dictator.Core
+namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents a detailed account or statement from police on the state of the groups and government.

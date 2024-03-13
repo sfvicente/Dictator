@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Specifies the sub-type of a presidential decision.

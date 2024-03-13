@@ -1,4 +1,5 @@
 ﻿using System;
+using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
 

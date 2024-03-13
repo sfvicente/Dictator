@@ -1,4 +1,6 @@
-﻿namespace Dictator.Core.Services;
+﻿using Dictator.Core.Models;
+
+namespace Dictator.Core.Services;
 
 /// <summary>
 ///     Provides functionality related to the treasury and associated costs and the Swiss bank account.

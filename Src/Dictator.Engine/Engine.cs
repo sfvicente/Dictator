@@ -1,4 +1,5 @@
-﻿using Dictator.Core.Services;
+﻿using Dictator.Core.Models;
+using Dictator.Core.Services;
 using System.Collections.Generic;
 
 namespace Dictator.Core

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
 
