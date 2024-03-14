@@ -9,6 +9,7 @@ using Dictator.ConsoleInterface.Start;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.ConsoleInterface.War;
 using Dictator.Core;
+using Dictator.Core.Configuration;
 using Dictator.Core.Models;
 using Dictator.Core.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -92,6 +93,9 @@ class Program
         .AddScoped<IAccount, Account>()
         .AddScoped<IGovernment, Government>()
         .AddScoped<IRevolution, Revolution>()
+        // State & Configuration
+        .AddScoped<IGameState, GameState>()
+        .AddScoped<AccountSettings, AccountSettings>()
         // Services
         .AddScoped<IAccountService, AccountService>()
         .AddScoped<IGovernmentService, GovernmentService>()
