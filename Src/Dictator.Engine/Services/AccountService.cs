@@ -8,11 +8,6 @@ namespace Dictator.Core.Services;
 public interface IAccountService
 {
     /// <summary>
-    ///     Initialises the account data.
-    /// </summary>
-    public void Initialise();
-
-    /// <summary>
     ///     Retrieves the current account aggregated properties.
     /// </summary>
     /// <returns>The account information including Swiss bank account information, treasury balance
@@ -91,7 +86,7 @@ public interface IAccountService
 /// </summary>
 public class AccountService: IAccountService
 {
-    private readonly IAccount account;
+    private readonly Account account;
     private readonly IGroupService groupService;
     private readonly IGovernmentService governmentService;
 
@@ -102,23 +97,11 @@ public class AccountService: IAccountService
     /// <param name="account">The component used to provide information related to the accounts and costs.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public AccountService(IAccount account, IGroupService groupService, IGovernmentService governmentService)
+    public AccountService(IGameState gameState, IGroupService groupService, IGovernmentService governmentService)
     {
-        this.account = account;
+        account = gameState.GetAccount();
         this.groupService = groupService;
         this.governmentService = governmentService;
-        Initialise();
-    }
-
-    /// <summary>
-    ///     Initialises the account data.
-    /// </summary>
-    public void Initialise()
-    {
-        account.TreasuryBalance = 1000;
-        account.MonthlyCosts = 60;
-        account.SwissBankAccountBalance = 0;
-        account.HasSwissBankAccount = false;
     }
 
     /// <summary>

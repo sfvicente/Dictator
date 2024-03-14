@@ -6,6 +6,7 @@ namespace Dictator.Core
 {
     public class Engine : IEngine
     {
+        private readonly IGameState _gameState;
         private readonly IAccountService accountService;
         private readonly IGovernmentService governmentService;
         private readonly IGroupService groupService;
@@ -27,6 +28,7 @@ namespace Dictator.Core
         public GroupType _assassinGroupType;
 
         public Engine(
+            IGameState gameState,
             IAccountService accountService,
             IGovernmentService governmentService,
             IGroupService groupService,
@@ -42,6 +44,7 @@ namespace Dictator.Core
             ILoanService loanService,
             IWarService warService)
         {
+            _gameState = gameState;
             this.accountService = accountService;
             this.governmentService = governmentService;
             this.groupService = groupService;
@@ -63,7 +66,6 @@ namespace Dictator.Core
         /// </summary>
         public void Initialise()
         {
-            accountService.Initialise();
             governmentService.Initialise();
             groupService.Initialise();
             audienceService.Initialise();
@@ -119,7 +121,7 @@ namespace Dictator.Core
         /// and monthly costs.</returns>
         public Account GetAccount()
         {
-            return accountService.GetAccount();
+            return _gameState.GetAccount();
         }
 
         /// <summary>

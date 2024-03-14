@@ -1,6 +1,14 @@
 ﻿namespace Dictator.Core.Configuration;
 
-public  class AccountSettings
+public interface IAccountSettings
+{
+    public int InitialTreasuryBalance { get; set; }
+    public int InitialMonthlyCosts { get; set; }
+    public bool HasSwissBankAccount { get; set; }
+    public int InitialSwissBankAccountBalance { get; set; }
+}
+
+public class AccountSettings : IAccountSettings
 {
     public int InitialTreasuryBalance { get; set; }
     public int InitialMonthlyCosts { get; set; }

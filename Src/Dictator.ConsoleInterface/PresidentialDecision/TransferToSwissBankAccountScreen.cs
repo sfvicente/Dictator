@@ -1,7 +1,6 @@
 ﻿using Dictator.Common;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Treasury;
-using Dictator.Core;
 using Dictator.Core.Models;
 using System;
 

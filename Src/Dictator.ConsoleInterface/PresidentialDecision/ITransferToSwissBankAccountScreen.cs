@@ -1,5 +1,4 @@
-﻿using Dictator.Core;
-using Dictator.Core.Models;
+﻿using Dictator.Core.Models;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision
 {

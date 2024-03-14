@@ -1,25 +1,27 @@
 ﻿using Dictator.Core.Configuration;
+using Dictator.Core.Models;
 
 namespace Dictator.Core;
 
 public interface IGameState
 {
-
+    Account GetAccount();
 }
 
 public class GameState : IGameState
 {
-    public int TreasuryBalance { get; set; }
-    public int MonthlyCosts { get; set; }
-    public bool HasSwissBankAccount { get; set; }
-    public int SwissBankAccountBalance { get; set; }
+    public Account Account { get; set; } = new();
 
-    public GameState(AccountSettings accountSettings)
+    public GameState(IAccountSettings accountSettings)
     {
-        TreasuryBalance = accountSettings.InitialTreasuryBalance;
-        MonthlyCosts = accountSettings.InitialMonthlyCosts;
-        HasSwissBankAccount = accountSettings.HasSwissBankAccount;
-        SwissBankAccountBalance = accountSettings.InitialSwissBankAccountBalance;
+        Account.TreasuryBalance = accountSettings.InitialTreasuryBalance;
+        Account.MonthlyCosts = accountSettings.InitialMonthlyCosts;
+        Account.HasSwissBankAccount = accountSettings.HasSwissBankAccount;
+        Account.SwissBankAccountBalance = accountSettings.InitialSwissBankAccountBalance;
     }
 
+    public Account GetAccount()
+    { 
+        return Account;
+    }
 }

@@ -1,10 +1,10 @@
-﻿namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents the account information including Swiss bank account information, treasury balance
     ///     and monthly costs.
     /// </summary>
-    public class Account : IAccount
+    public class Account
     {
         /// <summary>
         ///     Gets or sets the balance of the treasury.

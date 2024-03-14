@@ -7,7 +7,6 @@ using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Start;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.ConsoleInterface.War;
-using Dictator.Core;
 using Dictator.Core.Models;
 using System;
 using System.Collections.Generic;

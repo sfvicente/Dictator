@@ -90,12 +90,11 @@ class Program
         .AddScoped<IPressAnyKeyOrOptionControl, PressAnyKeyOrOptionControl>()
         .AddScoped<IPressAnyKeyWithYesControl, PressAnyKeyWithYesControl>()
         // Models
-        .AddScoped<IAccount, Account>()
         .AddScoped<IGovernment, Government>()
         .AddScoped<IRevolution, Revolution>()
         // State & Configuration
-        .AddScoped<IGameState, GameState>()
-        .AddScoped<AccountSettings, AccountSettings>()
+        .AddSingleton<IGameState, GameState>()
+        .AddScoped<IAccountSettings, AccountSettings>()
         // Services
         .AddScoped<IAccountService, AccountService>()
         .AddScoped<IGovernmentService, GovernmentService>()
