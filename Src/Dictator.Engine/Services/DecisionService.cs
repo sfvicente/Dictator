@@ -49,7 +49,7 @@ public class DecisionService : IDecisionService
 
         ArgumentOutOfRangeException.ThrowIfGreaterThan(optionNumber, filteredDecisions.Length);
 
-        return decisions[optionNumber - 1];
+        return filteredDecisions[optionNumber - 1];
     }
 
     /// <summary>
