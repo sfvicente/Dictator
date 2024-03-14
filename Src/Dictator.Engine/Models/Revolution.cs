@@ -1,6 +1,4 @@
-﻿using Dictator.Core.Models;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents a revolution which sets the player and a possible ally against other groups.

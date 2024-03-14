@@ -1,6 +1,4 @@
-﻿using Dictator.Core.Models;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents a petition by one of the groups that request the player to perform an action.

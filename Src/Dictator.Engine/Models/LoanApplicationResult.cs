@@ -1,6 +1,4 @@
-﻿using Dictator.Core.Models;
-
-namespace Dictator.Core
+﻿namespace Dictator.Core.Models
 {
     /// <summary>
     ///     Represents the outcome of a loan application.

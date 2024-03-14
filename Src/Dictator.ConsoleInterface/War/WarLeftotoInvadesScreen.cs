@@ -1,6 +1,6 @@
 ﻿using Dictator.Common;
 using Dictator.ConsoleInterface.Common;
-using Dictator.Core;
+using Dictator.Core.Models;
 using System;
 
 namespace Dictator.ConsoleInterface.War

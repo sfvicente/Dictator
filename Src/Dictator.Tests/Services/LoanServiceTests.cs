@@ -2,7 +2,6 @@
 using Moq;
 using NUnit.Framework.Internal;
 using Dictator.Core.Services;
-using Dictator.Core;
 using Dictator.Core.Models;
 
 namespace Dictator.Tests;
