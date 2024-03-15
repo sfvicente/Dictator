@@ -7,6 +7,8 @@ public interface IReportService
 {
     PoliceReportRequest RequestPoliceReport();
     PoliceReport GetPoliceReport();
+    bool IsPlayerPopularWithSecretPolice();
+    bool HasPoliceEnoughStrength();
 }
 
 public class ReportService : IReportService
@@ -69,7 +71,7 @@ public class ReportService : IReportService
     ///     Determines if the player is popular with the secret police.
     /// </summary>
     /// <returns><c>true</c> if the player is popular with the secret police; otherwise, <c>false</c>.</returns>
-    private bool IsPlayerPopularWithSecretPolice()
+    public bool IsPlayerPopularWithSecretPolice()
     {
         int secretPolicePopularity = _groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
@@ -80,7 +82,7 @@ public class ReportService : IReportService
     ///     Determines if the level of the police police strength is greater than the minimal requirement for the current month.
     /// </summary>
     /// <returns><c>true</c> if police has enough; otherwise, <c>false</c>.</returns>
-    private bool HasPoliceEnoughStrength()
+    public bool HasPoliceEnoughStrength()
     {
         int policeStrength = _groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
