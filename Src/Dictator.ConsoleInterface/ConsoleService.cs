@@ -2,14 +2,32 @@
 
 namespace Dictator.ConsoleInterface;
 
-public static class ConsoleEx
+public interface IConsoleService
+{
+    void Write(string text, ConsoleColor foregroundColor);
+    void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+    void WriteEmptyLineAt(int top);
+    void WriteEmptyLineAt(int top, ConsoleColor backgroundColor);
+    void WriteAt(int left, int top, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+    void WriteAt(int left, int top, string text, ConsoleColor foregroundColor);
+    void SetCursorPosition(int left, int top);
+    void WriteAt(int left, int top, string text);
+    void WriteCenteredAt(int top, string text);
+    void Clear();
+    void Clear(char character);
+    void Clear(ConsoleColor backgroundColor);
+    void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+    void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+}
+
+public class ConsoleService : IConsoleService
 {
     private const int ScreenRows = 24;
     private const int ScreenCols = 32;
     private const int ScreenColPadding = 24;
     private const string EmptyLine = "                                ";
 
-    public static void Write(string text, ConsoleColor foregroundColor)
+    public void Write(string text, ConsoleColor foregroundColor)
     {
         Console.ForegroundColor = foregroundColor;
         Console.Write(text);
@@ -21,7 +39,7 @@ public static class ConsoleEx
     /// <param name="text">The text to be written to the screen.</param>
     /// <param name="backgroundColor">The background color of the text.</param>
     /// <param name="foregroundColor">The foreground color of the text.</param>
-    public static void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+    public void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
     {
         ConsoleColor previousBackgroundColor = Console.BackgroundColor;
         ConsoleColor previousForegroundColor = Console.ForegroundColor;
@@ -37,7 +55,7 @@ public static class ConsoleEx
     ///     Writes an empty line of text at a specific row.
     /// </summary>
     /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
-    public static void WriteEmptyLineAt(int top)
+    public void WriteEmptyLineAt(int top)
     {
         WriteAt(1, top, EmptyLine);
     }
@@ -47,7 +65,7 @@ public static class ConsoleEx
     /// </summary>
     /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
     /// <param name="backgroundColor">The background color of the line.</param>
-    public static void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
+    public void WriteEmptyLineAt(int top, ConsoleColor backgroundColor)
     {
         ConsoleColor previousBackgroundColor = Console.BackgroundColor;
 
@@ -64,7 +82,7 @@ public static class ConsoleEx
     /// <param name="text">The text to be written to the screen.</param>
     /// <param name="backgroundColor">The background color of the text.</param>
     /// <param name="foregroundColor">The foreground color of the text.</param>
-    public static void WriteAt(int left, int top, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+    public void WriteAt(int left, int top, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
     {
         ConsoleColor previousBackgroundColor = Console.BackgroundColor;
         ConsoleColor previousForegroundColor = Console.ForegroundColor;
@@ -83,7 +101,7 @@ public static class ConsoleEx
     /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
     /// <param name="text">The text to be written to the screen.</param>
     /// <param name="foregroundColor">The foreground color of the text.</param>
-    public static void WriteAt(int left, int top, string text, ConsoleColor foregroundColor)
+    public void WriteAt(int left, int top, string text, ConsoleColor foregroundColor)
     {
         Console.ForegroundColor = foregroundColor;
         WriteAt(left, top, text);
@@ -94,7 +112,7 @@ public static class ConsoleEx
     /// </summary>
     /// <param name="left">The column position of the cursor. Columns are numbered from left to right starting at 0.</param>
     /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
-    public static void SetCursorPosition(int left, int top)
+    public void SetCursorPosition(int left, int top)
     {
         Console.SetCursorPosition(ScreenColPadding + left - 1, top - 1);
     }
@@ -105,7 +123,7 @@ public static class ConsoleEx
     /// <param name="left">The column position of the cursor. Columns are numbered from left to right starting at 0.</param>
     /// <param name="top">The row position of the cursor. Rows are numbered from top to bottom starting at 0.</param>
     /// <param name="text">The text to be written to the screen.</param>
-    public static void WriteAt(int left, int top, string text)
+    public void WriteAt(int left, int top, string text)
     {
         // Validate parameters
 
@@ -113,7 +131,7 @@ public static class ConsoleEx
         Console.Write(text);
     }
 
-    public static void WriteCenteredAt(int top, string text)
+    public void WriteCenteredAt(int top, string text)
     {
         int left = (ScreenCols - text.Length) / 2;
 
@@ -123,7 +141,7 @@ public static class ConsoleEx
     /// <summary>
     ///     Clears the screen.
     /// </summary>
-    public static void Clear()
+    public void Clear()
     {
         for (int row = 1; row <= ScreenRows; row++)
         {
@@ -135,7 +153,7 @@ public static class ConsoleEx
     ///     Clears the screen with a specific character.
     /// </summary>
     /// <param name="character">The character to be written to the entire screen.</param>
-    public static void Clear(char character)
+    public void Clear(char character)
     {
         for (int row = 1; row <= ScreenRows; row++)
         {
@@ -150,7 +168,7 @@ public static class ConsoleEx
     ///     Clears the console buffer and corresponding console window of display information with the specified background color.
     /// </summary>
     /// <param name="backgroundColor">The background color to clear the screen.</param>
-    public static void Clear(ConsoleColor backgroundColor)
+    public void Clear(ConsoleColor backgroundColor)
     {
         ConsoleColor previousBackgroundColor = Console.BackgroundColor;
         Console.BackgroundColor = backgroundColor;
@@ -163,7 +181,7 @@ public static class ConsoleEx
     /// </summary>
     /// <param name="backgroundColor">The background color to clear the screen.</param>
     /// <param name="foregroundColor">The foreground color to be set after clearing the screen.</param>
-    public static void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+    public void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor)
     {
         Console.BackgroundColor = backgroundColor;
         Console.ForegroundColor = foregroundColor;
@@ -176,7 +194,7 @@ public static class ConsoleEx
     /// <param name="character">The caracter to print at all the positions on screen.</param>
     /// <param name="backgroundColor">The background color to clear the screen.</param>
     /// <param name="foregroundColor">The foreground color to be set after clearing the screen.</param>
-    public static void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+    public void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
     {
         Console.BackgroundColor = backgroundColor;
         Console.ForegroundColor = foregroundColor;

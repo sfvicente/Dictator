@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface.Assassination
     ///     Represents the screen that is displayed when an assassination by one of the groups against the player
     ///     fails.
     /// </summary>
-    public class AssassinationFailedScreen : IAssassinationFailedScreen
+    public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -16,7 +16,7 @@ namespace Dictator.ConsoleInterface.Assassination
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public AssassinationFailedScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public AssassinationFailedScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -26,8 +26,8 @@ namespace Dictator.ConsoleInterface.Assassination
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray);
-            ConsoleEx.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);         
+            _consoleService.Clear(ConsoleColor.Gray);
+            _consoleService.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);         
             pressAnyKeyControl.Show();
         }
     }

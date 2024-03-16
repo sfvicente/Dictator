@@ -10,12 +10,13 @@ public interface IAdviceScreen
     public void Show(GameAction gameAction);
 }
 
-public class AdviceScreen : IAdviceScreen
+public class AdviceScreen : BaseScreen, IAdviceScreen
 {
     private readonly IGroupService _groupService;
     private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
-    public AdviceScreen(IGroupService groupService, IPressAnyKeyControl pressAnyKeyControl)
+    public AdviceScreen(IConsoleService consoleService, IGroupService groupService, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
         _groupService = groupService;
         _pressAnyKeyControl = pressAnyKeyControl;
@@ -28,13 +29,13 @@ public class AdviceScreen : IAdviceScreen
     public void Show(GameAction gameAction)
     {
         Console.BackgroundColor = ConsoleColor.DarkYellow;
-        ConsoleEx.Clear();
-        ConsoleEx.WriteAt(1, 2, $"{gameAction.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
-        ConsoleEx.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
-        ConsoleEx.Write(" ....", ConsoleColor.Black);
+        _consoleService.Clear();
+        _consoleService.WriteAt(1, 2, $"{gameAction.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
+        _consoleService.Write(" ....", ConsoleColor.Black);
         DisplayPopularityChanges(gameAction.GroupPopularityChanges);
-        ConsoleEx.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
-        ConsoleEx.Write(" ...", ConsoleColor.Black);
+        _consoleService.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
+        _consoleService.Write(" ...", ConsoleColor.Black);
         DisplayGroupStrengthChanges(gameAction.GroupStrengthChanges);
         _pressAnyKeyControl.Show();
     }
@@ -49,8 +50,8 @@ public class AdviceScreen : IAdviceScreen
             {
                 int popularityChange = groupPopularityChanges[i] - 'M';
 
-                ConsoleEx.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
-                ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
+                _consoleService.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
+                _consoleService.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
                 line++;
             }
         }
@@ -66,8 +67,8 @@ public class AdviceScreen : IAdviceScreen
             {
                 int strengthChange = groupStrengthChanges[i] - 'M';
 
-                ConsoleEx.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
-                ConsoleEx.WriteAt(22, line, $"{GetFormattedChange(strengthChange)}", ConsoleColor.Black);
+                _consoleService.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
+                _consoleService.WriteAt(22, line, $"{GetFormattedChange(strengthChange)}", ConsoleColor.Black);
                 line++;
             }
         }

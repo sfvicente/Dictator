@@ -14,7 +14,7 @@ public interface IHelicopterEscapeScreen
 /// <summary>
 ///     Represents the screen that is displayed when the player successfully escapes using the helicopter.
 /// </summary>
-public class HelicopterEscapeScreen : IHelicopterEscapeScreen
+public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
 {
     private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -23,7 +23,8 @@ public class HelicopterEscapeScreen : IHelicopterEscapeScreen
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public HelicopterEscapeScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public HelicopterEscapeScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+        :base(consoleService)
     {
         this.pressAnyKeyControl = pressAnyKeyControl;
     }
@@ -31,10 +32,10 @@ public class HelicopterEscapeScreen : IHelicopterEscapeScreen
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public void Show()
+    public override void Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
         pressAnyKeyControl.Show();
     }
 }

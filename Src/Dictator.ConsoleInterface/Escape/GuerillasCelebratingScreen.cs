@@ -11,7 +11,7 @@ public interface IGuerillasCelebratingScreen
     public void Show();
 }
 
-public class GuerillasCelebratingScreen : IGuerillasCelebratingScreen
+public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScreen
 {
     private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -20,7 +20,8 @@ public class GuerillasCelebratingScreen : IGuerillasCelebratingScreen
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public GuerillasCelebratingScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public GuerillasCelebratingScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
         this.pressAnyKeyControl = pressAnyKeyControl;
     }
@@ -28,10 +29,10 @@ public class GuerillasCelebratingScreen : IGuerillasCelebratingScreen
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public void Show()
+    public override void Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");
         pressAnyKeyControl.Show();
     }
 }

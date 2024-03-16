@@ -8,7 +8,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the dialog that is displayed when the player is given a list of options to make a
     ///     presidential decision.
     /// </summary>
-    public class PresidentialDecisionMainDialog : IPresidentialDecisionMainDialog
+    public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionMainDialog
     {
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
@@ -18,7 +18,8 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         /// </summary>
         /// <param name="pressAnyKeyOrOptionControl">The control that is displayed when the user is required to press a key
         /// or select an option.</param>
-        public PresidentialDecisionMainDialog(IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+        public PresidentialDecisionMainDialog(IConsoleService consoleService, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+            : base(consoleService)
         {
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
@@ -29,14 +30,14 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         /// <returns>The type of presidential decision that has been selected.</returns>
         public DecisionType Show()
         {
-            ConsoleEx.Clear('*', ConsoleColor.Red, ConsoleColor.Yellow);
-            ConsoleEx.WriteAt(5, 4, "PRESIDENTIAL DECISION", ConsoleColor.Blue, ConsoleColor.White);
-            ConsoleEx.WriteAt(1, 7, "Try to ...", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(4, 9, "1. PLEASE a GROUP       ", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(4, 11, "2. PLEASE ALL GROUPS    ", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(4, 13, "3. IMPROVE your CHANCES ", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(4, 15, "4. RAISE some CASH      ", ConsoleColor.Yellow, ConsoleColor.Black);
-            ConsoleEx.WriteAt(4, 17, "5. STRENGTHEN a GROUP   ", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.Clear('*', ConsoleColor.Red, ConsoleColor.Yellow);
+            _consoleService.WriteAt(5, 4, "PRESIDENTIAL DECISION", ConsoleColor.Blue, ConsoleColor.White);
+            _consoleService.WriteAt(1, 7, "Try to ...", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.WriteAt(4, 9, "1. PLEASE a GROUP       ", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.WriteAt(4, 11, "2. PLEASE ALL GROUPS    ", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.WriteAt(4, 13, "3. IMPROVE your CHANCES ", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.WriteAt(4, 15, "4. RAISE some CASH      ", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.WriteAt(4, 17, "5. STRENGTHEN a GROUP   ", ConsoleColor.Yellow, ConsoleColor.Black);
             
             ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
 

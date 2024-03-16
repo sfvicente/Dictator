@@ -6,7 +6,7 @@ namespace Dictator.ConsoleInterface.War
     /// <summary>
     ///     Represents the screen that is displayed when a player wins the war against Leftoto.
     /// </summary>
-    public class WarWonScreen : IWarWonScreen
+    public class WarWonScreen : BaseScreen, IWarWonScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -15,7 +15,7 @@ namespace Dictator.ConsoleInterface.War
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public WarWonScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public WarWonScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -25,8 +25,8 @@ namespace Dictator.ConsoleInterface.War
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray);
-            ConsoleEx.WriteAt(1, 11, "        LEFTOTANS ROUTED        ");
+            _consoleService.Clear(ConsoleColor.Gray);
+            _consoleService.WriteAt(1, 11, "        LEFTOTANS ROUTED        ");
             pressAnyKeyControl.Show();
         }
     }

@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the screen that is displayed when the result of an application 
     ///     for monetary foreign aid that a player is determined.
     /// </summary>
-    public class LoanApplicationResultScreen : ILoanApplicationResultScreen
+    public class LoanApplicationResultScreen : BaseScreen, ILoanApplicationResultScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -16,7 +16,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public LoanApplicationResultScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public LoanApplicationResultScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -29,18 +29,18 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         {
             if(loanApplicationResult.IsAccepted)
             {
-                ConsoleEx.WriteAt(1, 12, $"{loanApplicationResult.GroupName} will let you have");
-                ConsoleEx.WriteAt(8, 14, $"{loanApplicationResult.Amount},000 DOLLARS");
+                _consoleService.WriteAt(1, 12, $"{loanApplicationResult.GroupName} will let you have");
+                _consoleService.WriteAt(8, 14, $"{loanApplicationResult.Amount},000 DOLLARS");
             }
             else
             {
                 if (loanApplicationResult.Country == LenderCountry.America)
                 {
-                    ConsoleEx.WriteAt(1, 12, "            \"nuts !\"            ");
+                    _consoleService.WriteAt(1, 12, "            \"nuts !\"            ");
                 }
                 else if(loanApplicationResult.Country == LenderCountry.Russia)
                 {
-                    ConsoleEx.WriteAt(1, 12, "             NIET !             ");
+                    _consoleService.WriteAt(1, 12, "             NIET !             ");
                 }
             }
 

@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface.War
     ///     Represents the screen that is displayed when a player loses the war, is unable to
     ///     escape by helicopter and is executed.
     /// </summary>
-    public class WarExecutionScreen : IWarExecutionScreen
+    public class WarExecutionScreen : BaseScreen, IWarExecutionScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -16,7 +16,7 @@ namespace Dictator.ConsoleInterface.War
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public WarExecutionScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public WarExecutionScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -26,10 +26,10 @@ namespace Dictator.ConsoleInterface.War
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 11, "     YOU are judged to be an    ");
-            ConsoleEx.WriteAt(1, 13, "   ENEMY of the PEOPLE and ...  ");
-            ConsoleEx.WriteAt(1, 15, "       Summarily EXECUTED       ");
+            _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteAt(1, 11, "     YOU are judged to be an    ");
+            _consoleService.WriteAt(1, 13, "   ENEMY of the PEOPLE and ...  ");
+            _consoleService.WriteAt(1, 15, "       Summarily EXECUTED       ");
             pressAnyKeyControl.Show();
         }
     }

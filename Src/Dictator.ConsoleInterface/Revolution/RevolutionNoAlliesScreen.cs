@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface.Revolution
     ///     Represents the screen that is displayed when the player has no allies to ask for help
     ///     in the context of a revolution.
     /// </summary>
-    public class RevolutionNoAlliesScreen : IRevolutionNoAlliesScreen
+    public class RevolutionNoAlliesScreen : BaseScreen, IRevolutionNoAlliesScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -16,7 +16,7 @@ namespace Dictator.ConsoleInterface.Revolution
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public RevolutionNoAlliesScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public RevolutionNoAlliesScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -26,8 +26,8 @@ namespace Dictator.ConsoleInterface.Revolution
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 12, "      You're ON YOUR OWN !      ");
+            _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteAt(1, 12, "      You're ON YOUR OWN !      ");
             pressAnyKeyControl.Show();
         }
     }

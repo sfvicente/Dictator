@@ -13,7 +13,7 @@ public interface IPoliceReportScreen
 /// <summary>
 ///     Represents the screen that is displayed when the player is shown the police report.
 /// </summary>
-public class PoliceReportScreen : IPoliceReportScreen
+public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
 {
     private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
@@ -22,7 +22,8 @@ public class PoliceReportScreen : IPoliceReportScreen
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public PoliceReportScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public PoliceReportScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
         _pressAnyKeyControl = pressAnyKeyControl;
     }
@@ -31,7 +32,7 @@ public class PoliceReportScreen : IPoliceReportScreen
     {
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
-        ConsoleEx.Clear();
+        _consoleService.Clear();
         DisplayHeaders(policeReport.Month);
         DisplayGroupStats(policeReport.Groups.ToArray());
         DisplayGovernmentStats(policeReport.PlayerStrength, policeReport.MonthlyRevolutionStrength);
@@ -40,11 +41,11 @@ public class PoliceReportScreen : IPoliceReportScreen
 
     private void DisplayHeaders(int month)
     {
-        ConsoleEx.WriteAt(1, 1, $"MONTH {month}                       ");
-        ConsoleEx.WriteAt(1, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
-        ConsoleEx.WriteAt(7, 4, "SECRET POLICE REPORT", ConsoleColor.White, ConsoleColor.Black);
-        ConsoleEx.WriteAt(27, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
+        _consoleService.WriteAt(1, 1, $"MONTH {month}                       ");
+        _consoleService.WriteAt(1, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
+        _consoleService.WriteAt(7, 4, "SECRET POLICE REPORT", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.WriteAt(27, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
     }
 
     private void DisplayGroupStats(Group[] groups)
@@ -54,7 +55,7 @@ public class PoliceReportScreen : IPoliceReportScreen
             int currentPopularity = groups[i].Popularity;
             int popularityStartIndex = 11 - currentPopularity;
 
-            ConsoleEx.SetCursorPosition(popularityStartIndex, 9 + i);
+            _consoleService.SetCursorPosition(popularityStartIndex, 9 + i);
 
             Console.BackgroundColor = ConsoleColor.Green;
             Console.ForegroundColor = ConsoleColor.White;
@@ -68,7 +69,7 @@ public class PoliceReportScreen : IPoliceReportScreen
             Console.Write(i + 1);
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.Black;
-            ConsoleEx.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
+            _consoleService.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
 
             DisplayGroupStatus(groups[i]);
 
@@ -89,21 +90,21 @@ public class PoliceReportScreen : IPoliceReportScreen
     {
         if (group.Status == GroupStatus.Assassination)
         {
-            ConsoleEx.Write("A", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.Write("A", ConsoleColor.White, ConsoleColor.Black);
         }
         else if (group.Status == GroupStatus.Revolution)
         {
-            ConsoleEx.Write("R", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.Write("R", ConsoleColor.White, ConsoleColor.Black);
         }
         else
         {
-            ConsoleEx.Write(" ", ConsoleColor.Black, ConsoleColor.Black);
+            _consoleService.Write(" ", ConsoleColor.Black, ConsoleColor.Black);
         }
     }
 
     private void DisplayGovernmentStats(int playerStrength, int monthlyRevolutionStrength)
     {
-        ConsoleEx.WriteAt(1, 18, $"  Your STRENGTH is {playerStrength}           ");
-        ConsoleEx.WriteAt(1, 20, $"  STRENGTH for REVOLUTION is {monthlyRevolutionStrength} ");
+        _consoleService.WriteAt(1, 18, $"  Your STRENGTH is {playerStrength}           ");
+        _consoleService.WriteAt(1, 20, $"  STRENGTH for REVOLUTION is {monthlyRevolutionStrength} ");
     }
 }

@@ -15,7 +15,7 @@ public interface IEscapeToLeftotoScreen
 ///     Represents the screen that is displayed when the player attempts the escape
 ///     through the mountains to Leftoto.
 /// </summary>
-public class EscapeToLeftotoScreen : IEscapeToLeftotoScreen
+public class EscapeToLeftotoScreen : BaseScreen, IEscapeToLeftotoScreen
 {
     private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -24,7 +24,7 @@ public class EscapeToLeftotoScreen : IEscapeToLeftotoScreen
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public EscapeToLeftotoScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public EscapeToLeftotoScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
         this.pressAnyKeyControl = pressAnyKeyControl;
     }
@@ -34,9 +34,9 @@ public class EscapeToLeftotoScreen : IEscapeToLeftotoScreen
     /// </summary>
     public void Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 10, "   You have to get through the  ");
-        ConsoleEx.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 10, "   You have to get through the  ");
+        _consoleService.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
         pressAnyKeyControl.Show();
     }
 }

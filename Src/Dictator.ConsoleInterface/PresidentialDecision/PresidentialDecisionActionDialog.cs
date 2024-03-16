@@ -8,7 +8,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the dialog that is displayed when the player needs to make a decision to accept or refuse
     ///     the presidential option that has been selected.
     /// </summary>
-    public class PresidentialDecisionActionDialog : IPresidentialDecisionActionDialog
+    public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisionActionDialog
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
@@ -18,7 +18,8 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         /// </summary>
         /// <param name="pressAnyKeyWithYesControl">The control that is displayed when the user is required to press a key
         /// or select yes.</param>
-        public PresidentialDecisionActionDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        public PresidentialDecisionActionDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+            : base(consoleService)
         {
             this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
         }
@@ -30,36 +31,36 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         /// <returns>The option selected after the dialog has been presented.</returns>
         public DialogResult Show(Decision decision)
         {
-            ConsoleEx.Clear(ConsoleColor.DarkYellow);
-            ConsoleEx.WriteAt(1, 5, $"{decision.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
+            _consoleService.Clear(ConsoleColor.DarkYellow);
+            _consoleService.WriteAt(1, 5, $"{decision.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
 
             Console.BackgroundColor = ConsoleColor.DarkYellow;
 
             if (decision.Cost == 0 && decision.MonthlyCost == 0)
             {
-                ConsoleEx.WriteAt(1, 11, "        NO MONEY INVOLVED       ", ConsoleColor.Black);
+                _consoleService.WriteAt(1, 11, "        NO MONEY INVOLVED       ", ConsoleColor.Black);
             }
             else
             {
-                ConsoleEx.WriteAt(2, 10, "This decision would", ConsoleColor.Black);
+                _consoleService.WriteAt(2, 10, "This decision would", ConsoleColor.Black);
 
                 if (decision.Cost != 0)
                 {
                     string addOrTake = (decision.Cost > 0) ? "ADD to" : "TAKE from";
 
-                    ConsoleEx.WriteAt(2, 12, $"{addOrTake} the TREASURY ${Math.Abs(decision.Cost)},000", ConsoleColor.Black);
+                    _consoleService.WriteAt(2, 12, $"{addOrTake} the TREASURY ${Math.Abs(decision.Cost)},000", ConsoleColor.Black);
                 }
 
                 if (decision.Cost != 0 && decision.MonthlyCost != 0)
                 {
-                    ConsoleEx.WriteAt(2, 14, "and", ConsoleColor.Black);
+                    _consoleService.WriteAt(2, 14, "and", ConsoleColor.Black);
                 }
 
                 if (decision.MonthlyCost != 0)
                 {
                     string raiseOrLower = (decision.MonthlyCost < 0) ? "RAISE" : "LOWER";
 
-                    ConsoleEx.WriteAt(2, 16, $"{raiseOrLower} MONTHLY COSTS by ${Math.Abs(decision.MonthlyCost)},000", ConsoleColor.Black);
+                    _consoleService.WriteAt(2, 16, $"{raiseOrLower} MONTHLY COSTS by ${Math.Abs(decision.MonthlyCost)},000", ConsoleColor.Black);
                 }
             }
 

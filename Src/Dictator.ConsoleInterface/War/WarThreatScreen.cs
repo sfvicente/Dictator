@@ -6,7 +6,7 @@ namespace Dictator.ConsoleInterface.War
     /// <summary>
     ///     Represents the screen that is displayed when there is a threat of war with Leftoto.
     /// </summary>
-    public class WarThreatScreen : IWarThreatScreen
+    public class WarThreatScreen : BaseScreen, IWarThreatScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -15,7 +15,7 @@ namespace Dictator.ConsoleInterface.War
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public WarThreatScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public WarThreatScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -25,10 +25,10 @@ namespace Dictator.ConsoleInterface.War
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 6, "   THREAT of WAR with LEFTOTO   ");
-            ConsoleEx.WriteAt(1, 11, "   Your POPULARITY in RITIMBA   ");
-            ConsoleEx.WriteAt(1, 12, "            will RISE           ");
+            _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteAt(1, 6, "   THREAT of WAR with LEFTOTO   ");
+            _consoleService.WriteAt(1, 11, "   Your POPULARITY in RITIMBA   ");
+            _consoleService.WriteAt(1, 12, "            will RISE           ");
             pressAnyKeyControl.Show();
         }
     }

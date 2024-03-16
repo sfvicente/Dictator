@@ -16,7 +16,7 @@ public interface IEscapeAttemptDialog
 ///     Represents the dialog that is displayed when the choice to escape a war or revolution is presented
 ///     to the player.
 /// </summary>
-public class EscapeAttemptDialog : IEscapeAttemptDialog
+public class EscapeAttemptDialog : BaseScreen, IEscapeAttemptDialog
 {
     private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
 
@@ -25,7 +25,8 @@ public class EscapeAttemptDialog : IEscapeAttemptDialog
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyWithYesControl">The control that is displayed when the user is required to press a key.</param>
-    public EscapeAttemptDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+    public EscapeAttemptDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        : base(consoleService)
     {
         this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
@@ -36,8 +37,8 @@ public class EscapeAttemptDialog : IEscapeAttemptDialog
     /// <returns>The option selected after the dialog has been presented.</returns>
     public DialogResult Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 12, "        ESCAPE ATTEMPT ?        ");
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 12, "        ESCAPE ATTEMPT ?        ");
 
         return pressAnyKeyWithYesControl.Show();
     }

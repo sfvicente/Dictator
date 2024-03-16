@@ -8,24 +8,25 @@ public interface IAdviceRequestDialog
     DialogResult Show();
 }
 
-public class AdviceRequestDialog : IAdviceRequestDialog
+public class AdviceRequestDialog : BaseScreen, IAdviceRequestDialog
 {
     private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
-    public AdviceRequestDialog(IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+    public AdviceRequestDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+        : base(consoleService)
     {
         _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
 
     public DialogResult Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Green);
+        _consoleService.Clear(ConsoleColor.Green);
 
         for (int row = 2; row < 21; row++)
         {
-            ConsoleEx.WriteAt(11, row, "?", ConsoleColor.Black, ConsoleColor.White);
-            ConsoleEx.WriteAt(12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
+            _consoleService.WriteAt(11, row, "?", ConsoleColor.Black, ConsoleColor.White);
+            _consoleService.WriteAt(12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
         }
 
         return _pressAnyKeyWithYesControl.Show();

@@ -8,25 +8,31 @@ namespace Dictator.ConsoleInterface.Revolution
     ///     Represents the dialog that is displayed when the player must choose a group
     ///     to form an alliance in a revolution scenario.
     /// </summary>
-    public class RevolutionAskForHelpDialog : IRevolutionAskForHelpDialog
+    public class RevolutionAskForHelpDialog : BaseScreen, IRevolutionAskForHelpDialog
     {
+        public RevolutionAskForHelpDialog(IConsoleService consoleService)
+            : base(consoleService)
+        {
+
+        }
+
         public int Show(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies)
         {
-            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteCenteredAt(5, $"{revolutionary.RevolutionaryGroupName} have joined with");
-            ConsoleEx.WriteCenteredAt(6, $"{revolutionary.RevolutionaryGroupAllyName}");
-            ConsoleEx.WriteAt(1, 7, $"  Their combined STRENGTH is {revolutionary.CombinedStrength} ");
-            ConsoleEx.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
+            _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteCenteredAt(5, $"{revolutionary.RevolutionaryGroupName} have joined with");
+            _consoleService.WriteCenteredAt(6, $"{revolutionary.RevolutionaryGroupAllyName}");
+            _consoleService.WriteAt(1, 7, $"  Their combined STRENGTH is {revolutionary.CombinedStrength} ");
+            _consoleService.WriteAt(1, 9, "  WHO are you ASKING for HELP ? ");
 
             for (int i = 1; i < 7; i++)
             {
-                if(possibleAllies.ContainsKey(i))
+                if (possibleAllies.ContainsKey(i))
                 {
-                    ConsoleEx.WriteAt(6, 14 + i, $"{i} {possibleAllies[i].Name}");
+                    _consoleService.WriteAt(6, 14 + i, $"{i} {possibleAllies[i].Name}");
                 }
                 else
                 {
-                    ConsoleEx.WriteEmptyLineAt(14 + i);
+                    _consoleService.WriteEmptyLineAt(14 + i);
                 }
             }
 

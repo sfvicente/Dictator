@@ -9,12 +9,14 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the screen that is displayed when the player transfers funds from the treasury 
     ///     to the Swiss bank account.
     /// </summary>
-    public class TransferToSwissBankAccountScreen : ITransferToSwissBankAccountScreen
+    public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBankAccountScreen
     {
         private readonly IAccountControl accountControl;
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public TransferToSwissBankAccountScreen(IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
+        public TransferToSwissBankAccountScreen(
+            IConsoleService consoleService, IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
+            : base(consoleService)
         {
             this.accountControl = accountControl;
             this.pressAnyKeyControl = pressAnyKeyControl;
@@ -29,17 +31,17 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.ForegroundColor = ConsoleColor.Black;
-            ConsoleEx.Clear();
-            ConsoleEx.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
+            _consoleService.Clear();
+            _consoleService.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
 
             if (swissBankAccountTransfer.AmountStolen > 0)
             {
-                ConsoleEx.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryPreviousBalance},000");
-                ConsoleEx.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen},000 has been TRANSFERRED");
+                _consoleService.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryPreviousBalance},000");
+                _consoleService.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen},000 has been TRANSFERRED");
             }
             else
             {
-                ConsoleEx.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
+                _consoleService.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
             }
 
             accountControl.Show(account);

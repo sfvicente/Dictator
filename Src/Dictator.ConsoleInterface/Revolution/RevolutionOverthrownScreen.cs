@@ -6,7 +6,7 @@ namespace Dictator.ConsoleInterface.Revolution
     /// <summary>
     ///     Represents the screen that is displayed when the player is overthrown in the context of a revolution.
     /// </summary>
-    public class RevolutionOverthrownScreen : IRevolutionOverthrownScreen
+    public class RevolutionOverthrownScreen : BaseScreen, IRevolutionOverthrownScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -15,7 +15,7 @@ namespace Dictator.ConsoleInterface.Revolution
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public RevolutionOverthrownScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public RevolutionOverthrownScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -25,9 +25,9 @@ namespace Dictator.ConsoleInterface.Revolution
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-            ConsoleEx.WriteAt(1, 10, "    You have been OVERTHROWN    ");
-            ConsoleEx.WriteAt(1, 12, "         and LIQUIDATED         ");
+            _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+            _consoleService.WriteAt(1, 10, "    You have been OVERTHROWN    ");
+            _consoleService.WriteAt(1, 12, "         and LIQUIDATED         ");
             pressAnyKeyControl.Show();
         }
     }

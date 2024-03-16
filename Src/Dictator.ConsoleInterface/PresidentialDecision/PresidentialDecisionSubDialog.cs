@@ -8,7 +8,7 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the dialog that is displayed when the player is given the list of sub-options
     ///     within a specific option to make a presidential decision.
     /// </summary>
-    public class PresidentialDecisionSubDialog : IPresidentialDecisionSubDialog
+    public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSubDialog
     {
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
 
@@ -18,7 +18,8 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         /// </summary>
         /// <param name="pressAnyKeyOrOptionControl">The control that is displayed when the user is required to press a key
         /// or select an option.</param>
-        public PresidentialDecisionSubDialog(IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+        public PresidentialDecisionSubDialog(IConsoleService consoleService, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
+            : base(consoleService)
         {
             this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
         }
@@ -39,11 +40,11 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
         public int Show(Decision[] decisions)
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
-            ConsoleEx.Clear();
+            _consoleService.Clear();
 
             if(HaveAllDecisionsBeenUsed(decisions))
             {
-                ConsoleEx.WriteAt(1, 12, "   ALL of this section USED UP  ");
+                _consoleService.WriteAt(1, 12, "   ALL of this section USED UP  ");
             }
             else
             {
@@ -56,14 +57,14 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
 
                     if (!decisions[i].HasBeenUsed)
                     {
-                        ConsoleEx.WriteAt(1, line + i, $"{optionNumber}.");
+                        _consoleService.WriteAt(1, line + i, $"{optionNumber}.");
                     }
 
                     line++;
 
                     if (!decisions[i].HasBeenUsed)
                     {
-                        ConsoleEx.WriteAt(1, line + i, decisions[i].Text);
+                        _consoleService.WriteAt(1, line + i, decisions[i].Text);
                     }
 
                     line++;

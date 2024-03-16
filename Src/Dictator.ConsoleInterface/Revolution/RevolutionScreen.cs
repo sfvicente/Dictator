@@ -6,7 +6,7 @@ namespace Dictator.ConsoleInterface.Revolution
     /// <summary>
     ///     Represents the screen that is displayed when a revolution has been triggered.
     /// </summary>
-    public class RevolutionScreen : IRevolutionScreen
+    public class RevolutionScreen : BaseScreen, IRevolutionScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -15,7 +15,7 @@ namespace Dictator.ConsoleInterface.Revolution
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public RevolutionScreen(IPressAnyKeyControl pressAnyKeyControl)
+        public RevolutionScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
@@ -25,8 +25,8 @@ namespace Dictator.ConsoleInterface.Revolution
         /// </summary>
         public void Show()
         {
-            ConsoleEx.Clear(ConsoleColor.Red);
-            ConsoleEx.WriteAt(11, 12, "REVOLUTION", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.Clear(ConsoleColor.Red);
+            _consoleService.WriteAt(11, 12, "REVOLUTION", ConsoleColor.White, ConsoleColor.Black);
             pressAnyKeyControl.Show();
         }
     }

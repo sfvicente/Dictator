@@ -6,7 +6,7 @@ namespace Dictator.ConsoleInterface.Common
     ///     Represents the control that is displayed with a panel when the user is required
     ///     to press a key or select yes.
     /// </summary>
-    public class PressAnyKeyWithYesControl : IPressAnyKeyWithYesControl
+    public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
     {
         private readonly IKeyPanel keyPanel;
 
@@ -15,7 +15,8 @@ namespace Dictator.ConsoleInterface.Common
         ///     component.
         /// </summary>
         /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
-        public PressAnyKeyWithYesControl(IKeyPanel keyPanel)
+        public PressAnyKeyWithYesControl(IConsoleService consoleService, IKeyPanel keyPanel)
+            : base(consoleService)
         {
             this.keyPanel = keyPanel;
         }
@@ -26,7 +27,7 @@ namespace Dictator.ConsoleInterface.Common
         /// <returns>The option selected after the control has been presented.</returns>
         public DialogResult Show()
         {
-            ConsoleEx.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
             keyPanel.Show();
 
             ConsoleKey keyPressed = Console.ReadKey(true).Key;

@@ -15,7 +15,7 @@ public interface IGuerillasMissedScreen
 ///     Represents the screen that is displayed when the player escapes through the mountains to Leftoto
 ///     and isn't caught by the guerillas.
 /// </summary>
-public class GuerillasMissedScreen : IGuerillasMissedScreen
+public class GuerillasMissedScreen : BaseScreen, IGuerillasMissedScreen
 {
     private readonly IPressAnyKeyControl pressAnyKeyControl;
 
@@ -24,7 +24,7 @@ public class GuerillasMissedScreen : IGuerillasMissedScreen
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public GuerillasMissedScreen(IPressAnyKeyControl pressAnyKeyControl)
+    public GuerillasMissedScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
         this.pressAnyKeyControl = pressAnyKeyControl;
     }
@@ -34,8 +34,8 @@ public class GuerillasMissedScreen : IGuerillasMissedScreen
     /// </summary>
     public void Show()
     {
-        ConsoleEx.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        ConsoleEx.WriteAt(1, 11, " The GUERILLAS didn't catch you ");
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 11, " The GUERILLAS didn't catch you ");
         pressAnyKeyControl.Show();
     }
 }
