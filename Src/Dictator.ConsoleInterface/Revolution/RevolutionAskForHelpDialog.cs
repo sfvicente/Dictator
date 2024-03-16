@@ -26,9 +26,9 @@ namespace Dictator.ConsoleInterface.Revolution
 
             for (int i = 1; i < 7; i++)
             {
-                if (possibleAllies.ContainsKey(i))
+                if (possibleAllies.TryGetValue(i, out Group value))
                 {
-                    _consoleService.WriteAt(6, 14 + i, $"{i} {possibleAllies[i].Name}");
+                    _consoleService.WriteAt(6, 14 + i, $"{i} {value.Name}");
                 }
                 else
                 {
