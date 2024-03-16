@@ -1,5 +1,4 @@
-﻿using Dictator.Common;
-using System;
+﻿using System;
 
 namespace Dictator.ConsoleInterface.Common
 {

@@ -1,5 +1,4 @@
-﻿using Dictator.Common;
-using Dictator.Core.Models;
+﻿using Dictator.Core.Models;
 using System;
 
 namespace Dictator.ConsoleInterface.Treasury

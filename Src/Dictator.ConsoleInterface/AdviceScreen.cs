@@ -1,5 +1,4 @@
-﻿using Dictator.Common;
-using Dictator.ConsoleInterface.Common;
+﻿using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using Dictator.Core.Services;
 using System;

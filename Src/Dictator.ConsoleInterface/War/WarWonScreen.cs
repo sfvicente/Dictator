@@ -1,5 +1,4 @@
-﻿using Dictator.Common;
-using Dictator.ConsoleInterface.Common;
+﻿using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.War
