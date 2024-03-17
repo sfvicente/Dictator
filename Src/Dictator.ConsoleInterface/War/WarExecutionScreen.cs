@@ -3,6 +3,14 @@ using System;
 
 namespace Dictator.ConsoleInterface.War
 {
+    public interface IWarExecutionScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
     /// <summary>
     ///     Represents the screen that is displayed when a player loses the war, is unable to
     ///     escape by helicopter and is executed.

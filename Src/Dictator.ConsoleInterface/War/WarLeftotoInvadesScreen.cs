@@ -4,6 +4,14 @@ using System;
 
 namespace Dictator.ConsoleInterface.War
 {
+    public interface IWarLeftotoInvadesScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show(WarStats warStats);
+    }
+
     /// <summary>
     ///     Represents the screen that is displayed when Leftoto invades and initiates the war
     ///     against the republic of Ritimban.
