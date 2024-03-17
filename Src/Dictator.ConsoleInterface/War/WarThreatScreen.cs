@@ -8,7 +8,7 @@ namespace Dictator.ConsoleInterface.War
     /// </summary>
     public class WarThreatScreen : BaseScreen, IWarThreatScreen
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="WarThreatScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -17,7 +17,7 @@ namespace Dictator.ConsoleInterface.War
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public WarThreatScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            _pressAnyKeyControl = pressAnyKeyControl;
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Dictator.ConsoleInterface.War
             _consoleService.WriteAt(1, 6, "   THREAT of WAR with LEFTOTO   ");
             _consoleService.WriteAt(1, 11, "   Your POPULARITY in RITIMBA   ");
             _consoleService.WriteAt(1, 12, "            will RISE           ");
-            pressAnyKeyControl.Show();
+            _pressAnyKeyControl.Show();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Dictator.ConsoleInterface.War
     /// </summary>
     public class WarLeftotoInvadesScreen : BaseScreen, IWarLeftotoInvadesScreen
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="WarLeftotoInvadesScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -19,7 +19,7 @@ namespace Dictator.ConsoleInterface.War
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
         public WarLeftotoInvadesScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
         {
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            _pressAnyKeyControl = pressAnyKeyControl;
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Dictator.ConsoleInterface.War
             _consoleService.WriteAt(1, 12, $"     Ritimban Strength is {warStats.RitimbanStrength}    ", ConsoleColor.Red, ConsoleColor.Gray);
             _consoleService.WriteAt(1, 14, $"     Leftotan Strength is {warStats.LeftotanStrength}    ", ConsoleColor.Red, ConsoleColor.Gray);
             _consoleService.WriteAt(6, 18, "A SHORT DECISIVE WAR", ConsoleColor.White, ConsoleColor.Black);
-            pressAnyKeyControl.Show();
+            _pressAnyKeyControl.Show();
         }
     }
 }
