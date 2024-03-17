@@ -2,7 +2,7 @@
 using Dictator.Core.Models;
 using System;
 
-namespace Dictator.ConsoleInterface;
+namespace Dictator.ConsoleInterface.Police;
 
 public interface IPoliceReportRequestDialog
 {

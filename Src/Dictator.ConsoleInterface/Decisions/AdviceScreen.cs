@@ -3,7 +3,7 @@ using Dictator.Core.Models;
 using Dictator.Core.Services;
 using System;
 
-namespace Dictator.ConsoleInterface;
+namespace Dictator.ConsoleInterface.Decisions;
 
 public interface IAdviceScreen
 {

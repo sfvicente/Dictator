@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dictator.ConsoleInterface;
+namespace Dictator.ConsoleInterface.Events;
 
 public interface INewsflashScreen
 {
@@ -12,7 +12,7 @@ public class NewsflashScreen : BaseScreen, INewsflashScreen
     public NewsflashScreen(IConsoleService consoleService)
         : base(consoleService)
     {
-        
+
     }
 
     public void Show(string headline)

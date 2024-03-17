@@ -1,8 +1,10 @@
 ﻿using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Decisions;
 using Dictator.ConsoleInterface.Escape;
-using Dictator.ConsoleInterface.Month;
+using Dictator.ConsoleInterface.Events;
+using Dictator.ConsoleInterface.Police;
 using Dictator.ConsoleInterface.PresidentialDecision;
 using Dictator.ConsoleInterface.Revolution;
 using Dictator.ConsoleInterface.Start;

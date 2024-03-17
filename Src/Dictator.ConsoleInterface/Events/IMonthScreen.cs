@@ -1,4 +1,4 @@
-﻿namespace Dictator.ConsoleInterface.Month
+﻿namespace Dictator.ConsoleInterface.Events
 {
     /// <summary>
     ///     Represents the screen that is displayed when a new month starts, which

@@ -1,7 +1,7 @@
 ﻿using Dictator.ConsoleInterface.Common;
 using System;
 
-namespace Dictator.ConsoleInterface;
+namespace Dictator.ConsoleInterface.Decisions;
 
 public interface IAdviceRequestDialog
 {

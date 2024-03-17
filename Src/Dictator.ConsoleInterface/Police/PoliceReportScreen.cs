@@ -3,7 +3,7 @@ using Dictator.Core.Models;
 using System;
 using System.Linq;
 
-namespace Dictator.ConsoleInterface;
+namespace Dictator.ConsoleInterface.Police;
 
 public interface IPoliceReportScreen
 {
