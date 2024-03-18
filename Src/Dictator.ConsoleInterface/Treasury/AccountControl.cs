@@ -1,6 +1,5 @@
 ﻿using Dictator.Core.Models;
 using System;
-using System.Runtime.CompilerServices;
 
 namespace Dictator.ConsoleInterface.Treasury;
 
