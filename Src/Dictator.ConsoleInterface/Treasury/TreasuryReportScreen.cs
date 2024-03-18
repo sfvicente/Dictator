@@ -21,8 +21,8 @@ public interface ITreasuryReportScreen
 /// </summary>
 public class TreasuryReportScreen : BaseScreen, ITreasuryReportScreen
 {
-    private readonly IAccountControl accountControl;
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IAccountControl _accountControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="TreasuryReportScreen"/> class from an <see cref="IAccountControl"/> and
@@ -34,8 +34,8 @@ public class TreasuryReportScreen : BaseScreen, ITreasuryReportScreen
     public TreasuryReportScreen(IConsoleService consoleService, IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.accountControl = accountControl;
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _accountControl = accountControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class TreasuryReportScreen : BaseScreen, ITreasuryReportScreen
         _consoleService.WriteAt(2, 5, "                              ", ConsoleColor.Green, ConsoleColor.Black);
         _consoleService.WriteAt(2, 6, "                              ", ConsoleColor.Green, ConsoleColor.Black);
         _consoleService.WriteAt(8, 9, "TREASURY REPORT", ConsoleColor.White, ConsoleColor.Black);
-        accountControl.Show(account);
-        pressAnyKeyControl.Show();
+        _accountControl.Show(account);
+        _pressAnyKeyControl.Show();
     }
 }

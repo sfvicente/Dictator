@@ -20,7 +20,7 @@ public interface IBankruptcyScreen
 /// </summary>
 public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="BankruptcyScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -30,7 +30,7 @@ public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
     public BankruptcyScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -44,6 +44,6 @@ public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
         _consoleService.WriteAt(1, 11, " the SECRET POLICE will DROP ! ");
         _consoleService.WriteAt(1, 13, "    POLICE STRENGTH will drop  ");
         _consoleService.WriteAt(1, 15, "and YOUR own STRENGTH will DROP");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }
