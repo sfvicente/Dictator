@@ -6,6 +6,18 @@ namespace Dictator.ConsoleInterface.Treasury
     ///     Represents the screen that is displayed when the treasury is bankrupt, leading to a drop in
     ///     the player's popularity.
     /// </summary>
+    public interface IBankruptcyScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
+    /// <summary>
+    ///     Represents the screen that is displayed when the treasury is bankrupt, leading to a drop in
+    ///     the player's popularity.
+    /// </summary>
     public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
