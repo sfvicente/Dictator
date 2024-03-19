@@ -1,40 +1,39 @@
 ﻿using Dictator.ConsoleInterface.Common;
 
-namespace Dictator.ConsoleInterface.Assassination
+namespace Dictator.ConsoleInterface.Assassination;
+
+/// <summary>
+///     Represents the screen that is displayed when an assassination attempt by one of the groups 
+///     against the player happens.
+/// </summary>
+public interface IAssassinationScreen
 {
+    public void Show(string groupName);
+}
+
+/// <summary>
+///     Represents the screen that is displayed when an assassination attempt by one of the groups 
+///     against the player happens.
+/// </summary>
+public class AssassinationScreen : BaseScreen, IAssassinationScreen
+{
+    private readonly IPressAnyKeyControl pressAnyKeyControl;
+
     /// <summary>
-    ///     Represents the screen that is displayed when an assassination attempt by one of the groups 
-    ///     against the player happens.
+    ///     Initializes a new instance of the <see cref="AssassinationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
+    ///     component.
     /// </summary>
-    public interface IAssassinationScreen
+    /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
+    public AssassinationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        public void Show(string groupName);
+        this.pressAnyKeyControl = pressAnyKeyControl;
     }
 
-    /// <summary>
-    ///     Represents the screen that is displayed when an assassination attempt by one of the groups 
-    ///     against the player happens.
-    /// </summary>
-    public class AssassinationScreen : BaseScreen, IAssassinationScreen
+    public void Show(string groupName)
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="AssassinationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
-        ///     component.
-        /// </summary>
-        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public AssassinationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
-        {
-            this.pressAnyKeyControl = pressAnyKeyControl;
-        }
-
-        public void Show(string groupName)
-        {
-            _consoleService.Clear();
-            _consoleService.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     ");
-            _consoleService.WriteCenteredAt(12, $"by one of {groupName}");
-            pressAnyKeyControl.Show();
-        }
+        _consoleService.Clear();
+        _consoleService.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     ");
+        _consoleService.WriteCenteredAt(12, $"by one of {groupName}");
+        pressAnyKeyControl.Show();
     }
 }
