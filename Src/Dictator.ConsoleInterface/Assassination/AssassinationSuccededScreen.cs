@@ -25,7 +25,8 @@ public class AssassinationSuccededScreen : BaseScreen, IAssassinationSuccededScr
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public AssassinationSuccededScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
+    public AssassinationSuccededScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
         _pressAnyKeyControl = pressAnyKeyControl;
     }
