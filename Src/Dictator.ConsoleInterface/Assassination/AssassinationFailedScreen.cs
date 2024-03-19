@@ -7,6 +7,18 @@ namespace Dictator.ConsoleInterface.Assassination
     ///     Represents the screen that is displayed when an assassination by one of the groups against the player
     ///     fails.
     /// </summary>
+    public interface IAssassinationFailedScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
+    /// <summary>
+    ///     Represents the screen that is displayed when an assassination by one of the groups against the player
+    ///     fails.
+    /// </summary>
     public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
