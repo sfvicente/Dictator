@@ -21,7 +21,7 @@ public interface IAssassinationFailedScreen
 /// </summary>
 public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="AssassinationFailedScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -30,7 +30,7 @@ public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public AssassinationFailedScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -40,6 +40,6 @@ public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
     {
         _consoleService.Clear(ConsoleColor.Gray);
         _consoleService.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);         
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

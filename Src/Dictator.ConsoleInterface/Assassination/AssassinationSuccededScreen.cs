@@ -18,7 +18,7 @@ public interface IAssassinationSuccededScreen
 /// </summary>
 public class AssassinationSuccededScreen : BaseScreen, IAssassinationSuccededScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="AssassinationSuccededScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -27,13 +27,13 @@ public class AssassinationSuccededScreen : BaseScreen, IAssassinationSuccededScr
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public AssassinationSuccededScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray);
         _consoleService.WriteAt(1, 11, "          You're DEAD !         ", ConsoleColor.Gray, ConsoleColor.Black);
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

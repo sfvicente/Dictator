@@ -17,7 +17,7 @@ public interface IAssassinationScreen
 /// </summary>
 public class AssassinationScreen : BaseScreen, IAssassinationScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="AssassinationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -26,7 +26,7 @@ public class AssassinationScreen : BaseScreen, IAssassinationScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public AssassinationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     public void Show(string groupName)
@@ -34,6 +34,6 @@ public class AssassinationScreen : BaseScreen, IAssassinationScreen
         _consoleService.Clear();
         _consoleService.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     ");
         _consoleService.WriteCenteredAt(12, $"by one of {groupName}");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }
