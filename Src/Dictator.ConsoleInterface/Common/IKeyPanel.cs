@@ -1,13 +1,12 @@
-﻿namespace Dictator.ConsoleInterface.Common
+﻿namespace Dictator.ConsoleInterface.Common;
+
+/// <summary>
+///     Represents the panel that is displayed when the user is required to press a key.
+/// </summary>
+public interface IKeyPanel
 {
     /// <summary>
-    ///     Represents the panel that is displayed when the user is required to press a key.
+    ///     Displays the panel.
     /// </summary>
-    public interface IKeyPanel
-    {
-        /// <summary>
-        ///     Displays the panel.
-        /// </summary>
-        public void Show();
-    }
+    public void Show();
 }
