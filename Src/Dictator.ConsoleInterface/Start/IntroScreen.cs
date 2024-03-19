@@ -6,6 +6,14 @@ namespace Dictator.ConsoleInterface.Start
     /// <summary>
     ///     Represents the screen that is displayed when a game starts.
     /// </summary>
+    public interface IIntroScreen
+    {
+        public void Show();
+    }
+
+    /// <summary>
+    ///     Represents the screen that is displayed when a game starts.
+    /// </summary>
     public class IntroScreen : BaseScreen, IIntroScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
