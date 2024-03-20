@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Dictator.Engine\Dictator.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Month\" />
-  </ItemGroup>
-
 </Project>
