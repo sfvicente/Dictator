@@ -21,7 +21,7 @@ public interface IPressAnyKeyWithYesControl
 /// </summary>
 public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
 {
-    private readonly IKeyPanel keyPanel;
+    private readonly IKeyPanel _keyPanel;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PressAnyKeyWithYesControl"/> class from a <see cref="IKeyPanel"/>
@@ -31,7 +31,7 @@ public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
     public PressAnyKeyWithYesControl(IConsoleService consoleService, IKeyPanel keyPanel)
         : base(consoleService)
     {
-        this.keyPanel = keyPanel;
+        _keyPanel = keyPanel;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
     public DialogResult Show()
     {
         _consoleService.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
-        keyPanel.Show();
+        _keyPanel.Show();
 
         ConsoleKey keyPressed = Console.ReadKey(true).Key;
 

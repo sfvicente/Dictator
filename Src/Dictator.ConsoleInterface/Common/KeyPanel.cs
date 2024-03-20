@@ -21,7 +21,7 @@ public class KeyPanel : BaseScreen, IKeyPanel
     public KeyPanel(IConsoleService console)
         : base(console)
     {
-        
+
     }
 
     /// <summary>

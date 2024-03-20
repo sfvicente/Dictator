@@ -21,7 +21,7 @@ public interface IPressAnyKeyOrOptionControl
 /// </summary>
 public class PressAnyKeyOrOptionControl : IPressAnyKeyOrOptionControl
 {
-    private readonly IKeyPanel keyPanel;
+    private readonly IKeyPanel _keyPanel;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PressAnyKeyOrOptionControl"/> class from a <see cref="IKeyPanel"/>
@@ -30,7 +30,7 @@ public class PressAnyKeyOrOptionControl : IPressAnyKeyOrOptionControl
     /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
     public PressAnyKeyOrOptionControl(IKeyPanel keyPanel)
     {
-        this.keyPanel = keyPanel;
+        _keyPanel = keyPanel;
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class PressAnyKeyOrOptionControl : IPressAnyKeyOrOptionControl
     /// <returns>The console key that has was pressed after the control is displayed.</returns>
     public ConsoleKey Show()
     {
-        keyPanel.Show();
+        _keyPanel.Show();
 
         return Console.ReadKey(true).Key;
     }

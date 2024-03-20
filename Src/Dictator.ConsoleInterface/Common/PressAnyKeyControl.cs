@@ -20,7 +20,7 @@ public interface IPressAnyKeyControl
 /// </summary>
 public class PressAnyKeyControl : IPressAnyKeyControl
 {
-    private readonly IKeyPanel keyPanel;
+    private readonly IKeyPanel _keyPanel;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PressAnyKeyControl"/> class from a <see cref="IKeyPanel"/>
@@ -29,7 +29,7 @@ public class PressAnyKeyControl : IPressAnyKeyControl
     /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
     public PressAnyKeyControl(IKeyPanel keyPanel)
     {
-        this.keyPanel = keyPanel;
+        _keyPanel = keyPanel;
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public class PressAnyKeyControl : IPressAnyKeyControl
     /// </summary>
     public void Show()
     {
-        keyPanel.Show();
+        _keyPanel.Show();
         Console.ReadKey(true);
     }
 }
