@@ -16,7 +16,7 @@ public interface IHelicopterEscapeScreen
 /// </summary>
 public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="HelicopterEscapeScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -26,7 +26,7 @@ public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
     public HelicopterEscapeScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         :base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -36,6 +36,6 @@ public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

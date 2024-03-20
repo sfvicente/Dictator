@@ -17,7 +17,7 @@ public interface IHelicopterEngineFailureScreen
 /// </summary>
 public class HelicopterEngineFailureScreen : BaseScreen, IHelicopterEngineFailureScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="HelicopterEngineFailureScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -26,7 +26,7 @@ public class HelicopterEngineFailureScreen : BaseScreen, IHelicopterEngineFailur
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public HelicopterEngineFailureScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -39,6 +39,6 @@ public class HelicopterEngineFailureScreen : BaseScreen, IHelicopterEngineFailur
         _consoleService.WriteAt(1, 11, "     YOU are judged to be an    ");
         _consoleService.WriteAt(1, 13, "   ENEMY of the PEOPLE and ...  ");
         _consoleService.WriteAt(1, 15, "       Summarily EXECUTED       ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

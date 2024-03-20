@@ -17,7 +17,7 @@ public interface IGuerillasMissedScreen
 /// </summary>
 public class GuerillasMissedScreen : BaseScreen, IGuerillasMissedScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="GuerillasMissedScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -26,7 +26,7 @@ public class GuerillasMissedScreen : BaseScreen, IGuerillasMissedScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public GuerillasMissedScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -36,6 +36,6 @@ public class GuerillasMissedScreen : BaseScreen, IGuerillasMissedScreen
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 11, " The GUERILLAS didn't catch you ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

@@ -18,7 +18,7 @@ public interface IEscapeAttemptDialog
 /// </summary>
 public class EscapeAttemptDialog : BaseScreen, IEscapeAttemptDialog
 {
-    private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
+    private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="EscapeAttemptDialog"/> class from a <see cref="IPressAnyKeyWithYesControl"/>
@@ -28,7 +28,7 @@ public class EscapeAttemptDialog : BaseScreen, IEscapeAttemptDialog
     public EscapeAttemptDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         : base(consoleService)
     {
-        this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+        _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
 
     /// <summary>
@@ -40,6 +40,6 @@ public class EscapeAttemptDialog : BaseScreen, IEscapeAttemptDialog
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 12, "        ESCAPE ATTEMPT ?        ");
 
-        return pressAnyKeyWithYesControl.Show();
+        return _pressAnyKeyWithYesControl.Show();
     }
 }

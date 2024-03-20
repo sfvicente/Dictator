@@ -13,7 +13,7 @@ public interface IGuerillasCelebratingScreen
 
 public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="GuerillasCelebratingScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -23,7 +23,7 @@ public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScree
     public GuerillasCelebratingScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -33,6 +33,6 @@ public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScree
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

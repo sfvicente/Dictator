@@ -17,7 +17,7 @@ public interface IEscapeToLeftotoScreen
 /// </summary>
 public class EscapeToLeftotoScreen : BaseScreen, IEscapeToLeftotoScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="EscapeToLeftotoScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -26,7 +26,7 @@ public class EscapeToLeftotoScreen : BaseScreen, IEscapeToLeftotoScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public EscapeToLeftotoScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -37,6 +37,6 @@ public class EscapeToLeftotoScreen : BaseScreen, IEscapeToLeftotoScreen
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 10, "   You have to get through the  ");
         _consoleService.WriteAt(1, 12, "      MOUNTAINS to LEFTOTO      ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }
