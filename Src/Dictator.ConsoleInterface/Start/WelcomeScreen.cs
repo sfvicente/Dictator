@@ -27,7 +27,8 @@ namespace Dictator.ConsoleInterface.Start
         ///     component.
         /// </summary>
         /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public WelcomeScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
+        public WelcomeScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+            : base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }

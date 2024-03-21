@@ -18,7 +18,8 @@ namespace Dictator.ConsoleInterface.Start
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;
 
-        public IntroScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
+        public IntroScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+            : base(consoleService)
         {
             this.pressAnyKeyControl = pressAnyKeyControl;
         }
