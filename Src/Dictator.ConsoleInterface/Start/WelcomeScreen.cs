@@ -20,7 +20,7 @@ public interface IWelcomeScreen
 /// </summary>
 public class WelcomeScreen : BaseScreen, IWelcomeScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="WelcomeScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -30,7 +30,7 @@ public class WelcomeScreen : BaseScreen, IWelcomeScreen
     public WelcomeScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -57,6 +57,6 @@ public class WelcomeScreen : BaseScreen, IWelcomeScreen
 
         _consoleService.WriteAt(1, 18, "Start with a TREASURY REPORT    ");
         _consoleService.WriteAt(1, 20, "and a POLICE Report. (FREE)     ");          
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

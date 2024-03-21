@@ -16,12 +16,12 @@ public interface IIntroScreen
 /// </summary>
 public class IntroScreen : BaseScreen, IIntroScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     public IntroScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     public void Show()
@@ -44,6 +44,6 @@ public class IntroScreen : BaseScreen, IIntroScreen
         _consoleService.Write("  1983", ConsoleColor.White);
         _consoleService.WriteAt(1, 18, "  Rewritten in C# by ", ConsoleColor.Gray);
         _consoleService.WriteAt(1, 20, "  Sergio Vicente 2021  ", ConsoleColor.Gray);
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }
