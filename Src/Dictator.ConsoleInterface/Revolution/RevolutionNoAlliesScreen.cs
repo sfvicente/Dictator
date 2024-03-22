@@ -7,6 +7,18 @@ namespace Dictator.ConsoleInterface.Revolution
     ///     Represents the screen that is displayed when the player has no allies to ask for help
     ///     in the context of a revolution.
     /// </summary>
+    public interface IRevolutionNoAlliesScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        public void Show();
+    }
+
+    /// <summary>
+    ///     Represents the screen that is displayed when the player has no allies to ask for help
+    ///     in the context of a revolution.
+    /// </summary>
     public class RevolutionNoAlliesScreen : BaseScreen, IRevolutionNoAlliesScreen
     {
         private readonly IPressAnyKeyControl pressAnyKeyControl;

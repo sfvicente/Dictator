@@ -7,6 +7,15 @@ namespace Dictator.ConsoleInterface.Revolution
     ///     Represents the dialog that is displayed when the player crushes the revolution
     ///     and is given a choice to punish the revolutionaries.
     /// </summary>
+    public interface IRevolutionCrushedDialog
+    {
+        public DialogResult Show();
+    }
+
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player crushes the revolution
+    ///     and is given a choice to punish the revolutionaries.
+    /// </summary>
     public class RevolutionCrushedDialog : BaseScreen, IRevolutionCrushedDialog
     {
         private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
