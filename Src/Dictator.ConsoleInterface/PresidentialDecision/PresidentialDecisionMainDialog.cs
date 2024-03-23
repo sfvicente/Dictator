@@ -8,6 +8,19 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the dialog that is displayed when the player is given a list of options to make a
     ///     presidential decision.
     /// </summary>
+    public interface IPresidentialDecisionMainDialog
+    {
+        /// <summary>
+        ///     Displays the dialog.
+        /// </summary>
+        /// <returns>The type of presidential decision that has been selected.</returns>
+        public DecisionType Show();
+    }
+
+    /// <summary>
+    ///     Represents the dialog that is displayed when the player is given a list of options to make a
+    ///     presidential decision.
+    /// </summary>
     public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionMainDialog
     {
         private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;

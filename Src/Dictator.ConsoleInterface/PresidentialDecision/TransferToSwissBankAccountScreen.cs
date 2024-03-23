@@ -9,6 +9,20 @@ namespace Dictator.ConsoleInterface.PresidentialDecision
     ///     Represents the screen that is displayed when the player transfers funds from the treasury 
     ///     to the Swiss bank account.
     /// </summary>
+    public interface ITransferToSwissBankAccountScreen
+    {
+        /// <summary>
+        ///     Displays the screen.
+        /// </summary>
+        /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
+        /// <param name="account">The current treasury and costs information.</param>
+        public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
+    }
+
+    /// <summary>
+    ///     Represents the screen that is displayed when the player transfers funds from the treasury 
+    ///     to the Swiss bank account.
+    /// </summary>
     public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBankAccountScreen
     {
         private readonly IAccountControl accountControl;
