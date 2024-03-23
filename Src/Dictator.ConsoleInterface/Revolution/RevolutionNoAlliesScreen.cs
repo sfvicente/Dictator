@@ -21,7 +21,7 @@ public interface IRevolutionNoAlliesScreen
 /// </summary>
 public class RevolutionNoAlliesScreen : BaseScreen, IRevolutionNoAlliesScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="RevolutionNoAlliesScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -30,7 +30,7 @@ public class RevolutionNoAlliesScreen : BaseScreen, IRevolutionNoAlliesScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public RevolutionNoAlliesScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -40,6 +40,6 @@ public class RevolutionNoAlliesScreen : BaseScreen, IRevolutionNoAlliesScreen
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 12, "      You're ON YOUR OWN !      ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

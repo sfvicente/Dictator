@@ -18,12 +18,12 @@ public interface IRevolutionCrushedDialog
 /// </summary>
 public class RevolutionCrushedDialog : BaseScreen, IRevolutionCrushedDialog
 {
-    private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
+    private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
     public RevolutionCrushedDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         : base(consoleService)
     {
-        this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+        _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
 
     public DialogResult Show()
@@ -32,6 +32,6 @@ public class RevolutionCrushedDialog : BaseScreen, IRevolutionCrushedDialog
         _consoleService.WriteAt(1, 10, "  The REVOLT has been CRUSHED   ");
         _consoleService.WriteAt(1, 12, "  PUNISH the REVOLUTIONARIES ?  ");
 
-        return pressAnyKeyWithYesControl.Show();
+        return _pressAnyKeyWithYesControl.Show();
     }
 }

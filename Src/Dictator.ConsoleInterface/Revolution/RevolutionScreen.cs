@@ -19,7 +19,7 @@ public interface IRevolutionScreen
 /// </summary>
 public class RevolutionScreen : BaseScreen, IRevolutionScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="RevolutionScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -28,7 +28,7 @@ public class RevolutionScreen : BaseScreen, IRevolutionScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public RevolutionScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -38,6 +38,6 @@ public class RevolutionScreen : BaseScreen, IRevolutionScreen
     {
         _consoleService.Clear(ConsoleColor.Red);
         _consoleService.WriteAt(11, 12, "REVOLUTION", ConsoleColor.White, ConsoleColor.Black);
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

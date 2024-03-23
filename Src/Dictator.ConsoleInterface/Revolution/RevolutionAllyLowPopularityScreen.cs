@@ -21,11 +21,12 @@ public interface IRevolutionAllyLowPopularityScreen
 /// </summary>
 public class RevolutionAllyLowPopularityScreen : BaseScreen, IRevolutionAllyLowPopularityScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
-    public RevolutionAllyLowPopularityScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
+    public RevolutionAllyLowPopularityScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -35,6 +36,6 @@ public class RevolutionAllyLowPopularityScreen : BaseScreen, IRevolutionAllyLowP
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 12, "      You must be JOKING !      ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }
