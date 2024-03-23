@@ -19,7 +19,7 @@ public interface IPresidentialDecisionSubDialog
 /// </summary>
 public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSubDialog
 {
-    private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
+    private readonly IPressAnyKeyOrOptionControl _pressAnyKeyOrOptionControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PresidentialDecisionSubDialog"/> class from a 
@@ -30,7 +30,7 @@ public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSu
     public PresidentialDecisionSubDialog(IConsoleService consoleService, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         : base(consoleService)
     {
-        this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
+        _pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
     }
 
     private bool HaveAllDecisionsBeenUsed(Decision[] decisions)
@@ -80,7 +80,7 @@ public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSu
             }
         }
         
-        ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
+        ConsoleKey keyPressed = _pressAnyKeyOrOptionControl.Show();
 
         switch (keyPressed)
         {

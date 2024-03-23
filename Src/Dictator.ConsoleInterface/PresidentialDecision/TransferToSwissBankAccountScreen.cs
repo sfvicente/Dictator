@@ -25,15 +25,15 @@ public interface ITransferToSwissBankAccountScreen
 /// </summary>
 public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBankAccountScreen
 {
-    private readonly IAccountControl accountControl;
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IAccountControl _accountControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     public TransferToSwissBankAccountScreen(
         IConsoleService consoleService, IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
-        this.accountControl = accountControl;
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _accountControl = accountControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBank
             _consoleService.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
         }
 
-        accountControl.Show(account);
-        pressAnyKeyControl.Show();
+        _accountControl.Show(account);
+        _pressAnyKeyControl.Show();
     }
 }

@@ -23,7 +23,7 @@ public interface IPresidentialDecisionMainDialog
 /// </summary>
 public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionMainDialog
 {
-    private readonly IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl;
+    private readonly IPressAnyKeyOrOptionControl _pressAnyKeyOrOptionControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PresidentialDecisionMainDialog"/> class from a 
@@ -34,7 +34,7 @@ public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionM
     public PresidentialDecisionMainDialog(IConsoleService consoleService, IPressAnyKeyOrOptionControl pressAnyKeyOrOptionControl)
         : base(consoleService)
     {
-        this.pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
+        _pressAnyKeyOrOptionControl = pressAnyKeyOrOptionControl;
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionM
         _consoleService.WriteAt(4, 15, "4. RAISE some CASH      ", ConsoleColor.Yellow, ConsoleColor.Black);
         _consoleService.WriteAt(4, 17, "5. STRENGTHEN a GROUP   ", ConsoleColor.Yellow, ConsoleColor.Black);
         
-        ConsoleKey keyPressed = pressAnyKeyOrOptionControl.Show();
+        ConsoleKey keyPressed = _pressAnyKeyOrOptionControl.Show();
 
         switch (keyPressed)
         {

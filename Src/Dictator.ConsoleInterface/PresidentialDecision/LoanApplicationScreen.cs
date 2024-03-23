@@ -20,7 +20,7 @@ public interface ILoanApplicationScreen
 /// </summary>
 public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
 {
-    private readonly IPressAnyKeyControl pressAnyKeyControl;
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="LoanApplicationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
@@ -29,7 +29,7 @@ public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
     public LoanApplicationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        this.pressAnyKeyControl = pressAnyKeyControl;
+        _pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
@@ -40,6 +40,6 @@ public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
         _consoleService.Clear();
         _consoleService.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
         _consoleService.WriteAt(1, 12, "              WAIT              ");
-        pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show();
     }
 }

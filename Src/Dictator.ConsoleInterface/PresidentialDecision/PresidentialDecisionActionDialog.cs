@@ -24,7 +24,7 @@ public interface IPresidentialDecisionActionDialog
 /// </summary>
 public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisionActionDialog
 {
-    private readonly IPressAnyKeyWithYesControl pressAnyKeyWithYesControl;
+    private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="PresidentialDecisionActionDialog"/> class from a 
@@ -35,7 +35,7 @@ public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisio
     public PresidentialDecisionActionDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         : base(consoleService)
     {
-        this.pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+        _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
     }
 
     /// <summary>
@@ -78,6 +78,6 @@ public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisio
             }
         }
 
-        return pressAnyKeyWithYesControl.Show();
+        return _pressAnyKeyWithYesControl.Show();
     }
 }
