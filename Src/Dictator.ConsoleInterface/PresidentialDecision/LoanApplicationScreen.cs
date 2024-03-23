@@ -1,46 +1,45 @@
 ﻿using Dictator.ConsoleInterface.Common;
 
-namespace Dictator.ConsoleInterface.PresidentialDecision
+namespace Dictator.ConsoleInterface.PresidentialDecision;
+
+/// <summary>
+///     Represents the screen that is displayed when the player makes an application 
+///     for monetary foreign aid.
+/// </summary>
+public interface ILoanApplicationScreen
 {
     /// <summary>
-    ///     Represents the screen that is displayed when the player makes an application 
-    ///     for monetary foreign aid.
+    ///     Displays the screen.
     /// </summary>
-    public interface ILoanApplicationScreen
+    public void Show();
+}
+
+/// <summary>
+///     Represents the screen that is displayed when the player makes an application 
+///     for monetary foreign aid.
+/// </summary>
+public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
+{
+    private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="LoanApplicationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
+    ///     component.
+    /// </summary>
+    /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
+    public LoanApplicationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        public void Show();
+        this.pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
-    ///     Represents the screen that is displayed when the player makes an application 
-    ///     for monetary foreign aid.
+    ///     Displays the screen.
     /// </summary>
-    public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
+    public void Show()
     {
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="LoanApplicationScreen"/> class from a <see cref="IPressAnyKeyControl"/>
-        ///     component.
-        /// </summary>
-        /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-        public LoanApplicationScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
-        {
-            this.pressAnyKeyControl = pressAnyKeyControl;
-        }
-
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        public void Show()
-        {
-            _consoleService.Clear();
-            _consoleService.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
-            _consoleService.WriteAt(1, 12, "              WAIT              ");
-            pressAnyKeyControl.Show();
-        }
+        _consoleService.Clear();
+        _consoleService.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
+        _consoleService.WriteAt(1, 12, "              WAIT              ");
+        pressAnyKeyControl.Show();
     }
 }

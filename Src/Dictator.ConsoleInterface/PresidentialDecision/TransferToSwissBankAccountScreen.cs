@@ -3,63 +3,62 @@ using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core.Models;
 using System;
 
-namespace Dictator.ConsoleInterface.PresidentialDecision
+namespace Dictator.ConsoleInterface.PresidentialDecision;
+
+/// <summary>
+///     Represents the screen that is displayed when the player transfers funds from the treasury 
+///     to the Swiss bank account.
+/// </summary>
+public interface ITransferToSwissBankAccountScreen
 {
     /// <summary>
-    ///     Represents the screen that is displayed when the player transfers funds from the treasury 
-    ///     to the Swiss bank account.
+    ///     Displays the screen.
     /// </summary>
-    public interface ITransferToSwissBankAccountScreen
+    /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
+    /// <param name="account">The current treasury and costs information.</param>
+    public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
+}
+
+/// <summary>
+///     Represents the screen that is displayed when the player transfers funds from the treasury 
+///     to the Swiss bank account.
+/// </summary>
+public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBankAccountScreen
+{
+    private readonly IAccountControl accountControl;
+    private readonly IPressAnyKeyControl pressAnyKeyControl;
+
+    public TransferToSwissBankAccountScreen(
+        IConsoleService consoleService, IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
+        : base(consoleService)
     {
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
-        /// <param name="account">The current treasury and costs information.</param>
-        public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
+        this.accountControl = accountControl;
+        this.pressAnyKeyControl = pressAnyKeyControl;
     }
 
     /// <summary>
-    ///     Represents the screen that is displayed when the player transfers funds from the treasury 
-    ///     to the Swiss bank account.
+    ///     Displays the screen.
     /// </summary>
-    public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBankAccountScreen
+    /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
+    /// <param name="account">The current treasury and costs information.</param>
+    public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
     {
-        private readonly IAccountControl accountControl;
-        private readonly IPressAnyKeyControl pressAnyKeyControl;
+        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        Console.ForegroundColor = ConsoleColor.Black;
+        _consoleService.Clear();
+        _consoleService.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
 
-        public TransferToSwissBankAccountScreen(
-            IConsoleService consoleService, IAccountControl accountControl, IPressAnyKeyControl pressAnyKeyControl)
-            : base(consoleService)
+        if (swissBankAccountTransfer.AmountStolen > 0)
         {
-            this.accountControl = accountControl;
-            this.pressAnyKeyControl = pressAnyKeyControl;
+            _consoleService.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryPreviousBalance},000");
+            _consoleService.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen},000 has been TRANSFERRED");
+        }
+        else
+        {
+            _consoleService.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
         }
 
-        /// <summary>
-        ///     Displays the screen.
-        /// </summary>
-        /// <param name="swissBankAccountTransfer">The details of the Swiss account transfer.</param>
-        /// <param name="account">The current treasury and costs information.</param>
-        public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
-        {
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-            Console.ForegroundColor = ConsoleColor.Black;
-            _consoleService.Clear();
-            _consoleService.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
-
-            if (swissBankAccountTransfer.AmountStolen > 0)
-            {
-                _consoleService.WriteAt(1, 7, $"The TREASURY held ${swissBankAccountTransfer.TreasuryPreviousBalance},000");
-                _consoleService.WriteAt(1, 10, $"${swissBankAccountTransfer.AmountStolen},000 has been TRANSFERRED");
-            }
-            else
-            {
-                _consoleService.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
-            }
-
-            accountControl.Show(account);
-            pressAnyKeyControl.Show();
-        }
+        accountControl.Show(account);
+        pressAnyKeyControl.Show();
     }
 }
