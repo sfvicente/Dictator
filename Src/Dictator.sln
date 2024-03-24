@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.ConsoleInterface", "Dictator.ConsoleInterface\Dictator.ConsoleInterface.csproj", "{F397C8DC-0517-44C9-9106-05FC196DD0E7}"
 EndProject
@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.Core", "Dictator.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.Common", "Dictator.Common\Dictator.Common.csproj", "{2729AD69-9C20-4AAE-8EF6-423B6F08B724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.Tests", "Dictator.Tests\Dictator.Tests.csproj", "{68203B7D-4FAE-4031-AE84-169CEC3402C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictator.Core.Tests", "Dictator.Tests\Dictator.Core.Tests.csproj", "{68203B7D-4FAE-4031-AE84-169CEC3402C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictator.ConsoleInterfaces.Tests", "Dictator.ConsoleInterfaces.Tests\Dictator.ConsoleInterfaces.Tests.csproj", "{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5DFB435-74A4-40FD-BEB3-7E238659DD3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,17 @@ Global
 		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68203B7D-4FAE-4031-AE84-169CEC3402C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{68203B7D-4FAE-4031-AE84-169CEC3402C7} = {C5DFB435-74A4-40FD-BEB3-7E238659DD3F}
+		{1D485866-F72B-49A7-B5C2-CD3FCF7EFD6F} = {C5DFB435-74A4-40FD-BEB3-7E238659DD3F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {727979CD-417E-4D54-9B70-C0C383C9407F}
