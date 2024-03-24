@@ -44,7 +44,7 @@ public class Game
                 AdvanceAndDisplayCurrentMonth();
                 _engine.Plot();
                 ProcessTreasuryMonthlyCosts();
-                HandleAudienceRequest();
+                TriggerAndHandleAudienceRequest();
                 _engine.Plot();
 
                 if (TryProcessAssassinationAttempt() || TryProcessConflict())
@@ -136,9 +136,9 @@ public class Game
     }
 
     /// <summary>
-    ///     Handles the generation and processing of an audience request from one of the groups.
+    ///     Generates and processes an audience request from one of the groups.
     /// </summary>
-    private void HandleAudienceRequest()
+    private void TriggerAndHandleAudienceRequest()
     {
         Audience audience = _engine.SelectRandomUnusedAudienceRequest();
 
