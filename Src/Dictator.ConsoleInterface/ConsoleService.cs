@@ -18,6 +18,7 @@ public interface IConsoleService
     void Clear(ConsoleColor backgroundColor);
     void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor);
     void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+    void WaitForKeyPressed();
 }
 
 public class ConsoleService : IConsoleService
@@ -199,5 +200,10 @@ public class ConsoleService : IConsoleService
         Console.BackgroundColor = backgroundColor;
         Console.ForegroundColor = foregroundColor;
         Clear(character);
+    }
+
+    public void WaitForKeyPressed()
+    {
+        Console.ReadKey(true);
     }
 }

@@ -29,6 +29,7 @@ public class MonthScreenTests
         _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.Yellow), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteAt(8, 10, "MONTH ", ConsoleColor.Cyan, ConsoleColor.Black), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteAt(14, 10, $"{month}", ConsoleColor.White, ConsoleColor.Black), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WaitForKeyPressed(), Times.Once);
     }
 }
 

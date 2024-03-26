@@ -20,6 +20,6 @@ public class NewsflashScreen : BaseScreen, INewsflashScreen
         _consoleService.Clear(ConsoleColor.Gray);
         _consoleService.WriteAt(1, 10, "NEWSFLASH");
         _consoleService.WriteAt(1, 14, headline);
-        Console.ReadKey(true);
+        _consoleService.WaitForKeyPressed();
     }
 }

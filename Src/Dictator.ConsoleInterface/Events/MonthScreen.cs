@@ -36,6 +36,6 @@ public class MonthScreen : BaseScreen, IMonthScreen
         _consoleService.Clear(ConsoleColor.Yellow);
         _consoleService.WriteAt(8, 10, "MONTH ", ConsoleColor.Cyan, ConsoleColor.Black);
         _consoleService.WriteAt(14, 10, $"{month}", ConsoleColor.White, ConsoleColor.Black);
-        Console.ReadKey(true);
+        _consoleService.WaitForKeyPressed();
     }
 }
