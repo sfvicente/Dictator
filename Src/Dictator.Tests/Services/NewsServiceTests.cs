@@ -7,29 +7,29 @@ namespace Dictator.Core.Tests.Services;
 [TestFixture]
 public class NewsServiceTests
 {
-    private Mock<IRandomService> randomServiceMock;
-    private Mock<IGroupService> groupServiceMock;
-    private Mock<IAccountService> accountServiceMock;
-    private INewsService newsService;
+    private Mock<IRandomService> _randomServiceMock;
+    private Mock<IGroupService> _groupServiceMock;
+    private Mock<IAccountService> _accountServiceMock;
+    private INewsService _newsService;
 
     [SetUp]
     public void Setup()
     {
-        randomServiceMock = new Mock<IRandomService>();
-        groupServiceMock = new Mock<IGroupService>();
-        accountServiceMock = new Mock<IAccountService>();
+        _randomServiceMock = new Mock<IRandomService>();
+        _groupServiceMock = new Mock<IGroupService>();
+        _accountServiceMock = new Mock<IAccountService>();
 
-        newsService = new NewsService(randomServiceMock.Object, accountServiceMock.Object, groupServiceMock.Object);
+        _newsService = new NewsService(_randomServiceMock.Object, _accountServiceMock.Object, _groupServiceMock.Object);
     }
 
     [Test]
     public void ShouldNewsHappen_ReturnsTrue()
     {
         // Arrange
-        randomServiceMock.Setup(rs => rs.Next(2)).Returns(0);
+        _randomServiceMock.Setup(rs => rs.Next(2)).Returns(0);
 
         // Act
-        bool shouldNewsHappen = newsService.ShouldNewsHappen();
+        bool shouldNewsHappen = _newsService.ShouldNewsHappen();
 
         // Assert
         Assert.IsTrue(shouldNewsHappen);
@@ -39,10 +39,10 @@ public class NewsServiceTests
     public void ShouldNewsHappen_ReturnsFalse()
     {
         // Arrange
-        randomServiceMock.Setup(rs => rs.Next(2)).Returns(1);
+        _randomServiceMock.Setup(rs => rs.Next(2)).Returns(1);
 
         // Act
-        bool shouldNewsHappen = newsService.ShouldNewsHappen();
+        bool shouldNewsHappen = _newsService.ShouldNewsHappen();
 
         // Assert
         Assert.IsFalse(shouldNewsHappen);
@@ -60,7 +60,7 @@ public class NewsServiceTests
         };
 
         // Act
-        bool unusedNewsExist = newsService.DoesUnusedNewsExist(news);
+        bool unusedNewsExist = _newsService.DoesUnusedNewsExist(news);
 
         // Assert
         Assert.IsTrue(unusedNewsExist);
@@ -78,7 +78,7 @@ public class NewsServiceTests
         };
 
         // Act
-        bool unusedNewsExist = newsService.DoesUnusedNewsExist(news);
+        bool unusedNewsExist = _newsService.DoesUnusedNewsExist(news);
 
         // Assert
         Assert.IsFalse(unusedNewsExist);
@@ -94,10 +94,10 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2"),
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3")
         };
-        randomServiceMock.Setup(rs => rs.Next(It.IsAny<int>())).Returns(0);
+        _randomServiceMock.Setup(rs => rs.Next(It.IsAny<int>())).Returns(0);
 
         // Act
-        var selectedNews = newsService.SelectRandomUnusedNews(unusedNews);
+        var selectedNews = _newsService.SelectRandomUnusedNews(unusedNews);
 
         // Assert
         Assert.IsNotNull(selectedNews);
@@ -116,7 +116,7 @@ public class NewsServiceTests
         };
 
         // Act and Assert
-        Assert.Throws<InvalidOperationException>(() => newsService.SelectRandomUnusedNews(usedNews));
+        Assert.Throws<InvalidOperationException>(() => _newsService.SelectRandomUnusedNews(usedNews));
     }
 
     [Test]
@@ -126,11 +126,11 @@ public class NewsServiceTests
         var news = new News(10, 5, "PopularityChanges", "StrengthChanges", "Text");
 
         // Act
-        newsService.ApplyNewsEffects(news);
+        _newsService.ApplyNewsEffects(news);
 
         // Assert
-        groupServiceMock.Verify(gs => gs.ApplyPopularityChange(It.IsAny<string>()), Times.Once);
-        groupServiceMock.Verify(gs => gs.ApplyStrengthChange(It.IsAny<string>()), Times.Once);
-        accountServiceMock.Verify(asrv => asrv.ApplyTreasuryChanges(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
+        _groupServiceMock.Verify(gs => gs.ApplyPopularityChange(It.IsAny<string>()), Times.Once);
+        _groupServiceMock.Verify(gs => gs.ApplyStrengthChange(It.IsAny<string>()), Times.Once);
+        _accountServiceMock.Verify(asrv => asrv.ApplyTreasuryChanges(It.IsAny<int>(), It.IsAny<int>()), Times.Once);
     }
 }
