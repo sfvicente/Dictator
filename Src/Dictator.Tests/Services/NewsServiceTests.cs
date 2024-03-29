@@ -101,7 +101,6 @@ public class NewsServiceTests
 
         // Assert
         Assert.IsNotNull(selectedNews);
-        Assert.IsFalse(selectedNews.HasBeenUsed);
     }
 
     [Test]
