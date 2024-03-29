@@ -1,5 +1,4 @@
 ﻿using Dictator.Core.Services;
-using NUnit.Framework;
 
 namespace Dictator.Tests.Services;
 

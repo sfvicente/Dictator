@@ -1,7 +1,5 @@
 ﻿using Dictator.Core.Models;
 using Dictator.Core.Services;
-using Moq;
-using NUnit.Framework;
 
 namespace Dictator.Tests.Services;
 

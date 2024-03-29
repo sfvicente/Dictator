@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 namespace Dictator.Tests;
 
 public class EngineTests
