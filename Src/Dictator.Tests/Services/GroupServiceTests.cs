@@ -1,28 +1,27 @@
 ﻿using NUnit.Framework;
 
-namespace Dictator.Tests
+namespace Dictator.Tests;
+
+public class GroupServiceTests
 {
-    public class GroupServiceTests
+    [SetUp]
+    public void Setup()
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
+    }
 
-        [Test]
-        public void IncreasePopularityDoesNotExceedMaximumAllowed()
-        {
-            // TODO: Implement
+    [Test]
+    public void IncreasePopularityDoesNotExceedMaximumAllowed()
+    {
+        // TODO: Implement
 
-            Assert.Pass();
-        }
+        Assert.Pass();
+    }
 
-        [Test]
-        public void DecreasePopularityDoesNotLowerPopularityBelowZero()
-        {
-            // TODO: Implement
+    [Test]
+    public void DecreasePopularityDoesNotLowerPopularityBelowZero()
+    {
+        // TODO: Implement
 
-            Assert.Pass();
-        }
+        Assert.Pass();
     }
 }
