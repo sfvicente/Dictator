@@ -104,6 +104,25 @@ public class NewsServiceTests
     }
 
     [Test]
+    public void SelectRandomUnusedNews_WithUnusedNews_SetsNewsAsUsed()
+    {
+        // Arrange
+        var unusedNews = new[]
+        {
+            new News(10, 5, "PopularityChanges1", "StrengthChanges1", "Text1"),
+            new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2"),
+            new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3")
+        };
+        _randomServiceMock.Setup(rs => rs.Next(It.IsAny<int>())).Returns(0);
+
+        // Act
+        var selectedNews = _newsService.SelectRandomUnusedNews(unusedNews);
+
+        // Assert
+        Assert.IsTrue(selectedNews.HasBeenUsed);
+    }
+
+    [Test]
     public void SelectRandomUnusedNews_NoUnusedNews_ThrowsException()
     {
         // Arrange
