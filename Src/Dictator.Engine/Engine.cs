@@ -296,7 +296,7 @@ public class Engine : IEngine
     /// <returns>An unused audience request.</returns>
     public Audience SelectRandomUnusedAudienceRequest()
     {
-        return audienceService.SelectRandomUnusedAudienceRequest();
+        return audienceService.SelectRandomUnusedAudienceRequest(_audiences);
     }
 
     /// <summary>
