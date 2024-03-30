@@ -10,7 +10,7 @@ public class NewsServiceTests
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IAccountService> _accountServiceMock;
-    private INewsService _newsService;
+    private NewsService _newsService;
 
     [SetUp]
     public void Setup()
