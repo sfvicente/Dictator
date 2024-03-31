@@ -13,12 +13,18 @@ public class LoanServiceTests
         // Arrange
         var randomMock = new Mock<IRandomService>();
         randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(0); // Simulate too early condition
+        var popularityServiceMock = new Mock<IPopularityService>();
         var governmentMock = new Mock<IGovernmentService>();
         governmentMock.Setup(g => g.GetMonth()).Returns(1); // Assume it's the first month
         var groupServiceMock = new Mock<IGroupService>();
         var accountServiceMock = new Mock<IAccountService>();
 
-        var loanService = new LoanService(randomMock.Object, accountServiceMock.Object, groupServiceMock.Object, governmentMock.Object);
+        var loanService = new LoanService(
+            randomMock.Object,
+            accountServiceMock.Object,
+            groupServiceMock.Object,
+            popularityServiceMock.Object,
+            governmentMock.Object);
 
         // Act
         var result = loanService.AskForLoan(LenderCountry.America);
@@ -33,10 +39,17 @@ public class LoanServiceTests
     {
         // Arrange
         var randomMock = new Mock<IRandomService>();
+        var popularityServiceMock = new Mock<IPopularityService>();
         var governmentMock = new Mock<IGovernmentService>();
         var groupServiceMock = new Mock<IGroupService>();
         var accountServiceMock = new Mock<IAccountService>();
-        var loanService = new LoanService(randomMock.Object, accountServiceMock.Object, groupServiceMock.Object, governmentMock.Object);
+
+        var loanService = new LoanService(
+            randomMock.Object,
+            accountServiceMock.Object,
+            groupServiceMock.Object,
+            popularityServiceMock.Object,
+            governmentMock.Object);
 
         // Act
         var result = loanService.AskForLoan(LenderCountry.America); // Assuming a previous loan exists
@@ -52,8 +65,9 @@ public class LoanServiceTests
         // Arrange
         var randomMock = new Mock<IRandomService>();
         randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(100); // Mock random result
+        var popularityServiceMock = new Mock<IPopularityService>();
+        popularityServiceMock.Setup(g => g.GetMonthlyMinimalPopularityAndStrength()).Returns(100); // Mock popularity service
         var governmentMock = new Mock<IGovernmentService>();
-        governmentMock.Setup(g => g.GetMonthlyMinimalPopularityAndStrength()).Returns(100); // Mock government service
         var groupServiceMock = new Mock<IGroupService>();
         groupServiceMock
             .Setup(g => g.GetGroupTypeByCountry(It.IsAny<LenderCountry>()))
@@ -62,7 +76,12 @@ public class LoanServiceTests
             .Setup(g => g.GetGroupByType(It.IsAny<GroupType>()))
             .Returns(new Group(GroupType.Americans, 1, 1, string.Empty, string.Empty) { Popularity = 1 }); // Assuming group popularity is less than minimal required
         var accountServiceMock = new Mock<IAccountService>();
-        var loanService = new LoanService(randomMock.Object, accountServiceMock.Object, groupServiceMock.Object, governmentMock.Object);
+        var loanService = new LoanService(
+            randomMock.Object,
+            accountServiceMock.Object,
+            groupServiceMock.Object,
+            popularityServiceMock.Object,
+            governmentMock.Object);
 
         // Act
         var result = loanService.AskForLoan(LenderCountry.America);
