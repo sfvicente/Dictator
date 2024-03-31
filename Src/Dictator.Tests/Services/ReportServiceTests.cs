@@ -8,6 +8,7 @@ public class ReportServiceTests
 {
     private Mock<IAccountService> _mockAccountService;
     private Mock<IGroupService> _mockGroupService;
+    private Mock<IPopularityService> _mockPopularityService;
     private Mock<IGovernmentService> _mockGovernmentService;
     private IReportService _reportService;
 
@@ -16,8 +17,13 @@ public class ReportServiceTests
     {
         _mockAccountService = new Mock<IAccountService>();
         _mockGroupService = new Mock<IGroupService>();
+        _mockPopularityService = new Mock<IPopularityService>();
         _mockGovernmentService = new Mock<IGovernmentService>();
-        _reportService = new ReportService(_mockAccountService.Object, _mockGroupService.Object, _mockGovernmentService.Object);
+        _reportService = new ReportService(
+            _mockAccountService.Object,
+            _mockGroupService.Object,
+            _mockPopularityService.Object,
+            _mockGovernmentService.Object);
     }
 
     [Test]
@@ -27,7 +33,7 @@ public class ReportServiceTests
         _mockAccountService.Setup(x => x.GetTreasuryBalance()).Returns(100);
         _mockGroupService.Setup(x => x.GetPopularityByGroupType(GroupType.SecretPolice)).Returns(80);
         _mockGroupService.Setup(x => x.GetStrengthByGroupType(GroupType.SecretPolice)).Returns(90);
-        _mockGovernmentService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(70);
+        _mockPopularityService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(70);
 
         // Act
         PoliceReportRequest result = _reportService.RequestPoliceReport();
@@ -69,7 +75,7 @@ public class ReportServiceTests
     {
         // Arrange
         _mockGroupService.Setup(x => x.GetPopularityByGroupType(GroupType.SecretPolice)).Returns(90);
-        _mockGovernmentService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(80);
+        _mockPopularityService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(80);
 
         // Act
         bool result = _reportService.IsPlayerPopularWithSecretPolice();
@@ -83,7 +89,7 @@ public class ReportServiceTests
     {
         // Arrange
         _mockGroupService.Setup(x => x.GetStrengthByGroupType(GroupType.SecretPolice)).Returns(100);
-        _mockGovernmentService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(80);
+        _mockPopularityService.Setup(x => x.GetMonthlyMinimalPopularityAndStrength()).Returns(80);
 
         // Act
         bool result = _reportService.HasPoliceEnoughStrength();
