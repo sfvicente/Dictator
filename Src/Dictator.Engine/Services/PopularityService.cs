@@ -16,7 +16,7 @@ public interface IPopularityService
     bool IsPoliceUnableToProtectPlayer();
 }
 
-public class PopularityService
+public class PopularityService : IPopularityService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
@@ -40,7 +40,7 @@ public class PopularityService
     ///     number of game logic when interacting with groups, such as requesting external financial aid or 
     ///     finding allies in a revolution.
     /// </summary>
-    int GetMonthlyMinimalPopularityAndStrength()
+    public int GetMonthlyMinimalPopularityAndStrength()
     {
         return MonthlyMinimalPopularityAndStrength;
     }
