@@ -7,6 +7,7 @@ public class AssassinationServiceTests
 {
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IGroupService> _groupServiceMock;
+    private Mock<IPopularityService> _popularityServiceMock;
     private Mock<IGovernmentService> _governmentServiceMock;
     private AssassinationService _assassinationService;
 
@@ -16,7 +17,11 @@ public class AssassinationServiceTests
         _randomServiceMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
         _governmentServiceMock = new Mock<IGovernmentService>();
-        _assassinationService = new AssassinationService(_randomServiceMock.Object, _groupServiceMock.Object, _governmentServiceMock.Object);
+        _assassinationService = new AssassinationService(
+            _randomServiceMock.Object,
+            _groupServiceMock.Object,
+            _popularityServiceMock.Object,
+            _governmentServiceMock.Object);
     }
 
     [Test]
@@ -29,7 +34,7 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
-        _governmentServiceMock
+        _popularityServiceMock
             .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
             .Returns(0); // Assuming minimum
 
@@ -50,7 +55,7 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(true);
-        _governmentServiceMock
+        _popularityServiceMock
             .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
             .Returns(0); // Assuming minimum
 
@@ -71,7 +76,7 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
-        _governmentServiceMock
+        _popularityServiceMock
             .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
             .Returns(90); // Assume popularity requirement is too high
 
