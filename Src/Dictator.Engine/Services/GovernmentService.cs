@@ -18,8 +18,6 @@ public interface IGovernmentService
     public void SetHighScore(int totalScore);
     public int GetMonthlyRevolutionStrength();
     public void SetMonthlyRevolutionStrength();
-    public int GetMonthlyMinimalPopularityAndStrength();
-    public void SetMonthlyMinimalPopularityAndStrength();
     public int GetPlotBonus();
     public void SetPlotBonus(int plotBonus);
 }
@@ -53,7 +51,6 @@ public class GovernmentService : IGovernmentService
         _government.Month = 0;
         _government.PlotBonus = 0;
         _government.MonthlyRevolutionStrength = 10;
-        _government.MonthlyMinimalPopularityAndStrength = 0;
     }
 
     /// <summary>
@@ -168,26 +165,6 @@ public class GovernmentService : IGovernmentService
     public void SetMonthlyRevolutionStrength()
     {
         _government.MonthlyRevolutionStrength = _randomService.Next(10, 13);
-    }
-
-    /// <summary>
-    ///     Gets the minimal monthly level requirement for popularity and strength which is used for a diverse
-    ///     number of game logic when interacting with groups, such as requesting external financial aid or 
-    ///     finding allies in a revolution.
-    /// </summary>
-    public int GetMonthlyMinimalPopularityAndStrength()
-    {
-        return _government.MonthlyMinimalPopularityAndStrength;
-    }
-
-    /// <summary>
-    ///     Sets the minimal monthly level requirement for popularity and strength which is used for a diverse
-    ///     number of game logic when interacting with groups, such as requesting external financial aid or 
-    ///     finding allies in a revolution.
-    /// </summary>
-    public void SetMonthlyMinimalPopularityAndStrength()
-    {
-        _government.MonthlyMinimalPopularityAndStrength = _randomService.Next(2, 5);
     }
 
     /// <summary>

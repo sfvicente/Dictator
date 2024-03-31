@@ -61,6 +61,7 @@ public class WarService : IWarService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
+    private readonly IPopularityService _popularityService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -72,10 +73,12 @@ public class WarService : IWarService
     public WarService(
         IRandomService randomService,
         IGroupService groupService,
+        IPopularityService popularityService,
         IGovernmentService governmentService)
     {
         _randomService = randomService;
         this.groupService = groupService;
+        _popularityService = popularityService;
         this.governmentService = governmentService;
     }
 
@@ -119,7 +122,7 @@ public class WarService : IWarService
         // Sum the strength of the army, peasants and landowners if they have minimal popularity
         for (int i = 0; i < 3; i++)
         {
-            if (groups[i].Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
+            if (groups[i].Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength())
             {
                 totalStrength += groups[i].Strength;
             }
@@ -128,7 +131,7 @@ public class WarService : IWarService
         Group secretPoliceGroup = groupService.GetGroupByType(GroupType.SecretPolice);
 
         // Add the strength of the secret police strength if they have minimal popularity
-        if (secretPoliceGroup.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength())
+        if (secretPoliceGroup.Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength())
         {
             totalStrength += secretPoliceGroup.Strength;
         }
@@ -151,7 +154,7 @@ public class WarService : IWarService
         // Add the strength of all groups except Russians and Americans that are equal or below the minimal popularity
         for (int i = 0; i < 6; i++)
         {
-            if (groups[i].Popularity <= governmentService.GetMonthlyMinimalPopularityAndStrength())
+            if (groups[i].Popularity <= _popularityService.GetMonthlyMinimalPopularityAndStrength())
             {
                 totalStrength += groups[i].Strength;
             }
@@ -187,8 +190,8 @@ public class WarService : IWarService
     {
         Group leftotans = groupService.GetGroupByType(GroupType.Leftotans);
 
-        if (leftotans.Popularity > governmentService.GetMonthlyMinimalPopularityAndStrength() ||
-            leftotans.Strength < governmentService.GetMonthlyMinimalPopularityAndStrength())
+        if (leftotans.Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength() ||
+            leftotans.Strength < _popularityService.GetMonthlyMinimalPopularityAndStrength())
         {
             return false;
         }

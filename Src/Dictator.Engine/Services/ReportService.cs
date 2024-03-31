@@ -15,6 +15,7 @@ public class ReportService : IReportService
 {
     private readonly IAccountService _accountService;
     private readonly IGroupService _groupService;
+    private readonly IPopularityService _popularityService;
     private readonly IGovernmentService _governmentService;
 
     /// <summary>
@@ -25,10 +26,15 @@ public class ReportService : IReportService
     /// the Swiss bank account.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public ReportService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
+    public ReportService(
+        IAccountService accountService,
+        IGroupService groupService,
+        IPopularityService popularityService,
+        IGovernmentService governmentService)
     {
         _accountService = accountService;
         _groupService = groupService;
+        _popularityService = popularityService;
         _governmentService = governmentService;
     }
 
@@ -75,7 +81,7 @@ public class ReportService : IReportService
     {
         int secretPolicePopularity = _groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
-        return secretPolicePopularity > _governmentService.GetMonthlyMinimalPopularityAndStrength();
+        return secretPolicePopularity > _popularityService.GetMonthlyMinimalPopularityAndStrength();
     }
 
     /// <summary>
@@ -86,6 +92,6 @@ public class ReportService : IReportService
     {
         int policeStrength = _groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
-        return policeStrength > _governmentService.GetMonthlyMinimalPopularityAndStrength();
+        return policeStrength > _popularityService.GetMonthlyMinimalPopularityAndStrength();
     }
 }

@@ -36,11 +36,6 @@
         public int MonthlyRevolutionStrength { get; set; }
 
         /// <summary>
-        ///     Gets or sets the monthly minimal popularity and strength requirement.. 
-        /// </summary>
-        public int MonthlyMinimalPopularityAndStrength { get; set; }
-
-        /// <summary>
         ///     Gets or sets the current high score. 
         /// </summary>
         public int LastScore { get; set; }

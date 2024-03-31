@@ -22,6 +22,7 @@ public class LoanService : ILoanService
 {
     private readonly IGovernmentService _governmentService;
     private readonly IGroupService _groupService;
+    private readonly IPopularityService _popularityService;
     private readonly IRandomService _randomService;
     private readonly IAccountService _accountService;
 
@@ -29,10 +30,12 @@ public class LoanService : ILoanService
         IRandomService randomService,
         IAccountService accountService,
         IGroupService groupService,
+        IPopularityService popularityService,
         IGovernmentService governmentService)
     {
         _governmentService = governmentService;
         _groupService = groupService;
+        _popularityService = popularityService;
         _randomService = randomService;
         _accountService = accountService;
     }
@@ -70,7 +73,7 @@ public class LoanService : ILoanService
 
         loanApplicationResult.GroupName = group.Name;
 
-        if (group.Popularity <= _governmentService.GetMonthlyMinimalPopularityAndStrength())
+        if (group.Popularity <= _popularityService.GetMonthlyMinimalPopularityAndStrength())
         {
             loanApplicationResult.IsAccepted = false;
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.NotPopularEnough;
