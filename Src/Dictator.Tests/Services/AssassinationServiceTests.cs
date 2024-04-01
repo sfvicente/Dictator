@@ -89,6 +89,30 @@ public class AssassinationServiceTests
     }
 
     [Test]
+    public void IsAssassinationSuccessful_WhenPoliceIsUnableToProtectPlayer_ReturnsTrue()
+    {
+        // Arrange
+        _randomServiceMock
+            .Setup(service => service.Next(0, 2))
+            .Returns(1); // Player is lucky
+        _groupServiceMock
+            .Setup(service => service.DoesMainPopulationHatePlayer())
+            .Returns(false);
+        _popularityServiceMock
+            .Setup(service => service.DoesPoliceHatePlayer())
+            .Returns(false);
+        _popularityServiceMock
+            .Setup(service => service.IsPoliceUnableToProtectPlayer())
+            .Returns(true);
+
+        // Act
+        bool isSuccessful = _assassinationService.IsAssassinationSuccessful();
+
+        // Assert
+        Assert.IsTrue(isSuccessful); // The assassination attempt should be successful
+    }
+
+    [Test]
     public void GetAssassinationGroupName_ReturnsGroupName()
     {
         // Arrange
