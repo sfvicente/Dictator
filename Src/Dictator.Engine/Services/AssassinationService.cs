@@ -23,18 +23,15 @@ public class AssassinationService : IAssassinationService
     private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
     private readonly IPopularityService _popularityService;
-    private readonly IGovernmentService governmentService;
 
     public AssassinationService(
         IRandomService randomService,
         IGroupService groupService,
-        IPopularityService popularityService,
-        IGovernmentService governmentService)
+        IPopularityService popularityService)
     {
         _randomService = randomService;
         this.groupService = groupService;
         _popularityService = popularityService;
-        this.governmentService = governmentService;
     }
 
     /// <summary>

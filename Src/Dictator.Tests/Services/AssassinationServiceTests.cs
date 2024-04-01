@@ -8,7 +8,6 @@ public class AssassinationServiceTests
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IPopularityService> _popularityServiceMock;
-    private Mock<IGovernmentService> _governmentServiceMock;
     private AssassinationService _assassinationService;
 
     [SetUp]
@@ -16,12 +15,10 @@ public class AssassinationServiceTests
     {
         _randomServiceMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
-        _governmentServiceMock = new Mock<IGovernmentService>();
         _assassinationService = new AssassinationService(
             _randomServiceMock.Object,
             _groupServiceMock.Object,
-            _popularityServiceMock.Object,
-            _governmentServiceMock.Object);
+            _popularityServiceMock.Object);
     }
 
     [Test]
