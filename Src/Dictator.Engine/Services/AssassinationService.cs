@@ -21,7 +21,7 @@ public interface IAssassinationService
 public class AssassinationService : IAssassinationService
 {
     private readonly IRandomService _randomService;
-    private readonly IGroupService groupService;
+    private readonly IGroupService _groupService;
     private readonly IPopularityService _popularityService;
 
     public AssassinationService(
@@ -30,7 +30,7 @@ public class AssassinationService : IAssassinationService
         IPopularityService popularityService)
     {
         _randomService = randomService;
-        this.groupService = groupService;
+        _groupService = groupService;
         _popularityService = popularityService;
     }
 
@@ -42,7 +42,7 @@ public class AssassinationService : IAssassinationService
     {
         int number = _randomService.Next(0, 2);
 
-        if (groupService.DoesMainPopulationHatePlayer() ||
+        if (_groupService.DoesMainPopulationHatePlayer() ||
             _popularityService.DoesPoliceHatePlayer() ||
             _popularityService.IsPoliceUnableToProtectPlayer() ||
             number == 0) // Player is just unlucky
@@ -56,7 +56,7 @@ public class AssassinationService : IAssassinationService
 
     public string GetAssassinationGroupName(GroupType assassinGroupType)
     {
-        string groupName = groupService.GetGroupByType(assassinGroupType).Name;
+        string groupName = _groupService.GetGroupByType(assassinGroupType).Name;
 
         return groupName;
     }
