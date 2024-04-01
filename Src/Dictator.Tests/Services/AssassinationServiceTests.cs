@@ -15,6 +15,7 @@ public class AssassinationServiceTests
     {
         _randomServiceMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
+        _popularityServiceMock = new Mock<IPopularityService>();
         _assassinationService = new AssassinationService(
             _randomServiceMock.Object,
             _groupServiceMock.Object,
@@ -64,7 +65,7 @@ public class AssassinationServiceTests
     }
 
     [Test]
-    public void IsAssassinationSuccessful_WhenPoliceHatesPlayerOrIsUnableToProtectPlayer_ReturnsTrue()
+    public void IsAssassinationSuccessful_WhenPoliceHatesPlayer_ReturnsTrue()
     {
         // Arrange
         _randomServiceMock
@@ -74,8 +75,11 @@ public class AssassinationServiceTests
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
         _popularityServiceMock
-            .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
-            .Returns(90); // Assume popularity requirement is too high
+            .Setup(service => service.DoesPoliceHatePlayer())
+            .Returns(true);
+        _popularityServiceMock
+            .Setup(service => service.IsPoliceUnableToProtectPlayer())
+            .Returns(false);
 
         // Act
         bool isSuccessful = _assassinationService.IsAssassinationSuccessful();
