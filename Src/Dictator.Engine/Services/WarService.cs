@@ -60,7 +60,7 @@ public class WarService : IWarService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -72,7 +72,7 @@ public class WarService : IWarService
     public WarService(
         IRandomService randomService,
         IGroupService groupService,
-        IPopularityService popularityService,
+        IStatsService popularityService,
         IGovernmentService governmentService)
     {
         _randomService = randomService;

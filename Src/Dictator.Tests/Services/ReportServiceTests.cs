@@ -8,7 +8,7 @@ public class ReportServiceTests
 {
     private Mock<IAccountService> _mockAccountService;
     private Mock<IGroupService> _mockGroupService;
-    private Mock<IPopularityService> _mockPopularityService;
+    private Mock<IStatsService> _mockPopularityService;
     private Mock<IGovernmentService> _mockGovernmentService;
     private ReportService _reportService;
 
@@ -17,7 +17,7 @@ public class ReportServiceTests
     {
         _mockAccountService = new Mock<IAccountService>();
         _mockGroupService = new Mock<IGroupService>();
-        _mockPopularityService = new Mock<IPopularityService>();
+        _mockPopularityService = new Mock<IStatsService>();
         _mockGovernmentService = new Mock<IGovernmentService>();
         _reportService = new ReportService(
             _mockAccountService.Object,

@@ -10,12 +10,12 @@ public interface IPlotService
 public class PlotService : IPlotService
 {
     private readonly IGroupService _groupService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
     private readonly IGovernmentService _governmentService;
 
     public PlotService(
         IGroupService groupService, 
-        IPopularityService popularityService,
+        IStatsService popularityService,
         IGovernmentService governmentService)
     {
         _groupService = groupService;

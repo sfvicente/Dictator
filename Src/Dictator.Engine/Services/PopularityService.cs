@@ -2,7 +2,7 @@
 
 namespace Dictator.Core.Services;
 
-public interface IPopularityService
+public interface IStatsService
 {
     /// <summary>
     ///     Gets or sets the monthly minimal popularity and strength requirement.. 
@@ -16,14 +16,14 @@ public interface IPopularityService
     bool IsPoliceUnableToProtectPlayer();
 }
 
-public class PopularityService : IPopularityService
+public class StatsService : IStatsService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
 
     public int MonthlyMinimalPopularityAndStrength { get; set; }
 
-    public PopularityService(IRandomService randomService, IGroupService groupService)
+    public StatsService(IRandomService randomService, IGroupService groupService)
     {
         Initialise();
         _randomService = randomService;

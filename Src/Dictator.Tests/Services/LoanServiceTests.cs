@@ -7,7 +7,7 @@ namespace Dictator.Tests;
 public class LoanServiceTests
 {
     private Mock<IRandomService> _randomMock;
-    private Mock<IPopularityService> _popularityServiceMock;
+    private Mock<IStatsService> _popularityServiceMock;
     private Mock<IGovernmentService> _governmentMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IAccountService> _accountServiceMock;
@@ -17,7 +17,7 @@ public class LoanServiceTests
     public void Setup()
     {
         _randomMock = new Mock<IRandomService>();
-        _popularityServiceMock = new Mock<IPopularityService>();
+        _popularityServiceMock = new Mock<IStatsService>();
         _governmentMock = new Mock<IGovernmentService>();
         _groupServiceMock = new Mock<IGroupService>();
         _accountServiceMock = new Mock<IAccountService>();

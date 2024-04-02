@@ -15,7 +15,7 @@ public class ReportService : IReportService
 {
     private readonly IAccountService _accountService;
     private readonly IGroupService _groupService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
     private readonly IGovernmentService _governmentService;
 
     /// <summary>
@@ -29,7 +29,7 @@ public class ReportService : IReportService
     public ReportService(
         IAccountService accountService,
         IGroupService groupService,
-        IPopularityService popularityService,
+        IStatsService popularityService,
         IGovernmentService governmentService)
     {
         _accountService = accountService;

@@ -8,7 +8,7 @@ public class Engine : IEngine
 {
     private readonly IGameState _gameState;
     private readonly IAccountService accountService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
     private readonly IGovernmentService governmentService;
     private readonly IGroupService groupService;
     private readonly IReportService reportService;
@@ -32,7 +32,7 @@ public class Engine : IEngine
     public Engine(
         IGameState gameState,
         IAccountService accountService,
-        IPopularityService popularityService,
+        IStatsService popularityService,
         IGovernmentService governmentService,
         IGroupService groupService,
         IReportService reportService,

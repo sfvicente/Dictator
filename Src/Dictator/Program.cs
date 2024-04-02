@@ -100,7 +100,7 @@ class Program
         // Services
         .AddScoped<IConsoleService, ConsoleService>()
         .AddScoped<IAccountService, AccountService>()
-        .AddScoped<IPopularityService, PopularityService>()
+        .AddScoped<IStatsService, StatsService>()
         .AddScoped<IGovernmentService, GovernmentService>()
         .AddScoped<IGroupService, GroupService>()
         .AddScoped<IDecisionService, DecisionService>()

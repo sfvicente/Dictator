@@ -22,12 +22,12 @@ public class AssassinationService : IAssassinationService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
 
     public AssassinationService(
         IRandomService randomService,
         IGroupService groupService,
-        IPopularityService popularityService)
+        IStatsService popularityService)
     {
         _randomService = randomService;
         _groupService = groupService;

@@ -67,7 +67,7 @@ public class RevolutionService : IRevolutionService
     private readonly IRandomService _randomService;
     private readonly IRevolution revolution;
     private readonly IGroupService groupService;
-    private readonly IPopularityService _popularityService;
+    private readonly IStatsService _popularityService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -81,7 +81,7 @@ public class RevolutionService : IRevolutionService
         IRandomService randomService,
         IRevolution revolution,
         IGroupService groupService,
-        IPopularityService popularityService,
+        IStatsService popularityService,
         IGovernmentService governmentService)
     {
         _randomService = randomService;
