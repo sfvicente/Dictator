@@ -10,7 +10,7 @@ public class ReportServiceTests
     private Mock<IGroupService> _mockGroupService;
     private Mock<IPopularityService> _mockPopularityService;
     private Mock<IGovernmentService> _mockGovernmentService;
-    private IReportService _reportService;
+    private ReportService _reportService;
 
     [SetUp]
     public void Setup()
