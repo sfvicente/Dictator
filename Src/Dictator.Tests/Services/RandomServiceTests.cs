@@ -5,7 +5,7 @@ namespace Dictator.Tests.Services;
 [TestFixture]
 public class RandomServiceTests
 {
-    private IRandomService _randomService;
+    private RandomService _randomService;
 
     [SetUp]
     public void Setup()
