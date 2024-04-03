@@ -7,9 +7,6 @@ public interface IGovernmentService
     public void Initialise();
     public int GetMonth();
     public void AdvanceMonth();
-    public int GetPlayerStrength();
-    public void DecreasePlayerStrength();
-    public void IncreaseBodyguard();
     public void KillPlayer();
     public bool IsPlayerAlive();
     public void PurchaseHelicopter();
@@ -47,7 +44,6 @@ public class GovernmentService : IGovernmentService
     {
         _government.IsPlayerAlive = true;
         _government.HasHelicopter = false;
-        _government.PlayerStrength = 4;
         _government.Month = 0;
         _government.PlotBonus = 0;
         _government.MonthlyRevolutionStrength = 10;
@@ -68,35 +64,6 @@ public class GovernmentService : IGovernmentService
     public void AdvanceMonth()
     {
         _government.Month++;
-    }
-
-    /// <summary>
-    ///     Retrieves the current strength of the player. The player strength is always greater or equal to zero.
-    /// </summary>
-    /// <returns>A number representing the player's strength.</returns>
-    public int GetPlayerStrength()
-    {
-        return _government.PlayerStrength;
-    }
-
-    /// <summary>
-    ///     Increases bodyguard, resulting in an increment of the player's strength by 2.
-    /// </summary>
-    public void IncreaseBodyguard()
-    {
-        _government.PlayerStrength += 2;
-    }
-
-    /// <summary>
-    ///     Decreases the player strength level by one. If the strength attribute is zero, no action is taken as
-    ///     strength can't be negative.
-    /// </summary>
-    public void DecreasePlayerStrength()
-    {
-        if (_government.PlayerStrength > 0)
-        {
-            _government.PlayerStrength--;
-        }
     }
 
     /// <summary>

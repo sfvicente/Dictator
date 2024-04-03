@@ -88,6 +88,7 @@ public class AccountService: IAccountService
 {
     private readonly Account account;
     private readonly IGroupService groupService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -97,10 +98,15 @@ public class AccountService: IAccountService
     /// <param name="account">The component used to provide information related to the accounts and costs.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
-    public AccountService(IGameState gameState, IGroupService groupService, IGovernmentService governmentService)
+    public AccountService(
+        IGameState gameState,
+        IGroupService groupService,
+        IStatsService statsService,
+        IGovernmentService governmentService)
     {
         account = gameState.GetAccount();
         this.groupService = groupService;
+        _statsService = statsService;
         this.governmentService = governmentService;
     }
 
@@ -239,7 +245,7 @@ public class AccountService: IAccountService
         groupService.DecreasePopularity(GroupType.Army, 1);
         groupService.DecreasePopularity(GroupType.SecretPolice, 1);
         groupService.DecreaseStrength(GroupType.SecretPolice);
-        governmentService.DecreasePlayerStrength();
+        _statsService.DecreasePlayerStrength();
     }
 
     /// <summary>

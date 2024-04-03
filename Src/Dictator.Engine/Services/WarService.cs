@@ -20,18 +20,6 @@ public interface IWarService
     public void ApplyThreatOfWarEffects();
 
     /// <summary>
-    ///     Calculates the strength of the Ritimba republic in a scenario of war.
-    /// </summary>
-    /// <returns>The total strength of Ritimba in a scenario of war.</returns>
-    public int CalculateRitimbaStrength();
-
-    /// <summary>
-    ///     Calculates the strength of Leftoto in a scenario of war.
-    /// </summary>
-    /// <returns>The total strength of Leftoto.</returns>
-    public int CalculateLeftotoStrength();
-
-    /// <summary>
     ///     Executes and calculates the outcome for the war scenario between the Ritimba and Leftoto.
     /// </summary>
     /// <param name="warStats">The stats required for the war to calculate who wins.</param>
@@ -110,59 +98,6 @@ public class WarService : IWarService
     }
 
     /// <summary>
-    ///     Calculates the strength of the Ritimba republic in a scenario of war.
-    /// </summary>
-    /// <returns>The total strength of Ritimba in a scenario of war.</returns>
-    public int CalculateRitimbaStrength()
-    {
-        int totalStrength = 0;
-        Group[] groups = groupService.GetGroups();
-
-        // Sum the strength of the army, peasants and landowners if they have minimal popularity
-        for (int i = 0; i < 3; i++)
-        {
-            if (groups[i].Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                totalStrength += groups[i].Strength;
-            }
-        }
-
-        Group secretPoliceGroup = groupService.GetGroupByType(GroupType.SecretPolice);
-
-        // Add the strength of the secret police strength if they have minimal popularity
-        if (secretPoliceGroup.Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength())
-        {
-            totalStrength += secretPoliceGroup.Strength;
-        }
-
-        // Add the strength of the player to the total
-        totalStrength += governmentService.GetPlayerStrength();
-
-        return totalStrength;
-    }
-
-    /// <summary>
-    ///     Calculates the strength of Leftoto in a scenario of war.
-    /// </summary>
-    /// <returns>The total strength of Leftoto.</returns>
-    public int CalculateLeftotoStrength()
-    {
-        int totalStrength = 0;
-        Group[] groups = groupService.GetGroups();
-
-        // Add the strength of all groups except Russians and Americans that are equal or below the minimal popularity
-        for (int i = 0; i < 6; i++)
-        {
-            if (groups[i].Popularity <= _popularityService.GetMonthlyMinimalPopularityAndStrength())
-            {
-                totalStrength += groups[i].Strength;
-            }
-        }
-
-        return totalStrength;
-    }
-
-    /// <summary>
     ///     Executes and calculates the outcome for the war scenario between the Ritimba and Leftoto.
     /// </summary>
     /// <param name="warStats">The stats required for the war to calculate who wins.</param>
@@ -207,8 +142,8 @@ public class WarService : IWarService
     {
         var warStats = new WarStats
         {
-            RitimbanStrength = CalculateRitimbaStrength(),
-            LeftotanStrength = CalculateLeftotoStrength()
+            RitimbanStrength = _popularityService.CalculateRitimbaStrength(),
+            LeftotanStrength = _popularityService.CalculateLeftotoStrength()
         };
 
         return warStats;

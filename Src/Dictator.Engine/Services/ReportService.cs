@@ -66,7 +66,7 @@ public class ReportService : IReportService
         {
             Month = _governmentService.GetMonth(),
             Groups = _groupService.GetGroups().AsReadOnly(),
-            PlayerStrength = _governmentService.GetPlayerStrength(),
+            PlayerStrength = _popularityService.GetPlayerStrength(),
             MonthlyRevolutionStrength = _governmentService.GetMonthlyRevolutionStrength()
         };
 

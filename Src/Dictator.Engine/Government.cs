@@ -16,11 +16,6 @@
         public bool HasHelicopter { get; set; }
 
         /// <summary>
-        ///     Gets or sets the player strength. 
-        /// </summary>
-        public int PlayerStrength { get; set; }
-
-        /// <summary>
         ///     Gets or sets the current month of government. 
         /// </summary>
         public int Month { get; set; }

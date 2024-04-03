@@ -356,7 +356,7 @@ public class Engine : IEngine
     /// </summary>
     public void IncreaseBodyguard()
     {
-        governmentService.IncreaseBodyguard();
+        _popularityService.IncreaseBodyguard();
     }
 
     /// <summary>

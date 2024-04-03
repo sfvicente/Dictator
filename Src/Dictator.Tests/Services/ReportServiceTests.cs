@@ -55,8 +55,8 @@ public class ReportServiceTests
             new Group(GroupType.Army, 60, 80, "Army", "Army"),
             new Group(GroupType.Landowners, 70, 90, "Landowners", "Landowners")];
         _mockGroupService.Setup(x => x.GetGroups()).Returns(groups);
+        _mockPopularityService.Setup(x => x.GetPlayerStrength()).Returns(150);
         _mockGovernmentService.Setup(x => x.GetMonth()).Returns(3);
-        _mockGovernmentService.Setup(x => x.GetPlayerStrength()).Returns(150);
         _mockGovernmentService.Setup(x => x.GetMonthlyRevolutionStrength()).Returns(200);
 
         // Act
