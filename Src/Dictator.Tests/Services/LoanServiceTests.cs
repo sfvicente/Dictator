@@ -7,7 +7,7 @@ namespace Dictator.Tests;
 public class LoanServiceTests
 {
     private Mock<IRandomService> _randomMock;
-    private Mock<IStatsService> _popularityServiceMock;
+    private Mock<IStatsService> _statsServiceMock;
     private Mock<IGovernmentService> _governmentMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IAccountService> _accountServiceMock;
@@ -17,7 +17,7 @@ public class LoanServiceTests
     public void Setup()
     {
         _randomMock = new Mock<IRandomService>();
-        _popularityServiceMock = new Mock<IStatsService>();
+        _statsServiceMock = new Mock<IStatsService>();
         _governmentMock = new Mock<IGovernmentService>();
         _groupServiceMock = new Mock<IGroupService>();
         _accountServiceMock = new Mock<IAccountService>();
@@ -26,7 +26,7 @@ public class LoanServiceTests
             _randomMock.Object,
             _accountServiceMock.Object,
             _groupServiceMock.Object,
-            _popularityServiceMock.Object,
+            _statsServiceMock.Object,
             _governmentMock.Object);
     }
 
@@ -65,7 +65,7 @@ public class LoanServiceTests
     {
         // Arrange
         _randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(100); // Mock random result
-        _popularityServiceMock.Setup(g => g.GetMonthlyMinimalPopularityAndStrength()).Returns(100); // Mock popularity service
+        _statsServiceMock.Setup(g => g.GetMonthlyMinimalPopularityAndStrength()).Returns(100); // Mock popularity service
         _groupServiceMock
             .Setup(g => g.GetGroupTypeByCountry(It.IsAny<LenderCountry>()))
             .Returns(GroupType.Americans);

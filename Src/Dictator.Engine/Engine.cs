@@ -8,7 +8,7 @@ public class Engine : IEngine
 {
     private readonly IGameState _gameState;
     private readonly IAccountService accountService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService governmentService;
     private readonly IGroupService groupService;
     private readonly IReportService reportService;
@@ -32,7 +32,7 @@ public class Engine : IEngine
     public Engine(
         IGameState gameState,
         IAccountService accountService,
-        IStatsService popularityService,
+        IStatsService statsService,
         IGovernmentService governmentService,
         IGroupService groupService,
         IReportService reportService,
@@ -49,7 +49,7 @@ public class Engine : IEngine
     {
         _gameState = gameState;
         this.accountService = accountService;
-        _popularityService = popularityService;
+        _statsService = statsService;
         this.governmentService = governmentService;
         this.groupService = groupService;
         this.reportService = reportService;
@@ -245,7 +245,7 @@ public class Engine : IEngine
     /// </summary>
     public void SetMonthlyMinimalPopularityAndStrength()
     {
-        _popularityService.SetMonthlyMinimalPopularityAndStrength();
+        _statsService.SetMonthlyMinimalPopularityAndStrength();
     }
 
     /// <summary>
@@ -356,7 +356,7 @@ public class Engine : IEngine
     /// </summary>
     public void IncreaseBodyguard()
     {
-        _popularityService.IncreaseBodyguard();
+        _statsService.IncreaseBodyguard();
     }
 
     /// <summary>

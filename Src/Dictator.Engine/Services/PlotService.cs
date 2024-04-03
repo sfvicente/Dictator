@@ -10,16 +10,16 @@ public interface IPlotService
 public class PlotService : IPlotService
 {
     private readonly IGroupService _groupService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService _governmentService;
 
     public PlotService(
         IGroupService groupService, 
-        IStatsService popularityService,
+        IStatsService statsService,
         IGovernmentService governmentService)
     {
         _groupService = groupService;
-        _popularityService = popularityService;
+        _statsService = statsService;
         _governmentService = governmentService;
     }
 
@@ -41,7 +41,7 @@ public class PlotService : IPlotService
             _groupService.ResetStatusAndAllies();
 
             Group[] groups = _groupService.GetGroups();
-            int monthlyMinimalPopularityAndStrength = _popularityService.GetMonthlyMinimalPopularityAndStrength();
+            int monthlyMinimalPopularityAndStrength = _statsService.GetMonthlyMinimalPopularityAndStrength();
             int monthlyRevolutionStrength = _governmentService.GetMonthlyRevolutionStrength();
 
             // Perform internal plot logic

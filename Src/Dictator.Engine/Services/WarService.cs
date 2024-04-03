@@ -48,7 +48,7 @@ public class WarService : IWarService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService groupService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -60,12 +60,12 @@ public class WarService : IWarService
     public WarService(
         IRandomService randomService,
         IGroupService groupService,
-        IStatsService popularityService,
+        IStatsService statsService,
         IGovernmentService governmentService)
     {
         _randomService = randomService;
         this.groupService = groupService;
-        _popularityService = popularityService;
+        _statsService = statsService;
         this.governmentService = governmentService;
     }
 
@@ -124,8 +124,8 @@ public class WarService : IWarService
     {
         Group leftotans = groupService.GetGroupByType(GroupType.Leftotans);
 
-        if (leftotans.Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength() ||
-            leftotans.Strength < _popularityService.GetMonthlyMinimalPopularityAndStrength())
+        if (leftotans.Popularity > _statsService.GetMonthlyMinimalPopularityAndStrength() ||
+            leftotans.Strength < _statsService.GetMonthlyMinimalPopularityAndStrength())
         {
             return false;
         }
@@ -142,8 +142,8 @@ public class WarService : IWarService
     {
         var warStats = new WarStats
         {
-            RitimbanStrength = _popularityService.CalculateRitimbaStrength(),
-            LeftotanStrength = _popularityService.CalculateLeftotoStrength()
+            RitimbanStrength = _statsService.CalculateRitimbaStrength(),
+            LeftotanStrength = _statsService.CalculateLeftotoStrength()
         };
 
         return warStats;

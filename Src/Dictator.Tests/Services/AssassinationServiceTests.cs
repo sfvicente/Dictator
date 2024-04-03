@@ -7,7 +7,7 @@ public class AssassinationServiceTests
 {
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IGroupService> _groupServiceMock;
-    private Mock<IStatsService> _popularityServiceMock;
+    private Mock<IStatsService> _statsServiceMock;
     private AssassinationService _assassinationService;
 
     [SetUp]
@@ -15,11 +15,11 @@ public class AssassinationServiceTests
     {
         _randomServiceMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
-        _popularityServiceMock = new Mock<IStatsService>();
+        _statsServiceMock = new Mock<IStatsService>();
         _assassinationService = new AssassinationService(
             _randomServiceMock.Object,
             _groupServiceMock.Object,
-            _popularityServiceMock.Object);
+            _statsServiceMock.Object);
     }
 
     [Test]
@@ -32,7 +32,7 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
             .Returns(0); // Assuming minimum
 
@@ -53,7 +53,7 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(true);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.GetMonthlyMinimalPopularityAndStrength())
             .Returns(0); // Assuming minimum
 
@@ -74,10 +74,10 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.DoesPoliceHatePlayer())
             .Returns(true);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.IsPoliceUnableToProtectPlayer())
             .Returns(false);
 
@@ -98,10 +98,10 @@ public class AssassinationServiceTests
         _groupServiceMock
             .Setup(service => service.DoesMainPopulationHatePlayer())
             .Returns(false);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.DoesPoliceHatePlayer())
             .Returns(false);
-        _popularityServiceMock
+        _statsServiceMock
             .Setup(service => service.IsPoliceUnableToProtectPlayer())
             .Returns(true);
 

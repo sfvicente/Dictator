@@ -15,7 +15,7 @@ public class ReportService : IReportService
 {
     private readonly IAccountService _accountService;
     private readonly IGroupService _groupService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService _governmentService;
 
     /// <summary>
@@ -29,12 +29,12 @@ public class ReportService : IReportService
     public ReportService(
         IAccountService accountService,
         IGroupService groupService,
-        IStatsService popularityService,
+        IStatsService statsService,
         IGovernmentService governmentService)
     {
         _accountService = accountService;
         _groupService = groupService;
-        _popularityService = popularityService;
+        _statsService = statsService;
         _governmentService = governmentService;
     }
 
@@ -66,7 +66,7 @@ public class ReportService : IReportService
         {
             Month = _governmentService.GetMonth(),
             Groups = _groupService.GetGroups().AsReadOnly(),
-            PlayerStrength = _popularityService.GetPlayerStrength(),
+            PlayerStrength = _statsService.GetPlayerStrength(),
             MonthlyRevolutionStrength = _governmentService.GetMonthlyRevolutionStrength()
         };
 
@@ -81,7 +81,7 @@ public class ReportService : IReportService
     {
         int secretPolicePopularity = _groupService.GetPopularityByGroupType(GroupType.SecretPolice);
 
-        return secretPolicePopularity > _popularityService.GetMonthlyMinimalPopularityAndStrength();
+        return secretPolicePopularity > _statsService.GetMonthlyMinimalPopularityAndStrength();
     }
 
     /// <summary>
@@ -92,6 +92,6 @@ public class ReportService : IReportService
     {
         int policeStrength = _groupService.GetStrengthByGroupType(GroupType.SecretPolice);
 
-        return policeStrength > _popularityService.GetMonthlyMinimalPopularityAndStrength();
+        return policeStrength > _statsService.GetMonthlyMinimalPopularityAndStrength();
     }
 }

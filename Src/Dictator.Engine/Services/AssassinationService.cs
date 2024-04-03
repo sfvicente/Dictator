@@ -22,16 +22,16 @@ public class AssassinationService : IAssassinationService
 {
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
 
     public AssassinationService(
         IRandomService randomService,
         IGroupService groupService,
-        IStatsService popularityService)
+        IStatsService statsService)
     {
         _randomService = randomService;
         _groupService = groupService;
-        _popularityService = popularityService;
+        _statsService = statsService;
     }
 
     /// <summary>
@@ -43,8 +43,8 @@ public class AssassinationService : IAssassinationService
         int number = _randomService.Next(0, 2);
 
         if (_groupService.DoesMainPopulationHatePlayer() ||
-            _popularityService.DoesPoliceHatePlayer() ||
-            _popularityService.IsPoliceUnableToProtectPlayer() ||
+            _statsService.DoesPoliceHatePlayer() ||
+            _statsService.IsPoliceUnableToProtectPlayer() ||
             number == 0) // Player is just unlucky
 
         {

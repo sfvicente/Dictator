@@ -67,7 +67,7 @@ public class RevolutionService : IRevolutionService
     private readonly IRandomService _randomService;
     private readonly IRevolution revolution;
     private readonly IGroupService groupService;
-    private readonly IStatsService _popularityService;
+    private readonly IStatsService _statsService;
     private readonly IGovernmentService governmentService;
 
     /// <summary>
@@ -81,13 +81,13 @@ public class RevolutionService : IRevolutionService
         IRandomService randomService,
         IRevolution revolution,
         IGroupService groupService,
-        IStatsService popularityService,
+        IStatsService statsService,
         IGovernmentService governmentService)
     {
         _randomService = randomService;
         this.revolution = revolution;
         this.groupService = groupService;
-        _popularityService = popularityService;
+        _statsService = statsService;
         this.governmentService = governmentService;
     }
 
@@ -146,7 +146,7 @@ public class RevolutionService : IRevolutionService
 
         for (int i = 0; i < 6; i++)
         {
-            if (groups[i].Popularity > _popularityService.GetMonthlyMinimalPopularityAndStrength())
+            if (groups[i].Popularity > _statsService.GetMonthlyMinimalPopularityAndStrength())
             {
                 possibleAllies.Add(i + 1, groups[i]);
             }
@@ -164,7 +164,7 @@ public class RevolutionService : IRevolutionService
     {
         Group group = groupService.GetGroups()[groupId - 1];
 
-        if (group.Popularity <= _popularityService.GetMonthlyMinimalPopularityAndStrength())
+        if (group.Popularity <= _statsService.GetMonthlyMinimalPopularityAndStrength())
         {
             return false;
         }
