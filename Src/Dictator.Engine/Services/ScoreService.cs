@@ -54,7 +54,7 @@ public class ScoreService : IScoreService
         int pointsForStayingAlive = _governmentService.IsPlayerAlive() ? 10 : 0;
         int totalScore = totalPopularity + pointsForMonthsInOffice + pointsForMoneyGrabbing + pointsForStayingAlive;
 
-        Score score = new Score()
+        Score score = new()
         {
             TotalPopularity = totalPopularity,
             MonthsInOffice = monthsInOffice,
