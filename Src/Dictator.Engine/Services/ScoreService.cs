@@ -20,9 +20,9 @@ public interface IScoreService
 
 public class ScoreService : IScoreService
 {
-    private readonly IGroupService groupService;
-    private readonly IGovernmentService governmentService;
-    private readonly IAccountService accountService;
+    private readonly IGroupService _groupService;
+    private readonly IGovernmentService _governmentService;
+    private readonly IAccountService _accountService;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="ScoreService"/> class from a <see cref="IAccountService"/>,
@@ -34,9 +34,9 @@ public class ScoreService : IScoreService
     /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
     public ScoreService(IAccountService accountService, IGroupService groupService, IGovernmentService governmentService)
     {
-        this.groupService = groupService;
-        this.governmentService = governmentService;
-        this.accountService = accountService;
+        _groupService = groupService;
+        _governmentService = governmentService;
+        _accountService = accountService;
     }
 
     /// <summary>
@@ -45,13 +45,13 @@ public class ScoreService : IScoreService
     /// <returns>The current score.</returns>
     public Score GetCurrentScore()
     {
-        int totalPopularity = groupService.GetTotalPopularity();
-        int monthsInOffice = governmentService.GetMonth();
+        int totalPopularity = _groupService.GetTotalPopularity();
+        int monthsInOffice = _governmentService.GetMonth();
         int pointsForMonthsInOffice = monthsInOffice * 3;
-        int moneyGrabbed = accountService.GetSwissBankAccountBalance();
+        int moneyGrabbed = _accountService.GetSwissBankAccountBalance();
         int pointsForMoneyGrabbing = moneyGrabbed / 10;
-        int highestScore = governmentService.GetLastScore();
-        int pointsForStayingAlive = governmentService.IsPlayerAlive() ? 10 : 0;
+        int highestScore = _governmentService.GetLastScore();
+        int pointsForStayingAlive = _governmentService.IsPlayerAlive() ? 10 : 0;
         int totalScore = totalPopularity + pointsForMonthsInOffice + pointsForMoneyGrabbing + pointsForStayingAlive;
 
         Score score = new Score()
@@ -79,7 +79,7 @@ public class ScoreService : IScoreService
 
         if(score.TotalScore > highestScore)
         {
-            governmentService.SetHighScore(score.TotalScore);
+            _governmentService.SetHighScore(score.TotalScore);
         }
     }
 
@@ -89,7 +89,7 @@ public class ScoreService : IScoreService
     /// <returns>The current high score.</returns>
     public int GetCurrentHighScore()
     {
-        int highestScore = governmentService.GetLastScore();
+        int highestScore = _governmentService.GetLastScore();
 
         return highestScore;
     }
