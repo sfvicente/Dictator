@@ -118,7 +118,7 @@ public class RevolutionService : IRevolutionService
     /// <returns>The revolutionary group, their ally and combined strength.</returns>
     public Revolutionary GetRevolutionary()
     {
-        Revolutionary revolutionary = new Revolutionary();
+        Revolutionary revolutionary = new();
         Group revolutionaryGroup = _revolution.RevolutionaryGroup;
 
         if(revolutionaryGroup != null)
@@ -142,7 +142,7 @@ public class RevolutionService : IRevolutionService
     public Dictionary<int, Group> FindPossibleAllies()
     {
         Group[] groups = _groupService.GetGroups();
-        Dictionary<int, Group> possibleAllies = new Dictionary<int, Group>();
+        Dictionary<int, Group> possibleAllies = [];
 
         for (int i = 0; i < 6; i++)
         {
