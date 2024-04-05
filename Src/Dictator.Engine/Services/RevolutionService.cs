@@ -65,10 +65,10 @@ public interface IRevolutionService
 public class RevolutionService : IRevolutionService
 {
     private readonly IRandomService _randomService;
-    private readonly IRevolution revolution;
-    private readonly IGroupService groupService;
+    private readonly IRevolution _revolution;
+    private readonly IGroupService _groupService;
     private readonly IStatsService _statsService;
-    private readonly IGovernmentService governmentService;
+    private readonly IGovernmentService _governmentService;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="RevolutionService"/> class from a <see cref="IRevolution"/>,
@@ -85,10 +85,10 @@ public class RevolutionService : IRevolutionService
         IGovernmentService governmentService)
     {
         _randomService = randomService;
-        this.revolution = revolution;
-        this.groupService = groupService;
+        this._revolution = revolution;
+        this._groupService = groupService;
         _statsService = statsService;
-        this.governmentService = governmentService;
+        this._governmentService = governmentService;
     }
 
     /// <summary>
@@ -100,11 +100,11 @@ public class RevolutionService : IRevolutionService
         for (int guess = 0; guess < 3; guess++)     // Perform 3 tries to guess the revolt group
         {
             int number = _randomService.Next(3);
-            Group[] groups = groupService.GetGroups();
+            Group[] groups = _groupService.GetGroups();
 
             if (groups[number].Status == GroupStatus.Revolution)
             {
-                revolution.RevolutionaryGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
+                _revolution.RevolutionaryGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
                 return true;
             }
         }
@@ -119,7 +119,7 @@ public class RevolutionService : IRevolutionService
     public Revolutionary GetRevolutionary()
     {
         Revolutionary revolutionary = new Revolutionary();
-        Group revolutionaryGroup = revolution.RevolutionaryGroup;
+        Group revolutionaryGroup = _revolution.RevolutionaryGroup;
 
         if(revolutionaryGroup != null)
         {
@@ -141,7 +141,7 @@ public class RevolutionService : IRevolutionService
     /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
     public Dictionary<int, Group> FindPossibleAllies()
     {
-        Group[] groups = groupService.GetGroups();
+        Group[] groups = _groupService.GetGroups();
         Dictionary<int, Group> possibleAllies = new Dictionary<int, Group>();
 
         for (int i = 0; i < 6; i++)
@@ -162,7 +162,7 @@ public class RevolutionService : IRevolutionService
     /// <returns><c>true</c> if the group accepts to be an ally; otherwise, <c>false</c>.</returns>
     public bool DoesGroupAcceptAllianceInRevolution(int groupId)
     {
-        Group group = groupService.GetGroups()[groupId - 1];
+        Group group = _groupService.GetGroups()[groupId - 1];
 
         if (group.Popularity <= _statsService.GetMonthlyMinimalPopularityAndStrength())
         {
@@ -178,9 +178,9 @@ public class RevolutionService : IRevolutionService
     /// <param name="selectedAllyGroupId">The id of the group to set as the ally of the player.</param>
     public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
     {
-        Group group = groupService.GetGroupById(selectedAllyGroupId);
+        Group group = _groupService.GetGroupById(selectedAllyGroupId);
 
-        revolution.PlayerAlly = group;
+        _revolution.PlayerAlly = group;
     }
 
     /// <summary>
@@ -191,7 +191,7 @@ public class RevolutionService : IRevolutionService
     {
         int number = _randomService.Next(3);
 
-        if (revolution.RevolutionStrength > revolution.PlayerStrength + number - 1)
+        if (_revolution.RevolutionStrength > _revolution.PlayerStrength + number - 1)
         {
             return true;
         }
@@ -205,13 +205,13 @@ public class RevolutionService : IRevolutionService
     /// </summary>
     public void PunishRevolutionaries()
     {
-        Group revolutionaries = revolution.RevolutionaryGroup;
+        Group revolutionaries = _revolution.RevolutionaryGroup;
         Group revolutionaryAllies = revolutionaries.Ally;
 
-        groupService.SetStrength(revolutionaries.Type, 0);
-        groupService.SetPopularity(revolutionaries.Type, 0);
-        groupService.SetStrength(revolutionaryAllies.Type, 0);
-        groupService.SetPopularity(revolutionaryAllies.Type, 0);
+        _groupService.SetStrength(revolutionaries.Type, 0);
+        _groupService.SetPopularity(revolutionaries.Type, 0);
+        _groupService.SetStrength(revolutionaryAllies.Type, 0);
+        _groupService.SetPopularity(revolutionaryAllies.Type, 0);
     }
 
     /// <summary>
@@ -220,13 +220,13 @@ public class RevolutionService : IRevolutionService
     /// </summary>
     public void ApplyRevolutionCrushedEffects()
     {
-        if (revolution.PlayerAlly != null)
+        if (_revolution.PlayerAlly != null)
         {
             // Boosts the player ally's popularity when the player crushes the revolution
-            groupService.SetPopularity(revolution.PlayerAlly.Type, 9);
+            _groupService.SetPopularity(_revolution.PlayerAlly.Type, 9);
         }
-        governmentService.SetPlotBonus(governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
-        groupService.ResetStatusAndAllies();
+        _governmentService.SetPlotBonus(_governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
+        _groupService.ResetStatusAndAllies();
         // TODO: reset player's ally and revolution properties?
     }
 }
