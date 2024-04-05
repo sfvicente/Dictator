@@ -85,10 +85,10 @@ public class RevolutionService : IRevolutionService
         IGovernmentService governmentService)
     {
         _randomService = randomService;
-        this._revolution = revolution;
-        this._groupService = groupService;
+        _revolution = revolution;
+        _groupService = groupService;
         _statsService = statsService;
-        this._governmentService = governmentService;
+        _governmentService = governmentService;
     }
 
     /// <summary>
