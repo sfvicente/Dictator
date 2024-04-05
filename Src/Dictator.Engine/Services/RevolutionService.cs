@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Numerics;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
@@ -219,20 +220,13 @@ public class RevolutionService : IRevolutionService
     /// </summary>
     public void ApplyRevolutionCrushedEffects()
     {
-        BoostAllyPopularity();
+        if (revolution.PlayerAlly != null)
+        {
+            // Boosts the player ally's popularity when the player crushes the revolution
+            groupService.SetPopularity(revolution.PlayerAlly.Type, 9);
+        }
         governmentService.SetPlotBonus(governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
         groupService.ResetStatusAndAllies();
         // TODO: reset player's ally and revolution properties?
-    }
-
-    /// <summary>
-    ///     Boosts the player ally's popularity, which normally happens when the player crushes the revolution.
-    /// </summary>
-    private void BoostAllyPopularity()
-    {
-        if (revolution.PlayerAlly != null)
-        {
-            groupService.SetPopularity(revolution.PlayerAlly.Type, 9);
-        }
     }
 }
