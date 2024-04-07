@@ -97,21 +97,11 @@ public class AudienceService : IAudienceService
 
         if (!unusedAudiences.Any())
         {
-            SetAllAudiencesAsUnused(audiences);
+            // Set all audiences as unused
+            audiences.ToList().ForEach(a => a.HasBeenUsed = false);
             unusedAudiences = ((Audience[])audiences.Clone()).AsEnumerable();
         }
 
         return unusedAudiences;
-    }
-
-    /// <summary>
-    ///     Sets all audiences as unused.
-    /// </summary>
-    private void SetAllAudiencesAsUnused(Audience[] audiences)
-    {
-        foreach (var audience in audiences)
-        {
-            audience.HasBeenUsed = false;
-        }
     }
 }
