@@ -36,8 +36,8 @@ public interface IAudienceService
 public class AudienceService : IAudienceService
 {
     private readonly IRandomService _randomService;
-    private readonly IAccountService accountService;
-    private readonly IGroupService groupService;
+    private readonly IAccountService _accountService;
+    private readonly IGroupService _groupService;
 
     public AudienceService(
         IRandomService randomService,
@@ -45,8 +45,8 @@ public class AudienceService : IAudienceService
         IGroupService groupService)
     {
         _randomService = randomService;
-        this.accountService = accountService;
-        this.groupService = groupService;
+        _accountService = accountService;
+        _groupService = groupService;
     }
 
     /// <summary>
@@ -70,9 +70,9 @@ public class AudienceService : IAudienceService
     /// <param name="audience">The audience to be accepted.</param>
     public void AcceptAudienceRequest(Audience audience)
     {
-        groupService.ApplyPopularityChange(audience.GroupPopularityChanges);
-        groupService.ApplyStrengthChange(audience.GroupStrengthChanges);
-        accountService.ApplyTreasuryChanges(audience.Cost, audience.MonthlyCost);
+        _groupService.ApplyPopularityChange(audience.GroupPopularityChanges);
+        _groupService.ApplyStrengthChange(audience.GroupStrengthChanges);
+        _accountService.ApplyTreasuryChanges(audience.Cost, audience.MonthlyCost);
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public class AudienceService : IAudienceService
         char requesterPopularityChange = audience.GroupPopularityChanges[(int)audience.Requester];
 
         // Decrease the player's popularity with the petitioners
-        groupService.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
+        _groupService.DecreasePopularity(audience.Requester, requesterPopularityChange - 'M');
     }
 
     /// <summary>
