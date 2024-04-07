@@ -91,15 +91,14 @@ public class AudienceService : IAudienceService
     ///    Retrieves all the audiences that have not been used yet.
     /// </summary>
     /// <returns>A collection of unused audiences.</returns>
-    private IEnumerable<Audience> GetUnusedAudiences(Audience[] audiences)
+    public IReadOnlyCollection<Audience> GetUnusedAudiences(Audience[] audiences)
     {
-        IEnumerable<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed);
+        IReadOnlyCollection<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed).ToList();
 
-        if (!unusedAudiences.Any())
+        if (unusedAudiences.Count == 0)
         {
             // Set all audiences as unused
             audiences.ToList().ForEach(a => a.HasBeenUsed = false);
-            unusedAudiences = ((Audience[])audiences.Clone()).AsEnumerable();
         }
 
         return unusedAudiences;
