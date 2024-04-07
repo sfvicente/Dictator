@@ -99,6 +99,7 @@ public class AudienceService : IAudienceService
         {
             // Set all audiences as unused
             audiences.ToList().ForEach(a => a.HasBeenUsed = false);
+            return audiences;
         }
 
         return unusedAudiences;
