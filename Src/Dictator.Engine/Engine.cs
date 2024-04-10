@@ -713,7 +713,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
     public bool ShouldAssassinationAttemptHappen()
     {
-        return groupService.ShouldAssassinationAttemptHappen();
+        return assassinationService.ShouldAssassinationAttemptHappen();
     }
 
     /// <summary>

@@ -25,18 +25,9 @@ public interface IGroupService
     public int GetTotalPopularity();
     public void SetStrength(GroupType groupType, int strength);
     public void DecreaseStrength(GroupType groupType);
-    public void SetAssassinByGroupType(GroupType groupType);
     public bool DoesMainPopulationHatePlayer();
     public void ApplyPopularityChange(string groupPopularityChanges);
     public void ApplyStrengthChange(string groupStrengthChanges);
-
-    /// <summary>
-    ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
-    ///     peasants, landowners and guerrilas.
-    /// </summary>
-    /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    public bool ShouldAssassinationAttemptHappen();
-
     public void ResetStatusAndAllies();
 }
 
@@ -49,8 +40,6 @@ public class GroupService : IGroupService
     private const int MaxPopularityAndStrength = 9;
     private const int MinPopularityAndStrength = 0;
     private readonly IRandomService _randomService;
-    private GroupType _assassinGroupType;
-    public GroupType AssassinGroupType { get { return _assassinGroupType; } }
 
     public GroupService(IRandomService randomService)
     {
@@ -196,11 +185,6 @@ public class GroupService : IGroupService
         }
     }
 
-    public void SetAssassinByGroupType(GroupType groupType)
-    {
-        _assassinGroupType = groupType;
-    }
-
     /// <summary>
     ///     Determines if the main population of Ritimba, which is composed of the army, peasants and landowners, hates the player to the point
     ///     of wanting to carry out an assassination.
@@ -242,25 +226,6 @@ public class GroupService : IGroupService
                 _groups[i].Strength = Math.Clamp(strength, MinPopularityAndStrength, MaxPopularityAndStrength);
             }
         }
-    }
-
-    /// <summary>
-    ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
-    ///     peasants, landowners and guerrilas.
-    /// </summary>
-    /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    public bool ShouldAssassinationAttemptHappen()
-    {
-        int number = _randomService.Next(3);
-
-        // Select a random group between the army, peasants, landowners and guerrilas
-        if (_groups[number].Status == GroupStatus.Assassination)
-        {
-            SetAssassinByGroupType(_groups[number].Type);
-            return true;
-        }
-
-        return false;
     }
 
     /// <summary>
