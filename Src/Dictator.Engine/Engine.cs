@@ -326,21 +326,21 @@ public interface IEngine
 public class Engine : IEngine
 {
     private readonly IGameState _gameState;
-    private readonly IAccountService accountService;
+    private readonly IAccountService _accountService;
     private readonly IStatsService _statsService;
-    private readonly IGovernmentService governmentService;
-    private readonly IGroupService groupService;
-    private readonly IReportService reportService;
-    private readonly IPlotService plotService;
-    private readonly IDecisionService decisionService;
-    private readonly IAudienceService audienceService;
-    private readonly INewsService newsService;
-    private readonly IRevolutionService revolutionService;
-    private readonly IScoreService scoreService;
-    private readonly IEscapeService escapeService;
-    private readonly IAssassinationService assassinationService;
-    private readonly ILoanService loanService;
-    private readonly IWarService warService;
+    private readonly IGovernmentService _governmentService;
+    private readonly IGroupService _groupService;
+    private readonly IReportService _reportService;
+    private readonly IPlotService _plotService;
+    private readonly IDecisionService _decisionService;
+    private readonly IAudienceService _audienceService;
+    private readonly INewsService _newsService;
+    private readonly IRevolutionService _revolutionService;
+    private readonly IScoreService _scoreService;
+    private readonly IEscapeService _escapeService;
+    private readonly IAssassinationService _assassinationService;
+    private readonly ILoanService _loanService;
+    private readonly IWarService _warService;
 
     private News[] _news;
     private Decision[] _decisions;
@@ -367,21 +367,21 @@ public class Engine : IEngine
         IWarService warService)
     {
         _gameState = gameState;
-        this.accountService = accountService;
+        _accountService = accountService;
         _statsService = statsService;
-        this.governmentService = governmentService;
-        this.groupService = groupService;
-        this.reportService = reportService;
-        this.plotService = plotService;
-        this.decisionService = decisionService;
-        this.audienceService = audienceService;
-        this.newsService = newsService;
-        this.revolutionService = revolutionService;
-        this.scoreService = scoreService;
-        this.escapeService = escapeService;
-        this.assassinationService = assassinationService;
-        this.loanService = loanService;
-        this.warService = warService;
+        _governmentService = governmentService;
+        _groupService = groupService;
+        _reportService = reportService;
+        _plotService = plotService;
+        _decisionService = decisionService;
+        _audienceService = audienceService;
+        _newsService = newsService;
+        _revolutionService = revolutionService;
+        _scoreService = scoreService;
+        _escapeService = escapeService;
+        _assassinationService = assassinationService;
+        _loanService = loanService;
+        _warService = warService;
     }
 
     /// <summary>
@@ -389,8 +389,8 @@ public class Engine : IEngine
     /// </summary>
     public void Initialise()
     {
-        governmentService.Initialise();
-        groupService.Initialise();
+        _governmentService.Initialise();
+        _groupService.Initialise();
         LoadAudienceData();
         LoadDecisionsData();
         LoadNewsData();
@@ -484,7 +484,7 @@ public class Engine : IEngine
     /// <param name="strength">The strength level which will be set.</param>
     public void SetGroupStrength(GroupType groupType, int strength)
     {
-        groupService.SetStrength(groupType, strength);
+        _groupService.SetStrength(groupType, strength);
     }
 
     /// <summary>
@@ -493,7 +493,7 @@ public class Engine : IEngine
     /// <returns>A police report request with information on the popularity and strength requirements.</returns>
     public PoliceReportRequest RequestPoliceReport()
     {
-        return reportService.RequestPoliceReport();
+        return _reportService.RequestPoliceReport();
     }
 
     /// <summary>
@@ -502,7 +502,7 @@ public class Engine : IEngine
     /// <returns>The police report with the current month, revolution strength, player strength and group information.</returns>
     public PoliceReport GetPoliceReport()
     {
-        return reportService.GetPoliceReport();
+        return _reportService.GetPoliceReport();
     }
 
     /// <summary>
@@ -510,7 +510,7 @@ public class Engine : IEngine
     /// </summary>
     public void AdvanceMonth()
     {
-        governmentService.AdvanceMonth();
+        _governmentService.AdvanceMonth();
     }
 
     /// <summary>
@@ -518,7 +518,7 @@ public class Engine : IEngine
     /// </summary>
     public void PayMonthlyCosts()
     {
-        accountService.PayMonthlyCosts();
+        _accountService.PayMonthlyCosts();
     }
 
     /// <summary>
@@ -527,7 +527,7 @@ public class Engine : IEngine
     /// <returns>The current month number.</returns>
     public int GetMonth()
     {
-        return governmentService.GetMonth();
+        return _governmentService.GetMonth();
     }
 
     /// <summary>
@@ -536,7 +536,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if government is bankrupt; otherwise, <c>false</c>.</returns>
     public bool IsGovernmentBankrupt()
     {
-        return accountService.IsGovernmentBankrupt();
+        return _accountService.IsGovernmentBankrupt();
     }
 
     /// <summary>
@@ -545,7 +545,7 @@ public class Engine : IEngine
     /// <param name="amount">The amount to spend from the treasury.</param>
     public void PayFromTreasury(int amount)
     {
-        accountService.PayFromTreasury(amount);
+        _accountService.PayFromTreasury(amount);
     }
 
     /// <summary>
@@ -554,7 +554,7 @@ public class Engine : IEngine
     /// <returns>The details of the bank transfer consisting of the previous treasury balance and the amount stolen.</returns>
     public SwissBankAccountTransfer TransferToSwissBankAccount()
     {
-        return accountService.TransferToSwissBankAccount();
+        return _accountService.TransferToSwissBankAccount();
     }
 
     /// <summary>
@@ -572,19 +572,19 @@ public class Engine : IEngine
     /// </summary>
     public void SetMonthlyRevolutionStrength()
     {
-        governmentService.SetMonthlyRevolutionStrength();
+        _governmentService.SetMonthlyRevolutionStrength();
     }
 
     public void Plot()
     {
-        plotService.Plot();
+        _plotService.Plot();
     }
 
     public bool ShouldNewsHappen()
     {
-        if (newsService.ShouldNewsHappen())
+        if (_newsService.ShouldNewsHappen())
         {
-            if (newsService.DoesUnusedNewsExist(_news))
+            if (_newsService.DoesUnusedNewsExist(_news))
             {
                 return true;
             }
@@ -599,7 +599,7 @@ public class Engine : IEngine
     /// <returns>A random unused news event.</returns>
     public News SelectRandomUnusedNews()
     {
-        return newsService.SelectRandomUnusedNews(_news);
+        return _newsService.SelectRandomUnusedNews(_news);
     }
 
     /// <summary>
@@ -608,7 +608,7 @@ public class Engine : IEngine
     /// <param name="news">The news whose effect will be applied.</param>
     public void ApplyNewsEffects(News news)
     {
-        newsService.ApplyNewsEffects(news);
+        _newsService.ApplyNewsEffects(news);
     }
 
     /// <summary>
@@ -618,7 +618,7 @@ public class Engine : IEngine
     /// <returns>An unused audience request.</returns>
     public Audience SelectRandomUnusedAudienceRequest()
     {
-        return audienceService.SelectRandomUnusedAudienceRequest(_audiences);
+        return _audienceService.SelectRandomUnusedAudienceRequest(_audiences);
     }
 
     /// <summary>
@@ -627,7 +627,7 @@ public class Engine : IEngine
     /// <param name="audience">The audience to be accepted.</param>
     public void AcceptAudienceRequest(Audience audience)
     {
-        audienceService.AcceptAudienceRequest(audience);
+        _audienceService.AcceptAudienceRequest(audience);
     }
 
     /// <summary>
@@ -635,7 +635,7 @@ public class Engine : IEngine
     /// </summary>
     public void RefuseAudienceRequest(Audience audience)
     {
-        audienceService.RefuseAudienceRequest(audience);
+        _audienceService.RefuseAudienceRequest(audience);
     }
 
     /// <summary>
@@ -646,7 +646,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
     public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
     {
-        return decisionService.DoesPresidentialOptionExistAndIsAvailable(_decisions, decisionType, optionNumber);
+        return _decisionService.DoesPresidentialOptionExistAndIsAvailable(_decisions, decisionType, optionNumber);
     }
 
     /// <summary>
@@ -656,7 +656,7 @@ public class Engine : IEngine
     /// <returns>An array of decisions of the specified type.</returns>
     public Decision[] GetDecisionsByType(DecisionType decisionType)
     {
-        return decisionService.GetDecisionsByType(_decisions, decisionType);
+        return _decisionService.GetDecisionsByType(_decisions, decisionType);
     }
 
     /// <summary>
@@ -667,7 +667,7 @@ public class Engine : IEngine
     /// <returns>The position that matches the specified type and at the specific position.</returns>
     public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
     {
-        return decisionService.GetDecisionByTypeAndIndex(_decisions, decisionType, optionNumber);
+        return _decisionService.GetDecisionByTypeAndIndex(_decisions, decisionType, optionNumber);
     }
 
     /// <summary>
@@ -685,7 +685,7 @@ public class Engine : IEngine
     /// <returns>The loan application result that includes if the loan has been approved or refused.</returns>
     public LoanApplicationResult AskForLoan(LenderCountry country)
     {
-        return loanService.AskForLoan(country);
+        return _loanService.AskForLoan(country);
     }
 
     /// <summary>
@@ -694,7 +694,7 @@ public class Engine : IEngine
     /// <param name="decision">The decision whose effects will be apply.</param>
     public void ApplyDecisionEffects(Decision decision)
     {
-        decisionService.ApplyDecisionEffects(decision);
+        _decisionService.ApplyDecisionEffects(decision);
     }
 
     /// <summary>
@@ -703,7 +703,7 @@ public class Engine : IEngine
     /// <param name="text">The text of the presidential decision which will be marked as used.</param>
     public void MarkDecisionAsUsed(string text)
     {
-        decisionService.MarkDecisionAsUsed(_decisions, text);
+        _decisionService.MarkDecisionAsUsed(_decisions, text);
     }
 
     /// <summary>
@@ -713,7 +713,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
     public bool ShouldAssassinationAttemptHappen()
     {
-        return assassinationService.ShouldAssassinationAttemptHappen();
+        return _assassinationService.ShouldAssassinationAttemptHappen();
     }
 
     /// <summary>
@@ -722,7 +722,7 @@ public class Engine : IEngine
     /// <returns>The name of the assassination group.</returns>
     public string GetAssassinationGroupName()
     {
-        return assassinationService.GetAssassinationGroupName(_assassinGroupType);
+        return _assassinationService.GetAssassinationGroupName(_assassinGroupType);
     }
 
     /// <summary>
@@ -732,7 +732,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if a conflict exist with Leftoto; otherwise, <c>false</c>.</returns>
     public bool DoesConflictExist()
     {
-        return warService.DoesConflictExist();
+        return _warService.DoesConflictExist();
     }
 
     /// <summary>
@@ -741,7 +741,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if war should happen; otherwise, <c>false</c>.</returns>
     public bool ShouldWarHappen()
     {
-        return warService.ShouldWarHappen();
+        return _warService.ShouldWarHappen();
     }
 
     /// <summary>
@@ -750,7 +750,7 @@ public class Engine : IEngine
     /// </summary>
     public void ApplyThreatOfWarEffects()
     {
-        warService.ApplyThreatOfWarEffects();
+        _warService.ApplyThreatOfWarEffects();
     }
 
     /// <summary>
@@ -759,7 +759,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
     public bool IsAssassinationSuccessful()
     {
-        return assassinationService.IsAssassinationSuccessful();
+        return _assassinationService.IsAssassinationSuccessful();
     }
 
     /// <summary>
@@ -769,7 +769,7 @@ public class Engine : IEngine
     /// <returns>The war statistics which are composed of the strength of each country.</returns>
     public WarStats BeginInvasion()
     {
-        return warService.BeginInvasion();
+        return _warService.BeginInvasion();
     }
 
     /// <summary>
@@ -779,7 +779,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if Ritimba wins the war; otherwise, <c>false</c>.</returns>
     public bool ExecuteWar(WarStats warStats)
     {
-        return warService.ExecuteWar(warStats);
+        return _warService.ExecuteWar(warStats);
     }
 
     /// <summary>
@@ -788,7 +788,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if one of the groups becomes a group responsible for initiating a revolution; otherwise, <c>false</c>.</returns>
     public bool TryTriggerRevoltGroup()
     {
-        return revolutionService.TryTriggerRevoltGroup();
+        return _revolutionService.TryTriggerRevoltGroup();
     }
 
     /// <summary>
@@ -797,7 +797,7 @@ public class Engine : IEngine
     /// <returns>The revolutionary group, their ally and combined strength.</returns>
     public Revolutionary GetRevolutionary()
     {
-        return revolutionService.GetRevolutionary();
+        return _revolutionService.GetRevolutionary();
     }
 
     /// <summary>
@@ -806,7 +806,7 @@ public class Engine : IEngine
     /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
     public Dictionary<int, Group> FindPossibleAlliesForPlayer()
     {
-        return revolutionService.FindPossibleAllies();
+        return _revolutionService.FindPossibleAllies();
     }
 
     /// <summary>
@@ -816,7 +816,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the group accepts to be an ally; otherwise, <c>false</c>.</returns>
     public bool DoesGroupAcceptAllianceInRevolution(int groupId)
     {
-        return revolutionService.DoesGroupAcceptAllianceInRevolution(groupId);
+        return _revolutionService.DoesGroupAcceptAllianceInRevolution(groupId);
     }
 
     /// <summary>
@@ -825,7 +825,7 @@ public class Engine : IEngine
     /// <param name="selectedAllyGroupId">The id of the group to set as the ally of the player.</param>
     public void SetPlayerAllyForRevolution(int selectedAllyGroupId)
     {
-        revolutionService.SetPlayerAllyForRevolution(selectedAllyGroupId);
+        _revolutionService.SetPlayerAllyForRevolution(selectedAllyGroupId);
     }
 
     /// <summary>
@@ -834,7 +834,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the revolution has succeeded; otherwise, <c>false</c>.</returns>
     public bool DoesRevolutionSucceed()
     {
-        return revolutionService.DoesRevolutionSucceed();
+        return _revolutionService.DoesRevolutionSucceed();
     }
 
     /// <summary>
@@ -843,7 +843,7 @@ public class Engine : IEngine
     /// </summary>
     public void PunishRevolutionaries()
     {
-        revolutionService.PunishRevolutionaries();
+        _revolutionService.PunishRevolutionaries();
     }
 
     /// <summary>
@@ -852,7 +852,7 @@ public class Engine : IEngine
     /// </summary>
     public void ApplyRevolutionCrushedEffects()
     {
-        revolutionService.ApplyRevolutionCrushedEffects();
+        _revolutionService.ApplyRevolutionCrushedEffects();
     }
 
     /// <summary>
@@ -860,7 +860,7 @@ public class Engine : IEngine
     /// </summary>
     public void PurchasedHelicopter()
     {
-        governmentService.PurchaseHelicopter();
+        _governmentService.PurchaseHelicopter();
     }
 
     /// <summary>
@@ -869,7 +869,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the player is has purchased the helicopter; otherwise, <c>false</c>.</returns>
     public bool HasPlayerPurchasedHelicopter()
     {
-        return governmentService.HasPlayerPurchasedHelicopter();
+        return _governmentService.HasPlayerPurchasedHelicopter();
     }
 
     /// <summary>
@@ -878,7 +878,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the player is able to escape by helicopter; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAbleToEscapeByHelicopter()
     {
-        return escapeService.IsPlayerAbleToEscapeByHelicopter();
+        return _escapeService.IsPlayerAbleToEscapeByHelicopter();
     }
 
     /// <summary>
@@ -887,7 +887,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if manages to escape after losing the war; otherwise, <c>false</c>.</returns>
     public bool IsPlayerAbleToEscapeAfterLosingWar()
     {
-        return escapeService.IsPlayerAbleToEscapeAfterLosingWar();
+        return _escapeService.IsPlayerAbleToEscapeAfterLosingWar();
     }
 
     /// <summary>
@@ -896,7 +896,7 @@ public class Engine : IEngine
     /// <returns><c>true</c> if the guerrilas capture the player while attempting escape; otherwise, <c>false</c>.</returns>
     public bool DoesGuerrillaCatchPlayerEscaping()
     {
-        return escapeService.DoesGuerrillaCatchPlayerEscaping();
+        return _escapeService.DoesGuerrillaCatchPlayerEscaping();
     }
 
     /// <summary>
@@ -904,7 +904,7 @@ public class Engine : IEngine
     /// </summary>
     public void KillPlayer()
     {
-        governmentService.KillPlayer();
+        _governmentService.KillPlayer();
     }
 
     /// <summary>
@@ -913,7 +913,7 @@ public class Engine : IEngine
     /// <returns>The current high score.</returns>
     public int GetHighScore()
     {
-        return scoreService.GetCurrentHighScore();
+        return _scoreService.GetCurrentHighScore();
     }
 
     /// <summary>
@@ -922,7 +922,7 @@ public class Engine : IEngine
     /// <returns>The score value.</returns>
     public Score GetCurrentScore()
     {
-        return scoreService.GetCurrentScore();
+        return _scoreService.GetCurrentScore();
     }
 
     /// <summary>
@@ -930,7 +930,7 @@ public class Engine : IEngine
     /// </summary>
     public void SaveHighScore()
     {
-        scoreService.SaveHighScore();
+        _scoreService.SaveHighScore();
     }
 
     /// <summary>
@@ -939,6 +939,6 @@ public class Engine : IEngine
     /// </summary>
     public void ApplyBankruptcyEffects()
     {
-        accountService.ApplyBankruptcyEffects();
+        _accountService.ApplyBankruptcyEffects();
     }
 }
