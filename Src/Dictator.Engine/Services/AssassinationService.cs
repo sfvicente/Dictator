@@ -19,7 +19,7 @@ public interface IAssassinationService
     /// </summary>
     /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
     bool IsAssassinationSuccessful();
-    string GetAssassinationGroupName(GroupType assassinGroupType);
+    string GetAssassinationGroupName();
 }
 
 /// <summary>
@@ -84,9 +84,9 @@ public class AssassinationService : IAssassinationService
         return false;
     }
 
-    public string GetAssassinationGroupName(GroupType assassinGroupType)
+    public string GetAssassinationGroupName()
     {
-        string groupName = _groupService.GetGroupByType(assassinGroupType).Name;
+        string groupName = _groupService.GetGroupByType(_assassinGroupType).Name;
 
         return groupName;
     }

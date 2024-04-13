@@ -722,7 +722,9 @@ public class Engine : IEngine
     /// <returns>The name of the assassination group.</returns>
     public string GetAssassinationGroupName()
     {
-        return _assassinationService.GetAssassinationGroupName(_assassinGroupType);
+        //TODO: address this dependency to remove state from the AssassinationService
+        //return _assassinationService.GetAssassinationGroupName(_assassinGroupType);
+        return _assassinationService.GetAssassinationGroupName();
     }
 
     /// <summary>

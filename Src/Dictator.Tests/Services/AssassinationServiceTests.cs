@@ -123,7 +123,7 @@ public class AssassinationServiceTests
             .Returns(new Group(groupType, It.IsAny<int>(), It.IsAny<int>(), expectedGroupName, expectedGroupName));
 
         // Act
-        string groupName = _assassinationService.GetAssassinationGroupName(groupType);
+        string groupName = _assassinationService.GetAssassinationGroupName();
 
         // Assert
         Assert.AreEqual(expectedGroupName, groupName);
