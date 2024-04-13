@@ -18,8 +18,8 @@ public interface IAssassinationService
     ///     Determines if an assassination attempt on the player is successful.
     /// </summary>
     /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
-    public bool IsAssassinationSuccessful();
-    public string GetAssassinationGroupName(GroupType assassinGroupType);
+    bool IsAssassinationSuccessful();
+    string GetAssassinationGroupName(GroupType assassinGroupType);
 }
 
 /// <summary>
