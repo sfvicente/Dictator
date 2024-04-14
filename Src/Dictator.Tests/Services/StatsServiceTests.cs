@@ -177,18 +177,22 @@ public class StatsServiceTests
     public void CalculateLeftotoStrength_ShouldReturnCorrectValue()
     {
         // Arrange
+        var group1 = new Group(GroupType.Army, 5, 10, string.Empty, string.Empty);
+        var group2 = new Group(GroupType.Peasants, 5, 10, string.Empty, string.Empty);
+        var group3 = new Group(GroupType.Landowners, 5, 10, string.Empty, string.Empty);
+        var group4 = new Group(GroupType.Guerillas, 5, 10, string.Empty, string.Empty);
+        var group5 = new Group(GroupType.Leftotans, 5, 10, string.Empty, string.Empty);
+        var group6 = new Group(GroupType.SecretPolice, 5, 10, string.Empty, string.Empty);
+
         _groupServiceMock
-            .Setup(g => g.GetGroupByType(GroupType.Americans))
-            .Returns(new Group(GroupType.Americans, 10, 10, string.Empty, string.Empty));
-        _groupServiceMock
-            .Setup(g => g.GetGroupByType(GroupType.Russians))
-            .Returns(new Group(GroupType.Russians, 10, 10, string.Empty, string.Empty));
+            .Setup(g => g.GetGroups())
+            .Returns([group1, group2, group3, group4, group5, group6]);
         _statsService.MonthlyMinimalPopularityAndStrength = 15;
 
         // Act
         int result = _statsService.CalculateLeftotoStrength();
 
         // Assert
-        Assert.AreEqual(20, result);
+        Assert.AreEqual(60, result);
     }
 }
