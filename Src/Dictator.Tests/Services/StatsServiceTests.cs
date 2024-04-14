@@ -153,26 +153,24 @@ public class StatsServiceTests
     public void CalculateRitimbaStrength_ShouldReturnCorrectValue()
     {
         // Arrange
+        var group1 = new Group(GroupType.Army, 30, 10, string.Empty, string.Empty);
+        var group2 = new Group(GroupType.Peasants, 20, 10, string.Empty, string.Empty);
+        var group3 = new Group(GroupType.Landowners, 10, 10, string.Empty, string.Empty);
+
         _groupServiceMock
-            .Setup(g => g.GetGroupByType(GroupType.Army))
-            .Returns(new Group(GroupType.Army, 20, 10, string.Empty, string.Empty));
-        _groupServiceMock
-            .Setup(g => g.GetGroupByType(GroupType.Peasants))
-            .Returns(new Group(GroupType.Peasants, 20, 10, string.Empty, string.Empty));
-        _groupServiceMock
-            .Setup(g => g.GetGroupByType(GroupType.Landowners))
-            .Returns(new Group(GroupType.Landowners, 20, 10, string.Empty, string.Empty));
+            .Setup(g => g.GetGroups())
+            .Returns([group1, group2, group3]);
         _groupServiceMock
             .Setup(g => g.GetGroupByType(GroupType.SecretPolice))
             .Returns(new Group(GroupType.SecretPolice, 20, 20, string.Empty, string.Empty));
         _statsService.PlayerStrength = 5;
-        _statsService.MonthlyMinimalPopularityAndStrength = 15;
+        _statsService.MonthlyMinimalPopularityAndStrength = 5;
 
         // Act
         int result = _statsService.CalculateRitimbaStrength();
 
         // Assert
-        Assert.AreEqual(65, result);
+        Assert.AreEqual(55, result);
     }
 
     [Test]
