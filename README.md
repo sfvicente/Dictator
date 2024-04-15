@@ -42,7 +42,7 @@ one or more groups will become unhappy and plot or rebel against you. It is ther
 get away alive and as much money as possible when everything collapses in the end.  
 
 As a game progresses, there is a constantly decreasing number of possible courses of action and an ongoing escalation of the political
-situation. This is due to randomly interspersed events ensures that the game generates. A game frequently ends with a revolution or
+situation. This is due to randomly interspersed events that the game generates. A game frequently ends with a revolution or
 assassination attempt by a dissatisfied group, which can result in the death of the dictator.
 
 ## Development Status
