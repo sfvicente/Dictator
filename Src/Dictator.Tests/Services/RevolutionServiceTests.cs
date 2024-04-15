@@ -127,7 +127,7 @@ public class RevolutionServiceTests
         var group2 = new Group(GroupType.Peasants, 20, 10, string.Empty, string.Empty);
         var group3 = new Group(GroupType.Landowners, 15, 10, string.Empty, string.Empty);
         var group4 = new Group(GroupType.SecretPolice, 5, 10, string.Empty, string.Empty);
-        var group5 = new Group(GroupType.Americans, 30, 10, string.Empty, string.Empty);
+        var group5 = new Group(GroupType.Americans, 10, 10, string.Empty, string.Empty);
         var group6 = new Group(GroupType.Russians, 25, 10, string.Empty, string.Empty);
 
         _groupServiceMock
