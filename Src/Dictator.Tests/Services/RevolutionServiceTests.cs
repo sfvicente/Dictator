@@ -58,11 +58,16 @@ public class RevolutionServiceTests
     public void TryTriggerRevoltGroup_WhenRevoltGroupDoesNotExist_ReturnsFalse()
     {
         // Arrange
-        var group = new Group(GroupType.Army, 20, 10, string.Empty, string.Empty);
+        var group1 = new Group(GroupType.Army, 30, 10, string.Empty, string.Empty);
+        var group2 = new Group(GroupType.Peasants, 20, 10, string.Empty, string.Empty);
+        var group3 = new Group(GroupType.Landowners, 15, 10, string.Empty, string.Empty);
 
+        group1.Status = GroupStatus.Default;
+        group2.Status = GroupStatus.Default;
+        group3.Status = GroupStatus.Default;
         _groupServiceMock
             .Setup(g => g.GetGroups())
-            .Returns([null, null, null, null, null, null]);
+            .Returns([group1, group2, group3]);
         _randomServiceMock
             .SetupSequence(r => r.Next(3))
             .Returns(0)
