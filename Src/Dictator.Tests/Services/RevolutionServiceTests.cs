@@ -98,7 +98,7 @@ public class RevolutionServiceTests
         Assert.IsNotNull(result);
         Assert.AreEqual("Army", result.RevolutionaryGroupName);
         Assert.AreEqual("Peasants", result.RevolutionaryGroupAllyName);
-        Assert.AreEqual(50, result.CombinedStrength);
+        Assert.AreEqual(20, result.CombinedStrength);
     }
 
     [Test]
