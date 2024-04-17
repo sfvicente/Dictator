@@ -98,6 +98,7 @@ class Program
         .AddSingleton<IGameState, GameState>()
         .AddScoped<IAccountSettings, AccountSettings>()
         // Services
+        .AddScoped<IStateManagementService, StateManagementService>()
         .AddScoped<IConsoleService, ConsoleService>()
         .AddScoped<IAccountService, AccountService>()
         .AddScoped<IStatsService, StatsService>()

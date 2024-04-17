@@ -20,14 +20,16 @@ public interface ILoanService
 /// </summary>
 public class LoanService : ILoanService
 {
-    private readonly IGovernmentService _governmentService;
+    private readonly IRandomService _randomService;
+    private readonly IStateManagementService _stateManagementService;
     private readonly IGroupService _groupService;
     private readonly IStatsService _statsService;
-    private readonly IRandomService _randomService;
+    private readonly IGovernmentService _governmentService;
     private readonly IAccountService _accountService;
 
     public LoanService(
         IRandomService randomService,
+        IStateManagementService stateManagementService,
         IAccountService accountService,
         IGroupService groupService,
         IStatsService statsService,
@@ -37,20 +39,18 @@ public class LoanService : ILoanService
         _groupService = groupService;
         _statsService = statsService;
         _randomService = randomService;
+        _stateManagementService = stateManagementService;
         _accountService = accountService;
     }
 
     /// <summary>
     ///     Asks for foreign aid in the form of a loan to either America or Russia.
     /// </summary>
-    /// <param name="country">The country to which the loan request will be made.</param>
+    /// <param name="lenderCountry">The country to which the loan request will be made.</param>
     /// <returns>The loan application result that includes if the loan has been approved or refused.</returns>
-    public LoanApplicationResult AskForLoan(LenderCountry country)
+    public LoanApplicationResult AskForLoan(LenderCountry lenderCountry)
     {
-        LoanApplicationResult loanApplicationResult = new()
-        {
-            Country = country
-        };
+        LoanApplicationResult loanApplicationResult = new() { Country = lenderCountry };
 
         if (IsTooEarlyForLoan())
         {
@@ -60,7 +60,7 @@ public class LoanService : ILoanService
             return loanApplicationResult;
         }
 
-        if (HasLoanBeenGrantedPreviously(country))
+        if (_stateManagementService.HasLoadBeenGranted(lenderCountry))
         {
             loanApplicationResult.IsAccepted = false;
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.AlreadyUsed;
@@ -68,7 +68,7 @@ public class LoanService : ILoanService
             return loanApplicationResult;
         }
 
-        GroupType groupType = _groupService.GetGroupTypeByCountry(country);
+        GroupType groupType = _groupService.GetGroupTypeByCountry(lenderCountry);
         Group group = _groupService.GetGroupByType(groupType);
 
         loanApplicationResult.GroupName = group.Name;
@@ -84,6 +84,7 @@ public class LoanService : ILoanService
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.None;
             loanApplicationResult.Amount = CalculateLoanAmount(group);
             _accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
+            _stateManagementService.SetLoanBeenGranted(lenderCountry);
         }
 
         return loanApplicationResult;
@@ -101,18 +102,6 @@ public class LoanService : ILoanService
         {
             return true;
         }
-
-        return false;
-    }
-
-    /// <summary>
-    ///     Determines if a loan has already been requested and granted by the specified country.
-    /// </summary>
-    /// <param name="country">The country to which the loan request will be made.</param>
-    /// <returns><c>true</c> if the loan has been granted before; otherwise, <c>false</c>.</returns>
-    private bool HasLoanBeenGrantedPreviously(LenderCountry country)
-    {
-        // TODO: Check if loans have been used
 
         return false;
     }
