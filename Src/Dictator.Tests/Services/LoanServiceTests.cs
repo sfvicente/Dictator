@@ -53,10 +53,23 @@ public class LoanServiceTests
     }
 
     [Test]
-    public void AskForLoan_PreviousLoanExists_ReturnsRefusalAlreadyUsed()
+    public void AskForLoan_WhenPreviousLoanExists_ReturnsRefusalAlreadyUsed()
     {
+        // Arrange
+        LenderCountry lenderCountry = LenderCountry.America;
+
+        _randomMock
+            .Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>()))
+            .Returns(1);
+        _governmentMock
+            .Setup(g => g.GetMonth())
+            .Returns(10);
+        _stateManagementServiceMock
+            .Setup(s => s.HasLoadBeenGranted(lenderCountry))
+            .Returns(true);
+
         // Act
-        var result = _loanService.AskForLoan(LenderCountry.America); // Assuming a previous loan exists
+        var result = _loanService.AskForLoan(lenderCountry);
 
         // Assert
         Assert.IsFalse(result.IsAccepted);
