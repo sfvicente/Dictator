@@ -118,6 +118,8 @@ public class AssassinationServiceTests
         // Arrange
         GroupType groupType = GroupType.Peasants;
         string expectedGroupName = "Peasants";
+
+        _assassinationService.SetAssassinByGroupType(groupType);
         _groupServiceMock
             .Setup(service => service.GetGroupByType(groupType))
             .Returns(new Group(groupType, It.IsAny<int>(), It.IsAny<int>(), expectedGroupName, expectedGroupName));
