@@ -80,14 +80,21 @@ public class LoanServiceTests
     public void AskForLoan_GroupNotPopularEnough_ReturnsRefusalNotPopularEnough()
     {
         // Arrange
-        _randomMock.Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>())).Returns(100); // Mock random result
-        _statsServiceMock.Setup(g => g.GetMonthlyMinimalPopularityAndStrength()).Returns(100); // Mock popularity service
+        _randomMock
+            .Setup(r => r.Next(It.IsAny<int>(), It.IsAny<int>()))
+            .Returns(1);
+        _governmentMock
+            .Setup(g => g.GetMonth())
+            .Returns(10);
+        _statsServiceMock
+            .Setup(g => g.GetMonthlyMinimalPopularityAndStrength())
+            .Returns(10);
         _groupServiceMock
             .Setup(g => g.GetGroupTypeByCountry(It.IsAny<LenderCountry>()))
             .Returns(GroupType.Americans);
         _groupServiceMock
             .Setup(g => g.GetGroupByType(It.IsAny<GroupType>()))
-            .Returns(new Group(GroupType.Americans, 1, 1, string.Empty, string.Empty) { Popularity = 1 }); // Assuming group popularity is less than minimal required
+            .Returns(new Group(GroupType.Americans, 1, 1, string.Empty, string.Empty) { Popularity = 1 });
 
         // Act
         var result = _loanService.AskForLoan(LenderCountry.America);
