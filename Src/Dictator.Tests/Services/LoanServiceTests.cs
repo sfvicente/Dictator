@@ -77,7 +77,7 @@ public class LoanServiceTests
     }
 
     [Test]
-    public void AskForLoan_GroupNotPopularEnough_ReturnsRefusalNotPopularEnough()
+    public void AskForLoan_WhenGroupNotPopularEnough_ReturnsRefusalNotPopularEnough()
     {
         // Arrange
         _randomMock
