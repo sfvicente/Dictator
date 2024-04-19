@@ -40,20 +40,22 @@ public class PlotServiceTests
     public void Plot_WhenAbove2ndMonth_ShouldExecutePlotLogic()
     {
         // Arrange
+        var groups = new Group[]
+        {
+            new Group(GroupType.Army, 30, 10, string.Empty, string.Empty),
+            new Group(GroupType.Peasants, 20, 10, string.Empty, string.Empty),
+            new Group(GroupType.Landowners, 15, 10, string.Empty, string.Empty),
+            new Group(GroupType.SecretPolice, 5, 10, string.Empty, string.Empty),
+            new Group(GroupType.Americans, 10, 10, string.Empty, string.Empty),
+            new Group(GroupType.Russians, 25, 10, string.Empty, string.Empty)
+        };
+
         _governmentServiceMock
-            .Setup(g => g.GetMonth())
-            .Returns(3);
+                .Setup(g => g.GetMonth())
+                .Returns(3);
         _governmentServiceMock
             .Setup(g => g.GetPlotBonus())
             .Returns(0);
-
-        var groups = new Group[]
-        {
-            new Group(GroupType.Army, 1, 2, string.Empty, string.Empty),
-            new Group(GroupType.Peasants, 2, 3, string.Empty, string.Empty),
-            new Group(GroupType.Landowners, 3, 4, string.Empty, string.Empty)
-        };
-
         _groupServiceMock
             .Setup(g => g.GetGroups())
             .Returns(groups);
