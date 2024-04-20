@@ -562,7 +562,7 @@ public class Game
         if (_engine.DoesGuerrillaCatchPlayerEscaping())
         {
             _userInterface.DisplayGuerillasCelebratingScreen();
-            // TODO: kill player?
+            _engine.KillPlayer();
         }
         else
         {
