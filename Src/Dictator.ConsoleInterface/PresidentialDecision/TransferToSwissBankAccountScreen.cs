@@ -55,7 +55,7 @@ public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBank
         }
         else
         {
-            _consoleService.WriteAt(8, 11, "NO TRANSFER made"); // TODO: fix placement 
+            _consoleService.WriteAt(12, 7, "NO TRANSFER made");
         }
 
         _accountControl.Show(account);
