@@ -47,13 +47,24 @@ public class LoanApplicationResultScreen : BaseScreen, ILoanApplicationResultScr
         }
         else
         {
-            if (loanApplicationResult.Country == LenderCountry.America)
+            if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.TooEarly)
             {
-                _consoleService.WriteAt(1, 12, "            \"nuts !\"            ");
+                _consoleService.WriteAt(12, 2, "It's TOO EARLY to give AID");
             }
-            else if(loanApplicationResult.Country == LenderCountry.Russia)
+            else if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.AlreadyUsed)
             {
-                _consoleService.WriteAt(1, 12, "             NIET !             ");
+                _consoleService.WriteAt(12, 2, "Very sorry, NO MORE LOANS");
+            }
+            else if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.NotPopularEnough)
+            {
+                if (loanApplicationResult.Country == LenderCountry.America)
+                {
+                    _consoleService.WriteAt(12, 12, "\"nuts !\"");
+                }
+                else if (loanApplicationResult.Country == LenderCountry.Russia)
+                {
+                    _consoleService.WriteAt(12, 12, "NIET !");
+                }
             }
         }
 
