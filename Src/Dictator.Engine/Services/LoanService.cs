@@ -96,9 +96,9 @@ public class LoanService : ILoanService
     /// <returns><c>true</c> if it is too early in the game to receive a loan; otherwise, <c>false</c>.</returns>
     private bool IsTooEarlyForLoan()
     {
-        int minimumRandomMonthRequirement = _randomService.Next(0, 5) + 3;      
+        int minimumRandomMonthRequirement = _randomService.Next(0, 5) + 3;
 
-        if (_governmentService.GetMonth() <= minimumRandomMonthRequirement)
+        if (_governmentService.GetMonth() < minimumRandomMonthRequirement)
         {
             return true;
         }
