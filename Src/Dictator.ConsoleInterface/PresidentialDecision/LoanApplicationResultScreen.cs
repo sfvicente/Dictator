@@ -49,11 +49,11 @@ public class LoanApplicationResultScreen : BaseScreen, ILoanApplicationResultScr
         {
             if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.TooEarly)
             {
-                _consoleService.WriteAt(12, 2, "It's TOO EARLY to give AID");
+                _consoleService.WriteAt(2, 12, "It's TOO EARLY to give AID");
             }
             else if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.AlreadyUsed)
             {
-                _consoleService.WriteAt(12, 2, "Very sorry, NO MORE LOANS");
+                _consoleService.WriteAt(2, 12, "Very sorry, NO MORE LOANS");
             }
             else if(loanApplicationResult.RefusalType == LoanApplicationRefusalType.NotPopularEnough)
             {
