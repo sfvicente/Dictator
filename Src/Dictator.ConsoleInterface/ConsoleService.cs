@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Dictator.ConsoleInterface;
 
@@ -13,6 +14,9 @@ public interface IConsoleService
     void SetCursorPosition(int left, int top);
     void WriteAt(int left, int top, string text);
     void WriteCenteredAt(int top, string text);
+    void PrintAt(int row, int column, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
+    void PrintAt(int row, int column, string text);
+    void SetCursorAt(int row, int column);
     void Clear();
     void Clear(char character);
     void Clear(ConsoleColor backgroundColor);
@@ -137,6 +141,34 @@ public class ConsoleService : IConsoleService
         int left = (ScreenCols - text.Length) / 2;
 
         WriteAt(left, top, text);
+    }
+
+    public void PrintAt(int row, int column, string text)
+    {
+        SetCursorAt(row, column);
+        Console.Write(text);
+    }
+
+    public void PrintAt(int row, int column, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
+    {
+        ConsoleColor previousBackgroundColor = Console.BackgroundColor;
+        ConsoleColor previousForegroundColor = Console.ForegroundColor;
+
+        Console.BackgroundColor = backgroundColor;
+        Console.ForegroundColor = foregroundColor;
+        PrintAt(row, column, text);
+        Console.BackgroundColor = previousBackgroundColor;
+        Console.ForegroundColor = previousForegroundColor;
+    }
+
+    public void SetCursorAt(int row, int column)
+    {
+        if (row is < 0 or > ScreenRows)
+        {
+            throw new ArgumentOutOfRangeException(nameof(row));
+        }
+
+        Console.SetCursorPosition(ScreenColPadding + column, row);
     }
 
     /// <summary>
