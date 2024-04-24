@@ -53,7 +53,7 @@ public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSu
 
         if(HaveAllDecisionsBeenUsed(decisions))
         {
-            _consoleService.WriteAt(1, 12, "   ALL of this section USED UP  ");
+            _consoleService.PrintAt(12, 3, "ALL of this section USED UP");
         }
         else
         {
