@@ -24,7 +24,6 @@ public class AudienceScreenTests
     public void Show_ShouldClearConsole()
     {
         // Arrange
-        // Arrange
         Audience audience = new(
             GroupType.Army,
             10,
