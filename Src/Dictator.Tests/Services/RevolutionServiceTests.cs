@@ -2,7 +2,7 @@
 using Dictator.Core.Models;
 using Dictator.Core;
 
-namespace Dictator.Tests;
+namespace Dictator.Core.Tests.Services;
 
 [TestFixture]
 public class RevolutionServiceTests
@@ -246,7 +246,7 @@ public class RevolutionServiceTests
         // Arrange
         var revolutionaryGroup = new Group(GroupType.Army, 30, 10, string.Empty, string.Empty);
         var revolutionaryAlly = new Group(GroupType.Peasants, 30, 10, string.Empty, string.Empty);
-        
+
         _revolutionMock
             .SetupGet(r => r.RevolutionaryGroup)
             .Returns(revolutionaryGroup);

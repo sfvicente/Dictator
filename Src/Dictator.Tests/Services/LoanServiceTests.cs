@@ -1,7 +1,7 @@
 ﻿using Dictator.Core.Services;
 using Dictator.Core.Models;
 
-namespace Dictator.Tests;
+namespace Dictator.Core.Tests.Services;
 
 [TestFixture]
 public class LoanServiceTests

@@ -1,7 +1,7 @@
 ﻿using Dictator.Core.Models;
 using Dictator.Core.Services;
 
-namespace Dictator.Tests.Services;
+namespace Dictator.Core.Tests.Services;
 
 [TestFixture]
 public class ReportServiceTests

@@ -1,4 +1,4 @@
-﻿namespace Dictator.Tests;
+﻿namespace Dictator.Core.Tests.Services;
 
 public class AccountServiceTests
 {

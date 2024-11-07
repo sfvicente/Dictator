@@ -1,4 +1,4 @@
-namespace Dictator.Tests;
+namespace Dictator.Core.Tests;
 
 public class EngineTests
 {

@@ -2,7 +2,7 @@
 using Dictator.Core.Models;
 using System.Linq;
 
-namespace Dictator.Tests;
+namespace Dictator.Core.Tests.Services;
 
 [TestFixture]
 public class AudienceServiceTests
@@ -96,11 +96,11 @@ public class AudienceServiceTests
         var audience1 = new Audience(GroupType.Army, 10, 20, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audience2 = new Audience(GroupType.Peasants, 20, 30, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audience3 = new Audience(GroupType.Landowners, 30, 40, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
-        
+
         audience1.HasBeenUsed = true;
         audience2.HasBeenUsed = true;
         audience3.HasBeenUsed = true;
-        
+
         var audiences = new Audience[] { audience1, audience2, audience3 };
 
         // Act
