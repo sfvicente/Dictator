@@ -2,7 +2,7 @@
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Decisions;
 
-namespace Dictator.Tests;
+namespace Dictator.ConsoleInterfaces.Tests.Decision;
 
 [TestFixture]
 public class AdviceRequestDialogTests

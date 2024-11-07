@@ -3,7 +3,7 @@ using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Decisions;
 using Dictator.Core.Models;
 
-namespace Dictator.Tests;
+namespace Dictator.ConsoleInterfaces.Tests.Decision;
 
 [TestFixture]
 public class AudienceScreenTests
