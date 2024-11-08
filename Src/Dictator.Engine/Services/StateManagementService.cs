@@ -6,7 +6,7 @@ namespace Dictator.Core.Services;
 public interface IStateManagementService
 {
     bool HasLoanBeenGranted(LenderCountry lenderCountry);
-    void SetLoanBeenGranted(LenderCountry lenderCountry);
+    void SetLoanHasBeenGranted(LenderCountry lenderCountry);
 }
 
 public class StateManagementService : IStateManagementService
@@ -28,7 +28,7 @@ public class StateManagementService : IStateManagementService
         throw new InvalidEnumArgumentException(nameof(lenderCountry));
     }
 
-    public void SetLoanBeenGranted(LenderCountry lenderCountry)
+    public void SetLoanHasBeenGranted(LenderCountry lenderCountry)
     {
         if(lenderCountry == LenderCountry.America)
         {

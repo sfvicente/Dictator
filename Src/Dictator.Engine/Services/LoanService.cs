@@ -84,7 +84,7 @@ public class LoanService : ILoanService
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.None;
             loanApplicationResult.Amount = CalculateLoanAmount(group);
             _accountService.ChangeTreasuryBalance(loanApplicationResult.Amount);
-            _stateManagementService.SetLoanBeenGranted(lenderCountry);
+            _stateManagementService.SetLoanHasBeenGranted(lenderCountry);
         }
 
         return loanApplicationResult;
