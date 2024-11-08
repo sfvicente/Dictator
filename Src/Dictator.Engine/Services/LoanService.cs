@@ -60,7 +60,7 @@ public class LoanService : ILoanService
             return loanApplicationResult;
         }
 
-        if (_stateManagementService.HasLoadBeenGranted(lenderCountry))
+        if (_stateManagementService.HasLoanBeenGranted(lenderCountry))
         {
             loanApplicationResult.IsAccepted = false;
             loanApplicationResult.RefusalType = LoanApplicationRefusalType.AlreadyUsed;

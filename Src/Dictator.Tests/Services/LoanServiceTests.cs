@@ -65,7 +65,7 @@ public class LoanServiceTests
             .Setup(g => g.GetMonth())
             .Returns(10);
         _stateManagementServiceMock
-            .Setup(s => s.HasLoadBeenGranted(lenderCountry))
+            .Setup(s => s.HasLoanBeenGranted(lenderCountry))
             .Returns(true);
 
         // Act

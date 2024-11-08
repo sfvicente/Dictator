@@ -5,7 +5,7 @@ namespace Dictator.Core.Services;
 
 public interface IStateManagementService
 {
-    bool HasLoadBeenGranted(LenderCountry lenderCountry);
+    bool HasLoanBeenGranted(LenderCountry lenderCountry);
     void SetLoanBeenGranted(LenderCountry lenderCountry);
 }
 
@@ -14,7 +14,7 @@ public class StateManagementService : IStateManagementService
     private bool _hasAmericanLoanBeenGranted;
     private bool _hasRussianLoanBeenGranted;
 
-    public bool HasLoadBeenGranted(LenderCountry lenderCountry)
+    public bool HasLoanBeenGranted(LenderCountry lenderCountry)
     {
         if (lenderCountry == LenderCountry.America)
         {
