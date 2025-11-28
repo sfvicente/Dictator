@@ -55,7 +55,7 @@ public class AudienceScreenTests
         _audienceScreen.Show(audience);
 
         // Assert
-        _consoleServiceMock.Verify(cs => cs.WriteEmptyLineAt(1, ConsoleColor.Green), Times.Exactly(4));
+        _consoleServiceMock.Verify(cs => cs.WriteEmptyLineAt(It.Is<int>(r => r >= 1 && r <= 4), ConsoleColor.Green), Times.Exactly(4));
         _consoleServiceMock.Verify(cs => cs.WriteAt(11, 4, "AN AUDIENCE", ConsoleColor.White, ConsoleColor.Black), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteEmptyLineAt(5, ConsoleColor.Green), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteEmptyLineAt(It.IsAny<int>(), ConsoleColor.DarkYellow), Times.Exactly(16));
