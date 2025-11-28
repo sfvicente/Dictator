@@ -209,15 +209,17 @@ public class Game
     /// <returns><c>true</c> if an assassination is processed and successful that leads to the end of the current game; otherwise, <c>false</c>.</returns>
     private bool TryProcessAssassinationAttempt()
     {
-        if (_engine.ShouldAssassinationAttemptHappen())
+        var (shouldHappen, assassinGroupType) = _engine.ShouldAssassinationAttemptHappen();
+
+        if (shouldHappen && assassinGroupType.HasValue)
         {
-            string groupName = _engine.GetAssassinationGroupName();
+            string groupName = _engine.GetAssassinationGroupName(assassinGroupType.Value);
 
             _userInterface.DisplayAssassinationAttempt(groupName);
 
             if (_engine.IsAssassinationSuccessful())
             {
-                // As attempt was successful, display death screen and kill player as game must end
+                // Attempt was successful: show death screen and end game
                 _userInterface.DisplayAssassinationSuccededScreen();
                 _engine.KillPlayer();
                 return true;

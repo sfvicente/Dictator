@@ -174,14 +174,21 @@ public interface IEngine
     ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
     ///     peasants, landowners and guerrilas.
     /// </summary>
-    /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    public bool ShouldAssassinationAttemptHappen();
+    /// <returns>
+    ///     A tuple containing:
+    ///     - <c>shouldHappen</c>: <c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.
+    ///     - <c>assassinGroupType</c>: The optional <see cref="GroupType"/> of the group planning the assassination (or <c>null</c> when none).
+    /// </returns>
+    public (bool shouldHappen, GroupType? assassinGroupType) ShouldAssassinationAttemptHappen();
 
     /// <summary>
     ///     Retrieves the name of the group responsible for the assassination attempt.
     /// </summary>
+    /// <param name="groupType"></param>
     /// <returns>The name of the assassination group.</returns>
-    public string GetAssassinationGroupName();
+    /// 
+    /// <returns></returns>
+    public string GetAssassinationGroupName(GroupType groupType);
 
     /// <summary>
     ///     Determines if an assassination attempt on the player is successful.
@@ -711,7 +718,7 @@ public class Engine : IEngine
     ///     peasants, landowners and guerrilas.
     /// </summary>
     /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    public bool ShouldAssassinationAttemptHappen()
+    public (bool shouldHappen, GroupType? assassinGroupType) ShouldAssassinationAttemptHappen()
     {
         return _assassinationService.ShouldAssassinationAttemptHappen();
     }
@@ -720,11 +727,9 @@ public class Engine : IEngine
     ///     Retrieves the name of the group responsible for the assassination attempt.
     /// </summary>
     /// <returns>The name of the assassination group.</returns>
-    public string GetAssassinationGroupName()
+    public string GetAssassinationGroupName(GroupType groupType)
     {
-        //TODO: address this dependency to remove state from the AssassinationService
-        //return _assassinationService.GetAssassinationGroupName(_assassinGroupType);
-        return _assassinationService.GetAssassinationGroupName();
+        return _assassinationService.GetAssassinationGroupName(groupType);
     }
 
     /// <summary>

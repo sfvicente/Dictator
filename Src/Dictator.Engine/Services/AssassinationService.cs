@@ -11,15 +11,15 @@ public interface IAssassinationService
     ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
     ///     peasants, landowners and guerrilas.
     /// </summary>
-    /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    bool ShouldAssassinationAttemptHappen();
+    /// <returns>A tuple: (shouldHappen, assassinGroupType)</returns>
+    (bool shouldHappen, GroupType? assassinGroupType) ShouldAssassinationAttemptHappen();
 
     /// <summary>
     ///     Determines if an assassination attempt on the player is successful.
     /// </summary>
     /// <returns><c>true</c> if the assassination atempt is successful; otherwise, <c>false</c>.</returns>
     bool IsAssassinationSuccessful();
-    string GetAssassinationGroupName();
+    string GetAssassinationGroupName(GroupType groupType);
 }
 
 /// <summary>
@@ -30,9 +30,6 @@ public class AssassinationService : IAssassinationService
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
     private readonly IStatsService _statsService;
-
-    private GroupType _assassinGroupType;
-    public GroupType AssassinGroupType { get { return _assassinGroupType; } }
 
     public AssassinationService(
         IRandomService randomService,
@@ -48,8 +45,8 @@ public class AssassinationService : IAssassinationService
     ///     Determines if an assassination attempt on the player should happen by one of the following groups: army, 
     ///     peasants, landowners and guerrilas.
     /// </summary>
-    /// <returns><c>true</c> if an assassination attempt should happen; otherwise, <c>false</c>.</returns>
-    public bool ShouldAssassinationAttemptHappen()
+    /// <returns>A tuple: (shouldHappen, assassinGroupType)</returns>
+    public (bool shouldHappen, GroupType? assassinGroupType) ShouldAssassinationAttemptHappen()
     {
         int number = _randomService.Next(3);
         Group[] groups = _groupService.GetGroups();
@@ -57,11 +54,10 @@ public class AssassinationService : IAssassinationService
         // Select a random group between the army, peasants, landowners and guerrilas
         if (groups[number].Status == GroupStatus.Assassination)
         {
-            SetAssassinByGroupType(groups[number].Type);
-            return true;
+            return (true, groups[number].Type);
         }
 
-        return false;
+        return (false, null);
     }
 
     /// <summary>
@@ -84,15 +80,10 @@ public class AssassinationService : IAssassinationService
         return false;
     }
 
-    public string GetAssassinationGroupName()
+    public string GetAssassinationGroupName(GroupType groupType)
     {
-        string groupName = _groupService.GetGroupByType(_assassinGroupType).Name;
+        string groupName = _groupService.GetGroupByType(groupType).Name;
 
         return groupName;
-    }
-
-    public void SetAssassinByGroupType(GroupType groupType)
-    {
-        _assassinGroupType = groupType;
     }
 }
