@@ -89,6 +89,10 @@ public class PlotServiceTests
             new Group(GroupType.Army, 1, 2, string.Empty, string.Empty),
             new Group(GroupType.Peasants, 2, 3, string.Empty, string.Empty),
             new Group(GroupType.Landowners, 3, 4, string.Empty, string.Empty),
+            new Group(GroupType.Guerillas, 5, 10, string.Empty, string.Empty),
+            new Group(GroupType.Leftotans, 10, 10, string.Empty, string.Empty),
+            new Group(GroupType.SecretPolice, 25, 10, string.Empty, string.Empty)
+
         };
 
         _groupServiceMock
@@ -105,7 +109,7 @@ public class PlotServiceTests
 
         // Assert
         Assert.AreEqual(GroupStatus.Assassination, groups[0].Status);
-        Assert.AreEqual(GroupStatus.Revolution, groups[1].Status);
+        Assert.AreEqual(GroupStatus.Assassination, groups[1].Status);
         Assert.AreEqual(GroupStatus.Default, groups[2].Status);
     }
 }
