@@ -65,6 +65,7 @@ public interface IUserInterface
 
 public class UserInterface : IUserInterface
 {
+    private readonly IConsoleService _consoleService;
     private readonly IIntroScreen _introScreen;
     private readonly IWelcomeScreen _welcomeScreen;
     private readonly ITitleScreen _titleScreen;
@@ -109,6 +110,7 @@ public class UserInterface : IUserInterface
     private readonly IEndScreen _endScreen;
 
     public UserInterface(
+        IConsoleService consoleService,
         IIntroScreen introScreen,
         IWelcomeScreen welcomeScreen,
         ITitleScreen titleScreen,
@@ -152,6 +154,7 @@ public class UserInterface : IUserInterface
         IWarExecutionScreen warExecutionScreen,
         IEndScreen endScreen)
     {
+        _consoleService = consoleService;
         _introScreen = introScreen;
         _welcomeScreen = welcomeScreen;
         _titleScreen = titleScreen;
@@ -196,12 +199,7 @@ public class UserInterface : IUserInterface
         _endScreen = endScreen;
     }
 
-    public void Initialise()
-    {
-        Console.CursorVisible = false;
-        Console.BackgroundColor = ConsoleColor.DarkMagenta;
-        Console.Clear();
-    }
+    public void Initialise() => _consoleService.Initialise();
 
     public void DisplayIntroScreen() => _introScreen.Show();
 

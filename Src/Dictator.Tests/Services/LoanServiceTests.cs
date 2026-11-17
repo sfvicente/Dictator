@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Services;
+using Dictator.Core.Services;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Tests.Services;
@@ -102,5 +102,30 @@ public class LoanServiceTests
         // Assert
         Assert.IsFalse(result.IsAccepted);
         Assert.AreEqual(LoanApplicationRefusalType.NotPopularEnough, result.RefusalType);
+    }
+
+    [Test]
+    public void AskForLoan_WhenEligible_ReturnsAcceptedAndUpdatesTreasuryAndState()
+    {
+        // Arrange
+        var lenderCountry = LenderCountry.America;
+        _randomMock.Setup(r => r.Next(0, 5)).Returns(0);
+        _randomMock.Setup(r => r.Next(0, 200)).Returns(50);
+        _governmentMock.Setup(g => g.GetMonth()).Returns(5);
+        _stateManagementServiceMock.Setup(s => s.HasLoanBeenGranted(lenderCountry)).Returns(false);
+        _statsServiceMock.Setup(s => s.GetMonthlyMinimalPopularityAndStrength()).Returns(3);
+        _groupServiceMock.Setup(g => g.GetGroupTypeByCountry(lenderCountry)).Returns(GroupType.Americans);
+        _groupServiceMock.Setup(g => g.GetGroupByType(GroupType.Americans))
+            .Returns(new Group(GroupType.Americans, 7, 0, "The AMERICANS", "AMERICANS "));
+
+        // Act
+        var result = _loanService.AskForLoan(lenderCountry);
+
+        // Assert
+        Assert.IsTrue(result.IsAccepted);
+        Assert.AreEqual(LoanApplicationRefusalType.None, result.RefusalType);
+        Assert.AreEqual(7 * 30 + 50, result.Amount);
+        _accountServiceMock.Verify(a => a.ChangeTreasuryBalance(260), Times.Once);
+        _stateManagementServiceMock.Verify(s => s.SetLoanHasBeenGranted(lenderCountry), Times.Once);
     }
 }

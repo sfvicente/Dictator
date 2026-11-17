@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Start;
@@ -39,6 +39,7 @@ public class WelcomeScreen : BaseScreen, IWelcomeScreen
     /// <param name="highscore">The game's current highest score.</param>
     public void Show(int highscore)
     {
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(8, 4, "WELCOME to OFFICE", ConsoleColor.Black, ConsoleColor.Cyan);
         _consoleService.WriteAt(1, 7, "The best DICTATOR of our beloved");

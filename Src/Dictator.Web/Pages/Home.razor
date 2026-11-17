@@ -1,0 +1,153 @@
+@page "/"
+@using Dictator.Web.Services
+@inject WebSpectrumConsoleService SpectrumConsole
+@inject WebGameRunner GameRunner
+@inject IJSRuntime JS
+@implements IDisposable
+
+<div class="spectrum-shell" @onkeydown="HandleKeyDown" tabindex="0" @ref="_containerRef">
+    <header class="spectrum-header">
+        <div class="brand-title">
+            <div class="rainbow-stripe"></div>
+            <h1>ZX Spectrum 48K — Dictator (1983)</h1>
+        </div>
+        <div class="header-controls">
+            <button class="tool-btn @(_crtScanlines ? "active" : "")" @onclick="ToggleScanlines">
+                CRT: @(_crtScanlines ? "ON" : "OFF")
+            </button>
+            <button class="tool-btn @(_soundEnabled ? "active" : "")" @onclick="ToggleSound">
+                BEEP: @(_soundEnabled ? "ON" : "OFF")
+            </button>
+        </div>
+    </header>
+
+    <div class="monitor-frame @(_crtScanlines ? "crt-scanlines" : "")" @onclick="FocusContainerAsync">
+        <canvas id="spectrum-canvas" class="spectrum-canvas" width="320" height="256"></canvas>
+    </div>
+
+    <div class="keypad-bar">
+        <button class="zx-key key-any" @onclick="() => SendKey(ConsoleKey.Spacebar)">KEY / SPACE</button>
+        <button class="zx-key key-yes" @onclick="() => SendKey(ConsoleKey.Y)">Y (YES)</button>
+        <button class="zx-key key-no" @onclick="() => SendKey(ConsoleKey.N)">N (NO)</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D1)">1</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D2)">2</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D3)">3</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D4)">4</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D5)">5</button>
+        <button class="zx-key" @onclick="() => SendKey(ConsoleKey.D6)">6</button>
+    </div>
+
+    <p class="footer-note">
+        Use your keyboard (<strong>Y</strong>, <strong>N</strong>, <strong>1–6</strong>, or <strong>Any Key</strong>) or click theZX rubber keys above.
+        <a href="https://github.com/sfvicente/Dictator" target="_blank" rel="noopener">GitHub Repository</a>
+    </p>
+</div>
+
+@code {
+    private ElementReference _containerRef;
+    private CancellationTokenSource _cts = new();
+    private bool _crtScanlines = true;
+    private bool _soundEnabled = true;
+    private bool _initialized = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("spectrumDisplay.init", "spectrum-canvas");
+            _initialized = true;
+            SpectrumConsole.OnScreenUpdated += HandleScreenUpdated;
+
+            await FocusContainerAsync();
+            await RenderScreenAsync();
+
+            _ = GameRunner.RunAsync(_cts.Token);
+        }
+    }
+
+    private void HandleScreenUpdated()
+    {
+        if (!_initialized) return;
+        _ = InvokeAsync(RenderScreenAsync);
+    }
+
+    private async Task RenderScreenAsync()
+    {
+        int[] packedBuffer = SpectrumConsole.GetSerializedBuffer();
+        int borderColor = (int)SpectrumConsole.BorderColor;
+        await JS.InvokeVoidAsync("spectrumDisplay.render", packedBuffer, borderColor);
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key is "Shift" or "Control" or "Alt" or "Meta" or "Tab" or "F5" or "F12")
+        {
+            return;
+        }
+
+        ConsoleKey mappedKey = MapKeyboardKey(e.Key);
+        await SendKey(mappedKey);
+    }
+
+    private async Task SendKey(ConsoleKey key)
+    {
+        await JS.InvokeVoidAsync("spectrumDisplay.beep", 780, 35);
+        SpectrumConsole.SubmitKey(key);
+        await FocusContainerAsync();
+    }
+
+    private async Task ToggleScanlines()
+    {
+        _crtScanlines = !_crtScanlines;
+        await FocusContainerAsync();
+    }
+
+    private async Task ToggleSound()
+    {
+        _soundEnabled = !_soundEnabled;
+        await JS.InvokeVoidAsync("spectrumDisplay.setSoundEnabled", _soundEnabled);
+        await FocusContainerAsync();
+    }
+
+    private async Task FocusContainerAsync()
+    {
+        try
+        {
+            await _containerRef.FocusAsync();
+        }
+        catch
+        {
+            // Ignore focus errors
+        }
+    }
+
+    private static ConsoleKey MapKeyboardKey(string key)
+    {
+        if (string.IsNullOrEmpty(key)) return ConsoleKey.Spacebar;
+
+        return key.ToUpperInvariant() switch
+        {
+            "Y" => ConsoleKey.Y,
+            "N" => ConsoleKey.N,
+            "1" => ConsoleKey.D1,
+            "2" => ConsoleKey.D2,
+            "3" => ConsoleKey.D3,
+            "4" => ConsoleKey.D4,
+            "5" => ConsoleKey.D5,
+            "6" => ConsoleKey.D6,
+            "7" => ConsoleKey.D7,
+            "8" => ConsoleKey.D8,
+            "9" => ConsoleKey.D9,
+            "0" => ConsoleKey.D0,
+            "ENTER" => ConsoleKey.Enter,
+            _ => ConsoleKey.Spacebar
+        };
+    }
+
+    public void Dispose()
+    {
+        SpectrumConsole.OnScreenUpdated -= HandleScreenUpdated;
+        _cts.Cancel();
+        _cts.Dispose();
+    }
+}

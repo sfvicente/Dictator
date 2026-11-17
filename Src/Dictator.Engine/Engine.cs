@@ -333,6 +333,7 @@ public interface IEngine
 public class Engine : IEngine
 {
     private readonly IGameState _gameState;
+    private readonly IStateManagementService _stateManagementService;
     private readonly IAccountService _accountService;
     private readonly IStatsService _statsService;
     private readonly IGovernmentService _governmentService;
@@ -355,6 +356,7 @@ public class Engine : IEngine
 
     public Engine(
         IGameState gameState,
+        IStateManagementService stateManagementService,
         IAccountService accountService,
         IStatsService statsService,
         IGovernmentService governmentService,
@@ -372,6 +374,7 @@ public class Engine : IEngine
         IWarService warService)
     {
         _gameState = gameState;
+        _stateManagementService = stateManagementService;
         _accountService = accountService;
         _statsService = statsService;
         _governmentService = governmentService;
@@ -394,6 +397,9 @@ public class Engine : IEngine
     /// </summary>
     public void Initialise()
     {
+        _gameState.Initialise();
+        _stateManagementService.Initialise();
+        _statsService.Initialise();
         _governmentService.Initialise();
         _groupService.Initialise();
         LoadAudienceData();

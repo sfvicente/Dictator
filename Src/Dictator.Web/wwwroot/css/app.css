@@ -1,0 +1,229 @@
+:root {
+    --bg-dark: #111318;
+    --panel-bg: #1b1f27;
+    --border-subtle: #2e3440;
+    --text-main: #eceff4;
+    --text-muted: #9aa5b4;
+    --zx-red: #d70000;
+    --zx-yellow: #d7d700;
+    --zx-green: #00d700;
+    --zx-cyan: #00d7d7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#app {
+    width: 100%;
+    max-width: 960px;
+    padding: 16px;
+}
+
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    font-family: monospace;
+}
+
+.zx-loader {
+    background: #000;
+    border: 8px solid #0000d7;
+    padding: 32px 48px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+}
+
+.zx-loader .sub {
+    margin-top: 12px;
+    color: #00d7d7;
+    font-size: 0.95rem;
+}
+
+.spectrum-shell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.spectrum-header {
+    width: 100%;
+    max-width: 768px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+
+.brand-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-title h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.rainbow-stripe {
+    width: 28px;
+    height: 18px;
+    background: linear-gradient(
+        135deg,
+        transparent 20%,
+        #ff0000 20%, #ff0000 35%,
+        #ffff00 35%, #ffff00 50%,
+        #00ff00 50%, #00ff00 65%,
+        #00ffff 65%, #00ffff 80%,
+        transparent 80%
+    );
+}
+
+.header-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.tool-btn {
+    background: #272c36;
+    color: var(--text-main);
+    border: 1px solid #3b4252;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.tool-btn:hover {
+    background: #323946;
+    border-color: #5e81ac;
+}
+
+.tool-btn.active {
+    border-color: var(--zx-cyan);
+    color: #00ffff;
+}
+
+.monitor-frame {
+    position: relative;
+    background: #0a0a0c;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #2b303c;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.85);
+    outline: none;
+}
+
+.spectrum-canvas {
+    display: block;
+    width: 768px;
+    height: 614px;
+    max-width: calc(100vw - 48px);
+    height: auto;
+    aspect-ratio: 320 / 256;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border-radius: 4px;
+}
+
+.crt-scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.22) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.keypad-bar {
+    width: 100%;
+    max-width: 768px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.zx-key {
+    background: #2e3440;
+    color: #eceff4;
+    border: 1px solid #4c566a;
+    border-bottom: 3px solid #434c5e;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 0.95rem;
+    cursor: pointer;
+    min-width: 44px;
+    transition: transform 0.05s, background 0.1s;
+}
+
+.zx-key:hover {
+    background: #3b4252;
+}
+
+.zx-key:active {
+    transform: translateY(2px);
+    border-bottom-width: 1px;
+}
+
+.zx-key.key-yes {
+    background: #1e4620;
+    border-color: #2e7d32;
+}
+
+.zx-key.key-no {
+    background: #5c1a1a;
+    border-color: #c62828;
+}
+
+.zx-key.key-any {
+    background: #1a3a5c;
+    border-color: #1976d2;
+    padding: 8px 20px;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.footer-note a {
+    color: var(--zx-cyan);
+    text-decoration: none;
+}

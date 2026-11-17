@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -27,7 +27,7 @@ public class AudienceDecisionDialog : BaseScreen, IAudienceDecisionDialog
         _consoleService.WriteAt(1, 6, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
         _consoleService.WriteEmptyLineAt(8, ConsoleColor.Blue);
 
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
 
         if (audience.NoMoneyInvolved)
         {

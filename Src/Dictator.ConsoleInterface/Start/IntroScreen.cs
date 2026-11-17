@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Start;
@@ -26,7 +26,8 @@ public class IntroScreen : BaseScreen, IIntroScreen
 
     public void Show()
     {
-        Console.BackgroundColor = ConsoleColor.Black;
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
+        _consoleService.SetBackgroundColor(ConsoleColor.Black);
         _consoleService.Clear();
         _consoleService.WriteAt(3, 5, "DICTATOR", ConsoleColor.White, ConsoleColor.Black);
         _consoleService.WriteAt(1, 9, "  Devised and Written by        ", ConsoleColor.Gray);

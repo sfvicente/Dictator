@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Services;
+using Dictator.Core.Services;
 using Dictator.Core.Models;
 using Dictator.Core;
 
@@ -52,6 +52,8 @@ public class RevolutionServiceTests
 
         // Assert
         Assert.IsTrue(result);
+        _revolutionMock.VerifySet(r => r.RevolutionaryGroup = group, Times.Once);
+        _revolutionMock.VerifySet(r => r.RevolutionStrength = 10, Times.Once);
     }
 
     [Test]
@@ -208,6 +210,7 @@ public class RevolutionServiceTests
 
         // Assert
         _revolutionMock.VerifySet(r => r.PlayerAlly = group, Times.Once);
+        _revolutionMock.VerifySet(r => r.PlayerStrength = 10, Times.Once);
     }
 
     [Test]

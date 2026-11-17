@@ -97,7 +97,7 @@ public class GroupService : IGroupService
     public string GetGroupNameByIndex(int index)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(index, 0);
-        ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _groups.Length);
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, _groups.Length);
 
         return _groups[index].Name;
     }

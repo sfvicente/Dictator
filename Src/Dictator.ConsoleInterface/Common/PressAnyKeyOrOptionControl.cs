@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Dictator.ConsoleInterface.Common;
 
@@ -21,15 +21,18 @@ public interface IPressAnyKeyOrOptionControl
 /// </summary>
 public class PressAnyKeyOrOptionControl : IPressAnyKeyOrOptionControl
 {
+    private readonly IConsoleService _consoleService;
     private readonly IKeyPanel _keyPanel;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="PressAnyKeyOrOptionControl"/> class from a <see cref="IKeyPanel"/>
-    ///     component.
+    ///     Initializes a new instance of the <see cref="PressAnyKeyOrOptionControl"/> class from a <see cref="IConsoleService"/> and <see cref="IKeyPanel"/>
+    ///     components.
     /// </summary>
+    /// <param name="consoleService">The service used to interact with the console.</param>
     /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
-    public PressAnyKeyOrOptionControl(IKeyPanel keyPanel)
+    public PressAnyKeyOrOptionControl(IConsoleService consoleService, IKeyPanel keyPanel)
     {
+        _consoleService = consoleService;
         _keyPanel = keyPanel;
     }
 
@@ -41,6 +44,6 @@ public class PressAnyKeyOrOptionControl : IPressAnyKeyOrOptionControl
     {
         _keyPanel.Show();
 
-        return Console.ReadKey(true).Key;
+        return _consoleService.ReadKey();
     }
 }

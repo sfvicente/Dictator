@@ -303,8 +303,6 @@ public class Game
             _userInterface.DisplayWarExecutionScreen();
             _engine.KillPlayer();
         }
-
-        ProcessEnd();
     }
 
     /// <summary>

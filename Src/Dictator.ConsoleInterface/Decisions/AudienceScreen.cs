@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -21,6 +21,7 @@ public class AudienceScreen : BaseScreen, IAudienceScreen
 
     public void Show(Audience audience)
     {
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
         _consoleService.Clear();
         _consoleService.WriteEmptyLineAt(1, ConsoleColor.Green);
         _consoleService.WriteEmptyLineAt(2, ConsoleColor.Green);
@@ -33,6 +34,9 @@ public class AudienceScreen : BaseScreen, IAudienceScreen
         {
             _consoleService.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
         }
+
+        _consoleService.WriteAt(3, 7, "\u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(3, 8, " \u0099\u009A    \u0099\u009A    \u0099\u009A    \u0099\u009A    \u0099\u009A", ConsoleColor.DarkYellow, ConsoleColor.Black);
 
         _consoleService.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
         _consoleService.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);

@@ -1,5 +1,7 @@
 # Welcome to Dictator!
 
+[![Play in Browser (ZX Spectrum Edition)](https://img.shields.io/badge/Play_Online-ZX_Spectrum_48K_Edition-00d7d7?style=for-the-badge&logo=github)](https://sfvicente.github.io/Dictator/)
+
 This project is a C# remake of the [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum "ZX Spectrum") game *Dictator* created
 by _[Don Priestley](https://en.wikipedia.org/wiki/Don_Priestley)_ and published by [Dk'Tronics](https://en.wikipedia.org/wiki/DK%27Tronics "Dk'Tronics")
 in 1983. The original game was developed using [Sinclair Basic](https://en.wikipedia.org/wiki/Sinclair_BASIC).
@@ -45,13 +47,17 @@ As a game progresses, there is a constantly decreasing number of possible course
 situation. This is due to randomly interspersed events that the game generates. A game frequently ends with a revolution or
 assassination attempt by a dissatisfied group, which can result in the death of the dictator.
 
-## Development Status
+## Play Online or Locally
 
-All the major functionality is implemented except for a small part in the revolution mechanic. In terms of the UI, it has
-been built as a console application, so some graphics, design, and effects (such as flashing buttons and titles) are missing
-or different from the original.
-
-I am currently documenting the code, fixing small issues, adding tests, and finishing the missing revolution logic.
+- **Play in Browser (ZX Spectrum 48K Display)**: Visit **[https://sfvicente.github.io/Dictator/](https://sfvicente.github.io/Dictator/)** to play directly in your browser with an authentic `256×192` + border ZX Spectrum display, Sinclair ROM font, custom UDG graphics, `1.6 Hz` `FLASH` attributes, CRT scanlines, and 1-bit `BEEP` audio.
+- **Run Web Edition Locally**:
+  ```bash
+  dotnet run --project Src/Dictator.Web/Dictator.Web.csproj
+  ```
+- **Run Console Edition Locally**:
+  ```bash
+  dotnet run --project Src/Dictator/Dictator.csproj
+  ```
 
 ## Future Development
 

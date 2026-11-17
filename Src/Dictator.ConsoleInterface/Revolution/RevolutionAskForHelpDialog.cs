@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Models;
+using Dictator.Core.Models;
 using System;
 using System.Collections.Generic;
 
@@ -52,7 +52,7 @@ public class RevolutionAskForHelpDialog : BaseScreen, IRevolutionAskForHelpDialo
     {
         while (true)
         {
-            ConsoleKey keyPressed = Console.ReadKey(true).Key;
+            ConsoleKey keyPressed = _consoleService.ReadKey();
 
             if (keyPressed >= ConsoleKey.D1 && keyPressed <= ConsoleKey.D6)
             {

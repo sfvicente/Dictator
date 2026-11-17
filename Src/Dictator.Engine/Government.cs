@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core
+namespace Dictator.Core
 {
     /// <summary>
     ///     Represents the state of the government of the Ritimba republic.
@@ -29,11 +29,6 @@
         ///     Gets or sets the monthly revolution strength. 
         /// </summary>
         public int MonthlyRevolutionStrength { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the monthly minimal popularity and strength requirement.. 
-        /// </summary>
-        public int MonthlyMinimalPopularityAndStrength { get; set; }
 
         /// <summary>
         ///     Gets or sets the current high score. 

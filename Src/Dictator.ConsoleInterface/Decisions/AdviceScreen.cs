@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using Dictator.Core.Services;
 using System;
@@ -28,19 +28,22 @@ public class AdviceScreen : BaseScreen, IAdviceScreen
     /// <param name="gameAction">The game action to be displayed on the screen.</param>
     public void Show(GameAction gameAction)
     {
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
+        _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
         _consoleService.Clear();
         _consoleService.WriteAt(1, 2, $"{gameAction.Text}", ConsoleColor.Black, ConsoleColor.DarkYellow);
         _consoleService.WriteAt(1, 4, "Your POPULARITY with", ConsoleColor.Yellow, ConsoleColor.Black);
         _consoleService.Write(" ....", ConsoleColor.Black);
-        DisplayPopularityChanges(gameAction.GroupPopularityChanges);
-        _consoleService.WriteAt(1, Console.CursorTop + 3, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
+        int? requesterIndex = gameAction is Audience audience ? (int)audience.Requester : null;
+        int nextLine = DisplayPopularityChanges(gameAction.GroupPopularityChanges, requesterIndex);
+        int strengthHeaderLine = nextLine + 1;
+        _consoleService.WriteAt(1, strengthHeaderLine, "The STRENGTH of", ConsoleColor.Yellow, ConsoleColor.Black);
         _consoleService.Write(" ...", ConsoleColor.Black);
-        DisplayGroupStrengthChanges(gameAction.GroupStrengthChanges);
+        DisplayGroupStrengthChanges(gameAction.GroupStrengthChanges, strengthHeaderLine + 2);
         _pressAnyKeyControl.Show();
     }
 
-    private void DisplayPopularityChanges(string groupPopularityChanges)
+    private int DisplayPopularityChanges(string groupPopularityChanges, int? requesterIndex)
     {
         int line = 6;
 
@@ -52,14 +55,22 @@ public class AdviceScreen : BaseScreen, IAdviceScreen
 
                 _consoleService.WriteAt(1, line, $"  {_groupService.GetGroupNameByIndex(i)}", ConsoleColor.Black);
                 _consoleService.WriteAt(22, line, $"{GetFormattedChange(popularityChange)}", ConsoleColor.Black);
+                if (requesterIndex.HasValue && requesterIndex.Value == i)
+                {
+                    _consoleService.SetFlash(true);
+                    _consoleService.WriteAt(24, line, "< ", ConsoleColor.Magenta, ConsoleColor.Gray);
+                    _consoleService.SetFlash(false);
+                }
                 line++;
             }
         }
+
+        return line;
     }
 
-    private void DisplayGroupStrengthChanges(string groupStrengthChanges)
+    private void DisplayGroupStrengthChanges(string groupStrengthChanges, int startLine)
     {
-        int line = Console.CursorTop + 3;
+        int line = startLine;
 
         for (int i = 0; i < 6; i++)
         {

@@ -29,10 +29,11 @@ public class TitleScreen : BaseScreen, ITitleScreen
     /// </summary>
     public void Show()
     {
+        _consoleService.SetBorderColor(ConsoleColor.DarkCyan);
         _consoleService.Clear();
         PrintBackground();
         PrintContent();
-        Console.ReadKey(true);
+        _consoleService.WaitForKeyPressed();
     }
 
     private void PrintBackground()

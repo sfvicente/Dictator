@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Treasury;
 using Dictator.Core.Models;
 using System;
@@ -43,8 +43,8 @@ public class TransferToSwissBankAccountScreen : BaseScreen, ITransferToSwissBank
     /// <param name="account">The current treasury and costs information.</param>
     public void Show(SwissBankAccountTransfer swissBankAccountTransfer, Account account)
     {
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
-        Console.ForegroundColor = ConsoleColor.Black;
+        _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
+        _consoleService.SetForegroundColor(ConsoleColor.Black);
         _consoleService.Clear();
         _consoleService.WriteAt(1, 4, "TRANSFER to a SWISS BANK ACCOUNT", ConsoleColor.Black, ConsoleColor.DarkYellow);
 

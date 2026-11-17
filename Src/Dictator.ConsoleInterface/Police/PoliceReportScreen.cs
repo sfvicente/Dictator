@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 using System.Linq;
@@ -30,22 +30,25 @@ public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
 
     public void Show(PoliceReport policeReport)
     {
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.White;
+        _consoleService.SetBorderColor(ConsoleColor.Black);
+        _consoleService.SetBackgroundColor(ConsoleColor.Black);
+        _consoleService.SetForegroundColor(ConsoleColor.White);
         _consoleService.Clear();
         DisplayHeaders(policeReport.Month);
         DisplayGroupStats(policeReport.Groups.ToArray());
         DisplayGovernmentStats(policeReport.PlayerStrength, policeReport.MonthlyRevolutionStrength);
-        _pressAnyKeyControl.Show();
+        _pressAnyKeyControl.Show(ConsoleColor.DarkBlue);
     }
 
     private void DisplayHeaders(int month)
     {
         _consoleService.WriteAt(1, 1, $"MONTH {month}                       ");
-        _consoleService.WriteAt(1, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
-        _consoleService.WriteAt(7, 4, "SECRET POLICE REPORT", ConsoleColor.White, ConsoleColor.Black);
-        _consoleService.WriteAt(27, 4, "      ", ConsoleColor.Blue, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 4, "        ", ConsoleColor.DarkBlue, ConsoleColor.Black);
+        _consoleService.WriteAt(9, 4, " POLICE  REPORT ", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.WriteAt(25, 4, "        ", ConsoleColor.DarkBlue, ConsoleColor.Black);
+        _consoleService.WriteAt(14, 6, "\u009B\u009C\u009D", ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
+        _consoleService.WriteAt(14, 7, "\u009E\u009F\u00A0", ConsoleColor.Gray, ConsoleColor.Black);
     }
 
     private void DisplayGroupStats(Group[] groups)
@@ -57,32 +60,23 @@ public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
 
             _consoleService.SetCursorPosition(popularityStartIndex, 9 + i);
 
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.White;
             for (int p = currentPopularity; p > 0; p--)
             {
-                Console.Write(p);
+                _consoleService.Write(p.ToString(), ConsoleColor.Green, ConsoleColor.White);
             }
 
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write(i + 1);
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.ForegroundColor = ConsoleColor.Black;
-            _consoleService.WriteAt(12, 9 + i, $"{groups[i].DisplayName}");
+            _consoleService.Write((i + 1).ToString(), ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.WriteAt(12, 9 + i, $"{groups[i].DisplayName}", ConsoleColor.Yellow, ConsoleColor.Black);
 
             DisplayGroupStatus(groups[i]);
 
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.White;
-
             for (int s = 1; s <= groups[i].Strength; s++)
             {
-                Console.Write(s);
+                _consoleService.Write(s.ToString(), ConsoleColor.Red, ConsoleColor.White);
             }
 
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
+            _consoleService.SetBackgroundColor(ConsoleColor.Black);
+            _consoleService.SetForegroundColor(ConsoleColor.White);
         }
     }
 

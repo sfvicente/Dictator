@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -48,7 +48,7 @@ public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisio
         _consoleService.Clear(ConsoleColor.DarkYellow);
         _consoleService.WriteAt(1, 5, $"{decision.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
 
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
 
         if (decision.Cost == 0 && decision.MonthlyCost == 0)
         {

@@ -4,6 +4,7 @@ namespace Dictator.ConsoleInterface;
 
 public interface IConsoleService
 {
+    void Initialise();
     void Write(string text, ConsoleColor foregroundColor);
     void Write(string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
     void WriteEmptyLineAt(int top);
@@ -22,6 +23,11 @@ public interface IConsoleService
     void Clear(ConsoleColor backgroundColor, ConsoleColor foregroundColor);
     void Clear(char character, ConsoleColor backgroundColor, ConsoleColor foregroundColor);
     void WaitForKeyPressed();
+    ConsoleKey ReadKey();
+    void SetBackgroundColor(ConsoleColor backgroundColor);
+    void SetForegroundColor(ConsoleColor foregroundColor);
+    void SetBorderColor(ConsoleColor borderColor);
+    void SetFlash(bool flash);
 }
 
 public class ConsoleService : IConsoleService
@@ -31,10 +37,17 @@ public class ConsoleService : IConsoleService
     private const int ScreenColPadding = 24;
     private const string EmptyLine = "                                ";
 
+    public void Initialise()
+    {
+        Console.CursorVisible = false;
+        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.Clear();
+    }
+
     public void Write(string text, ConsoleColor foregroundColor)
     {
         Console.ForegroundColor = foregroundColor;
-        Console.Write(text);
+        Console.Write(SanitizeForConsole(text));
     }
 
     /// <summary>
@@ -50,7 +63,7 @@ public class ConsoleService : IConsoleService
 
         Console.BackgroundColor = backgroundColor;
         Console.ForegroundColor = foregroundColor;
-        Console.Write(text);
+        Console.Write(SanitizeForConsole(text));
         Console.BackgroundColor = previousBackgroundColor;
         Console.ForegroundColor = previousForegroundColor;
     }
@@ -132,7 +145,7 @@ public class ConsoleService : IConsoleService
         // Validate parameters
 
         SetCursorPosition(left, top);
-        Console.Write(text);
+        Console.Write(SanitizeForConsole(text));
     }
 
     public void WriteCenteredAt(int top, string text)
@@ -145,7 +158,7 @@ public class ConsoleService : IConsoleService
     public void PrintAt(int row, int column, string text)
     {
         SetCursorAt(row, column);
-        Console.Write(text);
+        Console.Write(SanitizeForConsole(text));
     }
 
     public void PrintAt(int row, int column, string text, ConsoleColor backgroundColor, ConsoleColor foregroundColor)
@@ -236,5 +249,48 @@ public class ConsoleService : IConsoleService
     public void WaitForKeyPressed()
     {
         Console.ReadKey(true);
+    }
+
+    public ConsoleKey ReadKey()
+    {
+        return Console.ReadKey(true).Key;
+    }
+
+    public void SetBackgroundColor(ConsoleColor backgroundColor)
+    {
+        Console.BackgroundColor = backgroundColor;
+    }
+
+    public void SetForegroundColor(ConsoleColor foregroundColor)
+    {
+        Console.ForegroundColor = foregroundColor;
+    }
+
+    public void SetBorderColor(ConsoleColor borderColor)
+    {
+        // Border color is used by graphical ZX Spectrum displays; no-op in standard console.
+    }
+
+    public void SetFlash(bool flash)
+    {
+        // Flash attribute is used by graphical ZX Spectrum displays; no-op in standard console.
+    }
+
+    private static string SanitizeForConsole(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return text;
+        }
+
+        char[] chars = text.ToCharArray();
+        for (int i = 0; i < chars.Length; i++)
+        {
+            if (chars[i] >= '\u0090' && chars[i] <= '\u00A5')
+            {
+                chars[i] = ' ';
+            }
+        }
+        return new string(chars);
     }
 }

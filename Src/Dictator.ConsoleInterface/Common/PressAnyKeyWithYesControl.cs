@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Dictator.ConsoleInterface.Common;
 
@@ -43,7 +43,7 @@ public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
         _consoleService.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
         _keyPanel.Show();
 
-        ConsoleKey keyPressed = Console.ReadKey(true).Key;
+        ConsoleKey keyPressed = _consoleService.ReadKey();
 
         if (keyPressed == ConsoleKey.Y)
         {

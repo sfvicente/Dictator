@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Dictator.ConsoleInterface.Common;
 
@@ -11,6 +11,11 @@ public interface IKeyPanel
     ///     Displays the panel.
     /// </summary>
     public void Show();
+
+    /// <summary>
+    ///     Displays the panel with a custom background color.
+    /// </summary>
+    public void Show(ConsoleColor backgroundColor);
 }
 
 /// <summary>
@@ -29,8 +34,16 @@ public class KeyPanel : BaseScreen, IKeyPanel
     /// </summary>
     public void Show()
     {
-        _consoleService.WriteAt(1, 22, "                                ", ConsoleColor.Blue, ConsoleColor.White);
-        _consoleService.WriteAt(1, 23, "              KEY               ", ConsoleColor.Blue, ConsoleColor.White);
-        _consoleService.WriteAt(1, 24, "                                ", ConsoleColor.Blue, ConsoleColor.White);
+        Show(ConsoleColor.DarkRed);
+    }
+
+    /// <summary>
+    ///     Displays the panel with a custom background color.
+    /// </summary>
+    public void Show(ConsoleColor backgroundColor)
+    {
+        _consoleService.WriteAt(1, 22, "                                ", backgroundColor, ConsoleColor.White);
+        _consoleService.WriteAt(1, 23, "              KEY               ", backgroundColor, ConsoleColor.White);
+        _consoleService.WriteAt(1, 24, "                                ", backgroundColor, ConsoleColor.White);
     }
 }

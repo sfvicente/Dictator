@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -44,11 +44,13 @@ public class TreasuryReportScreen : BaseScreen, ITreasuryReportScreen
     /// <param name="account">The account information regarding the treasury, monthly costs and Swiss account.</param>
     public void Show(Account account)
     {
-        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Green);
+        _consoleService.SetBorderColor(ConsoleColor.DarkGreen);
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.DarkGreen);
         _consoleService.Clear('$');
-        _consoleService.WriteAt(2, 4, "                              ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(2, 5, "                              ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(2, 6, "                              ", ConsoleColor.Green, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 4, "                              ", ConsoleColor.DarkGreen, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 5, " \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 \u0090\u0091 ", ConsoleColor.DarkGreen, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 6, " \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 \u0092\u0093 ", ConsoleColor.DarkGreen, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 7, " \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 \u0094\u0095 ", ConsoleColor.DarkGreen, ConsoleColor.Black);
         _consoleService.WriteAt(8, 9, "TREASURY REPORT", ConsoleColor.White, ConsoleColor.Black);
         _accountControl.Show(account);
         _pressAnyKeyControl.Show();

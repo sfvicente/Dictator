@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Dictator.ConsoleInterface.Common;
 
@@ -12,6 +12,11 @@ public interface IPressAnyKeyControl
     ///     Displays the control.
     /// </summary>
     public void Show();
+
+    /// <summary>
+    ///     Displays the control with a custom panel background color.
+    /// </summary>
+    public void Show(ConsoleColor backgroundColor);
 }
 
 /// <summary>
@@ -20,15 +25,18 @@ public interface IPressAnyKeyControl
 /// </summary>
 public class PressAnyKeyControl : IPressAnyKeyControl
 {
+    private readonly IConsoleService _consoleService;
     private readonly IKeyPanel _keyPanel;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="PressAnyKeyControl"/> class from a <see cref="IKeyPanel"/>
-    ///     component.
+    ///     Initializes a new instance of the <see cref="PressAnyKeyControl"/> class from a <see cref="IConsoleService"/> and <see cref="IKeyPanel"/>
+    ///     components.
     /// </summary>
+    /// <param name="consoleService">The service used to interact with the console.</param>
     /// <param name="keyPanel">The panel that is displayed when the user is required to press a key.</param>
-    public PressAnyKeyControl(IKeyPanel keyPanel)
+    public PressAnyKeyControl(IConsoleService consoleService, IKeyPanel keyPanel)
     {
+        _consoleService = consoleService;
         _keyPanel = keyPanel;
     }
 
@@ -38,6 +46,15 @@ public class PressAnyKeyControl : IPressAnyKeyControl
     public void Show()
     {
         _keyPanel.Show();
-        Console.ReadKey(true);
+        _consoleService.WaitForKeyPressed();
+    }
+
+    /// <summary>
+    ///     Displays the control with a custom panel background color.
+    /// </summary>
+    public void Show(ConsoleColor backgroundColor)
+    {
+        _keyPanel.Show(backgroundColor);
+        _consoleService.WaitForKeyPressed();
     }
 }

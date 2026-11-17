@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -48,7 +48,7 @@ public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSu
 
     public int Show(Decision[] decisions)
     {
-        Console.BackgroundColor = ConsoleColor.DarkYellow;
+        _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
         _consoleService.Clear();
 
         if(HaveAllDecisionsBeenUsed(decisions))

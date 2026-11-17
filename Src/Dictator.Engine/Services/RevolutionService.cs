@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
@@ -104,6 +104,9 @@ public class RevolutionService : IRevolutionService
             if (groups[number].Status == GroupStatus.Revolution)
             {
                 _revolution.RevolutionaryGroup = groups[number];  // As the group has been triggered, set the group as the current revolutionary
+                _revolution.RevolutionStrength = groups[number].Strength + (groups[number].Ally?.Strength ?? 0);
+                _revolution.PlayerStrength = _statsService.GetPlayerStrength();
+                _revolution.PlayerAlly = null;
                 return true;
             }
         }
@@ -180,6 +183,7 @@ public class RevolutionService : IRevolutionService
         Group group = _groupService.GetGroupById(selectedAllyGroupId);
 
         _revolution.PlayerAlly = group;
+        _revolution.PlayerStrength = _statsService.GetPlayerStrength() + group.Strength;
     }
 
     /// <summary>
@@ -226,6 +230,9 @@ public class RevolutionService : IRevolutionService
         }
         _governmentService.SetPlotBonus(_governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
         _groupService.ResetStatusAndAllies();
-        // TODO: reset player's ally and revolution properties?
+        _revolution.PlayerAlly = null;
+        _revolution.RevolutionaryGroup = null;
+        _revolution.RevolutionStrength = 0;
+        _revolution.PlayerStrength = 0;
     }
 }
