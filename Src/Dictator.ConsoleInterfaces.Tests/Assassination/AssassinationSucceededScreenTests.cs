@@ -1,13 +1,13 @@
-﻿using Dictator.ConsoleInterface;
+using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Common;
 
 namespace Dictator.ConsoleInterfaces.Tests.Assassination;
 
 [TestFixture]
-public class AssassinationSuccededScreenTests
+public class AssassinationSucceededScreenTests
 {
-    private AssassinationSuccededScreen _assassinationSuccededScreen;
+    private AssassinationSucceededScreen _assassinationSucceededScreen;
     private Mock<IConsoleService> _consoleServiceMock;
     private Mock<IPressAnyKeyControl> _pressAnyKeyControlMock;
 
@@ -16,7 +16,7 @@ public class AssassinationSuccededScreenTests
     {
         _consoleServiceMock = new Mock<IConsoleService>();
         _pressAnyKeyControlMock = new Mock<IPressAnyKeyControl>();
-        _assassinationSuccededScreen = new AssassinationSuccededScreen(_consoleServiceMock.Object, _pressAnyKeyControlMock.Object);
+        _assassinationSucceededScreen = new AssassinationSucceededScreen(_consoleServiceMock.Object, _pressAnyKeyControlMock.Object);
     }
 
     [Test]
@@ -25,7 +25,7 @@ public class AssassinationSuccededScreenTests
         // Arrange
 
         // Act
-        _assassinationSuccededScreen.Show();
+        _assassinationSucceededScreen.Show();
 
         // Assert
         _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.Gray), Times.Once);

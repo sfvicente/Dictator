@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface;
+using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Decisions;
@@ -62,7 +62,7 @@ class Program
         .AddScoped<ITransferToSwissBankAccountScreen, TransferToSwissBankAccountScreen>()
         .AddScoped<IAssassinationScreen, AssassinationScreen>()
         .AddScoped<IAssassinationFailedScreen, AssassinationFailedScreen>()
-        .AddScoped<IAssassinationSuccededScreen, AssassinationSuccededScreen>()
+        .AddScoped<IAssassinationSucceededScreen, AssassinationSucceededScreen>()
         .AddScoped<IRevolutionScreen, RevolutionScreen>()
         .AddScoped<IEscapeAttemptDialog, EscapeAttemptDialog>()
         .AddScoped<IHelicopterEscapeScreen, HelicopterEscapeScreen>()
@@ -71,7 +71,6 @@ class Program
         .AddScoped<IEscapeToLeftotoScreen, EscapeToLeftotoScreen>()
         .AddScoped<IGuerillasCelebratingScreen, GuerillasCelebratingScreen>()
         .AddScoped<IGuerillasMissedScreen, GuerillasMissedScreen>()
-        .AddScoped<IRevolutionScreen, RevolutionScreen>()
         .AddScoped<IRevolutionAskForHelpDialog, RevolutionAskForHelpDialog>()
         .AddScoped<IRevolutionNoAlliesScreen, RevolutionNoAlliesScreen>()
         .AddScoped<IRevolutionAllyLowPopularityScreen, RevolutionAllyLowPopularityScreen>()

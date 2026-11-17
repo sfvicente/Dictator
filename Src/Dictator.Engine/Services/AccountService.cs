@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Models;
+using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
 
@@ -84,30 +84,27 @@ public interface IAccountService
 /// <summary>
 ///     Provides functionality related to the treasury and associated costs and the Swiss bank account.
 /// </summary>
-public class AccountService: IAccountService
+public class AccountService : IAccountService
 {
-    private readonly Account account;
-    private readonly IGroupService groupService;
+    private readonly Account _account;
+    private readonly IGroupService _groupService;
     private readonly IStatsService _statsService;
-    private readonly IGovernmentService governmentService;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="AccountService"/> class from a <see cref="IAccount"/>,
-    ///     a <see cref="IGroupService"/> and a <see cref="IGovernmentService"/> components.
+    ///     Initializes a new instance of the <see cref="AccountService"/> class from a <see cref="IGameState"/>,
+    ///     a <see cref="IGroupService"/> and a <see cref="IStatsService"/> components.
     /// </summary>
-    /// <param name="account">The component used to provide information related to the accounts and costs.</param>
+    /// <param name="gameState">The component used to provide information related to the accounts and costs.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
+    /// <param name="statsService">The service used to provide functionality related to the player and monthly stats.</param>
     public AccountService(
         IGameState gameState,
         IGroupService groupService,
-        IStatsService statsService,
-        IGovernmentService governmentService)
+        IStatsService statsService)
     {
-        account = gameState.GetAccount();
-        this.groupService = groupService;
+        _account = gameState.GetAccount();
+        _groupService = groupService;
         _statsService = statsService;
-        this.governmentService = governmentService;
     }
 
     /// <summary>
@@ -117,7 +114,7 @@ public class AccountService: IAccountService
     /// and monthly costs.</returns>
     public Account GetAccount()
     {
-        return (Account)account;
+        return _account;
     }
 
     /// <summary>
@@ -126,7 +123,7 @@ public class AccountService: IAccountService
     /// <returns></returns>
     public int GetTreasuryBalance()
     {
-        return account.TreasuryBalance;
+        return _account.TreasuryBalance;
     }
 
     /// <summary>
@@ -144,7 +141,7 @@ public class AccountService: IAccountService
     /// <returns>The amount in dollars of the treasurey monthly costs.</returns>
     public int GetMonthlyCosts()
     {
-        return account.MonthlyCosts;
+        return _account.MonthlyCosts;
     }
 
     /// <summary>
@@ -169,12 +166,12 @@ public class AccountService: IAccountService
 
     public void ApplyTreasuryChanges(int cost, int monthlyCost)
     {
-        account.TreasuryBalance += 10 * cost;
-        account.MonthlyCosts -= monthlyCost;
+        _account.TreasuryBalance += 10 * cost;
+        _account.MonthlyCosts -= monthlyCost;
 
-        if(account.MonthlyCosts < 0)
+        if(_account.MonthlyCosts < 0)
         {
-            account.MonthlyCosts = 0;
+            _account.MonthlyCosts = 0;
         }
     }
 
@@ -184,7 +181,7 @@ public class AccountService: IAccountService
     /// <param name="amount">The amount to add or remove from the treasury.</param>
     public void ChangeTreasuryBalance(int amount)
     {
-        account.TreasuryBalance += amount;
+        _account.TreasuryBalance += amount;
     }
 
     /// <summary>
@@ -193,7 +190,7 @@ public class AccountService: IAccountService
     /// <returns>The amount of dollars currently in the Swiss bank account.</returns>
     public int GetSwissBankAccountBalance()
     {
-        return account.SwissBankAccountBalance;
+        return _account.SwissBankAccountBalance;
     }
 
     /// <summary>
@@ -202,7 +199,7 @@ public class AccountService: IAccountService
     /// <param name="amount">The amount to be added to the account.</param>
     public void DepositToSwissBankAccount(int amount)
     {
-        account.SwissBankAccountBalance += amount;
+        _account.SwissBankAccountBalance += amount;
     }
 
     /// <summary>
@@ -240,9 +237,9 @@ public class AccountService: IAccountService
     /// </summary>
     public void ApplyBankruptcyEffects()
     {
-        groupService.DecreasePopularity(GroupType.Army, 1);
-        groupService.DecreasePopularity(GroupType.SecretPolice, 1);
-        groupService.DecreaseStrength(GroupType.SecretPolice);
+        _groupService.DecreasePopularity(GroupType.Army, 1);
+        _groupService.DecreasePopularity(GroupType.SecretPolice, 1);
+        _groupService.DecreaseStrength(GroupType.SecretPolice);
         _statsService.DecreasePlayerStrength();
     }
 
@@ -251,7 +248,7 @@ public class AccountService: IAccountService
     /// </summary>
     private void OpenSwissBankAccount()
     {
-        account.HasSwissBankAccount = true;
+        _account.HasSwissBankAccount = true;
     }
 
     /// <summary>
@@ -260,7 +257,7 @@ public class AccountService: IAccountService
     /// <returns></returns>
     private bool HasSwissBankAccount()
     {
-        return account.HasSwissBankAccount;
+        return _account.HasSwissBankAccount;
     }
 
 }

@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Services;
+using Dictator.Core.Services;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Tests.Services;
@@ -9,7 +9,6 @@ public class WarServiceTests
     private Mock<IRandomService> _randomMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IStatsService> _statsServiceMock;
-    private Mock<IGovernmentService> _governmentServiceMock;
     private WarService _warService;
 
     [SetUp]
@@ -18,13 +17,11 @@ public class WarServiceTests
         _randomMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
         _statsServiceMock = new Mock<IStatsService>();
-        _governmentServiceMock = new Mock<IGovernmentService>();
 
         _warService = new WarService(
             _randomMock.Object,
             _groupServiceMock.Object,
-            _statsServiceMock.Object,
-            _governmentServiceMock.Object);
+            _statsServiceMock.Object);
     }
 
     [Test]

@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Models;
+using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
 
@@ -47,26 +47,24 @@ public interface IWarService
 public class WarService : IWarService
 {
     private readonly IRandomService _randomService;
-    private readonly IGroupService groupService;
+    private readonly IGroupService _groupService;
     private readonly IStatsService _statsService;
-    private readonly IGovernmentService governmentService;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="WarService"/> class from a <see cref="IGroupService"/> and
-    ///     a <see cref="IGovernmentService"/> components.
+    ///     Initializes a new instance of the <see cref="WarService"/> class from a <see cref="IRandomService"/>,
+    ///     a <see cref="IGroupService"/> and a <see cref="IStatsService"/> components.
     /// </summary>
+    /// <param name="randomService">The service used to generate random numbers.</param>
     /// <param name="groupService">The service used to provide functionality related to the groups or factions.</param>
-    /// <param name="governmentService">The service used to provide functionality related to the government settings and operations.</param>
+    /// <param name="statsService">The service used to provide functionality related to the player and monthly stats.</param>
     public WarService(
         IRandomService randomService,
         IGroupService groupService,
-        IStatsService statsService,
-        IGovernmentService governmentService)
+        IStatsService statsService)
     {
         _randomService = randomService;
-        this.groupService = groupService;
+        _groupService = groupService;
         _statsService = statsService;
-        this.governmentService = governmentService;
     }
 
     /// <summary>
@@ -91,10 +89,10 @@ public class WarService : IWarService
     /// </summary>
     public void ApplyThreatOfWarEffects()
     {
-        groupService.IncreasePopularity(GroupType.Army, 1);
-        groupService.IncreasePopularity(GroupType.Peasants, 1);
-        groupService.IncreasePopularity(GroupType.Landowners, 1);
-        groupService.DecreasePopularity(GroupType.SecretPolice, 1);
+        _groupService.IncreasePopularity(GroupType.Army, 1);
+        _groupService.IncreasePopularity(GroupType.Peasants, 1);
+        _groupService.IncreasePopularity(GroupType.Landowners, 1);
+        _groupService.DecreasePopularity(GroupType.SecretPolice, 1);
     }
 
     /// <summary>
@@ -122,7 +120,7 @@ public class WarService : IWarService
     /// <returns><c>true</c> if a conflict exist with Leftoto; otherwise, <c>false</c>.</returns>
     public bool DoesConflictExist()
     {
-        Group leftotans = groupService.GetGroupByType(GroupType.Leftotans);
+        Group leftotans = _groupService.GetGroupByType(GroupType.Leftotans);
 
         if (leftotans.Popularity > _statsService.GetMonthlyMinimalPopularityAndStrength() ||
             leftotans.Strength < _statsService.GetMonthlyMinimalPopularityAndStrength())

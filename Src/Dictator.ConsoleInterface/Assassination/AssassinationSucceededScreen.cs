@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Assassination;
@@ -7,7 +7,7 @@ namespace Dictator.ConsoleInterface.Assassination;
 ///     Represents the screen that is displayed when an assassination by one of the groups against the player
 ///     succeeds.
 /// </summary>
-public interface IAssassinationSuccededScreen
+public interface IAssassinationSucceededScreen
 {
     public void Show();
 }
@@ -16,16 +16,16 @@ public interface IAssassinationSuccededScreen
 ///     Represents the screen that is displayed when an assassination by one of the groups against the player
 ///     succeeds.
 /// </summary>
-public class AssassinationSuccededScreen : BaseScreen, IAssassinationSuccededScreen
+public class AssassinationSucceededScreen : BaseScreen, IAssassinationSucceededScreen
 {
     private readonly IPressAnyKeyControl _pressAnyKeyControl;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="AssassinationSuccededScreen"/> class from a <see cref="IPressAnyKeyControl"/>
+    ///     Initializes a new instance of the <see cref="AssassinationSucceededScreen"/> class from a <see cref="IPressAnyKeyControl"/>
     ///     component.
     /// </summary>
     /// <param name="pressAnyKeyControl">The control that is displayed when the user is required to press a key.</param>
-    public AssassinationSuccededScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
+    public AssassinationSucceededScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl)
         : base(consoleService)
     {
         _pressAnyKeyControl = pressAnyKeyControl;

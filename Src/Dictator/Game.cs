@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 using Dictator.Core.Models;
@@ -108,7 +108,7 @@ public class Game
 
         if (_engine.IsGovernmentBankrupt())
         {
-            _userInterface.DisplayBankuptcyScreen();
+            _userInterface.DisplayBankruptcyScreen();
             _engine.ApplyBankruptcyEffects();
             _engine.Plot();  // Realculate probability for the assassination and revolution events
             ProcessPoliceReport();
@@ -220,7 +220,7 @@ public class Game
             if (_engine.IsAssassinationSuccessful())
             {
                 // Attempt was successful: show death screen and end game
-                _userInterface.DisplayAssassinationSuccededScreen();
+                _userInterface.DisplayAssassinationSucceededScreen();
                 _engine.KillPlayer();
                 return true;
             }

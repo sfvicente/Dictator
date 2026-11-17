@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core.Models;
+namespace Dictator.Core.Models;
 
 /// <summary>
 ///     Represents a decision selected by the player with the corresponding effects on the treasury and
@@ -15,7 +15,7 @@ public class Decision : GameAction
         int cost,
         int monthlyCost,
         string groupPopularityChanges,
-        string groupStrenghtChanges,
+        string groupStrengthChanges,
         string text)
     {
         Type = type;
@@ -23,7 +23,7 @@ public class Decision : GameAction
         Cost = cost;
         MonthlyCost = monthlyCost;
         GroupPopularityChanges = groupPopularityChanges;
-        GroupStrengthChanges = groupStrenghtChanges;
+        GroupStrengthChanges = groupStrengthChanges;
         Text = text;
         HasBeenUsed = false;
     }

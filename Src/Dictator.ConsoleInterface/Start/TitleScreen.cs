@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Dictator.ConsoleInterface.Start;
 
@@ -27,7 +27,7 @@ public class TitleScreen : BaseScreen, ITitleScreen
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public override void Show()
+    public void Show()
     {
         _consoleService.Clear();
         PrintBackground();

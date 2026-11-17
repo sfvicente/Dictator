@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Escape;
@@ -29,7 +29,7 @@ public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScree
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public override void Show()
+    public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");

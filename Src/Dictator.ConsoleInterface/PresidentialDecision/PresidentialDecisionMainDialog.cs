@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -61,7 +61,7 @@ public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionM
             case ConsoleKey.D2:
                 return DecisionType.PleaseAllGroups;
             case ConsoleKey.D3:
-                return DecisionType.ImproveYourChanges;
+                return DecisionType.ImproveYourChances;
             case ConsoleKey.D4:
                 return DecisionType.RaiseSomeCash;
             case ConsoleKey.D5:

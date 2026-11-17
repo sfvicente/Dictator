@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 
 namespace Dictator.ConsoleInterface.Treasury;
 
@@ -36,7 +36,7 @@ public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public override void Show()
+    public void Show()
     {
         _consoleService.Clear();
         _consoleService.WriteAt(1, 5, "   The TREASURY is BANKRUPT    ");

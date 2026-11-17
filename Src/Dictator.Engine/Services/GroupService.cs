@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Dictator.Core.Models;
@@ -39,11 +39,9 @@ public class GroupService : IGroupService
     private Group[] _groups;
     private const int MaxPopularityAndStrength = 9;
     private const int MinPopularityAndStrength = 0;
-    private readonly IRandomService _randomService;
 
-    public GroupService(IRandomService randomService)
+    public GroupService()
     {
-        _randomService = randomService;
     }
 
     public void Initialise()

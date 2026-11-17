@@ -1,4 +1,4 @@
-﻿namespace Dictator.Core.Models;
+namespace Dictator.Core.Models;
 
 /// <summary>
 ///     Represents a petition by one of the groups that request the player to perform an action.
@@ -15,13 +15,13 @@ public class Audience : GameAction
         }
     }
 
-    public Audience(GroupType requester, int cost, int monthlyCost, string groupPopularityChanges, string groupStrenghtChanges, string text)
+    public Audience(GroupType requester, int cost, int monthlyCost, string groupPopularityChanges, string groupStrengthChanges, string text)
     {
         Requester = requester;
         Cost = cost;
         MonthlyCost = monthlyCost;
         GroupPopularityChanges = groupPopularityChanges;
-        GroupStrengthChanges = groupStrenghtChanges;
+        GroupStrengthChanges = groupStrengthChanges;
         Text = text;
         HasBeenUsed = false;
     }

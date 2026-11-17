@@ -1,5 +1,4 @@
-﻿using System;
-using static System.Net.Mime.MediaTypeNames;
+using System;
 
 namespace Dictator.ConsoleInterface;
 

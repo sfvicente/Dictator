@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Escape;
@@ -32,7 +32,7 @@ public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
     /// <summary>
     ///     Displays the screen.
     /// </summary>
-    public override void Show()
+    public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");

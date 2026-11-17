@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Assassination;
+using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Decisions;
 using Dictator.ConsoleInterface.Escape;
@@ -29,7 +29,7 @@ public interface IUserInterface
     DialogResult DisplayAdviceRequestDialog();
     void DisplayAdviceScreen(Audience audience);
     void DisplayAdviceScreen(Decision decision);
-    void DisplayBankuptcyScreen();
+    void DisplayBankruptcyScreen();
     void DisplayNewsScreen(string headline);
     void DisplayMonthScreen(int month);
     DecisionType DisplayPresidentialDecisionMainDialog();
@@ -40,7 +40,7 @@ public interface IUserInterface
     void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
     void DisplayAssassinationAttempt(string groupName);
     void DisplayAssassinationFailedScreen();
-    void DisplayAssassinationSuccededScreen();
+    void DisplayAssassinationSucceededScreen();
     void DisplayRevolutionScreen();
     void DisplayRevolutionStartedScreen();
     int DisplayRevolutionAskForHelpDialog(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies);
@@ -85,7 +85,7 @@ public class UserInterface : IUserInterface
     private readonly ILoanApplicationResultScreen _loanApplicationResultScreen;
     private readonly ITransferToSwissBankAccountScreen _transferToSwissBankAccountScreen;
     private readonly IAssassinationScreen _assassinationScreen;
-    private readonly IAssassinationSuccededScreen _assassinationSuccededScreen;
+    private readonly IAssassinationSucceededScreen _assassinationSucceededScreen;
     private readonly IAssassinationFailedScreen _assassinationFailedScreen;
     private readonly IRevolutionScreen _revolutionScreen;
     private readonly IRevolutionStartedScreen _revolutionStartedScreen;
@@ -129,7 +129,7 @@ public class UserInterface : IUserInterface
         ILoanApplicationResultScreen loanApplicationResultScreen,
         ITransferToSwissBankAccountScreen transferToSwissBankAccountScreen,
         IAssassinationScreen assassinationScreen,
-        IAssassinationSuccededScreen assassinationSuccededScreen,
+        IAssassinationSucceededScreen assassinationSucceededScreen,
         IAssassinationFailedScreen assassinationFailedScreen,
         IRevolutionScreen revolutionScreen,
         IRevolutionStartedScreen revolutionStartedScreen,
@@ -172,7 +172,7 @@ public class UserInterface : IUserInterface
         _loanApplicationResultScreen = loanApplicationResultScreen;
         _transferToSwissBankAccountScreen = transferToSwissBankAccountScreen;
         _assassinationScreen = assassinationScreen;
-        _assassinationSuccededScreen = assassinationSuccededScreen;
+        _assassinationSucceededScreen = assassinationSucceededScreen;
         _assassinationFailedScreen = assassinationFailedScreen;
         _revolutionScreen = revolutionScreen;
         _revolutionStartedScreen = revolutionStartedScreen;
@@ -225,7 +225,7 @@ public class UserInterface : IUserInterface
 
     public void DisplayAdviceScreen(Decision decision) => _adviceScreen.Show(decision);
 
-    public void DisplayBankuptcyScreen() => _bankruptcyScreen.Show();
+    public void DisplayBankruptcyScreen() => _bankruptcyScreen.Show();
 
     public void DisplayNewsScreen(string headline) => _newsflashScreen.Show(headline);
 
@@ -247,7 +247,7 @@ public class UserInterface : IUserInterface
 
     public void DisplayAssassinationFailedScreen() => _assassinationFailedScreen.Show();
 
-    public void DisplayAssassinationSuccededScreen() => _assassinationSuccededScreen.Show();
+    public void DisplayAssassinationSucceededScreen() => _assassinationSucceededScreen.Show();
 
     public void DisplayRevolutionScreen() => _revolutionScreen.Show();
 
