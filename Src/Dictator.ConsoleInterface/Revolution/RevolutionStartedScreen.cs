@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Revolution;
@@ -37,7 +37,9 @@ public class RevolutionStartedScreen : BaseScreen, IRevolutionStartedScreen
     public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(1, 12, "   The REVOLUTION has STARTED   ");
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

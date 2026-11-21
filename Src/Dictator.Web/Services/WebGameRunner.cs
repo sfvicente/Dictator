@@ -2,6 +2,7 @@ using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Common;
 using Dictator.Core;
 using Dictator.Core.Models;
+using Microsoft.JSInterop;
 
 namespace Dictator.Web.Services;
 
@@ -10,15 +11,18 @@ public class WebGameRunner
     private readonly IEngine _engine;
     private readonly IUserInterface _userInterface;
     private readonly WebSpectrumConsoleService _console;
+    private readonly IJSRuntime _js;
 
     public WebGameRunner(
         IEngine engine,
         IUserInterface userInterface,
-        WebSpectrumConsoleService console)
+        WebSpectrumConsoleService console,
+        IJSRuntime js)
     {
         _engine = engine;
         _userInterface = userInterface;
         _console = console;
+        _js = js;
     }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
@@ -33,9 +37,13 @@ public class WebGameRunner
             await _console.WaitForKeyAsync();
 
             _userInterface.DisplayTitleScreen();
+            await PlayEffectSafeAsync("startAnthem", isDirectMethod: true);
             await _console.WaitForKeyAsync();
+            await PlayEffectSafeAsync("stopAnthem", isDirectMethod: true);
 
-            _userInterface.DisplayWelcomeScreen(_engine.GetHighScore());
+            int storedHighScore = await GetStoredHighScoreAsync();
+            int engineHighScore = Math.Max(_engine.GetHighScore(), storedHighScore);
+            _userInterface.DisplayWelcomeScreen(engineHighScore);
             await _console.WaitForKeyAsync();
 
             _userInterface.DisplayAccountScreen(_engine.GetAccount());
@@ -161,6 +169,7 @@ public class WebGameRunner
             if (_engine.IsAssassinationSuccessful())
             {
                 _userInterface.DisplayAssassinationSucceededScreen();
+                await PlayEffectSafeAsync("dead");
                 await _console.WaitForKeyAsync();
                 _engine.KillPlayer();
                 return true;
@@ -343,6 +352,8 @@ public class WebGameRunner
     private async Task AskForLoanAsync(LenderCountry country)
     {
         _userInterface.DisplayLoanApplicationScreen();
+        string tuneEffect = country == LenderCountry.Russia ? "russianAid" : "americanAid";
+        await PlayEffectSafeAsync(tuneEffect);
         await _console.WaitForKeyAsync();
 
         LoanApplicationResult result = _engine.AskForLoan(country);
@@ -355,6 +366,7 @@ public class WebGameRunner
         News unusedRandomNews = _engine.SelectRandomUnusedNews();
 
         _userInterface.DisplayNewsScreen(unusedRandomNews.Text);
+        await PlayEffectSafeAsync("newsflash");
         await _console.WaitForKeyAsync();
         _engine.ApplyNewsEffects(unusedRandomNews);
     }
@@ -362,6 +374,7 @@ public class WebGameRunner
     private async Task<bool> TryProcessGovernmentOverthrownAsync()
     {
         _userInterface.DisplayRevolutionScreen();
+        await PlayEffectSafeAsync("revolution");
         await _console.WaitForKeyAsync();
 
         if (await AskYesNoDialogAsync(() => _userInterface.DisplayEscapeAttemptDialog()))
@@ -490,10 +503,28 @@ public class WebGameRunner
     private async Task ProcessEndAsync()
     {
         Score score = _engine.GetCurrentScore();
+        int storedHighScore = await GetStoredHighScoreAsync();
+        if (storedHighScore > score.HighestScore)
+        {
+            score.HighestScore = storedHighScore;
+        }
+
+        if (score.PointsForStayingAlive == 0)
+        {
+            await PlayEffectSafeAsync("funeral");
+        }
 
         _userInterface.DisplayEndScreen(score);
         await _console.WaitForKeyAsync();
         _engine.SaveHighScore();
+        await SaveStoredHighScoreAsync(Math.Max(score.TotalScore, score.HighestScore));
+
+        // Line 3090-3092: Show FINAL Police Report after the rating screen
+        _userInterface.DisplayPoliceReportScreen(_engine.GetPoliceReport());
+        _console.SetFlash(true);
+        _console.WriteAt(15, 2, "FINAL", ConsoleColor.Black, ConsoleColor.White);
+        _console.SetFlash(false);
+        await _console.WaitForKeyAsync();
     }
 
     private async Task<bool> AskYesNoDialogAsync(Action renderDialog)
@@ -501,5 +532,48 @@ public class WebGameRunner
         renderDialog();
         ConsoleKey key = await _console.WaitForKeyAsync();
         return key == ConsoleKey.Y;
+    }
+
+    private async Task PlayEffectSafeAsync(string name, bool isDirectMethod = false)
+    {
+        try
+        {
+            if (isDirectMethod)
+            {
+                await _js.InvokeVoidAsync($"spectrumDisplay.{name}");
+            }
+            else
+            {
+                await _js.InvokeVoidAsync("spectrumDisplay.playEffect", name);
+            }
+        }
+        catch
+        {
+            // Ignore audio interop errors
+        }
+    }
+
+    private async Task<int> GetStoredHighScoreAsync()
+    {
+        try
+        {
+            return await _js.InvokeAsync<int>("spectrumDisplay.getHighScore");
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+
+    private async Task SaveStoredHighScoreAsync(int score)
+    {
+        try
+        {
+            await _js.InvokeVoidAsync("spectrumDisplay.setHighScore", score);
+        }
+        catch
+        {
+            // Ignore storage interop errors
+        }
     }
 }

@@ -48,35 +48,30 @@ public class PresidentialDecisionSubDialog : BaseScreen, IPresidentialDecisionSu
 
     public int Show(Decision[] decisions)
     {
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
         _consoleService.SetBackgroundColor(ConsoleColor.DarkYellow);
         _consoleService.Clear();
 
-        if(HaveAllDecisionsBeenUsed(decisions))
+        if (HaveAllDecisionsBeenUsed(decisions))
         {
-            _consoleService.PrintAt(12, 3, "ALL of this section USED UP");
+            _consoleService.SetFlash(true);
+            _consoleService.PrintAt(12, 3, "ALL of this section USED UP", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            _consoleService.SetFlash(false);
         }
         else
         {
-            // TODO: Display options with the original positioning
-            int line = 4;
+            int startRow = Math.Max(2, (20 - ((decisions.Length - 1) * 3)) / 2 + 1);
+            int line = startRow;
 
             for (int i = 0; i < decisions.Length; i++)
             {
-                int optionNumber = i + 1;
-
                 if (!decisions[i].HasBeenUsed)
                 {
-                    _consoleService.WriteAt(1, line + i, $"{optionNumber}.");
+                    int optionNumber = i + 1;
+                    _consoleService.WriteAt(1, line, $"{optionNumber}.", ConsoleColor.DarkYellow, ConsoleColor.Black);
+                    _consoleService.WriteAt(1, line + 1, decisions[i].Text, ConsoleColor.DarkYellow, ConsoleColor.Black);
+                    line += 3;
                 }
-
-                line++;
-
-                if (!decisions[i].HasBeenUsed)
-                {
-                    _consoleService.WriteAt(1, line + i, decisions[i].Text);
-                }
-
-                line++;
             }
         }
         

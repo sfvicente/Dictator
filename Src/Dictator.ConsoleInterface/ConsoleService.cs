@@ -286,7 +286,7 @@ public class ConsoleService : IConsoleService
         char[] chars = text.ToCharArray();
         for (int i = 0; i < chars.Length; i++)
         {
-            if (chars[i] >= '\u0090' && chars[i] <= '\u00A5')
+            if (chars[i] >= '\u0080' && chars[i] <= '\u00BF')
             {
                 chars[i] = ' ';
             }

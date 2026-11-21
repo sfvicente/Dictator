@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Escape;
@@ -35,7 +35,9 @@ public class GuerillasMissedScreen : BaseScreen, IGuerillasMissedScreen
     public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 11, " The GUERILLAS didn't catch you ");
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(1, 12, " The GUERILLAS didn't catch you ");
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Assassination;
@@ -39,8 +39,11 @@ public class AssassinationFailedScreen : BaseScreen, IAssassinationFailedScreen
     /// </summary>
     public void Show()
     {
+        _consoleService.SetBorderColor(ConsoleColor.Black);
         _consoleService.Clear(ConsoleColor.Gray);
-        _consoleService.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);         
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(1, 11, "         Attempt FAILED         ", ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

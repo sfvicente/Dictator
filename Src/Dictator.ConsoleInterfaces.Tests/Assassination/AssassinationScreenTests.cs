@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Assassination;
+using Dictator.ConsoleInterface.Assassination;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface;
 
@@ -29,7 +29,7 @@ public class AssassinationScreenTests
         _assassinationScreen.Show(groupName);
 
         // Assert
-        _consoleServiceMock.Verify(cs => cs.Clear(), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.Black, ConsoleColor.White), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     "), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteCenteredAt(12, $"by one of {groupName}"), Times.Once);
         _pressAnyKeyControlMock.Verify(pak => pak.Show(), Times.Once);

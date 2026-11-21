@@ -40,7 +40,9 @@ public class PressAnyKeyWithYesControl : BaseScreen, IPressAnyKeyWithYesControl
     /// <returns>The option selected after the control has been presented.</returns>
     public DialogResult Show()
     {
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(11, 21, " \"Y\"= YES ", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _keyPanel.Show();
 
         ConsoleKey keyPressed = _consoleService.ReadKey();

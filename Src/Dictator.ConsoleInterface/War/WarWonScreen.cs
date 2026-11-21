@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.War;
@@ -33,8 +33,11 @@ public class WarWonScreen : BaseScreen, IWarWonScreen
     /// </summary>
     public void Show()
     {
+        _consoleService.SetBorderColor(ConsoleColor.Black);
         _consoleService.Clear(ConsoleColor.Gray);
-        _consoleService.WriteAt(1, 11, "        LEFTOTANS ROUTED        ");
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(8, 12, " LEFTOTANS ROUTED ", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

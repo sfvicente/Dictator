@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
 using System;
 
@@ -21,19 +21,34 @@ public class EndScreen : BaseScreen, IEndScreen
 
     public void Show(Score score)
     {
-        // TODO: scores values need to be aligned to the right
-
+        _consoleService.SetBorderColor(ConsoleColor.DarkCyan);
         _consoleService.Clear(ConsoleColor.DarkYellow);
-        _consoleService.WriteAt(5, 3, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 6, $" Total POPULARITY - {score.TotalPopularity}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - {score.MonthsInOffice * 3}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 10, $" For staying alive - {score.PointsForStayingAlive}  ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(6, 12, $"MONEYGRABBING", ConsoleColor.Green, ConsoleColor.White);
-        _consoleService.WriteAt(6, 13, $"(${score.MoneyGrabbed}.000,000 /00,000) - {score.PointsForMoneyGrabbing}", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 16, $" Your TOTAL is ", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.Write($"{score.TotalScore}", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 18, $"[ Highest Score so far is {score.HighestScore} ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(5, 4, "Your RATING as PRESIDENT", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
+
+        _consoleService.WriteAt(1, 6, " Total POPULARITY - ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(29, 6, $"{score.TotalPopularity}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+
+        _consoleService.WriteAt(1, 8, $" MONTHS in OFFICE ({score.MonthsInOffice}x3) - ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(29, 8, $"{score.PointsForMonthsInOffice}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+
+        if (score.PointsForStayingAlive > 0)
+        {
+            _consoleService.WriteAt(1, 10, " For staying ALIVE - ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            _consoleService.WriteAt(29, 10, $"{score.PointsForStayingAlive}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+
+            _consoleService.WriteAt(1, 12, " For ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            _consoleService.WriteAt(6, 12, "MONEYGRABBING", ConsoleColor.DarkGreen, ConsoleColor.White);
+            _consoleService.WriteAt(6, 13, $"(${score.MoneyGrabbed},000 /10,000) -", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            _consoleService.WriteAt(29, 13, $"{score.PointsForMoneyGrabbing}", ConsoleColor.White, ConsoleColor.Black);
+        }
+
+        _consoleService.WriteAt(1, 16, " Your TOTAL is ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(29, 16, $"{score.TotalScore}", ConsoleColor.Yellow, ConsoleColor.Black);
+
+        int displayedHighest = Math.Max(score.HighestScore, score.TotalScore);
+        _consoleService.WriteAt(1, 18, $"[ Highest Score so far is {displayedHighest} ]", ConsoleColor.DarkYellow, ConsoleColor.Black);
         _pressAnyKeyControl.Show();
     }
 }

@@ -31,8 +31,11 @@ public class GuerillasCelebratingScreen : BaseScreen, IGuerillasCelebratingScree
     /// </summary>
     public void Show()
     {
-        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        _consoleService.WriteAt(1, 11, " The GUERILLAS are CELEBRATING  ");
+        _consoleService.Clear(ConsoleColor.Black, ConsoleColor.White);
+        _consoleService.WriteAt(1, 12, " The GUERILLAS are ");
+        _consoleService.SetFlash(true);
+        _consoleService.Write("CELEBRATING", ConsoleColor.White);
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

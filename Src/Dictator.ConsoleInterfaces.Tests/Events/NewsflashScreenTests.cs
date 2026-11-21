@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Events;
+using Dictator.ConsoleInterface.Events;
 using Dictator.ConsoleInterface;
 
 namespace Dictator.ConsoleInterfaces.Tests.Events;
@@ -27,7 +27,8 @@ public class NewsflashScreenTests
 
         // Assert
         _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.Gray), Times.Once);
-        _consoleServiceMock.Verify(cs => cs.WriteAt(1, 10, "NEWSFLASH"), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WriteAt(12, 11, "NEWS", ConsoleColor.Gray, ConsoleColor.Black), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WriteAt(16, 11, "FLASH", ConsoleColor.Gray, ConsoleColor.Black), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteAt(1, 14, headline), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WaitForKeyPressed(), Times.Once);
     }

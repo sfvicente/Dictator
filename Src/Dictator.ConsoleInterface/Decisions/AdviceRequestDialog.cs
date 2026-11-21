@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Decisions;
@@ -20,13 +20,18 @@ public class AdviceRequestDialog : BaseScreen, IAdviceRequestDialog
 
     public DialogResult Show()
     {
-        _consoleService.Clear(ConsoleColor.Green);
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
+        _consoleService.Clear(ConsoleColor.DarkGreen);
 
         for (int row = 2; row < 21; row++)
         {
-            _consoleService.WriteAt(11, row, "?", ConsoleColor.Black, ConsoleColor.White);
+            _consoleService.SetFlash(true);
+            _consoleService.WriteAt(11, row, "?", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.SetFlash(false);
             _consoleService.WriteAt(12, row, " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black);
-            _consoleService.WriteAt(20, row, "?", ConsoleColor.Black, ConsoleColor.White);
+            _consoleService.SetFlash(true);
+            _consoleService.WriteAt(20, row, "?", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.SetFlash(false);
         }
 
         return _pressAnyKeyWithYesControl.Show();

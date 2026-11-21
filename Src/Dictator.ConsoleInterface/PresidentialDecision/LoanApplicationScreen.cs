@@ -1,4 +1,5 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
+using System;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision;
 
@@ -37,9 +38,12 @@ public class LoanApplicationScreen : BaseScreen, ILoanApplicationScreen
     /// </summary>
     public void Show()
     {
-        _consoleService.Clear();
-        _consoleService.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ");
-        _consoleService.WriteAt(1, 12, "              WAIT              ");
+        _consoleService.SetBorderColor(ConsoleColor.DarkRed);
+        _consoleService.Clear(ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 3, "  APPLICATION for FOREIGN AID   ", ConsoleColor.DarkRed, ConsoleColor.White);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(14, 13, "WAIT", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

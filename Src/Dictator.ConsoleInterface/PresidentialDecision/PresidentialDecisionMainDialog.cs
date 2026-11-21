@@ -43,14 +43,17 @@ public class PresidentialDecisionMainDialog : BaseScreen, IPresidentialDecisionM
     /// <returns>The type of presidential decision that has been selected.</returns>
     public DecisionType Show()
     {
-        _consoleService.Clear('*', ConsoleColor.Red, ConsoleColor.Yellow);
+        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
+        _consoleService.Clear('*', ConsoleColor.DarkRed, ConsoleColor.DarkYellow);
+        _consoleService.SetFlash(true);
         _consoleService.PrintAt(3, 5, "PRESIDENTIAL DECISION", ConsoleColor.Blue, ConsoleColor.White);
-        _consoleService.PrintAt(6, 1, "Try to ...", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.PrintAt(8, 4, "1. PLEASE a GROUP       ", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.PrintAt(10, 4, "2. PLEASE ALL GROUPS    ", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.PrintAt(12, 4, "3. IMPROVE your CHANCES ", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.PrintAt(14, 4, "4. RAISE some CASH      ", ConsoleColor.Yellow, ConsoleColor.Black);
-        _consoleService.PrintAt(16, 4, "5. STRENGTHEN a GROUP   ", ConsoleColor.Yellow, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
+        _consoleService.PrintAt(6, 1, "Try to ...", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.PrintAt(8, 4, "1. PLEASE a GROUP       ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.PrintAt(10, 4, "2. PLEASE ALL GROUPS    ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.PrintAt(12, 4, "3. IMPROVE your CHANCES ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.PrintAt(14, 4, "4. RAISE some CASH      ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.PrintAt(16, 4, "5. STRENGTHEN a GROUP   ", ConsoleColor.DarkYellow, ConsoleColor.Black);
         
         ConsoleKey keyPressed = _pressAnyKeyOrOptionControl.Show();
 

@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Models;
+using Dictator.Core.Models;
 using System;
 
 namespace Dictator.ConsoleInterface.Treasury;
@@ -34,9 +34,19 @@ public class AccountControl : BaseScreen, IAccountControl
     /// <param name="account">The account information regarding the treasury, monthly costs and Swiss account.</param>
     public void Show(Account account)
     {
-        string balanceWording = (account.TreasuryBalance > 0) ? "holds" : "OWES";
+        _consoleService.WriteAt(2, 13, " The TREASURY ", ConsoleColor.Blue, ConsoleColor.White);
+        if (account.TreasuryBalance >= 0)
+        {
+            _consoleService.Write($"holds ${account.TreasuryBalance},000 ", ConsoleColor.Blue, ConsoleColor.White);
+        }
+        else
+        {
+            _consoleService.SetFlash(true);
+            _consoleService.Write("OWES", ConsoleColor.Blue, ConsoleColor.White);
+            _consoleService.SetFlash(false);
+            _consoleService.Write($" ${Math.Abs(account.TreasuryBalance)},000 ", ConsoleColor.Blue, ConsoleColor.White);
+        }
 
-        _consoleService.WriteAt(2, 13, $" The TREASURY {balanceWording} ${account.TreasuryBalance},000 ", ConsoleColor.Blue, ConsoleColor.White);
         _consoleService.WriteAt(3, 15, $" MONTHLY COSTS are ${account.MonthlyCosts},000 ", ConsoleColor.Blue, ConsoleColor.White);
 
         if (account.HasSwissBankAccount)

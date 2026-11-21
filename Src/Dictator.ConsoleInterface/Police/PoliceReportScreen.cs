@@ -43,12 +43,16 @@ public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
     private void DisplayHeaders(int month)
     {
         _consoleService.WriteAt(1, 1, $"MONTH {month}                       ");
-        _consoleService.WriteAt(1, 4, "        ", ConsoleColor.DarkBlue, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(1, 4, "        ", ConsoleColor.Black, ConsoleColor.DarkBlue);
+        _consoleService.SetFlash(false);
         _consoleService.WriteAt(9, 4, " POLICE  REPORT ", ConsoleColor.White, ConsoleColor.Black);
-        _consoleService.WriteAt(25, 4, "        ", ConsoleColor.DarkBlue, ConsoleColor.Black);
-        _consoleService.WriteAt(14, 6, "\u009B\u009C\u009D", ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(25, 4, "        ", ConsoleColor.Black, ConsoleColor.DarkBlue);
+        _consoleService.SetFlash(false);
+        _consoleService.WriteAt(15, 6, "\u0099\u009A\u009B", ConsoleColor.Gray, ConsoleColor.Black);
         _consoleService.WriteAt(1, 7, " POPULARITY          STRENGTHS ");
-        _consoleService.WriteAt(14, 7, "\u009E\u009F\u00A0", ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(15, 7, "\u009C\u009D\u009E", ConsoleColor.Gray, ConsoleColor.Black);
     }
 
     private void DisplayGroupStats(Group[] groups)
@@ -62,17 +66,27 @@ public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
 
             for (int p = currentPopularity; p > 0; p--)
             {
-                _consoleService.Write(p.ToString(), ConsoleColor.Green, ConsoleColor.White);
+                _consoleService.Write(p.ToString(), ConsoleColor.DarkGreen, ConsoleColor.White);
             }
 
             _consoleService.Write((i + 1).ToString(), ConsoleColor.White, ConsoleColor.Black);
-            _consoleService.WriteAt(12, 9 + i, $"{groups[i].DisplayName}", ConsoleColor.Yellow, ConsoleColor.Black);
+
+            bool isRevolution = groups[i].Status == GroupStatus.Revolution;
+            if (isRevolution)
+            {
+                _consoleService.SetFlash(true);
+            }
+            _consoleService.WriteAt(12, 9 + i, $"{groups[i].DisplayName}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            if (isRevolution)
+            {
+                _consoleService.SetFlash(false);
+            }
 
             DisplayGroupStatus(groups[i]);
 
             for (int s = 1; s <= groups[i].Strength; s++)
             {
-                _consoleService.Write(s.ToString(), ConsoleColor.Red, ConsoleColor.White);
+                _consoleService.Write(s.ToString(), ConsoleColor.DarkRed, ConsoleColor.White);
             }
 
             _consoleService.SetBackgroundColor(ConsoleColor.Black);
@@ -84,11 +98,14 @@ public class PoliceReportScreen : BaseScreen, IPoliceReportScreen
     {
         if (group.Status == GroupStatus.Assassination)
         {
+            _consoleService.SetFlash(true);
             _consoleService.Write("A", ConsoleColor.White, ConsoleColor.Black);
+            _consoleService.SetFlash(false);
         }
         else if (group.Status == GroupStatus.Revolution)
         {
-            _consoleService.Write("R", ConsoleColor.White, ConsoleColor.Black);
+            string allyNumber = group.Ally != null ? (((int)group.Ally.Type) + 1).ToString() : "R";
+            _consoleService.Write(allyNumber, ConsoleColor.White, ConsoleColor.Black);
         }
         else
         {

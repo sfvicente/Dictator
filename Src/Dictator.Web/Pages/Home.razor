@@ -91,7 +91,8 @@
 
     private async Task SendKey(ConsoleKey key)
     {
-        await JS.InvokeVoidAsync("spectrumDisplay.beep", 780, 35);
+        string keyEffect = key == ConsoleKey.Y ? "keyYes" : "keyNo";
+        await JS.InvokeVoidAsync("spectrumDisplay.playEffect", keyEffect);
         SpectrumConsole.SubmitKey(key);
         await FocusContainerAsync();
     }

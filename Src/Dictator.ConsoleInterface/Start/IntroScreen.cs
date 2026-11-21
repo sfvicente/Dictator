@@ -29,7 +29,9 @@ public class IntroScreen : BaseScreen, IIntroScreen
         _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
         _consoleService.SetBackgroundColor(ConsoleColor.Black);
         _consoleService.Clear();
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(3, 5, "DICTATOR", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _consoleService.WriteAt(1, 9, "  Devised and Written by        ", ConsoleColor.Gray);
         _consoleService.WriteAt(1, 11, "  Don PRIESTLEY                 ", ConsoleColor.Gray);
         _consoleService.WriteAt(1, 15, "  Copyright  ", ConsoleColor.White);

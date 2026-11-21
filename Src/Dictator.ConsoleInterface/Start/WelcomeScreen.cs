@@ -41,7 +41,9 @@ public class WelcomeScreen : BaseScreen, IWelcomeScreen
     {
         _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
-        _consoleService.WriteAt(8, 4, "WELCOME to OFFICE", ConsoleColor.Black, ConsoleColor.Cyan);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(8, 4, "WELCOME to OFFICE", ConsoleColor.DarkCyan, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _consoleService.WriteAt(1, 7, "The best DICTATOR of our beloved");
         _consoleService.WriteAt(1, 9, "country of RITIMBA had a final  ");
         _consoleService.WriteAt(1, 11, $"rating of {highscore}");

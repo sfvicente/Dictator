@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface;
+using Dictator.ConsoleInterface;
 using Dictator.ConsoleInterface.Common;
 using Dictator.ConsoleInterface.Decisions;
 
@@ -28,7 +28,7 @@ public class AdviceRequestDialogTests
         _adviceRequestDialog.Show();
 
         // Assert
-        _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.Green), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.Clear(ConsoleColor.DarkGreen), Times.Once);
     }
 
     [Test]
@@ -40,9 +40,9 @@ public class AdviceRequestDialogTests
         _adviceRequestDialog.Show();
 
         // Assert
-        _consoleServiceMock.Verify(cs => cs.WriteAt(11, It.IsAny<int>(), "?", ConsoleColor.Black, ConsoleColor.White), Times.Exactly(19));
+        _consoleServiceMock.Verify(cs => cs.WriteAt(11, It.IsAny<int>(), "?", ConsoleColor.White, ConsoleColor.Black), Times.Exactly(19));
         _consoleServiceMock.Verify(cs => cs.WriteAt(12, It.IsAny<int>(), " ADVICE ", ConsoleColor.Gray, ConsoleColor.Black), Times.Exactly(19));
-        _consoleServiceMock.Verify(cs => cs.WriteAt(20, It.IsAny<int>(), "?", ConsoleColor.Black, ConsoleColor.White), Times.Exactly(19));
+        _consoleServiceMock.Verify(cs => cs.WriteAt(20, It.IsAny<int>(), "?", ConsoleColor.White, ConsoleColor.Black), Times.Exactly(19));
     }
 
     [Test]

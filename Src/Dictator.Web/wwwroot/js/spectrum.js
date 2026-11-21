@@ -127,29 +127,59 @@ window.spectrumDisplay = (() => {
         126:[0x00,0x14,0x28,0x00,0x00,0x00,0x00,0x00], // '~'
         127:[0x3C,0x42,0x99,0xA1,0xA1,0x99,0x42,0x3C], // '©'
 
-        // Dictator Custom UDGs (144..160):
-        // Large '$' (2x3 cells): 144..149 (\u0090..\u0095)
-        144:[0x01,0x01,0x07,0x1F,0x39,0x71,0x61,0x61], // Top-Left $
-        145:[0x80,0x80,0xE0,0xF8,0x9C,0x8E,0x86,0x80], // Top-Right $
-        146:[0x71,0x39,0x1F,0x07,0x01,0x01,0x01,0x61], // Mid-Left $
-        147:[0x80,0x80,0x80,0xE0,0xF8,0x9C,0x8E,0x86], // Mid-Right $
-        148:[0x71,0x39,0x1F,0x07,0x01,0x01,0x00,0x00], // Bot-Left $
-        149:[0x8E,0x9C,0xF8,0xE0,0x80,0x80,0x00,0x00], // Bot-Right $
+        // ZX Spectrum Block Graphics (128..143):
+        140:[0xFF,0xFF,0xFF,0xFF,0x00,0x00,0x00,0x00], // '\x8C' (Upper half block used in Ritimban flag)
+        143:[0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF], // '\x8F' (Full solid block)
 
-        // Machine Gun (3x2 cells): 150..154 (\u0096..\u009A)
-        150:[0x00,0x04,0x04,0x7F,0x55,0x7F,0x0C,0x04], // Gun Top-Left
-        151:[0x00,0x20,0x20,0xFF,0xAA,0xFF,0x60,0x20], // Gun Top-Mid
-        152:[0x00,0x00,0x02,0xFF,0xAA,0xFF,0x00,0x00], // Gun Top-Right
-        153:[0x08,0x15,0x22,0x7F,0x00,0x00,0x00,0x00], // Gun Bot-Left (tripod)
-        154:[0x10,0xA8,0x44,0xFE,0x00,0x00,0x00,0x00], // Gun Bot-Mid (tripod)
+        // Authentic Dictator UDGs extracted from DICTATOR.TAP memory:
+        // Bank 4 (Addr 24168): Large 3x3 '$' (144..152 -> \u0090..\u0098)
+        144:[0x00,0x00,0x00,0x00,0x00,0x01,0x03,0x06], // UDG A
+        145:[0x18,0x18,0x18,0x7E,0xFF,0x81,0x18,0x18], // UDG B
+        146:[0x00,0x00,0x00,0x00,0x00,0x80,0xC0,0x40], // UDG C
+        147:[0x06,0x03,0x01,0x00,0x00,0x00,0x00,0x00], // UDG D
+        148:[0x18,0x18,0x98,0xFE,0x7F,0x01,0x18,0x18], // UDG E
+        149:[0x00,0x00,0x00,0x00,0x00,0x80,0xC0,0x60], // UDG F
+        150:[0x02,0x03,0x01,0x00,0x00,0x00,0x00,0x00], // UDG G
+        151:[0x18,0x18,0x99,0xFF,0x7E,0x00,0x18,0x18], // UDG H
+        152:[0x60,0xC0,0x80,0x00,0x00,0x00,0x00,0x00], // UDG I
 
-        // Secret Police Spy Hat & Sunglasses (3x2 cells): 155..160 (\u009B..\u00A0)
-        155:[0x00,0x00,0x01,0x03,0x07,0x1F,0x3F,0x07], // Spy Top-Left
-        156:[0x00,0x3C,0x7E,0xFF,0xFF,0xFF,0xDB,0xFF], // Spy Top-Mid
-        157:[0x00,0x00,0x80,0xC0,0xE0,0xF8,0xFC,0xE0], // Spy Top-Right
-        158:[0x0F,0x1F,0x38,0x70,0x00,0x00,0x00,0x00], // Spy Bot-Left
-        159:[0xDB,0xFF,0x3C,0xFF,0x00,0x00,0x00,0x00], // Spy Bot-Mid
-        160:[0xF0,0xF8,0x1C,0x0E,0x00,0x00,0x00,0x00]  // Spy Bot-Right
+        // Bank 4 (Addr 24240): Secret Police Spy 3x2 (153..158 -> \u0099..\u009E, pre-inverted to match INVERSE 1)
+        153:[0xFF,0xFF,0xFF,0xFF,0xFF,0xFE,0xFC,0xF0], // UDG J (INVERSE 1)
+        154:[0xFF,0xFF,0xFF,0x81,0x00,0x00,0x00,0x00], // UDG K (INVERSE 1)
+        155:[0xFF,0xFF,0xFF,0xFF,0xFF,0x7F,0x3F,0x0F], // UDG L (INVERSE 1)
+        156:[0xE6,0xDE,0xFE,0xFE,0xF8,0xC0,0x00,0x00], // UDG M (INVERSE 1)
+        157:[0xE7,0x00,0x00,0x00,0x00,0x3C,0x00,0x00], // UDG N (INVERSE 1)
+        158:[0x67,0x7B,0x7F,0x7F,0x1F,0x03,0x00,0x00], // UDG O (INVERSE 1)
+
+        // Bank 3 (Addr 24104): Army Machine Gun 4x2 (159..166 -> \u009F..\u00A6)
+        159:[0x00,0x00,0x00,0x00,0x20,0x33,0x2E,0x27], // Army UDG A
+        160:[0x00,0x18,0x18,0x18,0x18,0xFF,0x33,0xF7], // Army UDG B
+        161:[0x00,0x00,0x00,0x00,0x00,0x6A,0xD5,0xFF], // Army UDG C
+        162:[0x00,0x00,0x00,0x00,0x30,0xAC,0x54,0xF8], // Army UDG D
+        163:[0x3E,0x23,0x00,0x00,0x00,0x00,0x00,0x03], // Army UDG E
+        164:[0x7F,0xFF,0x11,0x1F,0x35,0x64,0xC4,0x8E], // Army UDG F
+        165:[0xFF,0x80,0x00,0x00,0x80,0xC0,0x60,0x38], // Army UDG G
+        166:[0xF8,0x00,0x00,0x00,0x00,0x00,0x00,0x00], // Army UDG H
+
+        // Bank 1 (Addr 23976): Peasants Sickle & Hoe 4x2 (167..174 -> \u00A7..\u00AE)
+        167:[0x00,0x70,0x1E,0x03,0x00,0x00,0x00,0x00], // Peasants UDG A
+        168:[0x00,0x00,0x00,0xC0,0x78,0x0F,0x07,0x3C], // Peasants UDG B
+        169:[0x00,0x00,0x00,0x03,0x1E,0xF0,0xE0,0x3C], // Peasants UDG C
+        170:[0x00,0x0E,0x78,0xC0,0x00,0x00,0x00,0x00], // Peasants UDG D
+        171:[0x01,0x4F,0xF8,0xE0,0x60,0x7C,0x38,0x10], // Peasants UDG E
+        172:[0xE0,0x00,0x00,0x00,0x00,0x00,0x00,0x00], // Peasants UDG F
+        173:[0x07,0x00,0x00,0x00,0x00,0x00,0x00,0x00], // Peasants UDG G
+        174:[0x80,0xF2,0x1F,0x07,0x06,0x3E,0x1C,0x08], // Peasants UDG H
+
+        // Bank 2 (Addr 24040): Landowners Tractor 4x2 (175..182 -> \u00AF..\u00B6)
+        175:[0x00,0x18,0x3C,0x43,0x45,0x08,0x08,0x04], // Landowners UDG A
+        176:[0x00,0x70,0x98,0x04,0x80,0xC1,0x43,0x67], // Landowners UDG B
+        177:[0x00,0x00,0x00,0x00,0xFF,0xFF,0xFF,0xFF], // Landowners UDG C
+        178:[0x00,0x00,0x00,0x00,0xF0,0xF8,0xFC,0xFE], // Landowners UDG D
+        179:[0x00,0x1F,0x3F,0x7F,0x37,0x22,0x22,0x00], // Landowners UDG E
+        180:[0x21,0xFF,0xFF,0xFF,0x77,0x23,0x23,0x00], // Landowners UDG F
+        181:[0xB6,0xB6,0xFF,0xCF,0x87,0x87,0x87,0x87], // Landowners UDG G
+        182:[0xD8,0xD8,0xFC,0x9E,0x9E,0x9E,0xFE,0x00]  // Landowners UDG H
     };
 
     let canvas = null;
@@ -161,6 +191,7 @@ window.spectrumDisplay = (() => {
     let flashInterval = null;
     let soundEnabled = true;
     let audioCtx = null;
+    let anthemTimer = null;
 
     function init(canvasId) {
         canvas = document.getElementById(canvasId);
@@ -241,6 +272,122 @@ window.spectrumDisplay = (() => {
 
     function setSoundEnabled(enabled) {
         soundEnabled = enabled;
+        if (!enabled) {
+            stopAnthem();
+        }
+    }
+
+    function pitchToFreq(pitch) {
+        return 261.63 * Math.pow(2, pitch / 12.0);
+    }
+
+    function beepPitch(durationSec, pitch) {
+        beep(pitchToFreq(pitch), durationSec * 1000);
+    }
+
+    // Line 1570: TUNE player
+    // FOR a=1 TO LEN m$ STEP 2
+    // IF CODE m$(a+1)=32 THEN PAUSE CODE m$(a)/4: GO TO 1578
+    // BEEP (CODE m$(a)-48)/6, CODE m$(a+1)-105
+    async function playTune(mStr) {
+        if (!soundEnabled || !mStr) return;
+        for (let i = 0; i < mStr.length - 1; i += 2) {
+            if (!soundEnabled) break;
+            const c1 = mStr.charCodeAt(i);
+            const c2 = mStr.charCodeAt(i + 1);
+            if (c2 === 32) {
+                const pauseMs = ((c1 / 4) * 20);
+                await new Promise(r => setTimeout(r, pauseMs));
+            } else {
+                const durSec = (c1 - 48) / 6.0;
+                const pitch = c2 - 105;
+                beepPitch(durSec, pitch);
+                await new Promise(r => setTimeout(r, durSec * 1000));
+            }
+        }
+    }
+
+    // Line 4140: Ritimban National Anthem ("KPKKMKIHK`KMRPOMOP")
+    function startAnthem() {
+        stopAnthem();
+        const notes = "KPKKMKIHK`KMRPOMOP";
+        let idx = 0;
+        anthemTimer = setInterval(() => {
+            if (!soundEnabled) return;
+            const x = notes.charCodeAt(idx) - 80;
+            idx = (idx + 1) % notes.length;
+            if (x !== 16) {
+                beepPitch(0.32, x);
+            }
+        }, 360);
+    }
+
+    function stopAnthem() {
+        if (anthemTimer) {
+            clearInterval(anthemTimer);
+            anthemTimer = null;
+        }
+    }
+
+    async function playEffect(effectName) {
+        if (!soundEnabled) return;
+        switch (effectName) {
+            case 'cls': // Line 1310: BEEP .1, 40
+                beepPitch(0.05, 40);
+                break;
+            case 'keyYes': // Line 5034: BEEP .25, 30
+                beepPitch(0.15, 30);
+                break;
+            case 'keyNo': // Line 5036: BEEP .25, 10
+                beepPitch(0.15, 10);
+                break;
+            case 'newsflash': // Line 2782: FOR a=1 TO 10: BEEP .6, 30: NEXT a
+                for (let i = 0; i < 4; i++) {
+                    beepPitch(0.18, 30);
+                    await new Promise(r => setTimeout(r, 210));
+                }
+                break;
+            case 'revolution': // Line 1812: FOR a=1 TO 5: BEEP .5, 20: BEEP .5, 10: NEXT a
+                for (let i = 0; i < 3; i++) {
+                    beepPitch(0.2, 20);
+                    await new Promise(r => setTimeout(r, 210));
+                    beepPitch(0.2, 10);
+                    await new Promise(r => setTimeout(r, 210));
+                }
+                break;
+            case 'russianAid': // Line 2068: "2g2d3i4d2 2g2d3i4d"
+                await playTune("2g2d3i4d2 2g2d3i4d");
+                break;
+            case 'americanAid': // Line 2070: "2m1j3f3j3m4r1 2v1t3r3j3l4m"
+                await playTune("2m1j3f3j3m4r1 2v1t3r3j3l4m");
+                break;
+            case 'funeral': // Line 3010: "4d3d1d3d3g1f2f1d2d1d5d"
+                await playTune("4d3d1d3d3g1f2f1d2d1d5d");
+                break;
+            case 'dead': // Line 1548: BEEP 3, -40
+                beepPitch(0.8, -24);
+                break;
+        }
+    }
+
+    function getHighScore() {
+        try {
+            const val = localStorage.getItem('dictator_highscore');
+            return val ? (parseInt(val, 10) || 0) : 0;
+        } catch {
+            return 0;
+        }
+    }
+
+    function setHighScore(score) {
+        try {
+            const current = getHighScore();
+            if (score > current) {
+                localStorage.setItem('dictator_highscore', score.toString());
+            }
+        } catch {
+            // Ignore storage errors
+        }
     }
 
     function beep(freq = 880, durationMs = 45) {
@@ -271,6 +418,13 @@ window.spectrumDisplay = (() => {
         init,
         render,
         beep,
-        setSoundEnabled
+        beepPitch,
+        playTune,
+        playEffect,
+        startAnthem,
+        stopAnthem,
+        setSoundEnabled,
+        getHighScore,
+        setHighScore
     };
 })();

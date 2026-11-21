@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.War;
@@ -34,8 +34,11 @@ public class WarLostScreen : BaseScreen, IWarLostScreen
     /// </summary>
     public void Show()
     {
-        _consoleService.Clear(ConsoleColor.Gray);
-        _consoleService.WriteAt(1, 7, "        LEFTOTAN VICTORY        ");
+        _consoleService.SetBorderColor(ConsoleColor.Black);
+        _consoleService.Clear(ConsoleColor.Black, ConsoleColor.White);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(8, 8, " LEFTOTAN VICTORY ");
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

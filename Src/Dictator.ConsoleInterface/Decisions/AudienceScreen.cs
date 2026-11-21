@@ -21,7 +21,15 @@ public class AudienceScreen : BaseScreen, IAudienceScreen
 
     public void Show(Audience audience)
     {
-        _consoleService.SetBorderColor(ConsoleColor.DarkBlue);
+        ConsoleColor borderColor = audience.Requester switch
+        {
+            GroupType.Army => ConsoleColor.DarkBlue,
+            GroupType.Peasants => ConsoleColor.DarkRed,
+            GroupType.Landowners => ConsoleColor.DarkMagenta,
+            _ => ConsoleColor.DarkBlue
+        };
+
+        _consoleService.SetBorderColor(borderColor);
         _consoleService.Clear();
         _consoleService.WriteEmptyLineAt(1, ConsoleColor.Green);
         _consoleService.WriteEmptyLineAt(2, ConsoleColor.Green);
@@ -35,8 +43,21 @@ public class AudienceScreen : BaseScreen, IAudienceScreen
             _consoleService.WriteEmptyLineAt(row, ConsoleColor.DarkYellow);
         }
 
-        _consoleService.WriteAt(3, 7, "\u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098   \u0096\u0097\u0098", ConsoleColor.DarkYellow, ConsoleColor.Black);
-        _consoleService.WriteAt(3, 8, " \u0099\u009A    \u0099\u009A    \u0099\u009A    \u0099\u009A    \u0099\u009A", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        var (topIcons, bottomIcons) = audience.Requester switch
+        {
+            GroupType.Peasants => (
+                "  \u00A7\u00A8\u00A9\u00AA  \u00A7\u00A8\u00A9\u00AA  \u00A7\u00A8\u00A9\u00AA  \u00A7\u00A8\u00A9\u00AA  \u00A7\u00A8\u00A9\u00AA  ",
+                "  \u00AB\u00AC\u00AD\u00AE  \u00AB\u00AC\u00AD\u00AE  \u00AB\u00AC\u00AD\u00AE  \u00AB\u00AC\u00AD\u00AE  \u00AB\u00AC\u00AD\u00AE  "),
+            GroupType.Landowners => (
+                "  \u00AF\u00B0\u00B1\u00B2  \u00AF\u00B0\u00B1\u00B2  \u00AF\u00B0\u00B1\u00B2  \u00AF\u00B0\u00B1\u00B2  \u00AF\u00B0\u00B1\u00B2  ",
+                "  \u00B3\u00B4\u00B5\u00B6  \u00B3\u00B4\u00B5\u00B6  \u00B3\u00B4\u00B5\u00B6  \u00B3\u00B4\u00B5\u00B6  \u00B3\u00B4\u00B5\u00B6  "),
+            _ => (
+                "  \u009F\u00A0\u00A1\u00A2  \u009F\u00A0\u00A1\u00A2  \u009F\u00A0\u00A1\u00A2  \u009F\u00A0\u00A1\u00A2  \u009F\u00A0\u00A1\u00A2  ",
+                "  \u00A3\u00A4\u00A5\u00A6  \u00A3\u00A4\u00A5\u00A6  \u00A3\u00A4\u00A5\u00A6  \u00A3\u00A4\u00A5\u00A6  \u00A3\u00A4\u00A5\u00A6  ")
+        };
+
+        _consoleService.WriteAt(1, 7, topIcons, ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 8, bottomIcons, ConsoleColor.DarkYellow, ConsoleColor.Black);
 
         _consoleService.WriteAt(1, 11, $" A request from {audience.Requester}", ConsoleColor.DarkYellow, ConsoleColor.Black);
         _consoleService.WriteAt(1, 15, " Will YOUR EXCELLENCY agree to  ", ConsoleColor.DarkYellow, ConsoleColor.Black);

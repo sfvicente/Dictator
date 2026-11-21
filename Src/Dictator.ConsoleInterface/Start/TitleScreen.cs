@@ -29,7 +29,7 @@ public class TitleScreen : BaseScreen, ITitleScreen
     /// </summary>
     public void Show()
     {
-        _consoleService.SetBorderColor(ConsoleColor.DarkCyan);
+        _consoleService.SetBorderColor(ConsoleColor.Black);
         _consoleService.Clear();
         PrintBackground();
         PrintContent();
@@ -38,13 +38,15 @@ public class TitleScreen : BaseScreen, ITitleScreen
 
     private void PrintBackground()
     {
+        _consoleService.SetFlash(true);
         for (int i = 1; i < 25; i++)
         {
-            _consoleService.WriteAt(1, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.Cyan);
-            _consoleService.WriteAt(9, i, "DICTATOR", ConsoleColor.Cyan, ConsoleColor.Black);
-            _consoleService.WriteAt(17, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.Cyan);
-            _consoleService.WriteAt(25, i, "DICTATOR", ConsoleColor.Cyan, ConsoleColor.Black);
+            _consoleService.WriteAt(1, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.DarkCyan);
+            _consoleService.WriteAt(9, i, "DICTATOR", ConsoleColor.DarkCyan, ConsoleColor.Black);
+            _consoleService.WriteAt(17, i, "DICTATOR", ConsoleColor.Black, ConsoleColor.DarkCyan);
+            _consoleService.WriteAt(25, i, "DICTATOR", ConsoleColor.DarkCyan, ConsoleColor.Black);
         }
+        _consoleService.SetFlash(false);
     }
 
     private void PrintContent()
@@ -53,27 +55,27 @@ public class TitleScreen : BaseScreen, ITitleScreen
         _consoleService.WriteAt(13, 6, " of the ", ConsoleColor.Gray, ConsoleColor.Black);
         PrintFlagLine(9);
         PrintFlagLine(10);
-        _consoleService.WriteAt(8, 11, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, 11, " ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(13, 11, "RITIMBAN", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(21, 11, " ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, 11, "    ", ConsoleColor.Green, ConsoleColor.Black);
+        _consoleService.WriteAt(8, 11, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, 11, " ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(13, 11, "RITIMBAN", ConsoleColor.DarkGreen, ConsoleColor.Black);
+        _consoleService.WriteAt(21, 11, " ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, 11, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
         PrintFlagLine(12);
-        _consoleService.WriteAt(8, 13, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, 13, "  ******  ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, 13, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(8, 14, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, 14, "    **    ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, 14, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(8, 15, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, 15, "  ******  ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, 15, "    ", ConsoleColor.Green, ConsoleColor.Black);
+        _consoleService.WriteAt(8, 13, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, 13, "  ******  ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, 13, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(8, 14, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, 14, "    **    ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, 14, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(8, 15, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, 15, "  ******  ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, 15, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
         PrintFlagLine(16);
-        _consoleService.WriteAt(8, 17, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, 17, " ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(13, 17, "REPUBLIC", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(21, 17, " ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, 17, "    ", ConsoleColor.Green, ConsoleColor.Black);
+        _consoleService.WriteAt(8, 17, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, 17, " ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(13, 17, "REPUBLIC", ConsoleColor.DarkGreen, ConsoleColor.Black);
+        _consoleService.WriteAt(21, 17, " ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, 17, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
         PrintFlagLine(18);
         PrintFlagLine(19);
         PrintFlagLine(20);
@@ -81,8 +83,8 @@ public class TitleScreen : BaseScreen, ITitleScreen
 
     private void PrintFlagLine(int row)
     {
-        _consoleService.WriteAt(8, row, "    ", ConsoleColor.Green, ConsoleColor.Black);
-        _consoleService.WriteAt(12, row, "          ", ConsoleColor.Blue, ConsoleColor.Yellow);
-        _consoleService.WriteAt(22, row, "    ", ConsoleColor.Green, ConsoleColor.Black);
+        _consoleService.WriteAt(8, row, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
+        _consoleService.WriteAt(12, row, "          ", ConsoleColor.DarkBlue, ConsoleColor.DarkYellow);
+        _consoleService.WriteAt(22, row, "\u008C\u008C\u008C\u008C", ConsoleColor.DarkGreen, ConsoleColor.DarkRed);
     }
 }

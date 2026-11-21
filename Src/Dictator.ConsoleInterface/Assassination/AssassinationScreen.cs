@@ -1,4 +1,5 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
+using System;
 
 namespace Dictator.ConsoleInterface.Assassination;
 
@@ -32,8 +33,11 @@ public class AssassinationScreen : BaseScreen, IAssassinationScreen
 
     public void Show(string groupName)
     {
-        _consoleService.Clear();
+        _consoleService.SetBorderColor(ConsoleColor.Black);
+        _consoleService.Clear(ConsoleColor.Black, ConsoleColor.White);
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(1, 11, "      ASSASSINATION ATTEMPT     ");
+        _consoleService.SetFlash(false);
         _consoleService.WriteCenteredAt(12, $"by one of {groupName}");
         _pressAnyKeyControl.Show();
     }

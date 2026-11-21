@@ -1,5 +1,6 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using Dictator.Core.Models;
+using System;
 
 namespace Dictator.ConsoleInterface.PresidentialDecision;
 
@@ -59,11 +60,11 @@ public class LoanApplicationResultScreen : BaseScreen, ILoanApplicationResultScr
             {
                 if (loanApplicationResult.Country == LenderCountry.America)
                 {
-                    _consoleService.WriteAt(12, 12, "\"nuts !\"");
+                    _consoleService.WriteAt(13, 13, "\"nuts !\"", ConsoleColor.DarkBlue, ConsoleColor.White);
                 }
                 else if (loanApplicationResult.Country == LenderCountry.Russia)
                 {
-                    _consoleService.WriteAt(12, 12, "NIET !");
+                    _consoleService.WriteAt(13, 13, "NIET !", ConsoleColor.DarkRed, ConsoleColor.White);
                 }
             }
         }

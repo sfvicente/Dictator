@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Revolution;
@@ -36,9 +36,13 @@ public class RevolutionOverthrownScreen : BaseScreen, IRevolutionOverthrownScree
     /// </summary>
     public void Show()
     {
-        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetBorderColor(ConsoleColor.Black);
+        _consoleService.Clear(ConsoleColor.Black, ConsoleColor.White);
         _consoleService.WriteAt(1, 10, "    You have been OVERTHROWN    ");
-        _consoleService.WriteAt(1, 12, "         and LIQUIDATED         ");
+        _consoleService.WriteAt(1, 12, "         and ");
+        _consoleService.SetFlash(true);
+        _consoleService.Write("LIQUIDATED", ConsoleColor.White);
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Dictator.ConsoleInterface.Common;
+using Dictator.ConsoleInterface.Common;
 using System;
 
 namespace Dictator.ConsoleInterface.Revolution;
@@ -28,9 +28,12 @@ public class RevolutionCrushedDialog : BaseScreen, IRevolutionCrushedDialog
 
     public DialogResult Show()
     {
+        _consoleService.SetBorderColor(ConsoleColor.Black);
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(1, 10, "  The REVOLT has been CRUSHED   ");
-        _consoleService.WriteAt(1, 12, "  PUNISH the REVOLUTIONARIES ?  ");
+        _consoleService.SetFlash(false);
+        _consoleService.WriteAt(1, 12, "\u008F\u008FPUNISH the REVOLUTIONARIES ?\u008F\u008F");
 
         return _pressAnyKeyWithYesControl.Show();
     }

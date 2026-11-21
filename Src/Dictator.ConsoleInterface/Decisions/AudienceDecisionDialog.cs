@@ -21,8 +21,11 @@ public class AudienceDecisionDialog : BaseScreen, IAudienceDecisionDialog
 
     public DialogResult Show(Audience audience)
     {
+        _consoleService.SetBorderColor(ConsoleColor.Black);
         _consoleService.Clear(ConsoleColor.DarkYellow);
-        _consoleService.WriteAt(11, 2, "  DECISION  ", ConsoleColor.Black, ConsoleColor.White);
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(11, 2, "  DECISION  ", ConsoleColor.White, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
         _consoleService.WriteAt(5, 4, $"The {audience.Requester} ask you to", ConsoleColor.Magenta, ConsoleColor.Gray);
         _consoleService.WriteAt(1, 6, $"{audience.Text}", ConsoleColor.Yellow, ConsoleColor.Black);
         _consoleService.WriteEmptyLineAt(8, ConsoleColor.Blue);

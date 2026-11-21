@@ -35,7 +35,9 @@ public class HelicopterEscapeScreen : BaseScreen, IHelicopterEscapeScreen
     public void Show()
     {
         _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
         _consoleService.WriteAt(1, 12, "   You ESCAPE by HELICOPTER !   ");
+        _consoleService.SetFlash(false);
         _pressAnyKeyControl.Show();
     }
 }

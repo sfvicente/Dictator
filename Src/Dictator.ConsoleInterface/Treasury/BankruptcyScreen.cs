@@ -39,7 +39,10 @@ public class BankruptcyScreen: BaseScreen, IBankruptcyScreen
     public void Show()
     {
         _consoleService.Clear();
-        _consoleService.WriteAt(1, 5, "   The TREASURY is BANKRUPT    ");
+        _consoleService.WriteAt(4, 6, "The TREASURY is ");
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(20, 6, "BANKRUPT");
+        _consoleService.SetFlash(false);
         _consoleService.WriteAt(1, 9, "Your POPULARITY with the ARMY &");
         _consoleService.WriteAt(1, 11, " the SECRET POLICE will DROP ! ");
         _consoleService.WriteAt(1, 13, "    POLICE STRENGTH will drop  ");
