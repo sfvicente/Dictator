@@ -18,50 +18,98 @@ public class EscapeServiceTests
     }
 
     [Test]
-    public void IsPlayerAbleToEscapeAfterLosingWar_ReturnsTrueOrFalse()
+    public void IsPlayerAbleToEscapeAfterLosingWar_WhenRandomIsLessThanTwo_ReturnsTrue()
     {
         // Arrange
         _randomServiceMock
             .Setup(service => service.Next(3))
-            .Returns(0); // Ensures always returns true
+            .Returns(0);
 
         // Act
         bool hasEscaped = _escapeService.IsPlayerAbleToEscapeAfterLosingWar();
 
         // Assert
-        Assert.IsTrue(hasEscaped); // The player should be able to escape
+        Assert.IsTrue(hasEscaped);
     }
 
     [Test]
-    public void IsPlayerAbleToEscapeByHelicopter_ReturnsTrueOrFalse()
+    public void IsPlayerAbleToEscapeAfterLosingWar_WhenRandomIsTwo_ReturnsFalse()
+    {
+        // Arrange
+        _randomServiceMock
+            .Setup(service => service.Next(3))
+            .Returns(2);
+
+        // Act
+        bool hasEscaped = _escapeService.IsPlayerAbleToEscapeAfterLosingWar();
+
+        // Assert
+        Assert.IsFalse(hasEscaped);
+    }
+
+    [Test]
+    public void IsPlayerAbleToEscapeByHelicopter_WhenRandomIsNonZero_ReturnsTrue()
     {
         // Arrange
         _randomServiceMock
             .Setup(service => service.Next(4))
-            .Returns(1); // Ensures always returns true
+            .Returns(1);
 
         // Act
         bool isEscaped = _escapeService.IsPlayerAbleToEscapeByHelicopter();
 
         // Assert
-        Assert.IsTrue(isEscaped); // The player should be able to escape by helicopter
+        Assert.IsTrue(isEscaped);
     }
 
     [Test]
-    public void DoesGuerrillaCatchPlayerEscaping_ReturnsTrueOrFalse()
+    public void IsPlayerAbleToEscapeByHelicopter_WhenRandomIsZero_ReturnsFalse()
     {
         // Arrange
         _randomServiceMock
-            .Setup(service => service.Next(0, It.IsAny<int>()))
-            .Returns(0); // Ensures always returns true
+            .Setup(service => service.Next(4))
+            .Returns(0);
+
+        // Act
+        bool isEscaped = _escapeService.IsPlayerAbleToEscapeByHelicopter();
+
+        // Assert
+        Assert.IsFalse(isEscaped);
+    }
+
+    [Test]
+    public void DoesGuerrillaCatchPlayerEscaping_WhenRandomIsZero_ReturnsTrue()
+    {
+        // Arrange
+        _randomServiceMock
+            .Setup(service => service.Next(0, 4))
+            .Returns(0);
         _groupServiceMock
             .Setup(service => service.GetGroupByType(GroupType.Guerillas))
-            .Returns(new Group(GroupType.Guerillas, It.IsAny<int>(), 6, "Guerillas", "Guerillas")); // Assuming strength for testing
+            .Returns(new Group(GroupType.Guerillas, 0, 6, "Guerillas", "Guerillas"));
 
         // Act
         bool isCaught = _escapeService.DoesGuerrillaCatchPlayerEscaping();
 
         // Assert
-        Assert.IsTrue(isCaught); // The player should be caught by the guerrillas
+        Assert.IsTrue(isCaught);
+    }
+
+    [Test]
+    public void DoesGuerrillaCatchPlayerEscaping_WhenRandomIsNonZero_ReturnsFalse()
+    {
+        // Arrange
+        _randomServiceMock
+            .Setup(service => service.Next(0, 4))
+            .Returns(1);
+        _groupServiceMock
+            .Setup(service => service.GetGroupByType(GroupType.Guerillas))
+            .Returns(new Group(GroupType.Guerillas, 0, 6, "Guerillas", "Guerillas"));
+
+        // Act
+        bool isCaught = _escapeService.DoesGuerrillaCatchPlayerEscaping();
+
+        // Assert
+        Assert.IsFalse(isCaught);
     }
 }

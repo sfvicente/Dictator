@@ -67,7 +67,7 @@ public class AudienceServiceTests
         _audienceService.RefuseAudienceRequest(audience);
 
         // Assert
-        _groupServiceMock.Verify(g => g.DecreasePopularity(audience.Requester, It.IsAny<int>()), Times.Once);
+        _groupServiceMock.Verify(g => g.DecreasePopularity(GroupType.Army, 'P' - 'M'), Times.Once);
     }
 
     [Test]
