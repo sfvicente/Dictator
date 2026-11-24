@@ -47,4 +47,44 @@ public class AccountServiceTests
         _groupServiceMock.Verify(g => g.DecreaseStrength(GroupType.SecretPolice), Times.Once);
         _statsServiceMock.Verify(s => s.DecreasePlayerStrength(), Times.Once);
     }
+
+    [Test]
+    public void PayMonthlyCosts_WhenTreasuryPositive_DeductsMonthlyCosts()
+    {
+        _accountService.PayMonthlyCosts();
+
+        Assert.AreEqual(940, _accountService.GetTreasuryBalance());
+    }
+
+    [Test]
+    public void PayMonthlyCosts_WhenTreasuryZeroOrNegative_DoesNotDeductMonthlyCosts()
+    {
+        _accountService.PayFromTreasury(1000);
+
+        _accountService.PayMonthlyCosts();
+
+        Assert.AreEqual(0, _accountService.GetTreasuryBalance());
+        Assert.IsTrue(_accountService.IsGovernmentBankrupt());
+    }
+
+    [Test]
+    public void ApplyTreasuryChanges_UpdatesBalanceAndClampsMonthlyCostsAtZero()
+    {
+        // cost = -10 -> -100 treasury; monthlyCost = 80 -> 60 - 80 clamped to 0
+        _accountService.ApplyTreasuryChanges(-10, 80);
+
+        Assert.AreEqual(900, _accountService.GetTreasuryBalance());
+        Assert.AreEqual(0, _accountService.GetMonthlyCosts());
+    }
+
+    [Test]
+    public void TransferToSwissBankAccount_WhenTreasuryZero_TransfersNothingAndDoesNotOpenAccount()
+    {
+        _accountService.PayFromTreasury(1000);
+
+        SwissBankAccountTransfer transfer = _accountService.TransferToSwissBankAccount();
+
+        Assert.AreEqual(0, transfer.AmountStolen);
+        Assert.IsFalse(_accountService.GetAccount().HasSwissBankAccount);
+    }
 }

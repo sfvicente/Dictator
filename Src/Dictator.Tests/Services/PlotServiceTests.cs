@@ -112,4 +112,32 @@ public class PlotServiceTests
         Assert.AreEqual(GroupStatus.Assassination, groups[1].Status);
         Assert.AreEqual(GroupStatus.Default, groups[2].Status);
     }
+
+    [Test]
+    public void Plot_WhenUnpopularGroupsHaveEnoughCombinedStrength_SetsRevolutionStatusAndAlly()
+    {
+        // Arrange
+        _governmentServiceMock.Setup(g => g.GetMonth()).Returns(4);
+        _governmentServiceMock.Setup(g => g.GetPlotBonus()).Returns(0);
+        _statsServiceMock.Setup(s => s.GetMonthlyMinimalPopularityAndStrength()).Returns(3);
+        _governmentServiceMock.Setup(g => g.GetMonthlyRevolutionStrength()).Returns(10);
+
+        var groups = new Group[]
+        {
+            new Group(GroupType.Army, 2, 6, "The ARMY", "   ARMY   "),
+            new Group(GroupType.Peasants, 8, 6, "The PEASANTS", " PEASANTS "),
+            new Group(GroupType.Landowners, 8, 6, "The LANDOWNERS", "LANDOWNERS"),
+            new Group(GroupType.Guerillas, 0, 5, "The GUERILLAS", "GUERILLAS "),
+            new Group(GroupType.Leftotans, 7, 6, "The LEFTOTANS", "LEFTOTANS "),
+            new Group(GroupType.SecretPolice, 7, 6, "The SECRET POLICE", " S.POLICE ")
+        };
+        _groupServiceMock.Setup(g => g.GetGroups()).Returns(groups);
+
+        // Act
+        _plotService.Plot();
+
+        // Assert
+        Assert.AreEqual(GroupStatus.Revolution, groups[0].Status);
+        Assert.AreEqual(groups[3], groups[0].Ally);
+    }
 }

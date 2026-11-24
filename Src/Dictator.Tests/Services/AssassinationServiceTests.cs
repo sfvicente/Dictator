@@ -129,4 +129,54 @@ public class AssassinationServiceTests
         // Assert
         Assert.AreEqual(expectedGroupName, groupName);
     }
+
+    [Test]
+    public void IsAssassinationSuccessful_WhenPlayerIsProtectedAndLucky_ReturnsFalse()
+    {
+        // Arrange
+        _randomServiceMock.Setup(service => service.Next(0, 2)).Returns(1);
+        _groupServiceMock.Setup(service => service.DoesMainPopulationHatePlayer()).Returns(false);
+        _statsServiceMock.Setup(service => service.DoesPoliceHatePlayer()).Returns(false);
+        _statsServiceMock.Setup(service => service.IsPoliceUnableToProtectPlayer()).Returns(false);
+
+        // Act
+        bool isSuccessful = _assassinationService.IsAssassinationSuccessful();
+
+        // Assert
+        Assert.IsFalse(isSuccessful);
+    }
+
+    [Test]
+    public void ShouldAssassinationAttemptHappen_WhenSelectedGroupHasAssassinationStatus_ReturnsTrueAndGroupType()
+    {
+        // Arrange
+        var army = new Group(GroupType.Army, 1, 6, "The ARMY", "   ARMY   ") { Status = GroupStatus.Default };
+        var peasants = new Group(GroupType.Peasants, 1, 6, "The PEASANTS", " PEASANTS ") { Status = GroupStatus.Assassination };
+        var landowners = new Group(GroupType.Landowners, 7, 6, "The LANDOWNERS", "LANDOWNERS") { Status = GroupStatus.Default };
+        _groupServiceMock.Setup(g => g.GetGroups()).Returns([army, peasants, landowners]);
+        _randomServiceMock.Setup(r => r.Next(3)).Returns(1);
+
+        // Act
+        var (shouldHappen, groupType) = _assassinationService.ShouldAssassinationAttemptHappen();
+
+        // Assert
+        Assert.IsTrue(shouldHappen);
+        Assert.AreEqual(GroupType.Peasants, groupType);
+    }
+
+    [Test]
+    public void ShouldAssassinationAttemptHappen_WhenSelectedGroupDoesNotPlotAssassination_ReturnsFalseAndNull()
+    {
+        // Arrange
+        var army = new Group(GroupType.Army, 7, 6, "The ARMY", "   ARMY   ") { Status = GroupStatus.Default };
+        _groupServiceMock.Setup(g => g.GetGroups()).Returns([army]);
+        _randomServiceMock.Setup(r => r.Next(3)).Returns(0);
+
+        // Act
+        var (shouldHappen, groupType) = _assassinationService.ShouldAssassinationAttemptHappen();
+
+        // Assert
+        Assert.IsFalse(shouldHappen);
+        Assert.IsNull(groupType);
+    }
 }
