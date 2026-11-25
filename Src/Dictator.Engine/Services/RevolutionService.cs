@@ -21,6 +21,11 @@ public interface IRevolutionService
     public Revolutionary GetRevolutionary();
 
     /// <summary>
+    ///     Gets the current revolution strength breakdown (player strength, optional ally name and strength, and revolutionary strength).
+    /// </summary>
+    public RevolutionState GetRevolutionState();
+
+    /// <summary>
     ///     Finds the groups that can be possible allies of a player in a revolution.
     /// </summary>
     /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
@@ -135,6 +140,20 @@ public class RevolutionService : IRevolutionService
         }
 
         return revolutionary;
+    }
+
+    /// <summary>
+    ///     Gets the current revolution strength breakdown (player strength, optional ally name and strength, and revolutionary strength).
+    /// </summary>
+    public RevolutionState GetRevolutionState()
+    {
+        return new RevolutionState
+        {
+            PlayerStrength = _statsService.GetPlayerStrength(),
+            AllyName = _revolution.PlayerAlly?.Name,
+            AllyStrength = _revolution.PlayerAlly?.Strength ?? 0,
+            RevolutionaryStrength = _revolution.RevolutionStrength
+        };
     }
 
     /// <summary>

@@ -486,7 +486,7 @@ public class Game
                 _userInterface.DisplayRevolutionNoAlliesScreen();
             }
 
-            _userInterface.DisplayRevolutionStartedScreen();
+            _userInterface.DisplayRevolutionStartedScreen(_engine.GetRevolutionState());
 
             bool doesRevolutionSucceed = _engine.DoesRevolutionSucceed();
 

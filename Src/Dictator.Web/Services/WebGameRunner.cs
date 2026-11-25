@@ -406,7 +406,7 @@ public class WebGameRunner
             await _console.WaitForKeyAsync();
         }
 
-        _userInterface.DisplayRevolutionStartedScreen();
+        _userInterface.DisplayRevolutionStartedScreen(_engine.GetRevolutionState());
         await _console.WaitForKeyAsync();
 
         if (_engine.DoesRevolutionSucceed())

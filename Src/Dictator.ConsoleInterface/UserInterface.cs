@@ -43,6 +43,7 @@ public interface IUserInterface
     void DisplayAssassinationSucceededScreen();
     void DisplayRevolutionScreen();
     void DisplayRevolutionStartedScreen();
+    void DisplayRevolutionStartedScreen(RevolutionState revolutionState);
     int DisplayRevolutionAskForHelpDialog(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies);
     void DisplayRevolutionNoAlliesScreen();
     void DisplayRevolutionAllyLowPopularityScreen();
@@ -250,6 +251,8 @@ public class UserInterface : IUserInterface
     public void DisplayRevolutionScreen() => _revolutionScreen.Show();
 
     public void DisplayRevolutionStartedScreen() => _revolutionStartedScreen.Show();
+
+    public void DisplayRevolutionStartedScreen(RevolutionState revolutionState) => _revolutionStartedScreen.Show(revolutionState);
 
     public int DisplayRevolutionAskForHelpDialog(Revolutionary revolutionary, Dictionary<int, Group> possibleAllies) => _revolutionAskForHelpDialog.Show(revolutionary, possibleAllies);
 

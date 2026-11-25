@@ -281,4 +281,23 @@ public class RevolutionServiceTests
         _governmentServiceMock.Verify(g => g.SetPlotBonus(It.IsAny<int>()), Times.Once);
         _groupServiceMock.Verify(g => g.ResetStatusAndAllies(), Times.Once);
     }
+
+    [Test]
+    public void GetRevolutionState_ReturnsPlayerAllyAndRevolutionaryStrengths()
+    {
+        // Arrange
+        var ally = new Group(GroupType.Army, 7, 6, "The ARMY", "   ARMY   ");
+        _statsServiceMock.Setup(s => s.GetPlayerStrength()).Returns(4);
+        _revolutionMock.SetupGet(r => r.PlayerAlly).Returns(ally);
+        _revolutionMock.SetupGet(r => r.RevolutionStrength).Returns(12);
+
+        // Act
+        RevolutionState state = _revolutionService.GetRevolutionState();
+
+        // Assert
+        Assert.AreEqual(4, state.PlayerStrength);
+        Assert.AreEqual("The ARMY", state.AllyName);
+        Assert.AreEqual(6, state.AllyStrength);
+        Assert.AreEqual(12, state.RevolutionaryStrength);
+    }
 }

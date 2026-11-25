@@ -1,4 +1,5 @@
 using Dictator.ConsoleInterface.Common;
+using Dictator.Core.Models;
 using System;
 
 namespace Dictator.ConsoleInterface.Revolution;
@@ -12,6 +13,11 @@ public interface IRevolutionStartedScreen
     ///     Displays the screen.
     /// </summary>
     public void Show();
+
+    /// <summary>
+    ///     Displays the pre-revolution strength comparison and revolution started screen.
+    /// </summary>
+    public void Show(RevolutionState revolutionState);
 }
 
 /// <summary>
@@ -29,6 +35,26 @@ public class RevolutionStartedScreen : BaseScreen, IRevolutionStartedScreen
     public RevolutionStartedScreen(IConsoleService consoleService, IPressAnyKeyControl pressAnyKeyControl): base(consoleService)
     {
         _pressAnyKeyControl = pressAnyKeyControl;
+    }
+
+    /// <summary>
+    ///     Displays the pre-revolution strength comparison and the revolution started screen.
+    /// </summary>
+    public void Show(RevolutionState revolutionState)
+    {
+        _consoleService.Clear(ConsoleColor.Gray, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 9, $"YOUR STRENGTH is {revolutionState.PlayerStrength}");
+
+        if (!string.IsNullOrEmpty(revolutionState.AllyName))
+        {
+            _consoleService.WriteAt(1, 11, $"{revolutionState.AllyName} strength is {revolutionState.AllyStrength}");
+        }
+
+        _consoleService.WriteAt(1, 13, $"The REVOLUTIONARY'S is {revolutionState.RevolutionaryStrength}");
+        _consoleService.SetFlash(true);
+        _consoleService.WriteAt(1, 17, "   The REVOLUTION has STARTED   ");
+        _consoleService.SetFlash(false);
+        _pressAnyKeyControl.Show();
     }
 
     /// <summary>

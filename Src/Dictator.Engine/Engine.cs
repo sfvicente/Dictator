@@ -242,6 +242,11 @@ public interface IEngine
     public Revolutionary GetRevolutionary();
 
     /// <summary>
+    ///     Gets the current revolution strength breakdown before combat begins.
+    /// </summary>
+    public RevolutionState GetRevolutionState();
+
+    /// <summary>
     ///     Finds the groups that can be possible allies of a player in a revolution.
     /// </summary>
     /// <returns>A dictionary containing the groups that can be possible allies with their respective ids.</returns>
@@ -809,6 +814,11 @@ public class Engine : IEngine
     public Revolutionary GetRevolutionary()
     {
         return _revolutionService.GetRevolutionary();
+    }
+
+    public RevolutionState GetRevolutionState()
+    {
+        return _revolutionService.GetRevolutionState();
     }
 
     /// <summary>
