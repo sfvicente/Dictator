@@ -52,7 +52,7 @@ public interface IRevolutionService
     public void PunishRevolutionaries();
 
     /// <summary>
-    ///     Applies the effects that result of a player crushing a revolution. It boosts ally popularity, prevents revolutions
+    ///     Applies the effects that result of a player crushing a revolution. It boosts ally strength to 9, prevents revolutions
     ///     for the next two months and resets all group status and allies from previous plots.
     /// </summary>
     public void ApplyRevolutionCrushedEffects();
@@ -218,15 +218,15 @@ public class RevolutionService : IRevolutionService
     }
 
     /// <summary>
-    ///     Applies the effects that result of a player crushing a revolution. It boosts ally popularity, prevents revolutions
+    ///     Applies the effects that result of a player crushing a revolution. It boosts ally strength to 9, prevents revolutions
     ///     for the next two months and resets all group status and allies from previous plots.
     /// </summary>
     public void ApplyRevolutionCrushedEffects()
     {
         if (_revolution.PlayerAlly != null)
         {
-            // Boosts the player ally's popularity when the player crushes the revolution
-            _groupService.SetPopularity(_revolution.PlayerAlly.Type, 9);
+            // Line 1968: LET g$(h,2)="9" -> Boosts the player ally's strength to 9 when the player crushes the revolution
+            _groupService.SetStrength(_revolution.PlayerAlly.Type, 9);
         }
         _governmentService.SetPlotBonus(_governmentService.GetMonth() + 2);  // Prevent revolutions for the next two months
         _groupService.ResetStatusAndAllies();

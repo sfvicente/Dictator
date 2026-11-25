@@ -271,13 +271,13 @@ public class RevolutionServiceTests
         // Arrange
         _revolutionMock
             .SetupGet(r => r.PlayerAlly)
-            .Returns(new Group(GroupType.Army, 20, 10, string.Empty, string.Empty));
+            .Returns(new Group(GroupType.Army, 20, 6, string.Empty, string.Empty));
 
         // Act
         _revolutionService.ApplyRevolutionCrushedEffects();
 
         // Assert
-        _groupServiceMock.Verify(g => g.SetPopularity(GroupType.Army, 9), Times.Once);
+        _groupServiceMock.Verify(g => g.SetStrength(GroupType.Army, 9), Times.Once);
         _governmentServiceMock.Verify(g => g.SetPlotBonus(It.IsAny<int>()), Times.Once);
         _groupServiceMock.Verify(g => g.ResetStatusAndAllies(), Times.Once);
     }
