@@ -4,8 +4,4 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Dictator.Common\Dictator.Common.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿using Dictator.Core.Services;
+using Dictator.Core.Services;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Tests.Services;

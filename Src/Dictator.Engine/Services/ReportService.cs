@@ -1,4 +1,4 @@
-﻿using Dictator.Common.Extensions;
+﻿using System.Collections.Generic;
 using Dictator.Core.Models;
 
 namespace Dictator.Core.Services;
