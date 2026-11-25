@@ -6,7 +6,7 @@ namespace Dictator.Core.Models;
 public class RevolutionState
 {
     public int PlayerStrength { get; set; }
-    public string? AllyName { get; set; }
+    public string AllyName { get; set; }
     public int AllyStrength { get; set; }
     public int RevolutionaryStrength { get; set; }
 }

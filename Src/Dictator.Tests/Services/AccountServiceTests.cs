@@ -87,4 +87,30 @@ public class AccountServiceTests
         Assert.AreEqual(0, transfer.AmountStolen);
         Assert.IsFalse(_accountService.GetAccount().HasSwissBankAccount);
     }
+
+    [Test]
+    public void CanAfford_WhenTreasuryCoversCost_ReturnsTrue()
+    {
+        var decision = new Decision(DecisionType.ImproveYourChances, DecisionSubType.PurchaseHelicopter, -12, 0, "IIJMMKMM", "MMMMMM", "BUY an ESCAPE HELICOPTER");
+
+        Assert.IsTrue(_accountService.CanAfford(decision));
+    }
+
+    [Test]
+    public void CanAfford_WhenTreasuryCannotCoverCost_ReturnsFalse()
+    {
+        _accountService.PayFromTreasury(950); // Balance is now 50, helicopter costs -12 * 10 = -120
+        var decision = new Decision(DecisionType.ImproveYourChances, DecisionSubType.PurchaseHelicopter, -12, 0, "IIJMMKMM", "MMMMMM", "BUY an ESCAPE HELICOPTER");
+
+        Assert.IsFalse(_accountService.CanAfford(decision));
+    }
+
+    [Test]
+    public void CanAfford_WhenTreasuryZeroAndMonthlyCostIncreases_ReturnsFalse()
+    {
+        _accountService.PayFromTreasury(1000); // Balance is 0, monthlyCost = -5
+        var audience = new Audience(GroupType.Army, 0, -5, "QJLMMMMM", "PKLMMM", "INTRODUCE CONSCRIPTION");
+
+        Assert.IsFalse(_accountService.CanAfford(audience));
+    }
 }

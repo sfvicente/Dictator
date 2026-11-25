@@ -68,4 +68,32 @@ public class PresidentialDecisionDialogTests
         _consoleServiceMock.Verify(cs => cs.WriteAt(1, It.IsAny<int>(), "1.", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
         _consoleServiceMock.Verify(cs => cs.WriteAt(1, It.IsAny<int>(), "DECREASE GENERAL TAXATION LEVEL ", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
     }
+
+    [Test]
+    public void ActionDialog_ShowInsufficientFunds_DisplaysMissingTreasuryCashAndLoanHints()
+    {
+        var pressAnyKeyMock = new Mock<IPressAnyKeyControl>();
+        var pressAnyKeyWithYesMock = new Mock<IPressAnyKeyWithYesControl>();
+        var actionDialog = new PresidentialDecisionActionDialog(
+            _consoleServiceMock.Object,
+            pressAnyKeyMock.Object,
+            pressAnyKeyWithYesMock.Object);
+
+        var decision = new Dictator.Core.Models.Decision(
+            DecisionType.ImproveYourChances,
+            DecisionSubType.PurchaseHelicopter,
+            -12,
+            0,
+            "IIJMMKMM",
+            "MMMMMM",
+            "BUY an ESCAPE HELICOPTER        ");
+
+        actionDialog.ShowInsufficientFunds(decision, isRussianLoanAvailable: true, isAmericanLoanAvailable: true);
+
+        _consoleServiceMock.Verify(cs => cs.WriteAt(3, 9, "The CASH for this decision is", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WriteAt(5, 11, " NOT in the TREASURY", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WriteAt(1, 14, " Perhaps the RUSSIANS can help ?", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
+        _consoleServiceMock.Verify(cs => cs.WriteAt(1, 16, "THE AMERICANS are generous folk ", ConsoleColor.DarkYellow, ConsoleColor.Black), Times.Once);
+        pressAnyKeyMock.Verify(p => p.Show(), Times.Once);
+    }
 }

@@ -124,7 +124,13 @@ public class WebGameRunner
             await _console.WaitForKeyAsync();
         }
 
-        if (await AskYesNoDialogAsync(() => _userInterface.DisplayAudienceDecisionDialog(audience)))
+        if (!_engine.CanAfford(audience))
+        {
+            _userInterface.DisplayAudienceInsufficientFundsScreen();
+            await _console.WaitForKeyAsync();
+            _engine.RefuseAudienceRequest(audience);
+        }
+        else if (await AskYesNoDialogAsync(() => _userInterface.DisplayAudienceDecisionDialog(audience)))
         {
             _engine.AcceptAudienceRequest(audience);
         }
@@ -324,6 +330,15 @@ public class WebGameRunner
         {
             _userInterface.DisplayAdviceScreen(decision);
             await _console.WaitForKeyAsync();
+        }
+
+        if (!_engine.CanAfford(decision))
+        {
+            bool russianLoanAvailable = !_engine.HasLoanBeenGranted(LenderCountry.Russia);
+            bool americanLoanAvailable = !_engine.HasLoanBeenGranted(LenderCountry.America);
+            _userInterface.DisplayDecisionInsufficientFundsScreen(decision, russianLoanAvailable, americanLoanAvailable);
+            await _console.WaitForKeyAsync();
+            return false;
         }
 
         if (await AskYesNoDialogAsync(() => _userInterface.DisplayPresidentialDecisionActionDialog(decision)))

@@ -7,16 +7,34 @@ namespace Dictator.ConsoleInterface.Decisions;
 public interface IAudienceDecisionDialog
 {
     DialogResult Show(Audience audience);
+    void ShowInsufficientFunds();
 }
 
 public class AudienceDecisionDialog : BaseScreen, IAudienceDecisionDialog
 {
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
     private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
-    public AudienceDecisionDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+    public AudienceDecisionDialog(
+        IConsoleService consoleService,
+        IPressAnyKeyControl pressAnyKeyControl,
+        IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         : base(consoleService)
     {
+        _pressAnyKeyControl = pressAnyKeyControl;
         _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+    }
+
+    public void ShowInsufficientFunds()
+    {
+        _consoleService.Clear(ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 11, "You have INSUFFICIENT FUNDS to", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(2, 13, "PAY for this DECISION.", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(5, 16, "Your answer MUST be ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.SetFlash(true);
+        _consoleService.Write("NO", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.SetFlash(false);
+        _pressAnyKeyControl.Show();
     }
 
     public DialogResult Show(Audience audience)

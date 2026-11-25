@@ -79,6 +79,11 @@ public interface IAccountService
     ///     of the Player and the Secret Police.
     /// </summary>
     public void ApplyBankruptcyEffects();
+
+    /// <summary>
+    ///     Determines if the treasury has sufficient funds to cover the specified action's cost and monthly cost.
+    /// </summary>
+    public bool CanAfford(GameAction action);
 }
 
 /// <summary>
@@ -241,6 +246,29 @@ public class AccountService : IAccountService
         _groupService.DecreasePopularity(GroupType.SecretPolice, 1);
         _groupService.DecreaseStrength(GroupType.SecretPolice);
         _statsService.DecreasePlayerStrength();
+    }
+
+    /// <summary>
+    ///     Determines if the treasury has sufficient funds to cover the specified action's cost and monthly cost
+    ///     (1983 BASIC lines 2020-2022).
+    /// </summary>
+    public bool CanAfford(GameAction action)
+    {
+        int cst = 10 * action.Cost;
+        int mcst = action.MonthlyCost;
+        int balance = GetTreasuryBalance();
+
+        if (balance + cst > 0)
+        {
+            return true;
+        }
+
+        if ((cst < 0 || mcst < 0) && (balance + cst < 0 || balance + mcst < 0))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     /// <summary>

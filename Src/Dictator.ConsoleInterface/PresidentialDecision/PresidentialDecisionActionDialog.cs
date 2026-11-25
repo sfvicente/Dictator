@@ -16,6 +16,11 @@ public interface IPresidentialDecisionActionDialog
     /// <param name="decision">The decision to be displayed to the player for acceptance or refusal.</param>
     /// <returns>The option selected after the dialog has been presented.</returns>
     DialogResult Show(Decision decision);
+
+    /// <summary>
+    ///     Displays the insufficient funds notice when the treasury cannot cover the selected decision.
+    /// </summary>
+    void ShowInsufficientFunds(Decision decision, bool isRussianLoanAvailable, bool isAmericanLoanAvailable);
 }
 
 /// <summary>
@@ -24,6 +29,7 @@ public interface IPresidentialDecisionActionDialog
 /// </summary>
 public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisionActionDialog
 {
+    private readonly IPressAnyKeyControl _pressAnyKeyControl;
     private readonly IPressAnyKeyWithYesControl _pressAnyKeyWithYesControl;
 
     /// <summary>
@@ -32,10 +38,36 @@ public class PresidentialDecisionActionDialog : BaseScreen, IPresidentialDecisio
     /// </summary>
     /// <param name="pressAnyKeyWithYesControl">The control that is displayed when the user is required to press a key
     /// or select yes.</param>
-    public PresidentialDecisionActionDialog(IConsoleService consoleService, IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
+    public PresidentialDecisionActionDialog(
+        IConsoleService consoleService,
+        IPressAnyKeyControl pressAnyKeyControl,
+        IPressAnyKeyWithYesControl pressAnyKeyWithYesControl)
         : base(consoleService)
     {
+        _pressAnyKeyControl = pressAnyKeyControl;
         _pressAnyKeyWithYesControl = pressAnyKeyWithYesControl;
+    }
+
+    public void ShowInsufficientFunds(Decision decision, bool isRussianLoanAvailable, bool isAmericanLoanAvailable)
+    {
+        _consoleService.Clear(ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(1, 6, $"{decision.Text}", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(3, 9, "The CASH for this decision is", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        _consoleService.WriteAt(5, 11, " NOT in the TREASURY", ConsoleColor.DarkYellow, ConsoleColor.Black);
+
+        int row = 14;
+        if (isRussianLoanAvailable)
+        {
+            _consoleService.WriteAt(1, row, " Perhaps the RUSSIANS can help ?", ConsoleColor.DarkYellow, ConsoleColor.Black);
+            row += 2;
+        }
+
+        if (isAmericanLoanAvailable)
+        {
+            _consoleService.WriteAt(1, row, "THE AMERICANS are generous folk ", ConsoleColor.DarkYellow, ConsoleColor.Black);
+        }
+
+        _pressAnyKeyControl.Show();
     }
 
     /// <summary>

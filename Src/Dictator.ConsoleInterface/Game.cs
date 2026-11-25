@@ -176,6 +176,13 @@ public class Game
     /// <param name="audience">The audience that the player will be asked to make a decision on.</param>
     private void AskForAudienceDecision(Audience audience)
     {
+        if (!_engine.CanAfford(audience))
+        {
+            _userInterface.DisplayAudienceInsufficientFundsScreen();
+            _engine.RefuseAudienceRequest(audience);
+            return;
+        }
+
         DialogResult dialogResult = _userInterface.DisplayAudienceDecisionDialog(audience);
 
         if (dialogResult == DialogResult.Yes)
@@ -371,6 +378,14 @@ public class Game
             if (DoesPlayerAcceptAdvice())
             {
                 _userInterface.DisplayAdviceScreen(decision);
+            }
+
+            if (!_engine.CanAfford(decision))
+            {
+                bool russianLoanAvailable = !_engine.HasLoanBeenGranted(LenderCountry.Russia);
+                bool americanLoanAvailable = !_engine.HasLoanBeenGranted(LenderCountry.America);
+                _userInterface.DisplayDecisionInsufficientFundsScreen(decision, russianLoanAvailable, americanLoanAvailable);
+                return false;
             }
 
             if (DoesPlayerConfirmDecision(decision))

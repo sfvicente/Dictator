@@ -26,6 +26,7 @@ public interface IUserInterface
     void DisplayPoliceReportScreen(PoliceReport policeReport);
     void DisplayAudienceScreen(Audience audience);
     DialogResult DisplayAudienceDecisionDialog(Audience audience);
+    void DisplayAudienceInsufficientFundsScreen();
     DialogResult DisplayAdviceRequestDialog();
     void DisplayAdviceScreen(Audience audience);
     void DisplayAdviceScreen(Decision decision);
@@ -35,6 +36,7 @@ public interface IUserInterface
     DecisionType DisplayPresidentialDecisionMainDialog();
     int DisplayPresidentialDecisionSubDialog(Decision[] decisions);
     DialogResult DisplayPresidentialDecisionActionDialog(Decision decision);
+    void DisplayDecisionInsufficientFundsScreen(Decision decision, bool isRussianLoanAvailable, bool isAmericanLoanAvailable);
     void DisplayLoanApplicationScreen();
     void DisplayLoanApplicationResultScreen(LoanApplicationResult loanApplicationResult);
     void DisplayTransferToSwissBankAccount(SwissBankAccountTransfer swissBankAccountTransfer, Account account);
@@ -218,6 +220,8 @@ public class UserInterface : IUserInterface
 
     public DialogResult DisplayAudienceDecisionDialog(Audience audience) => _audienceDecisionDialog.Show(audience);
 
+    public void DisplayAudienceInsufficientFundsScreen() => _audienceDecisionDialog.ShowInsufficientFunds();
+
     public DialogResult DisplayAdviceRequestDialog() => _adviceRequestDialog.Show();
 
     public void DisplayAdviceScreen(Audience audience) => _adviceScreen.Show(audience);
@@ -235,6 +239,9 @@ public class UserInterface : IUserInterface
     public int DisplayPresidentialDecisionSubDialog(Decision[] decisions) => _presidentialDecisionSubDialog.Show(decisions);
 
     public DialogResult DisplayPresidentialDecisionActionDialog(Decision decision) => _presidentialDecisionActionDialog.Show(decision);
+
+    public void DisplayDecisionInsufficientFundsScreen(Decision decision, bool isRussianLoanAvailable, bool isAmericanLoanAvailable)
+        => _presidentialDecisionActionDialog.ShowInsufficientFunds(decision, isRussianLoanAvailable, isAmericanLoanAvailable);
 
     public void DisplayLoanApplicationScreen() => _loanApplicationScreen.Show();
 

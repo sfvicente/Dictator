@@ -90,6 +90,16 @@ public interface IEngine
     public void ApplyBankruptcyEffects();
 
     /// <summary>
+    ///     Determines if the treasury has sufficient funds to cover the specified action's cost and monthly cost.
+    /// </summary>
+    public bool CanAfford(GameAction action);
+
+    /// <summary>
+    ///     Determines if a loan has already been granted by the specified lender country.
+    /// </summary>
+    public bool HasLoanBeenGranted(LenderCountry country);
+
+    /// <summary>
     ///     Retrieves an unused audience request from the list of audience requests and
     ///     marks it as used.
     /// </summary>
@@ -961,5 +971,15 @@ public class Engine : IEngine
     public void ApplyBankruptcyEffects()
     {
         _accountService.ApplyBankruptcyEffects();
+    }
+
+    public bool CanAfford(GameAction action)
+    {
+        return _accountService.CanAfford(action);
+    }
+
+    public bool HasLoanBeenGranted(LenderCountry country)
+    {
+        return _stateManagementService.HasLoanBeenGranted(country);
     }
 }
