@@ -1,6 +1,7 @@
 # Welcome to Dictator!
 
 [![Play in Browser (ZX Spectrum Edition)](https://img.shields.io/badge/Play_Online-ZX_Spectrum_48K_Edition-00d7d7?style=for-the-badge&logo=github)](https://sfvicente.github.io/Dictator/)
+[![CI Build and Test](https://github.com/sfvicente/Dictator/actions/workflows/ci.yml/badge.svg)](https://github.com/sfvicente/Dictator/actions/workflows/ci.yml)
 
 This project is a C# remake of the [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum "ZX Spectrum") game *Dictator* created
 by _[Don Priestley](https://en.wikipedia.org/wiki/Don_Priestley)_ and published by [Dk'Tronics](https://en.wikipedia.org/wiki/DK%27Tronics "Dk'Tronics")
