@@ -8,6 +8,7 @@ namespace Dictator.Core.Tests.Services;
 [TestFixture]
 public class DecisionServiceTests
 {
+    private Mock<IGameState> _gameStateMock;
     private Mock<IAccountService> _accountServiceMock;
     private Mock<IGroupService> _groupServiceMock;
     private DecisionService _decisionService;
@@ -16,9 +17,10 @@ public class DecisionServiceTests
     [SetUp]
     public void SetUp()
     {
+        _gameStateMock = new Mock<IGameState>();
         _accountServiceMock = new Mock<IAccountService>();
         _groupServiceMock = new Mock<IGroupService>();
-        _decisionService = new DecisionService(_accountServiceMock.Object, _groupServiceMock.Object);
+        _decisionService = new DecisionService(_gameStateMock.Object, _accountServiceMock.Object, _groupServiceMock.Object);
 
         _sampleDecisions =
         [
@@ -26,12 +28,14 @@ public class DecisionServiceTests
             new Decision(DecisionType.PleaseAGroup, DecisionSubType.None, -1, -4, "LQNMOMNM", "MMMLMM", "SET UP FREE CLINICS for WORKERS "),
             new Decision(DecisionType.PleaseAllGroups, DecisionSubType.None, 0, -8, "NPPMMMMM", "LMMLMM", "DECREASE GENERAL TAXATION LEVEL ")
         ];
+
+        _gameStateMock.Setup(g => g.GetDecisions()).Returns(_sampleDecisions);
     }
 
     [Test]
     public void GetDecisionsByType_ReturnsMatchingDecisions()
     {
-        Decision[] result = _decisionService.GetDecisionsByType(_sampleDecisions, DecisionType.PleaseAGroup);
+        Decision[] result = _decisionService.GetDecisionsByType(DecisionType.PleaseAGroup);
 
         Assert.AreEqual(2, result.Length);
         Assert.AreEqual("MAKE ARMY CHIEF \"VICE-PRESIDENT\"", result[0].Text);
@@ -41,7 +45,7 @@ public class DecisionServiceTests
     [Test]
     public void GetDecisionByTypeAndIndex_WithValidOption_ReturnsExpectedDecision()
     {
-        Decision result = _decisionService.GetDecisionByTypeAndIndex(_sampleDecisions, DecisionType.PleaseAGroup, 2);
+        Decision result = _decisionService.GetDecisionByTypeAndIndex(DecisionType.PleaseAGroup, 2);
 
         Assert.AreEqual("SET UP FREE CLINICS for WORKERS ", result.Text);
     }
@@ -50,13 +54,13 @@ public class DecisionServiceTests
     public void GetDecisionByTypeAndIndex_WhenOptionExceedsCount_ThrowsArgumentOutOfRangeException()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() =>
-            _decisionService.GetDecisionByTypeAndIndex(_sampleDecisions, DecisionType.PleaseAGroup, 5));
+            _decisionService.GetDecisionByTypeAndIndex(DecisionType.PleaseAGroup, 5));
     }
 
     [Test]
     public void DoesPresidentialOptionExistAndIsAvailable_WhenUnused_ReturnsTrue()
     {
-        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(_sampleDecisions, DecisionType.PleaseAGroup, 1);
+        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(DecisionType.PleaseAGroup, 1);
 
         Assert.IsTrue(available);
     }
@@ -66,7 +70,7 @@ public class DecisionServiceTests
     {
         _sampleDecisions[0].HasBeenUsed = true;
 
-        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(_sampleDecisions, DecisionType.PleaseAGroup, 1);
+        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(DecisionType.PleaseAGroup, 1);
 
         Assert.IsFalse(available);
     }
@@ -74,7 +78,7 @@ public class DecisionServiceTests
     [Test]
     public void DoesPresidentialOptionExistAndIsAvailable_WhenOptionOutOfBounds_ReturnsFalse()
     {
-        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(_sampleDecisions, DecisionType.PleaseAGroup, 99);
+        bool available = _decisionService.DoesPresidentialOptionExistAndIsAvailable(DecisionType.PleaseAGroup, 99);
 
         Assert.IsFalse(available);
     }
@@ -82,7 +86,7 @@ public class DecisionServiceTests
     [Test]
     public void MarkDecisionAsUsed_SetsHasBeenUsedTrue()
     {
-        _decisionService.MarkDecisionAsUsed(_sampleDecisions, "DECREASE GENERAL TAXATION LEVEL ");
+        _decisionService.MarkDecisionAsUsed("DECREASE GENERAL TAXATION LEVEL ");
 
         Assert.IsTrue(_sampleDecisions[2].HasBeenUsed);
     }

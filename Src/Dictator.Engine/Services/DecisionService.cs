@@ -6,20 +6,25 @@ namespace Dictator.Core.Services;
 
 public interface IDecisionService
 {
-    public Decision[] GetDecisionsByType(Decision[] decisions, DecisionType decisionType);
-    public Decision GetDecisionByTypeAndIndex(Decision[] decisions, DecisionType decisionType, int optionNumber);
-    public bool DoesPresidentialOptionExistAndIsAvailable(Decision[] decisions,DecisionType decisionType, int optionNumber);
-    public void MarkDecisionAsUsed(Decision[] decisions, string text);
+    public Decision[] GetDecisionsByType(DecisionType decisionType);
+    public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber);
+    public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber);
+    public void MarkDecisionAsUsed(string text);
     void ApplyDecisionEffects(Decision decision);
 }
 
 public class DecisionService : IDecisionService
 {
+    private readonly IGameState _gameState;
     private readonly IAccountService _accountService;
     private readonly IGroupService _groupService;
 
-    public DecisionService(IAccountService accountService, IGroupService groupService)
+    public DecisionService(
+        IGameState gameState,
+        IAccountService accountService,
+        IGroupService groupService)
     {
+        _gameState = gameState;
         _accountService = accountService;
         _groupService = groupService;
     }
@@ -29,8 +34,9 @@ public class DecisionService : IDecisionService
     /// </summary>
     /// <param name="decisionType">The type of decision.</param>
     /// <returns>An array of decisions of the specified type.</returns>
-    public Decision[] GetDecisionsByType(Decision[] decisions, DecisionType decisionType)
+    public Decision[] GetDecisionsByType(DecisionType decisionType)
     {
+        Decision[] decisions = _gameState.GetDecisions();
         return decisions.Where(x => x.Type == decisionType).ToArray();
     }
 
@@ -38,14 +44,13 @@ public class DecisionService : IDecisionService
     ///     Retrieves a decisions with the specified type and index.
     /// </summary>
     /// <param name="decisionType">The type of decision.</param>
-    /// <param name="optionSelected">The position of the decision within the group of decisions with the specified type.</param>
+    /// <param name="optionNumber">The position of the decision within the group of decisions with the specified type.</param>
     /// <returns>The position that matches the specified type and at the specific position.</returns>
-    public Decision GetDecisionByTypeAndIndex(Decision[] decisions, DecisionType decisionType, int optionNumber)
+    public Decision GetDecisionByTypeAndIndex(DecisionType decisionType, int optionNumber)
     {
-        ArgumentNullException.ThrowIfNull(decisions);
         ArgumentOutOfRangeException.ThrowIfNegative(optionNumber);
 
-        Decision[] filteredDecisions = GetDecisionsByType(decisions, decisionType);
+        Decision[] filteredDecisions = GetDecisionsByType(decisionType);
 
         ArgumentOutOfRangeException.ThrowIfGreaterThan(optionNumber, filteredDecisions.Length);
 
@@ -58,12 +63,11 @@ public class DecisionService : IDecisionService
     /// <param name="decisionType">The type of decision.</param>
     /// <param name="optionNumber">The option number within the type group of the decision.</param>
     /// <returns><c>true</c> if the presidential decision exists and is available for selection; otherwise, <c>false</c>.</returns>
-    public bool DoesPresidentialOptionExistAndIsAvailable(Decision[] decisions, DecisionType decisionType, int optionNumber)
+    public bool DoesPresidentialOptionExistAndIsAvailable(DecisionType decisionType, int optionNumber)
     {
-        ArgumentNullException.ThrowIfNull(decisions);
         ArgumentOutOfRangeException.ThrowIfNegative(optionNumber);
 
-        Decision[] filteredDecisions = GetDecisionsByType(decisions, decisionType);
+        Decision[] filteredDecisions = GetDecisionsByType(decisionType);
 
         if (optionNumber > filteredDecisions.Length)
         {
@@ -82,10 +86,9 @@ public class DecisionService : IDecisionService
     ///     Marks a presidential decision option as used.
     /// </summary>
     /// <param name="text">The text of the presidential decision which will be marked as used.</param>
-    public void MarkDecisionAsUsed(Decision[] decisions, string text)
+    public void MarkDecisionAsUsed(string text)
     {
-        ArgumentNullException.ThrowIfNull(decisions);
-
+        Decision[] decisions = _gameState.GetDecisions();
         Decision item = decisions.Where(x => x.Text == text).Single();
 
         item.HasBeenUsed = true;

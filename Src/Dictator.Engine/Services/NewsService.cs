@@ -7,22 +7,25 @@ namespace Dictator.Core.Services;
 public interface INewsService
 {
     public bool ShouldNewsHappen();
-    public bool DoesUnusedNewsExist(News[] news);
-    public News SelectRandomUnusedNews(News[] news);
+    public bool DoesUnusedNewsExist();
+    public News SelectRandomUnusedNews();
     public void ApplyNewsEffects(News news);
 }
 
 public class NewsService : INewsService
 {
+    private readonly IGameState _gameState;
     private readonly IRandomService _randomService;
     private readonly IGroupService _groupService;
     private readonly IAccountService _accountService;
 
     public NewsService(
+        IGameState gameState,
         IRandomService randomService,
         IAccountService accountService,
         IGroupService groupService)
     {
+        _gameState = gameState;
         _groupService = groupService;
         _randomService = randomService;
         _accountService = accountService;
@@ -40,9 +43,9 @@ public class NewsService : INewsService
         return false;
     }
 
-    public bool DoesUnusedNewsExist(News[] news)
+    public bool DoesUnusedNewsExist()
     {
-        News[] unusedNews = GetUnusedNews(news);
+        News[] unusedNews = GetUnusedNews();
 
         if (unusedNews.Length != 0)
         {
@@ -52,9 +55,9 @@ public class NewsService : INewsService
         return false;
     }
 
-    public News SelectRandomUnusedNews(News[] news)
+    public News SelectRandomUnusedNews()
     {
-        News[] unusedNews = GetUnusedNews(news);
+        News[] unusedNews = GetUnusedNews();
 
         if (unusedNews.Length != 0)
         {
@@ -77,8 +80,9 @@ public class NewsService : INewsService
         _accountService.ApplyTreasuryChanges(news.Cost, news.MonthlyCost);
     }
 
-    private News[] GetUnusedNews(News[] news)
+    private News[] GetUnusedNews()
     {
+        News[] news = _gameState.GetNews();
         News[] unusedNews = news.Where(x => !x.HasBeenUsed).ToArray();
 
         return unusedNews;

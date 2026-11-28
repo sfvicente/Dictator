@@ -7,6 +7,7 @@ namespace Dictator.Core.Tests.Services;
 [TestFixture]
 public class NewsServiceTests
 {
+    private Mock<IGameState> _gameStateMock;
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IGroupService> _groupServiceMock;
     private Mock<IAccountService> _accountServiceMock;
@@ -15,11 +16,16 @@ public class NewsServiceTests
     [SetUp]
     public void Setup()
     {
+        _gameStateMock = new Mock<IGameState>();
         _randomServiceMock = new Mock<IRandomService>();
         _groupServiceMock = new Mock<IGroupService>();
         _accountServiceMock = new Mock<IAccountService>();
 
-        _newsService = new NewsService(_randomServiceMock.Object, _accountServiceMock.Object, _groupServiceMock.Object);
+        _newsService = new NewsService(
+            _gameStateMock.Object,
+            _randomServiceMock.Object,
+            _accountServiceMock.Object,
+            _groupServiceMock.Object);
     }
 
     [Test]
@@ -58,9 +64,10 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2"),
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3")
         };
+        _gameStateMock.Setup(g => g.GetNews()).Returns(news);
 
         // Act
-        bool unusedNewsExist = _newsService.DoesUnusedNewsExist(news);
+        bool unusedNewsExist = _newsService.DoesUnusedNewsExist();
 
         // Assert
         Assert.IsTrue(unusedNewsExist);
@@ -76,9 +83,10 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2") { HasBeenUsed = true },
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3") { HasBeenUsed = true }
         };
+        _gameStateMock.Setup(g => g.GetNews()).Returns(news);
 
         // Act
-        bool unusedNewsExist = _newsService.DoesUnusedNewsExist(news);
+        bool unusedNewsExist = _newsService.DoesUnusedNewsExist();
 
         // Assert
         Assert.IsFalse(unusedNewsExist);
@@ -94,10 +102,11 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2"),
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3")
         };
+        _gameStateMock.Setup(g => g.GetNews()).Returns(unusedNews);
         _randomServiceMock.Setup(rs => rs.Next(It.IsAny<int>())).Returns(0);
 
         // Act
-        var selectedNews = _newsService.SelectRandomUnusedNews(unusedNews);
+        var selectedNews = _newsService.SelectRandomUnusedNews();
 
         // Assert
         Assert.IsNotNull(selectedNews);
@@ -113,10 +122,11 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2"),
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3")
         };
+        _gameStateMock.Setup(g => g.GetNews()).Returns(unusedNews);
         _randomServiceMock.Setup(rs => rs.Next(It.IsAny<int>())).Returns(0);
 
         // Act
-        var selectedNews = _newsService.SelectRandomUnusedNews(unusedNews);
+        var selectedNews = _newsService.SelectRandomUnusedNews();
 
         // Assert
         Assert.IsTrue(selectedNews.HasBeenUsed);
@@ -132,9 +142,10 @@ public class NewsServiceTests
             new News(20, 10, "PopularityChanges2", "StrengthChanges2", "Text2") { HasBeenUsed = true },
             new News(30, 15, "PopularityChanges3", "StrengthChanges3", "Text3") { HasBeenUsed = true }
         };
+        _gameStateMock.Setup(g => g.GetNews()).Returns(usedNews);
 
         // Act and Assert
-        Assert.Throws<InvalidOperationException>(() => _newsService.SelectRandomUnusedNews(usedNews));
+        Assert.Throws<InvalidOperationException>(() => _newsService.SelectRandomUnusedNews());
     }
 
     [Test]
