@@ -82,9 +82,8 @@ public class EngineTests
     [Test]
     public void ShouldNewsHappen_WhenNewsServiceTriggersAndUnusedNewsExists_ReturnsTrue()
     {
-        _engine.Initialise();
         _newsServiceMock.Setup(n => n.ShouldNewsHappen()).Returns(true);
-        _newsServiceMock.Setup(n => n.DoesUnusedNewsExist(It.Is<News[]>(arr => arr.Length == 6))).Returns(true);
+        _newsServiceMock.Setup(n => n.DoesUnusedNewsExist()).Returns(true);
 
         bool result = _engine.ShouldNewsHappen();
 
@@ -94,36 +93,31 @@ public class EngineTests
     [Test]
     public void ShouldNewsHappen_WhenNewsServiceDoesNotTrigger_ReturnsFalse()
     {
-        _engine.Initialise();
         _newsServiceMock.Setup(n => n.ShouldNewsHappen()).Returns(false);
 
         bool result = _engine.ShouldNewsHappen();
 
         Assert.IsFalse(result);
-        _newsServiceMock.Verify(n => n.DoesUnusedNewsExist(It.IsAny<News[]>()), Times.Never);
+        _newsServiceMock.Verify(n => n.DoesUnusedNewsExist(), Times.Never);
     }
 
     [Test]
-    public void GetDecisionsByType_PassesLoadedDecisionsOfLength19ToDecisionService()
+    public void GetDecisionsByType_DelegatesToDecisionService()
     {
-        _engine.Initialise();
-
         _engine.GetDecisionsByType(DecisionType.ImproveYourChances);
 
         _decisionServiceMock.Verify(
-            d => d.GetDecisionsByType(It.Is<Decision[]>(arr => arr.Length == 19), DecisionType.ImproveYourChances),
+            d => d.GetDecisionsByType(DecisionType.ImproveYourChances),
             Times.Once);
     }
 
     [Test]
-    public void SelectRandomUnusedAudienceRequest_PassesLoadedAudiencesOfLength24ToAudienceService()
+    public void SelectRandomUnusedAudienceRequest_DelegatesToAudienceService()
     {
-        _engine.Initialise();
-
         _engine.SelectRandomUnusedAudienceRequest();
 
         _audienceServiceMock.Verify(
-            a => a.SelectRandomUnusedAudienceRequest(It.Is<Audience[]>(arr => arr.Length == 24)),
+            a => a.SelectRandomUnusedAudienceRequest(),
             Times.Once);
     }
 }
