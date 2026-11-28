@@ -7,6 +7,7 @@ namespace Dictator.Core.Tests.Services;
 [TestFixture]
 public class AudienceServiceTests
 {
+    private Mock<IGameState> _gameStateMock;
     private Mock<IRandomService> _randomServiceMock;
     private Mock<IAccountService> _accountServiceMock;
     private Mock<IGroupService> _groupServiceMock;
@@ -15,11 +16,16 @@ public class AudienceServiceTests
     [SetUp]
     public void SetUp()
     {
+        _gameStateMock = new Mock<IGameState>();
         _randomServiceMock = new Mock<IRandomService>();
         _accountServiceMock = new Mock<IAccountService>();
         _groupServiceMock = new Mock<IGroupService>();
 
-        _audienceService = new AudienceService(_randomServiceMock.Object, _accountServiceMock.Object, _groupServiceMock.Object);
+        _audienceService = new AudienceService(
+            _gameStateMock.Object,
+            _randomServiceMock.Object,
+            _accountServiceMock.Object,
+            _groupServiceMock.Object);
     }
 
     [Test]
@@ -30,12 +36,13 @@ public class AudienceServiceTests
         var audience2 = new Audience(GroupType.Peasants, 20, 30, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audience3 = new Audience(GroupType.Landowners, 30, 40, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audiences = new Audience[] { audience1, audience2, audience3 };
+        _gameStateMock.Setup(g => g.GetAudiences()).Returns(audiences);
         _randomServiceMock
             .Setup(r => r.Next(It.IsAny<int>()))
             .Returns(1);
 
         // Act
-        var result = _audienceService.SelectRandomUnusedAudienceRequest(audiences);
+        var result = _audienceService.SelectRandomUnusedAudienceRequest();
 
         // Assert
         Assert.AreEqual(audience2, result);
@@ -78,9 +85,10 @@ public class AudienceServiceTests
         var audience2 = new Audience(GroupType.Peasants, 20, 30, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audience3 = new Audience(GroupType.Landowners, 30, 40, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
         var audiences = new Audience[] { audience1, audience2, audience3 };
+        _gameStateMock.Setup(g => g.GetAudiences()).Returns(audiences);
 
         // Act
-        var result = _audienceService.GetUnusedAudiences(audiences);
+        var result = _audienceService.GetUnusedAudiences();
 
         // Assert
         Assert.AreEqual(3, result.Count);
@@ -102,9 +110,10 @@ public class AudienceServiceTests
         audience3.HasBeenUsed = true;
 
         var audiences = new Audience[] { audience1, audience2, audience3 };
+        _gameStateMock.Setup(g => g.GetAudiences()).Returns(audiences);
 
         // Act
-        var result = _audienceService.GetUnusedAudiences(audiences);
+        var result = _audienceService.GetUnusedAudiences();
 
         // Assert
         Assert.AreEqual(3, result.Count);

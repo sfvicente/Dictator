@@ -15,7 +15,7 @@ public interface IAudienceService
     ///     marks it as used.
     /// </summary>
     /// <returns>An unused audience request.</returns>
-    public Audience SelectRandomUnusedAudienceRequest(Audience[] audiences);
+    public Audience SelectRandomUnusedAudienceRequest();
 
     /// <summary>
     ///     Accepts an audience request with the associated modifications to group popularity and strength and also the changes to the treasury.
@@ -35,15 +35,18 @@ public interface IAudienceService
 /// </summary>
 public class AudienceService : IAudienceService
 {
+    private readonly IGameState _gameState;
     private readonly IRandomService _randomService;
     private readonly IAccountService _accountService;
     private readonly IGroupService _groupService;
 
     public AudienceService(
+        IGameState gameState,
         IRandomService randomService,
         IAccountService accountService,
         IGroupService groupService)
     {
+        _gameState = gameState;
         _randomService = randomService;
         _accountService = accountService;
         _groupService = groupService;
@@ -54,9 +57,9 @@ public class AudienceService : IAudienceService
     ///     marks it as used.
     /// </summary>
     /// <returns>An unused audience request.</returns>
-    public Audience SelectRandomUnusedAudienceRequest(Audience[] audiences)
+    public Audience SelectRandomUnusedAudienceRequest()
     {
-        IEnumerable<Audience> unusedAudiences = GetUnusedAudiences(audiences);
+        IEnumerable<Audience> unusedAudiences = GetUnusedAudiences();
         var randomUnusedAudience = unusedAudiences.ElementAt(_randomService.Next(unusedAudiences.Count()));
 
         randomUnusedAudience.HasBeenUsed = true;
@@ -91,8 +94,9 @@ public class AudienceService : IAudienceService
     ///    Retrieves all the audiences that have not been used yet.
     /// </summary>
     /// <returns>A collection of unused audiences.</returns>
-    public IReadOnlyCollection<Audience> GetUnusedAudiences(Audience[] audiences)
+    public IReadOnlyCollection<Audience> GetUnusedAudiences()
     {
+        Audience[] audiences = _gameState.GetAudiences();
         IReadOnlyCollection<Audience> unusedAudiences = audiences.Where(x => !x.HasBeenUsed).ToList();
 
         if (unusedAudiences.Count == 0)
